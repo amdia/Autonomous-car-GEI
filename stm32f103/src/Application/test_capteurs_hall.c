@@ -8,7 +8,7 @@ void count_pulse(Hall_Position pos);
 
 int main(void) {
 	initServices();
-	Hall_Config();
+	init_hall_sensors();
 	while(1){};
 	
   return 0;

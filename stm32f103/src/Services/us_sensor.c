@@ -39,7 +39,7 @@ void ultrasonic_config_trig_pin(void){
    GPIO_Init(ULTRASONIC_TRIG_PORT, &GPIO_InitStructure);
 }
 
-void ultrasonic_config(void){
+void init_ultrasonic_sensors(void){
 	ultrasonic_config_echo_pin();
 	ultrasonic_config_trig_pin();
 }

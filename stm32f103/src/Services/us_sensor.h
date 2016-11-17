@@ -19,7 +19,7 @@ uint64_t ultrasonic_get_distance(Ultrasonic_Position pos);
 
 void ultrasonic_trig_all(void);
 
-void ultrasonic_config(void);
+void init_ultrasonic_sensors(void);
 
 void ultrasonic_callback(Ultrasonic_Position pos);
 

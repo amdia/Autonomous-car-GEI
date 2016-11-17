@@ -11,8 +11,8 @@ static uint64_t d[ULTRASONIC_NB]={0};
 int main(void) {
 	uint64_t t_trig =0;
 	
-	Hall_Config();
-	ultrasonic_config();
+	init_hall_sensors();
+	init_ultrasonic_sensors();
 	initSystick();
 	while(1){
 		ultrasonic_trig_all();

@@ -9,7 +9,7 @@ Sensor_IT_TypeDef structSensor_ARG;
 Sensor_IT_TypeDef structSensor_ARD;
 
 
-void Hall_Config(void){
+void init_hall_sensors(void){
 	structSensor_AVG.pin = HALL_AVG_PIN;
 	structSensor_AVG.port = HALL_AVG_PORT;
 	structSensor_AVG.gpioSpeed = GPIO_Speed_50MHz;

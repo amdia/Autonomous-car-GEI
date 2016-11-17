@@ -11,7 +11,7 @@ typedef enum Hall_Position {
 	HALL_ARD = 3
 } Hall_Position;
 
-void Hall_Config(void);
+void init_hall_sensors(void);
 
 void hall_callback(Hall_Position pos);
 
