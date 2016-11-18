@@ -5,21 +5,19 @@
 #include "services_config.h"
 
 
-static uint64_t d[ULTRASONIC_NB]={0};
-
+uint64_t d[ULTRASONIC_NB]={0};
 
 int main(void) {
-	uint64_t t_trig =0;
-	
+	uint64_t t_trig = 0;
+  initServices();
 	Hall_Config();
 	ultrasonic_config();
 	initSystick();
 	while(1){
 		ultrasonic_trig_all();
 		t_trig = micros();
-		while(micros() - t_trig > TEMPS_TRIG){}
+		while(micros() - t_trig < TEMPS_TRIG){}
 	}
-	
   return 0;
 }
 

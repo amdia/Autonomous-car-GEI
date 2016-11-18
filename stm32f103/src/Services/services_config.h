@@ -18,35 +18,35 @@
 #define ULTRASONIC_PRIO 10
 
 // All ultrasonic sensors share the same trigger pin
-#define ULTRASONIC_TRIG_PIN	GPIO_Pin_6
-#define ULTRASONIC_TRIG_PORT	GPIOC
+#define ULTRASONIC_TRIG_PIN	    GPIO_Pin_6
+#define ULTRASONIC_TRIG_PORT	  GPIOC
 
 // Front center
-#define ULTRASONIC_AVC_ECHO_PIN	GPIO_Pin_8
-#define ULTRASONIC_AVC_ECHO_PORT	GPIOC
+#define ULTRASONIC_AVC_ECHO_PIN	  GPIO_Pin_8
+#define ULTRASONIC_AVC_ECHO_PORT  GPIOC
 
 // Front left
-#define ULTRASONIC_AVG_ECHO_PIN	GPIO_Pin_2
+#define ULTRASONIC_AVG_ECHO_PIN	  GPIO_Pin_2
 #define ULTRASONIC_AVG_ECHO_PORT	GPIOC
 
 // Front right
-#define ULTRASONIC_AVD_ECHO_PIN	GPIO_Pin_3
+#define ULTRASONIC_AVD_ECHO_PIN	  GPIO_Pin_3
 #define ULTRASONIC_AVD_ECHO_PORT	GPIOC
 
 // Rear center
-#define ULTRASONIC_ARC_ECHO_PIN	GPIO_Pin_4
+#define ULTRASONIC_ARC_ECHO_PIN	  GPIO_Pin_4
 #define ULTRASONIC_ARC_ECHO_PORT	GPIOC
 
 // Rear left
-#define ULTRASONIC_ARG_ECHO_PIN	GPIO_Pin_7
+#define ULTRASONIC_ARG_ECHO_PIN	  GPIO_Pin_7
 #define ULTRASONIC_ARG_ECHO_PORT	GPIOC
 
 // Rear right
-#define ULTRASONIC_ARD_ECHO_PIN	GPIO_Pin_8
+#define ULTRASONIC_ARD_ECHO_PIN	  GPIO_Pin_8
 #define ULTRASONIC_ARD_ECHO_PORT	GPIOC
 
-#define TEMPS_TRIG 50e3
-#define TEMPS_DUREE 15e3
+#define TEMPS_TRIG  300e3
+#define ULTRASONIC_TRIGGER_DELAY 30
 
 // ------------------------------------------- //
 // ---------------- Hall sensors-------------- //
