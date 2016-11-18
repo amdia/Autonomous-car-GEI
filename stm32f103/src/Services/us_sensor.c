@@ -3,46 +3,60 @@
 #include "time_systick.h"
 #include "sensor_IT.h"
 #include "callback_functions.h"
-#include "services_config.h" 
+#include "services_config.h"
 
-Sensor_IT_TypeDef structSensor_US_AVC;
+// macros, lazy way configure echo pins
+#define CONFIG_ECHO_PINS(n)  \
+  do { \
+    ultrasonic_##n.pin = ULTRASONIC_##n##_ECHO_PIN;  \
+    ultrasonic_##n.port = ULTRASONIC_##n##_ECHO_PORT;  \
+    ultrasonic_##n.gpioSpeed = GPIO_SPEED;  \
+    ultrasonic_##n.gpioMode = GPIO_Mode_IPD;  \
+    ultrasonic_##n.triggerType = EXTI_Trigger_Rising_Falling; \
+    ultrasonic_##n.priority = ULTRASONIC_PRIO;  \
+    Sensor_IT_Config(&ultrasonic_##n);  \
+  } while(0) \
 
-uint64_t rise_time[ULTRASONIC_NB] = {0};
+// ---------------------------- //
+// ----- Private section ------ //
+// ---------------------------- //
+  
+// declaration of 6 ultrasonic echo pins
+static Sensor_IT_TypeDef ultrasonic_AVC;
+static Sensor_IT_TypeDef ultrasonic_AVG;
+static Sensor_IT_TypeDef ultrasonic_AVD;
+static Sensor_IT_TypeDef ultrasonic_ARC;
+static Sensor_IT_TypeDef ultrasonic_ARG;
+static Sensor_IT_TypeDef ultrasonic_ARD;
 
+// private variable storing rise time of each echo signal
+static uint64_t rise_time[ULTRASONIC_NB] = {0};
+
+// private functions which set and reset trig pin
 static void ultrasonic_trigger(void);
 static void ultrasonic_untrigger(void);
-static void ultrasonic_config_echo_pin(void);
-static void ultrasonic_config_trig_pin(void);
 
-__weak void ultrasonic_callback(Ultrasonic_Position pos){}
-  
-void ultrasonic_config_echo_pin(void){
-	structSensor_US_AVC.pin = ULTRASONIC_AVC_ECHO_PIN;
-	structSensor_US_AVC.port = ULTRASONIC_AVC_ECHO_PORT;
-	structSensor_US_AVC.gpioSpeed = GPIO_SPEED;
-	structSensor_US_AVC.gpioMode = GPIO_Mode_IPD;
-	structSensor_US_AVC.triggerType = EXTI_Trigger_Rising_Falling;
-	structSensor_US_AVC.priority = ULTRASONIC_PRIO;
-  
-	Sensor_IT_Config(&structSensor_US_AVC);
-}
+// overloadable callback function, reserved for user
+__weak void ultrasonic_callback(Ultrasonic_Position pos) {}
 
-void ultrasonic_config_trig_pin(void){
+void ultrasonic_config(void) {
+  // configure 6 echo pins as input with EXTI
+	CONFIG_ECHO_PINS(AVC);
+  CONFIG_ECHO_PINS(AVG);
+  CONFIG_ECHO_PINS(AVD);
+  CONFIG_ECHO_PINS(ARC);
+  CONFIG_ECHO_PINS(ARG);
+  CONFIG_ECHO_PINS(ARD);
+  
+  // configure trig pin as output push-pull
 	GPIO_InitTypeDef GPIO_InitStructure;
-
   GPIO_InitStructure.GPIO_Pin = ULTRASONIC_TRIG_PIN;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
   GPIO_InitStructure.GPIO_Speed = GPIO_SPEED;
-
   GPIO_Init(ULTRASONIC_TRIG_PORT, &GPIO_InitStructure);
 }
 
-void ultrasonic_config(void){
-	ultrasonic_config_echo_pin();
-	ultrasonic_config_trig_pin();
-}
-
-void ultrasonic_trig_all(void){
+void ultrasonic_trig_all(void) {
 	uint64_t trigger_time = 0;
 	ultrasonic_trigger();
 	trigger_time = micros();
@@ -50,15 +64,15 @@ void ultrasonic_trig_all(void){
 	ultrasonic_untrigger();
 }
 
-void ultrasonic_trigger(void){
+void ultrasonic_trigger(void) {
 	GPIO_WriteBit(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, Bit_SET);
 }
 
-void ultrasonic_untrigger(void){
+void ultrasonic_untrigger(void) {
 	GPIO_WriteBit(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, Bit_RESET);
 }
 
-void ultrasonic_exti_callback (uint16_t GPIO_Pin){
+void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
   static uint64_t time_tmp[ULTRASONIC_NB] = {0};
   static Ultrasonic_State state[ULTRASONIC_NB] = {DOWN};
 	Ultrasonic_Position position = get_ultrasonic_position(GPIO_Pin);
@@ -72,7 +86,6 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin){
 	}
 }
 
- uint64_t ultrasonic_get_distance(Ultrasonic_Position pos){
-  uint64_t ret = rise_time[pos] / ULTRASONIC_CONVERSION_CONSTANT;
-  return ret;
+uint64_t ultrasonic_get_distance(Ultrasonic_Position pos) {
+  return rise_time[pos] / ULTRASONIC_CONVERSION_CONSTANT;
 }
