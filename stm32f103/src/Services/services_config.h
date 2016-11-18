@@ -2,7 +2,6 @@
 #define _SERVICE_CONFIG_H_
 
 #include "stm32f10x_gpio.h"
-#include "time_systick.h"
 
 // Global definitions
 #define GPIO_SPEED  GPIO_Speed_50MHz
@@ -148,6 +147,6 @@
 // ------------------------------------------- //
 // -------------- Init function -------------- //
 // ------------------------------------------- //
-void initServices(void);
+void services_init(void);
 
 #endif // _SERVICE_CONFIG_H_

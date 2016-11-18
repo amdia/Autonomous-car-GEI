@@ -4,7 +4,7 @@
 __IO unsigned long long time = 0;
 
 int main(void) {
-  initServices();
+  services_init();
   while(1) {
     time = micros();
   }

@@ -7,7 +7,7 @@
 
 static uint64_t timeMicros;
 
-void initSystick(void);
+void systick_init(void);
 uint64_t micros(void);
 
 #endif // _TIME_SYSTICK_H_
