@@ -3,10 +3,10 @@
 #include "callback_functions.h"
 #include "services_config.h"
 
-Sensor_IT_TypeDef structSensor_AVG;
-Sensor_IT_TypeDef structSensor_AVD;
-Sensor_IT_TypeDef structSensor_ARG;
-Sensor_IT_TypeDef structSensor_ARD;
+static Sensor_IT_TypeDef structSensor_AVG;
+static Sensor_IT_TypeDef structSensor_AVD;
+static Sensor_IT_TypeDef structSensor_ARG;
+static Sensor_IT_TypeDef structSensor_ARD;
 
 
 void init_hall_sensors(void){
@@ -42,7 +42,6 @@ void init_hall_sensors(void){
 	structSensor_ARD.priority = HALL_PRIO;
 	Sensor_IT_Config(&structSensor_ARD);
 }
-
 
 __weak void hall_callback(Hall_Position pos){}
 

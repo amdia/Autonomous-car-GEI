@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "time_systick.h"
 
-void initSystick(void) {
+void systick_init(void) {
   timeMicros = 0;
   while (SysTick_Config(SystemCoreClock / SYSTICK_MICROS) != 0);
   NVIC_SetPriority(SysTick_IRQn, 0);

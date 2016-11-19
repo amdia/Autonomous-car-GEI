@@ -1,6 +1,6 @@
 #include "motor_rear.h"
 
-Motor_TypeDef motor_rear;
+static Motor_TypeDef motor_rear;
 
 void initRearMotor(void) {
   PWM_TypeDef pwm1;

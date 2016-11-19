@@ -1,77 +1,72 @@
 #include <stdint.h>
-#include <stm32f10x_gpio.h>
+#include <stdlib.h>
 #include "hall_sensor.h"
 #include "services_config.h"
 #include "motor_front.h"
 #include "motor_rear.h"
 
-__IO int front = 0;
+__IO Direction front = STOP;
 __IO int rear = 0;
 
-uint64_t cpt = 500;
-uint64_t tps = 0;
+__IO float distance = 0;
 
-static int c[HALL_NB]={0};
+static int front_hall[HALL_NB/2]={0};
+static int rear_hall[HALL_NB/2]={0};
+float rear_distance[HALL_NB/2] = {0};
 
 void count_pulse(Hall_Position pos);
-void motors_control(void);
-void init_all();
 
 int main(void) {
-	init_all();
+	services_init();
+  initFrontMotor();
+  initRearMotor();
 	while(1){
-		motors_control();
-	}
-	
-  return 0;
-}
-
-void count_pulse(Hall_Position pos){
-	c[(int)pos]++;
-}
-
-void init_all(void){
-	initServices();
-	init_hall_sensors();
-	initFrontMotor();
-	initRearMotor();
-}
-
-void motors_control(void){
-	// control rear motors
-		if (rear == 1) {
+		// control rear motors
+		if ((rear == 1)||(distance > 0.0)) {
 			enableRearMotor();
-			commandRearMotor(70);
-		} else if (rear == 2) {
+			commandRearMotor(30);
+		} else if ((rear == 2)||(distance < 0.0)) {
 			enableRearMotor();
-			commandRearMotor(-70);
+			commandRearMotor(-30);
 		} else {
 			disableRearMotor();
 		}
 		
 		// control front motor
-		if (front == 1) {
+		if ((front == 1) && (getFrontDirection() != LEFT)) {
 			enableFrontMotor();
 			commandFrontMotor(LEFT);
-		} else if (front == 2) {
+		} else if ((front == 2) && (getFrontDirection() != RIGHT)) {
 			enableFrontMotor();
 			commandFrontMotor(RIGHT);
-		} /*else if (front == 3) enableFrontMotor();
-		else if (front == 4) disableFrontMotor();
-		else commandFrontMotor(STOP);*/
+		}
 		else {
 			disableFrontMotor();
 		}
+	}
+  return 0;
 }
 
 void hall_callback(Hall_Position pos){
 	count_pulse(pos);
-	/*while(tps < cpt){
-		tps++;
-	}*/
 	if(pos == HALL_AVG || pos == HALL_AVD){
-		//commandFrontMotor(STOP);
 		disableFrontMotor();
-		front = 0;
+		setFrontDirection((Direction)front);
+		front = STOP;
+	}
+}
+
+void count_pulse(Hall_Position pos){
+	if(pos == HALL_AVG || pos == HALL_AVD){
+		front_hall[(int)pos]++;
+	} else {
+		rear_hall[(int)pos-2]++;	// -2 pour ARG et ARD
+		rear_distance[(int)pos-2] = WHEEL_PERIMETER * ((float)rear_hall[(int)pos-2]) / WHEEL_PULSES_NB;
+		if(rear_distance[(int)pos-2] > abs(distance)){
+			rear = STOP;
+			distance = 0;
+			rear_distance[(int)pos-2] = 0;
+			rear_hall[(int)pos-2] = 0;
+		}
 	}
 }

@@ -5,16 +5,16 @@
 #include "services_config.h"
 
 typedef enum {
+  STOP,
   LEFT,
-  RIGHT,
-  STOP
+  RIGHT
 } Direction;
-
-extern Motor_TypeDef motor_front;
 
 void initFrontMotor(void);
 void commandFrontMotor(Direction direction);
 void enableFrontMotor(void);
 void disableFrontMotor(void);
+Direction getFrontDirection(void);
+void setFrontDirection(Direction direction);
 
 #endif // _MOTOR_FRONT_H_

@@ -4,7 +4,8 @@
 #include "motor_control.h"
 #include "services_config.h"
 
-extern Motor_TypeDef motor_rear;
+#define WHEEL_PERIMETER ((float)63.5) // cm
+#define WHEEL_PULSES_NB ((float)36)
 
 void initRearMotor(void);
 void commandRearMotor(int speed);

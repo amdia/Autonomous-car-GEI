@@ -1,6 +1,10 @@
 #include "services_config.h"
 
-void initServices(void) {
+#include "time_systick.h"
+#include "hall_sensor.h"
+#include "us_sensor.h"
+
+void services_init(void) {
   // Enable all GPIO ports
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
@@ -17,5 +21,9 @@ void initServices(void) {
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
 
   // Config systick to 1us
-  initSystick();
+  systick_init();
+  
+  // Config Hall and Ultrasonic sensors
+	hall_config();
+	ultrasonic_config();
 }

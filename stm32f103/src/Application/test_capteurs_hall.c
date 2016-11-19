@@ -7,8 +7,8 @@ static int c[HALL_NB]={0};
 void count_pulse(Hall_Position pos);
 
 int main(void) {
-	initServices();
-	init_hall_sensors();
+	services_init();
+
 	while(1){};
 	
   return 0;

@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#define ULTRASONIC_CONVERSION_CONSTANT  58;
 
 typedef enum Ultrasonic_Position {
 	ULTRASONIC_POSITION_ERROR  = -1,
@@ -14,6 +15,10 @@ typedef enum Ultrasonic_Position {
 	ULTRASONIC_ARD = 5
 } Ultrasonic_Position;
 
+typedef enum {
+  DOWN,
+  UP
+} Ultrasonic_State;
 
 uint64_t ultrasonic_get_distance(Ultrasonic_Position pos);
 
