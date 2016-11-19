@@ -4,11 +4,11 @@
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_tim.h"
 
-#define COUNTER_CLOCK_FREQ_1MHz  1000000 
+#define COUNTER_CLOCK_FREQ_1MHz  1e6 
 #define PWM_MODE_1               1
 #define PWM_MODE_2               2
 #define DUTY_CYCLE_MIN           0
-#define DUTY_CYCLE_MAX           100
+#define DUTY_CYCLE_MAX           1e2
 
 typedef enum {
   PWM_INIT_OK,

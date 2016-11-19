@@ -46,11 +46,11 @@ void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
 }
 
 void EXTI_Config(Sensor_IT_TypeDef* initStructSensor) {
-	EXTI_InitTypeDef 	EXTI_InitStructure;
-	NVIC_InitTypeDef  NVIC_InitStructure;
+	EXTI_InitTypeDef 		EXTI_InitStructure;
+	NVIC_InitTypeDef  	NVIC_InitStructure;
 	uint8_t 					GPIO_PortSource_Sensor;
 	uint8_t 					GPIO_PinSource_Sensor;
-	uint32_t 					EXTI_Line_Sensor;
+	uint32_t 				EXTI_Line_Sensor;
 	uint8_t 					EXTI_IRQn_Sensor;
 
 	if (initStructSensor->port == GPIOA) {
