@@ -10,8 +10,6 @@ typedef enum {
   STOP
 } Direction;
 
-extern Motor_TypeDef motor_front;
-
 void initFrontMotor(void);
 void commandFrontMotor(Direction direction);
 void enableFrontMotor(void);

@@ -1,6 +1,6 @@
 #include "motor_front.h"
 
-Motor_TypeDef motor_front;
+static Motor_TypeDef motor_front;
 
 void initFrontMotor(void) {
   PWM_TypeDef pwm1;

@@ -44,7 +44,7 @@
 #define ULTRASONIC_ARD_ECHO_PIN	  GPIO_Pin_9
 #define ULTRASONIC_ARD_ECHO_PORT	GPIOC
 
-#define TEMPS_TRIG  300e3
+#define TEMPS_TRIG  50e3
 #define ULTRASONIC_TRIGGER_DELAY 30
 
 // ------------------------------------------- //

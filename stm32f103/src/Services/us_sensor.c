@@ -11,7 +11,7 @@
     ultrasonic_##name.pin = ULTRASONIC_##name##_ECHO_PIN;  \
     ultrasonic_##name.port = ULTRASONIC_##name##_ECHO_PORT;  \
     ultrasonic_##name.gpioSpeed = GPIO_SPEED;  \
-    ultrasonic_##name.gpioMode = GPIO_Mode_IPD;  \
+    ultrasonic_##name.gpioMode = GPIO_Mode_IPU;  \
     ultrasonic_##name.triggerType = EXTI_Trigger_Rising_Falling; \
     ultrasonic_##name.priority = ULTRASONIC_PRIO;  \
     Sensor_IT_Config(&ultrasonic_##name);  \
