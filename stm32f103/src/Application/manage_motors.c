@@ -1,29 +1,24 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "hall_sensor.h"
-#include "services_config.h"
 #include "motor_front.h"
 #include "motor_rear.h"
+#include "manage_motors.h"
 
-__IO Direction front = STOP;
-__IO int rear = 0;
+volatile Direction front = STOP;
+volatile int rear = 0;
 
-__IO float distance = 0;
+volatile float distance = 0;
+
+static int vitesse = 30;
 
 static int front_hall[HALL_NB/2]={0};
 static int rear_hall[HALL_NB/2]={0};
 float rear_distance[HALL_NB/2] = {0};
 
-void travelled_distance(Hall_Position pos);
-
-int main(void) {
-	services_init();
-  
-	while(1){
-		// control rear motors
+void motors_control(void){
 		if ((rear == 1)||(distance > 0.0)) {
 			enableRearMotor();
-			commandRearMotor(30);
+			commandRearMotor(vitesse);
 		} else if ((rear == 2)||(distance < 0.0)) {
 			enableRearMotor();
 			commandRearMotor(-30);
@@ -42,9 +37,8 @@ int main(void) {
 		else {
 			disableFrontMotor();
 		}
-	}
-  return 0;
 }
+
 
 void travelled_distance(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD){
@@ -59,20 +53,4 @@ void travelled_distance(Hall_Position pos){
 			rear_hall[(int)pos-2] = 0;
 		}
 	}
-}
-
-// ------------------------------------------ //
-// ------------- Callbacks-------- ---------- //
-// ------------------------------------------ //
-
-void hall_callback(Hall_Position pos){
-	travelled_distance(pos);
-	if(pos == HALL_AVG || pos == HALL_AVD){
-		disableFrontMotor();
-		setFrontDirection((Direction)front);
-		front = STOP;
-	}
-}
-
-void scheduler_IT_callback(){
 }
