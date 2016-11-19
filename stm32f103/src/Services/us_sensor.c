@@ -6,15 +6,15 @@
 #include "services_config.h"
 
 // macros, lazy way configure echo pins
-#define CONFIG_ECHO_PINS(n)  \
+#define CONFIG_ECHO_PINS(name)  \
   do { \
-    ultrasonic_##n.pin = ULTRASONIC_##n##_ECHO_PIN;  \
-    ultrasonic_##n.port = ULTRASONIC_##n##_ECHO_PORT;  \
-    ultrasonic_##n.gpioSpeed = GPIO_SPEED;  \
-    ultrasonic_##n.gpioMode = GPIO_Mode_IPD;  \
-    ultrasonic_##n.triggerType = EXTI_Trigger_Rising_Falling; \
-    ultrasonic_##n.priority = ULTRASONIC_PRIO;  \
-    Sensor_IT_Config(&ultrasonic_##n);  \
+    ultrasonic_##name.pin = ULTRASONIC_##name##_ECHO_PIN;  \
+    ultrasonic_##name.port = ULTRASONIC_##name##_ECHO_PORT;  \
+    ultrasonic_##name.gpioSpeed = GPIO_SPEED;  \
+    ultrasonic_##name.gpioMode = GPIO_Mode_IPD;  \
+    ultrasonic_##name.triggerType = EXTI_Trigger_Rising_Falling; \
+    ultrasonic_##name.priority = ULTRASONIC_PRIO;  \
+    Sensor_IT_Config(&ultrasonic_##name);  \
   } while(0) \
 
 // ---------------------------- //
