@@ -1,6 +1,7 @@
 #include "motor_front.h"
 
 static Motor_TypeDef motor_front;
+static Direction front_direction = STOP;
 
 void initFrontMotor(void) {
   PWM_TypeDef pwm1;
@@ -47,4 +48,12 @@ void enableFrontMotor(void) {
 
 void disableFrontMotor(void) {
   motorEnable(&motor_front, MOTOR_OFF);
+}
+
+Direction getFrontDirection() {
+	return front_direction;
+}
+
+void setFrontDirection(Direction direction) {
+	front_direction = direction;
 }
