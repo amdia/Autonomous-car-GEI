@@ -39,7 +39,7 @@ static void ultrasonic_untrigger(void);
 // overloadable callback function, reserved for user
 __weak void ultrasonic_callback(Ultrasonic_Position pos) {}
 
-void ultrasonic_config(void) {
+void init_ultrasonic_sensors(void) {
   // configure 6 echo pins as input with EXTI
 	CONFIG_ECHO_PINS(AVC);
   CONFIG_ECHO_PINS(AVG);

@@ -24,6 +24,6 @@ void services_init(void) {
   systick_init();
   
   // Config Hall and Ultrasonic sensors
-	hall_config();
-	ultrasonic_config();
+	init_hall_sensors();
+	init_ultrasonic_sensors();
 }
