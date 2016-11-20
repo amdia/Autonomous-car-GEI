@@ -20,9 +20,9 @@ void hall_callback(Hall_Position pos){
 void scheduler_IT_callback(){
 	motors_control();
 	if(c % 3 == 0)
-		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_SET);
+		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_SET);        // WTF is this!?
 	else if(c % 3 == 1)
-		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_RESET);
+		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_RESET);      // WTF is that!?
 	else {}
 	c++;
 }
