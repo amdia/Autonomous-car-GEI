@@ -19,7 +19,7 @@ void GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 Hall_Position get_hall_position(uint16_t GPIO_Pin) {
-		  if (GPIO_Pin == HALL_AVG_PIN) return HALL_AVG;
+		   if (GPIO_Pin == HALL_AVG_PIN) return HALL_AVG;
 	else if (GPIO_Pin == HALL_AVD_PIN) return HALL_AVD;
 	else if (GPIO_Pin == HALL_ARG_PIN) return HALL_ARG;
 	else if (GPIO_Pin == HALL_ARD_PIN) return HALL_ARD;
@@ -27,7 +27,7 @@ Hall_Position get_hall_position(uint16_t GPIO_Pin) {
 }
 
 Ultrasonic_Position get_ultrasonic_position(uint16_t GPIO_Pin) {
-		  if (GPIO_Pin == ULTRASONIC_AVC_ECHO_PIN) return ULTRASONIC_AVC;
+		   if (GPIO_Pin == ULTRASONIC_AVC_ECHO_PIN) return ULTRASONIC_AVC;
 	else if (GPIO_Pin == ULTRASONIC_AVG_ECHO_PIN) return ULTRASONIC_AVG;
 	else if (GPIO_Pin == ULTRASONIC_AVD_ECHO_PIN) return ULTRASONIC_AVD;
 	else if (GPIO_Pin == ULTRASONIC_ARC_ECHO_PIN) return ULTRASONIC_ARC;
