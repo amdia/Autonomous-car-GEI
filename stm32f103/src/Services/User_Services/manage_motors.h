@@ -5,15 +5,15 @@
 #include "motor_rear.h"
 #include "hall_sensor.h"
 
-#define REAR_MOTOR_SPEED  30
-
-// control I/O variables
+// I/O variables for controlling purposes
 extern __IO Direction front;
 extern __IO int rear;
 extern __IO float distance;
 
-
 void motors_control(void);
-void update_traveled_distance(Hall_Position pos);
+void distance_to_travel(Hall_Position pos);
+int motor_rear_speed(Hall_Position pos);
+void motor_front_stop(Hall_Position pos);
+void motor_rear_right_slaving(void);
 
 #endif // __MANAGE_MOTORS_H

@@ -7,10 +7,11 @@
 #define MOTOR_PWM_DEFAULT_DUTY_CYCLE  50
 #define MOTOR_SPEED_MAX               100
 #define MOTOR_SPEED_MIN               (-MOTOR_SPEED_MAX)
+#define MOTOR_SPEED_RANGE 				  (MOTOR_SPEED_MAX - MOTOR_SPEED_MIN)
 
 typedef enum {
-  MOTOR_ON,
-  MOTOR_OFF
+  MOTOR_OFF = 0,
+  MOTOR_ON = 1
 } Motor_Enable;
 
 typedef struct {

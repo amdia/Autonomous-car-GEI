@@ -1,7 +1,8 @@
 #include "hall_sensor.h"
 #include "sensor_IT.h"
 #include "callback_functions.h"
-#include "services_config.h"
+#include "drivers_car_config.h"
+#include "time_systick.h"
 
 static Sensor_IT_TypeDef structSensor_AVG;
 static Sensor_IT_TypeDef structSensor_AVD;

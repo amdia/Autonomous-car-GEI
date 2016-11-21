@@ -1,8 +1,9 @@
-#include "services_config.h"
+#include "drivers_car_config.h"
 
 #include "time_systick.h"
 #include "hall_sensor.h"
 #include "us_sensor.h"
+#include "gpio.h"
 #include "motor_front.h"
 #include "motor_rear.h"
 #include "scheduler_timer_init.h" 
@@ -29,10 +30,12 @@ void services_init(void) {
   // Config Hall and Ultrasonic sensors
 	init_hall_sensors();
 	init_ultrasonic_sensors();
-  
 	// config motors
 	initFrontMotor();
-	initRearMotor();
+	motors_rear_init();
+	
+	//init GPIOD pin 5 for tests
+	init_GPIO();
 	
 	//init scheduler
 	scheduler_timer_init();

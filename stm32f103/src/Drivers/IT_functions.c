@@ -4,16 +4,16 @@
 #include <stm32f10x_gpio.h>
 
 #define EXTI_CALLBACKS(n) \
-	if(EXTI_GetITStatus(EXTI_Line##n) != RESET) {\
+	if(EXTI_GetITStatus(EXTI_Line##n) != RESET){\
 		GPIO_EXTI_Callback(GPIO_Pin_##n);\
 		EXTI_ClearITPendingBit(EXTI_Line##n);\
 	}\
 
 #define SCHEDULER_CALLBACKS(n) \
-  if(TIM_GetITStatus(TIM##n, TIM_IT_Update) != RESET) {\
-    scheduler_IT_callback();\
-    TIM_ClearITPendingBit(TIM##n, TIM_IT_Update); \
-  }\
+	 if (TIM_GetITStatus(TIM##n, TIM_IT_Update) != RESET){\
+		 scheduler_IT_callback();\
+       TIM_ClearITPendingBit(TIM##n, TIM_IT_Update); \
+    }\
 
 void EXTI0_IRQHandler(void);
 void EXTI1_IRQHandler(void);

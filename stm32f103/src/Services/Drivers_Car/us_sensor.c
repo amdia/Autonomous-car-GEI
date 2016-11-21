@@ -3,7 +3,7 @@
 #include "time_systick.h"
 #include "sensor_IT.h"
 #include "callback_functions.h"
-#include "services_config.h"
+#include "drivers_car_config.h"
 
 // macros, lazy way configure echo pins
 #define CONFIG_ECHO_PINS(name)  \
@@ -30,7 +30,7 @@ static Sensor_IT_TypeDef ultrasonic_ARG;
 static Sensor_IT_TypeDef ultrasonic_ARD;
 
 // private variable storing rise time of each echo signal
-static uint64_t rise_time[ULTRASONIC_NB] = {0};
+static uint64_t pulse_length[ULTRASONIC_NB] = {0};
 
 // private functions which set and reset trig pin
 static void ultrasonic_trigger(void);
@@ -81,11 +81,11 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 		time_tmp[position] = micros();
 	} else {
 		state[position] = DOWN;
-		rise_time[position] = micros() - time_tmp[position];
+		pulse_length[position] = micros() - time_tmp[position];
 		ultrasonic_callback(position);
 	}
 }
 
 uint64_t ultrasonic_get_distance(Ultrasonic_Position pos) {
-  return rise_time[pos] / ULTRASONIC_CONVERSION_CONSTANT;
+  return pulse_length[pos] / ULTRASONIC_CONVERSION_CONSTANT;
 }

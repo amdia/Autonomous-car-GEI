@@ -30,13 +30,11 @@ void motorInit(Motor_TypeDef* init_struct) {
 
 void motorCmd(Motor_TypeDef* motor_struct, int speed) {
   uint16_t dutyCycle = 0;
-  uint16_t dutyCycleRange = (uint16_t)(DUTY_CYCLE_MAX - DUTY_CYCLE_MIN);
-  uint16_t speedRange = (uint16_t)(MOTOR_SPEED_MAX - MOTOR_SPEED_MIN);
   int speedAux;
   if (speed > MOTOR_SPEED_MAX) speedAux = MOTOR_SPEED_MAX;
   else if (speed < MOTOR_SPEED_MIN) speedAux = MOTOR_SPEED_MIN;
   else speedAux = speed;
-  dutyCycle = (uint16_t)((speedAux - MOTOR_SPEED_MIN) * dutyCycleRange / speedRange + DUTY_CYCLE_MIN);
+  dutyCycle = (uint16_t)((speedAux - MOTOR_SPEED_MIN) * DUTY_CYCLE_RANGE / MOTOR_SPEED_RANGE + DUTY_CYCLE_MIN);
   PWM_CmdDutyCycle(&(motor_struct->pwm1), dutyCycle);
   PWM_CmdDutyCycle(&(motor_struct->pwm2), dutyCycle);
 }

@@ -1,4 +1,5 @@
 #include "motor_front.h"
+#include "hall_sensor.h"
 
 static Motor_TypeDef motor_front;
 static Direction front_direction = STOP;
@@ -57,3 +58,4 @@ Direction getFrontDirection() {
 void setFrontDirection(Direction direction) {
 	front_direction = direction;
 }
+

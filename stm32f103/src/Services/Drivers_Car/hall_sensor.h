@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-typedef enum Hall_Position {
+typedef enum {
 	HALL_POSITION_ERROR  = -1,
 	HALL_AVG = 0,
 	HALL_AVD = 1,

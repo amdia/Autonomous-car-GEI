@@ -7,8 +7,9 @@
 #define COUNTER_CLOCK_FREQ_1MHz  1e6 
 #define PWM_MODE_1               1
 #define PWM_MODE_2               2
-#define DUTY_CYCLE_MIN           0
-#define DUTY_CYCLE_MAX           1e2
+#define DUTY_CYCLE_MIN           25
+#define DUTY_CYCLE_MAX           75
+#define DUTY_CYCLE_RANGE 			(DUTY_CYCLE_MAX - DUTY_CYCLE_MIN)
 
 typedef enum {
   PWM_INIT_OK,

@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "hall_sensor.h"
-#include "services_config.h"
+#include "drivers_car_config.h"
 #include "motor_front.h"
 #include "motor_rear.h"
 
@@ -14,7 +14,7 @@ static int front_hall[HALL_NB/2]={0};
 static int rear_hall[HALL_NB/2]={0};
 float rear_distance[HALL_NB/2] = {0};
 
-void update_traveled_distance(Hall_Position pos);
+void travelled_distance(Hall_Position pos);
 
 int main(void) {
 	services_init();
@@ -46,7 +46,7 @@ int main(void) {
   return 0;
 }
 
-void update_traveled_distance(Hall_Position pos){
+void travelled_distance(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		front_hall[(int)pos]++;
 	} else {
@@ -66,7 +66,7 @@ void update_traveled_distance(Hall_Position pos){
 // ------------------------------------------ //
 
 void hall_callback(Hall_Position pos){
-	update_traveled_distance(pos);
+	travelled_distance(pos);
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		disableFrontMotor();
 		setFrontDirection((Direction)front);
