@@ -6,6 +6,8 @@
 // Global definitions
 #define GPIO_SPEED  GPIO_Speed_50MHz
 #define TIMER_NUMBER			4
+
+
 // ------------------------------------------ //
 // ------------- Ultrasonic sensors ---------- //
 // ------------------------------------------- //
@@ -144,16 +146,25 @@
 // Speed
 #define FRONT_MOTOR_SPEED         30
 
-// ------------------------------------------- //
-// -------------- Init function -------------- //
-// ------------------------------------------- //
-void services_init(void);
 
 // ------------------------------------------- //
 // -------------- Scheduler------------------- //
 // ------------------------------------------- //
 
+// Timer
 #define SCHEDULER_TIMER         	TIM2
-#define SCHEDULER_IT_PRIORITY		10
+
+// Interrupt's priority
+#define SCHEDULER_IT_PRIORITY		  10
+
+// Tasks' periods in ms
+#define TASK_MOTOR_CONTROL        1
+#define TASK_ULTRASONIC_TRIGGER   100
+
+
+// ------------------------------------------- //
+// -------------- Init function -------------- //
+// ------------------------------------------- //
+void services_init(void);
 
 #endif // _SERVICE_CONFIG_H_

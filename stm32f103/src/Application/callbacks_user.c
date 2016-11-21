@@ -6,10 +6,12 @@
 #include "motor_rear.h"
 #include "manage_motors.h"
 
-int c = 0;
+#define IS_TASK(task) (scheduler_counter % task == 0)
+
+static uint64_t scheduler_counter = 0;
 
 void hall_callback(Hall_Position pos){
-	travelled_distance(pos);
+	update_traveled_distance(pos);
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		disableFrontMotor();
 		setFrontDirection((Direction)front);
@@ -18,11 +20,11 @@ void hall_callback(Hall_Position pos){
 }
 
 void scheduler_IT_callback(){
-	motors_control();
-	if(c % 3 == 0)
-		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_SET);        // WTF is this!?
-	else if(c % 3 == 1)
-		GPIO_WriteBit(GPIOD, GPIO_Pin_5, Bit_RESET);      // WTF is that!?
-	else {}
-	c++;
+  scheduler_counter++;
+  if (IS_TASK(TASK_MOTOR_CONTROL)) {
+    motors_control();
+  }
+  if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
+    // do shits
+  }
 }

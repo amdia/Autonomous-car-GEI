@@ -5,12 +5,15 @@
 #include "motor_rear.h"
 #include "hall_sensor.h"
 
-extern volatile Direction front;
-extern volatile int rear;
+#define REAR_MOTOR_SPEED  30
 
-extern volatile float distance;
+// control I/O variables
+extern __IO Direction front;
+extern __IO int rear;
+extern __IO float distance;
+
 
 void motors_control(void);
-void travelled_distance(Hall_Position pos);
+void update_traveled_distance(Hall_Position pos);
 
 #endif // __MANAGE_MOTORS_H
