@@ -12,7 +12,7 @@ static uint64_t scheduler_counter = 0;
 void hall_callback(Hall_Position pos){
 	if(pos == HALL_ARG || pos == HALL_ARD){
 		distance_to_travel(pos);
-		motor_rear_speed(pos);
+		get_rear_motor_speed(pos);
 	}
 	if(pos == HALL_AVG || pos == HALL_AVD)
 		motor_front_stop(pos);

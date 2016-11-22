@@ -12,7 +12,7 @@ extern __IO float distance;
 
 void motors_control(void);
 void distance_to_travel(Hall_Position pos);
-int motor_rear_speed(Hall_Position pos);
+int get_rear_motor_speed(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void motor_rear_right_slaving(void);
 
