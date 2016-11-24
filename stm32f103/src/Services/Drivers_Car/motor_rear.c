@@ -12,8 +12,9 @@ void motors_rear_init(void) {
 	
   PWM_TypeDef pwm21;
   PWM_TypeDef pwm22;
-  
-//init motor 1
+ 
+ 
+//init motor 1 (g)
   pwm11.outputPin = REAR_MOTOR1_IN1_PIN;
   pwm11.outputPinPort = REAR_MOTOR1_IN1_PORT;
   pwm11.speed = GPIO_SPEED;
@@ -25,15 +26,14 @@ void motors_rear_init(void) {
   pwm12.speed = GPIO_SPEED;
   pwm12.timer = REAR_MOTOR1_TIMER;
   pwm12.timerChannel = REAR_MOTOR1_IN2_CHANNEL;
-  
-  motor_ARD.pwm1 = pwm11;
-  motor_ARD.pwm2 = pwm12;
-  motor_ARD.enablePin = REAR_MOTOR_EN_PIN;
-  motor_ARD.enablePort = REAR_MOTOR_EN_PORT;
-  
-  motorInit(&motor_ARD);
-
-//init motor 2
+    
+  motor_ARG.pwm1 = pwm11;
+  motor_ARG.pwm2 = pwm12;
+  motor_ARG.enablePin = REAR_MOTOR_EN_PIN;
+  motor_ARG.enablePort = REAR_MOTOR_EN_PORT;
+	 
+ 
+//init motor 2 (d)
   pwm21.outputPin = REAR_MOTOR2_IN1_PIN;
   pwm21.outputPinPort = REAR_MOTOR2_IN1_PORT;
   pwm21.speed = GPIO_SPEED;
@@ -45,13 +45,20 @@ void motors_rear_init(void) {
   pwm22.speed = GPIO_SPEED;
   pwm22.timer = REAR_MOTOR2_TIMER;
   pwm22.timerChannel = REAR_MOTOR2_IN2_CHANNEL;
+
+	
+  motor_ARD.pwm1 = pwm21;
+  motor_ARD.pwm2 = pwm22;
+  motor_ARD.enablePin = REAR_MOTOR_EN_PIN;
+  motor_ARD.enablePort = REAR_MOTOR_EN_PORT;
   
-  motor_ARG.pwm1 = pwm21;
-  motor_ARG.pwm2 = pwm22;
-  motor_ARG.enablePin = REAR_MOTOR_EN_PIN;
-  motor_ARG.enablePort = REAR_MOTOR_EN_PORT;
+  //motorInit(&motor_ARD); // test init à la fin ligne 55
+
+
  
+	motorInit(&motor_ARD);
   motorInit(&motor_ARG);
+
 }
 
 int motor_rear_command(Motor_Rear_Position motor, int speed) {
@@ -61,7 +68,6 @@ int motor_rear_command(Motor_Rear_Position motor, int speed) {
 			break;
 		case MOTOR_ARG:
 			motorCmd(&motor_ARG, speed);
-			speed = 0;
 			break;
 		default:
 			return -1;
