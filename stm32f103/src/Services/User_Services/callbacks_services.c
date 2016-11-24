@@ -19,9 +19,10 @@ void hall_callback(Hall_Position pos){
 }
 
 void scheduler_IT_callback(){
+	 motors_control();
   if (IS_TASK(TASK_MOTOR)) {
-    motors_control();
-    motor_rear_right_slaving();
+    //motors_control();
+    //motor_rear_right_slaving();
   }
   if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
     // do shits here idk...

@@ -17,6 +17,7 @@ typedef struct {
 
 
 void Sensor_IT_Config(Sensor_IT_TypeDef* initStructSensor);
+void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor);
 
 unsigned int Sensor_IT_Read(Sensor_IT_TypeDef* structSensor);
 

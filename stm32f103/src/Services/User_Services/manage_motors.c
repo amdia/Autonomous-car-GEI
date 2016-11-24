@@ -25,7 +25,7 @@ void motors_control(void){
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
 			motor_rear_command(MOTOR_ARG, motor_speed);
-			//motor_rear_command(MOTOR_ARD, motor_speed);
+			motor_rear_command(MOTOR_ARD, motor_speed);
 		} else if ((rear == 2)||(distance < 0.0)) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);

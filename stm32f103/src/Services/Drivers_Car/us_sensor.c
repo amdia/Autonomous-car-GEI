@@ -4,6 +4,7 @@
 #include "sensor_IT.h"
 #include "callback_functions.h"
 #include "drivers_car_config.h"
+#include <stm32f10x_gpio.h>
 
 // macros, lazy way configure echo pins
 #define CONFIG_ECHO_PINS(name)  \
@@ -30,7 +31,7 @@ static Sensor_IT_TypeDef ultrasonic_ARG;
 static Sensor_IT_TypeDef ultrasonic_ARD;
 
 // private variable storing rise time of each echo signal
-static uint64_t pulse_length[ULTRASONIC_NB] = {0};
+static float pulse_length[ULTRASONIC_NB] = {0};
 
 // private functions which set and reset trig pin
 static void ultrasonic_trigger(void);
@@ -84,8 +85,18 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 		pulse_length[position] = micros() - time_tmp[position];
 		ultrasonic_callback(position);
 	}
+	if(pulse_length[position] > 22000 /*MAX_TIME_PULSE*/ ){
+		if(position == 0){
+			ultrasonic_AVC.gpioMode = GPIO_Mode_Out_OD;
+			GPIO_Configuration(&ultrasonic_AVC);
+			GPIO_WriteBit(ULTRASONIC_AVC_ECHO_PORT, ULTRASONIC_AVC_ECHO_PIN, Bit_RESET);
+			while(micros() - time_tmp[0] < 100){};
+			ultrasonic_AVC.gpioMode = GPIO_Mode_IN_FLOATING;
+			GPIO_Configuration(&ultrasonic_AVC);
+		}		
+	}
 }
 
-uint64_t ultrasonic_get_distance(Ultrasonic_Position pos) {
+float ultrasonic_get_distance(Ultrasonic_Position pos) {
   return pulse_length[pos] / ULTRASONIC_CONVERSION_CONSTANT;
 }

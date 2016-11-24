@@ -15,7 +15,7 @@
 	}\
 
 // Private functions
-static void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor);
+//static void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor);
 static void EXTI_Config(Sensor_IT_TypeDef* initStructSensor);
 
 //public functions
@@ -33,7 +33,6 @@ unsigned int Sensor_IT_Read(Sensor_IT_TypeDef* structSensor) {
 	return GPIO_ReadInputDataBit(structSensor->port, structSensor->pin);
 }
 
-// Private functions
 void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
    GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -45,6 +44,7 @@ void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
    GPIO_Init(initStructSensor->port, &GPIO_InitStructure);
 }
 
+// Private functions
 void EXTI_Config(Sensor_IT_TypeDef* initStructSensor) {
 	EXTI_InitTypeDef 		EXTI_InitStructure;
 	NVIC_InitTypeDef  	NVIC_InitStructure;

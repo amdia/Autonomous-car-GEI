@@ -4,6 +4,8 @@
 PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
   TIM_OCInitTypeDef outputCaptureInit;
   GPIO_InitTypeDef pinInit;
+TIM_TimeBaseInitTypeDef timeBaseInit;
+  uint16_t prescalerVal = 0;
   
   // configure output pin
   pinInit.GPIO_Mode = GPIO_Mode_AF_PP;
@@ -12,8 +14,14 @@ PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
   GPIO_Init(init_struct->outputPinPort, &pinInit);
   
   // configure timer output compare
-	timer_init(init_struct->timer, COUNTER_CLOCK_FREQ_1MHz, init_struct->periodUs);
-  
+	//timer_init(init_struct->timer, COUNTER_CLOCK_FREQ_1MHz, init_struct->periodUs);
+  prescalerVal = (uint16_t)(SystemCoreClock / COUNTER_CLOCK_FREQ_1MHz) - 1; 
+  timeBaseInit.TIM_Period = init_struct->periodUs;
+  timeBaseInit.TIM_Prescaler = prescalerVal;
+  timeBaseInit.TIM_ClockDivision = TIM_CKD_DIV1;
+  timeBaseInit.TIM_CounterMode = TIM_CounterMode_Up;
+  TIM_TimeBaseInit(init_struct->timer, &timeBaseInit);
+	
   // configure a timer channel as pwm output mode 1
   if (init_struct->mode == PWM_MODE_1) outputCaptureInit.TIM_OCMode = TIM_OCMode_PWM1;
   else if (init_struct->mode == PWM_MODE_2) outputCaptureInit.TIM_OCMode = TIM_OCMode_PWM2;
@@ -34,6 +42,9 @@ PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
     TIM_OC4Init(init_struct->timer, &outputCaptureInit);
     TIM_OC4PreloadConfig(init_struct->timer, TIM_OCPreload_Enable);
   } else return PWM_NOT_CHANNEL_1_2_3_4;
+  
+  TIM_ARRPreloadConfig(init_struct->timer, ENABLE);
+  TIM_Cmd(init_struct->timer, ENABLE);
   
   return PWM_INIT_OK;
 }

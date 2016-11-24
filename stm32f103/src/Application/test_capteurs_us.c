@@ -5,7 +5,7 @@
 #include "drivers_car_config.h"
 
 
-uint64_t d[ULTRASONIC_NB]={0};
+float d[ULTRASONIC_NB]={0};
 
 int main(void) {
 	uint64_t t_trig = 0;

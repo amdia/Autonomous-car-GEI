@@ -34,7 +34,7 @@ void motors_rear_init(void) {
   motorInit(&motor_ARD);
 
 //init motor 2
-  pwm21.outputPin = REAR_MOTOR1_IN1_PIN;
+  pwm21.outputPin = REAR_MOTOR2_IN1_PIN;
   pwm21.outputPinPort = REAR_MOTOR2_IN1_PORT;
   pwm21.speed = GPIO_SPEED;
   pwm21.timer = REAR_MOTOR2_TIMER;
@@ -61,6 +61,7 @@ int motor_rear_command(Motor_Rear_Position motor, int speed) {
 			break;
 		case MOTOR_ARG:
 			motorCmd(&motor_ARG, speed);
+			speed = 0;
 			break;
 		default:
 			return -1;
