@@ -32,12 +32,10 @@ void services_init(void) {
   // Config Hall and Ultrasonic sensors
 	init_hall_sensors();
 	init_ultrasonic_sensors();
+  
 	// config motors
 	initFrontMotor();
 	motors_rear_init();
-	
-	//init GPIOD pin 5 for tests
-//	init_GPIO();
 	
 	//init scheduler
 	scheduler_timer_init();

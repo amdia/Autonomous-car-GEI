@@ -4,6 +4,7 @@
 #include "motor_rear.h"
 #include "scheduler_timer_init.h"
 #include "manage_motors.h"
+#include "us_sensor.h"
 
 #define IS_TASK(task) (scheduler_counter % task == 0)
 
@@ -26,7 +27,7 @@ void scheduler_IT_callback(){
     //motor_rear_right_slaving();
   }
   if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
-    // do shits here idk...
+    ultrasonic_trig_all();
   }
 	scheduler_counter++;
 }
