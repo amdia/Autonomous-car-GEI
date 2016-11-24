@@ -2,12 +2,9 @@
 #define __US_SENSOR_H
 
 #include <stdint.h>
-#include "drivers_car_config.h"
 
-#define ULTRASONIC_CONVERSION_CONSTANT  58.2
-#define MAX_TIME_PULSE 						      22600
-#define TEMPS_TRIG                      250e3
-#define ULTRASONIC_TRIGGER_DELAY        15
+#define ULTRASONIC_CONVERSION_CONSTANT  58.2;
+#define MAX_TIME_PULSE 						22600.0;
 
 typedef enum Ultrasonic_Position {
 	ULTRASONIC_POSITION_ERROR  = -1,

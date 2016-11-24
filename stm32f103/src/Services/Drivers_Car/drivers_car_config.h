@@ -17,12 +17,12 @@
 #define ULTRASONIC_PRIO 10
 
 // All ultrasonic sensors share the same trigger pin
-#define ULTRASONIC_TRIG_PIN	      GPIO_Pin_6
-#define ULTRASONIC_TRIG_PORT	  	GPIOC
+#define ULTRASONIC_TRIG_PIN	    GPIO_Pin_6
+#define ULTRASONIC_TRIG_PORT	  	 GPIOC
 
 // Front center
 #define ULTRASONIC_AVC_ECHO_PIN	  GPIO_Pin_8
-#define ULTRASONIC_AVC_ECHO_PORT  GPIOC
+#define ULTRASONIC_AVC_ECHO_PORT   GPIOC
 
 // Front left
 #define ULTRASONIC_AVG_ECHO_PIN	  GPIO_Pin_2
@@ -43,6 +43,9 @@
 // Rear right
 #define ULTRASONIC_ARD_ECHO_PIN	  GPIO_Pin_9
 #define ULTRASONIC_ARD_ECHO_PORT	GPIOC
+
+#define TEMPS_TRIG  250e3
+#define ULTRASONIC_TRIGGER_DELAY 15
 
 // ------------------------------------------- //
 // ---------------- Hall sensors-------------- //
@@ -154,6 +157,6 @@ void services_init(void);
 // ------------------------------------------- //
 
 #define SCHEDULER_TIMER         	TIM2
-#define SCHEDULER_IT_PRIORITY		  10
+#define SCHEDULER_IT_PRIORITY		10
 
 #endif // _SERVICE_CONFIG_H_
