@@ -3,7 +3,6 @@
 #include "time_systick.h"
 #include "sensor_IT.h"
 #include "callback_functions.h"
-#include "drivers_car_config.h"
 #include <stm32f10x_gpio.h>
 
 // macros, lazy way configure echo pins
@@ -17,6 +16,7 @@
     ultrasonic_##name.priority = ULTRASONIC_PRIO;  \
     Sensor_IT_Config(&ultrasonic_##name);  \
   } while(0) \
+    
 
 // ---------------------------- //
 // ----- Private section ------ //
@@ -32,6 +32,8 @@ static Sensor_IT_TypeDef ultrasonic_ARD;
 
 // private variable storing rise time of each echo signal
 static float pulse_length[ULTRASONIC_NB] = {0};
+static uint64_t time_tmp[ULTRASONIC_NB] = {0};
+static Ultrasonic_State state[ULTRASONIC_NB] = {DOWN};
 
 // private functions which set and reset trig pin
 static void ultrasonic_trigger(void);
@@ -58,7 +60,18 @@ void init_ultrasonic_sensors(void) {
 }
 
 void ultrasonic_trig_all(void) {
-	uint64_t trigger_time = 0;
+	uint64_t t_tmp, trigger_time = 0;
+  // Reset echo pin
+	if(micros() - time_tmp[ULTRASONIC_AVC] > MAX_TIME_PULSE){
+    ultrasonic_AVC.gpioMode = GPIO_Mode_Out_OD;
+    GPIO_Configuration(&ultrasonic_AVC);
+    GPIO_WriteBit(ULTRASONIC_AVC_ECHO_PORT, ULTRASONIC_AVC_ECHO_PIN, Bit_RESET);
+    t_tmp = micros();
+    while(micros() - t_tmp < 500){};
+    ultrasonic_AVC.gpioMode = GPIO_Mode_IPU;
+    GPIO_Configuration(&ultrasonic_AVC);
+  }	
+  // --------------
 	ultrasonic_trigger();
 	trigger_time = micros();
 	while(micros() - trigger_time < ULTRASONIC_TRIGGER_DELAY){};
@@ -74,26 +87,14 @@ void ultrasonic_untrigger(void) {
 }
 
 void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
-  static uint64_t time_tmp[ULTRASONIC_NB] = {0};
-  static Ultrasonic_State state[ULTRASONIC_NB] = {DOWN};
 	Ultrasonic_Position position = get_ultrasonic_position(GPIO_Pin);
 	if(state[position] == DOWN) {
 		state[position] = UP;
 		time_tmp[position] = micros();
-	} else {
+	} else {  
 		state[position] = DOWN;
 		pulse_length[position] = micros() - time_tmp[position];
 		ultrasonic_callback(position);
-	}
-	if(pulse_length[position] > 22000 /*MAX_TIME_PULSE*/ ){
-		if(position == 0){
-			ultrasonic_AVC.gpioMode = GPIO_Mode_Out_OD;
-			GPIO_Configuration(&ultrasonic_AVC);
-			GPIO_WriteBit(ULTRASONIC_AVC_ECHO_PORT, ULTRASONIC_AVC_ECHO_PIN, Bit_RESET);
-			while(micros() - time_tmp[0] < 100){};
-			ultrasonic_AVC.gpioMode = GPIO_Mode_IN_FLOATING;
-			GPIO_Configuration(&ultrasonic_AVC);
-		}		
 	}
 }
 
