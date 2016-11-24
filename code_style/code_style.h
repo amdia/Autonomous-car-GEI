@@ -20,17 +20,25 @@ typedef enum {
     DEFINITELY_NOT_MOUSTAID // 3
 } AmandineReturnType;
 
+/**
+ * \struct CandyForAlex
+ * \brief Petite description de la structure
+ */
 typedef struct {
-    uint16_t alexCandy;
-    float alexSize;
+    uint16_t alexCandy; /*!< Correspond au Candy d'Alex */
+    float alexSize; /*!< Taille d'Alex en cm  */
 } CandyForAlex;
 
+/**
+ * \struct SensorName_TypeDef
+ * \brief Petite description de la structure
+ */
 typedef struct {
-    uint16_t pinNumber;
+    uint16_t pinNumber; /*!<Numero du pin */
     GPIO_TypeDef* portName; // pointeur
     TIM_TypeDef* timer;     // pointeur
     uint16_t channel;
-    uint16_t speed;
+    uint16_t speed; /*!< Vitesse en m/s */
     CandyForAlex candy;
     int type;
 } SensorName_TypeDef;
@@ -38,7 +46,9 @@ typedef struct {
 // declaration des fonctions
 
 /**
- * API documentation (purpose, parameters, return values, pre/postconditions etc.) 
+ *	\brief Initialize les sensors
+ *	\param sensor : Le capteur à initialiser
+ *	\return Instance nouvelle allouée d'un objet de type AmandineReturnType ou NULL.
  */
 AmandineReturnType SensorName_Initialize(SensorName_TypeDef* sensor);
 
