@@ -11,7 +11,7 @@ typedef enum {
 } Direction;
 
 void initFrontMotor(void);
-void commandFrontMotor(Direction direction);
+void commandFrontMotor(Direction direction, int speed);
 void enableFrontMotor(void);
 void disableFrontMotor(void);
 Direction getFrontDirection(void);

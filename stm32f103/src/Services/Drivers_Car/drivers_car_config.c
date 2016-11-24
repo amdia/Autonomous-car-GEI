@@ -1,5 +1,5 @@
 #include "drivers_car_config.h"
-
+#include <misc.h>
 #include "time_systick.h"
 #include "hall_sensor.h"
 #include "us_sensor.h"
@@ -23,6 +23,8 @@ void services_init(void) {
 
   // Enable alternate functions
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 
   // Config systick to 1us
   systick_init();

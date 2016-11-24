@@ -9,8 +9,7 @@ __IO Direction front = STOP;
 __IO int rear = 0;
 __IO float distance = 0;
 
-static int motor_speed = 50;
-int command_angle = 0;
+
 
 //static uint16_t eps = 0; // test
 
@@ -19,6 +18,15 @@ int all_hall[HALL_NB] = {0};
 
 uint64_t toto1 = 0;
 uint64_t toto2 = 0;
+
+static int motor_speed = 50;
+int command_angle = ANGLE_INIT;
+static int actual_angle = ANGLE_INIT;
+uint64_t t_temp = 0;
+float time_to_turn = 0;
+int speeds[4]={40,38,35,30};
+float thresholds[4]={0.25,0.5,0.75,1};
+int on_stop = 0;
 
 static int front_hall[HALL_FRONT_NB]={0};
 static int rear_hall[HALL_NB]={0};
@@ -52,44 +60,74 @@ void motors_control(void){
 		// control front motor
 		if ((front == 1) && (getFrontDirection() != LEFT)) {
 			enableFrontMotor();
-			commandFrontMotor(LEFT);
+			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
 		} else if ((front == 2) && (getFrontDirection() != RIGHT)) {
 			enableFrontMotor();
-			commandFrontMotor(RIGHT);
+			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
 		} else {
 			disableFrontMotor();
 		}
 }
 
 void control_angle_front_motor(/*int command_angle*/){
-	static int actual_angle = 0;
-	uint64_t t_temp = 0;
+	//static int actual_angle = 0;
+	//static uint64_t t_temp = 0;
 	int diff_angle = 0;
-	if(command_angle >= ANGLE_LEFT_MAX){ //turn to the maximum angle on the left
-		enableFrontMotor();
-		commandFrontMotor(LEFT);
-		actual_angle = ANGLE_LEFT_MAX;
-	}else if(command_angle <= ANGLE_RIGHT_MAX){ //turn to the maximum angle on the right
-		enableFrontMotor();
-		commandFrontMotor(RIGHT);
-		actual_angle = ANGLE_RIGHT_MAX;
-	}else if(command_angle > actual_angle){ //turn during a certain time to the left, to reach the command_angle
-		diff_angle = command_angle - actual_angle;
-		enableFrontMotor();
-		commandFrontMotor(LEFT);
-		t_temp = micros();
-		while(micros() - t_temp <  diff_angle / SPEED_RIGHT_2_LEFT_FRONT_MOTOR_DEGREE_PER_MILLIS){}
-		commandFrontMotor(STOP);
-		actual_angle = command_angle;
-	}else if(command_angle < actual_angle){ //turn during a certain time to the right, to reach the command_angle
-		diff_angle = actual_angle - command_angle;
-		enableFrontMotor();
-		commandFrontMotor(RIGHT);
-		t_temp = micros();
-		while(micros() - t_temp <  diff_angle / SPEED_LEFT_2_RIGHT_FRONT_MOTOR_DEGREE_PER_MILLIS){}
-		commandFrontMotor(STOP);
-		actual_angle = command_angle;
-	}
+	Direction dir = STOP;
+	int speed = 0;
+	float speed_motor = 0.0;
+	int threshold = 0;
+	if(command_angle > ANGLE_LEFT_MAX)
+		command_angle = ANGLE_LEFT_MAX;
+	if(command_angle < ANGLE_RIGHT_MAX)
+		command_angle = ANGLE_RIGHT_MAX;
+	if(command_angle != actual_angle){
+		if(command_angle == ANGLE_LEFT_MAX && !on_stop){ //turn to the maximum angle on the left
+			enableFrontMotor();
+			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
+			actual_angle = ANGLE_LEFT_MAX;
+		}else if(command_angle == ANGLE_RIGHT_MAX && !on_stop){ //turn to the maximum angle on the right
+			enableFrontMotor();
+			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
+			actual_angle = ANGLE_RIGHT_MAX;
+		}else { //turn during a certain time to the left, to reach the command_angle
+			on_stop = 0;
+			diff_angle = command_angle - actual_angle;
+			
+			// look for threshold where the diff_angle belongs
+			int found = 0;
+			int i = 0;
+			while(!found){
+				if(abs(diff_angle)<=thresholds[i]*(float)ANGLE_RANGE){
+					found = 1;
+					threshold = i;
+					speed = speeds[i];
+				}
+				i++;					
+			}
+			
+			//set direction to turn
+			dir = (diff_angle > 0) ? LEFT : RIGHT;
+			//set speed to turn
+			speed_motor = (diff_angle > 0) ? FRONT_MOTOR_SPEED_R2L : FRONT_MOTOR_SPEED_L2R;
+			
+			// set the time to turn
+			if(threshold == 0)
+				time_to_turn = (uint64_t)(abs((float)diff_angle) / speed_motor);
+			else
+				time_to_turn = (uint64_t) ( (abs((float)diff_angle) / speed_motor) + ((float)speeds[threshold-1]/(float)speeds[threshold] - 1.0) * thresholds[threshold] * (float)ANGLE_RANGE / speed_motor); 
+			
+			//set motor parameters
+			enableFrontMotor();
+			commandFrontMotor(dir, speed);
+			
+			t_temp = micros();
+			while(micros() - t_temp <=  time_to_turn){}
+			disableFrontMotor();
+			actual_angle = command_angle;
+			}
+		command_angle = actual_angle;
+	}	
 	
 }
 
@@ -121,6 +159,7 @@ void motor_front_stop(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		disableFrontMotor();
 		setFrontDirection((Direction)front);
+		on_stop = 1;
 		front = STOP;
 	}
 }

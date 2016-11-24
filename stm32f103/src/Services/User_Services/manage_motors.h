@@ -5,11 +5,13 @@
 #include "motor_rear.h"
 #include "hall_sensor.h"
 
-#define ANGLE_LEFT_MAX 										30
-#define ANGLE_RIGHT_MAX 									0
+#define ANGLE_LEFT_MAX 										(45)
+#define ANGLE_RIGHT_MAX 									(-45)
 #define ANGLE_RANGE      									(ANGLE_LEFT_MAX-ANGLE_RIGHT_MAX)
-#define SPEED_RIGHT_2_LEFT_FRONT_MOTOR_DEGREE_PER_MILLIS 			ANGLE_RANGE/1400000
-#define SPEED_LEFT_2_RIGHT_FRONT_MOTOR_DEGREE_PER_MILLIS 			ANGLE_RANGE/1100000
+#define FRONT_MOTOR_SPEED_R2L 			((float)ANGLE_RANGE/1.4e6) // deg/us
+#define FRONT_MOTOR_SPEED_L2R 			((float)ANGLE_RANGE/1.1e6)	// deg/us		
+
+#define ANGLE_INIT										ANGLE_RIGHT_MAX
 
 // I/O variables for controlling purposes
 extern __IO Direction front;

@@ -28,13 +28,13 @@ void initFrontMotor(void) {
   motorInit(&motor_front);
 }
 
-void commandFrontMotor(Direction direction) {
+void commandFrontMotor(Direction direction, int speed) {
   switch (direction) {
     case (LEFT) :
-      motorCmd(&motor_front, FRONT_MOTOR_SPEED);
+      motorCmd(&motor_front, speed);
       break;
     case (RIGHT) :
-      motorCmd(&motor_front, -FRONT_MOTOR_SPEED);
+      motorCmd(&motor_front, -speed);
       break;
     case (STOP) :
     default :
