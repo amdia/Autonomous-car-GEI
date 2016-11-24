@@ -10,6 +10,7 @@ __IO int rear = 0;
 __IO float distance = 0;
 
 static int motor_speed = 50;
+int command_angle = 0;
 
 //static uint16_t eps = 0; // test
 
@@ -58,6 +59,38 @@ void motors_control(void){
 		} else {
 			disableFrontMotor();
 		}
+}
+
+void control_angle_front_motor(/*int command_angle*/){
+	static int actual_angle = 0;
+	uint64_t t_temp = 0;
+	int diff_angle = 0;
+	if(command_angle >= ANGLE_LEFT_MAX){ //turn to the maximum angle on the left
+		enableFrontMotor();
+		commandFrontMotor(LEFT);
+		actual_angle = ANGLE_LEFT_MAX;
+	}else if(command_angle <= ANGLE_RIGHT_MAX){ //turn to the maximum angle on the right
+		enableFrontMotor();
+		commandFrontMotor(RIGHT);
+		actual_angle = ANGLE_RIGHT_MAX;
+	}else if(command_angle > actual_angle){ //turn during a certain time to the left, to reach the command_angle
+		diff_angle = command_angle - actual_angle;
+		enableFrontMotor();
+		commandFrontMotor(LEFT);
+		t_temp = micros();
+		while(micros() - t_temp <  diff_angle / SPEED_RIGHT_2_LEFT_FRONT_MOTOR_DEGREE_PER_MILLIS){}
+		commandFrontMotor(STOP);
+		actual_angle = command_angle;
+	}else if(command_angle < actual_angle){ //turn during a certain time to the right, to reach the command_angle
+		diff_angle = actual_angle - command_angle;
+		enableFrontMotor();
+		commandFrontMotor(RIGHT);
+		t_temp = micros();
+		while(micros() - t_temp <  diff_angle / SPEED_LEFT_2_RIGHT_FRONT_MOTOR_DEGREE_PER_MILLIS){}
+		commandFrontMotor(STOP);
+		actual_angle = command_angle;
+	}
+	
 }
 
 

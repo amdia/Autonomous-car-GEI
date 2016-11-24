@@ -19,7 +19,8 @@ void hall_callback(Hall_Position pos){
 }
 
 void scheduler_IT_callback(){
-	 motors_control();
+	 //motors_control();
+	control_angle_front_motor();
   if (IS_TASK(TASK_MOTOR)) {
     //motors_control();
     //motor_rear_right_slaving();
