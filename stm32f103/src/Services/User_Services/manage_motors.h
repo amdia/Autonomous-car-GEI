@@ -16,6 +16,4 @@ uint64_t get_rear_motor_speed(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void motor_rear_right_slaving(void);
 
-void count_pulse(Hall_Position pos); 		// test count hall pulses
-
 #endif // __MANAGE_MOTORS_H

@@ -5,7 +5,6 @@
 #include "misc.h"
 #include "SPI_functions.h"
 
-
 void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer)
 {
 	/***** GPIO *****/
@@ -108,63 +107,4 @@ void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer)
 		/* Enable DMA interrupts */
 		DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);
 		DMA_ITConfig(DMA1_Channel5, DMA_IT_TE, ENABLE);
-}
-
-void init_spiFrame(Communication_Typedef *comStruct)
-{
-	// Initialization of the motors
-	comStruct->directionMotor.direction = 0;
-	comStruct->directionMotor.speed = 0;
-	comStruct->leftWheelMotor.direction = 0;
-	comStruct->leftWheelMotor.speed = 0;
-	comStruct->rightWheelMotor.direction = 0;
-	comStruct->rightWheelMotor.speed = 0;
-
-	// Initialization of the sensors
-	comStruct->frontLeftUltrasound.distance = 0;
-	comStruct->frontRightUltrasound.distance = 0;
-	comStruct->frontCenterUltrasound.distance = 0;
-	comStruct->rearLeftUltrasound.distance = 0;
-	comStruct->rearRightUltrasound.distance = 0;
-	comStruct->rearCenterUltrasound.distance = 0;
-
-	// Initialization of the battery 
-	comStruct->battery.state = 0;
-
-}
-
-void read_spiFrame(unsigned char* spiFrame, Communication_Typedef* comStruct)
-{
-
-	// Direction motor
-	comStruct->directionMotor.direction = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	comStruct->directionMotor.speed = 2*(spiFrame[DIRECTION_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-	
-	// Wheel left motor
-	comStruct->leftWheelMotor.direction = (spiFrame[LEFT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	comStruct->leftWheelMotor.speed = 2*(spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-	
-	// Wheel right motor
-	comStruct->rightWheelMotor.direction = (spiFrame[RIGHT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	comStruct->rightWheelMotor.speed = 2*(spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-}
-
-void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct)
-{
-
-	// Motor values equals 0
-	spiFrame[DIRECTION_MOTOR] = 0;
-	spiFrame[LEFT_WHEEL_MOTOR] = 0;
-	spiFrame[RIGHT_WHEEL_MOTOR] = 0;
-
-	// Sensors values 
-	spiFrame[FRONT_LEFT_ULTRASOUND] = (char)comStruct.frontLeftUltrasound.distance;
-	spiFrame[FRONT_RIGHT_ULTRASOUND] = (char)comStruct.frontRightUltrasound.distance;
-	spiFrame[FRONT_CENTER_ULTRASOUND] = (char)comStruct.frontCenterUltrasound.distance;
-	spiFrame[REAR_LEFT_ULTRASOUND] = (char)comStruct.rearLeftUltrasound.distance;
-	spiFrame[REAR_RIGHT_ULTRASOUND] = (char)comStruct.rearRightUltrasound.distance;
-	spiFrame[REAR_CENTER_ULTRASOUND] = (char)comStruct.rearCenterUltrasound.distance;
-
-	// Battery
-	spiFrame[BATTERY] = (char)comStruct.battery.state;
 }
