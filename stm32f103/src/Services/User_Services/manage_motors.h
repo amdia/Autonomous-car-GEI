@@ -23,6 +23,9 @@ void distance_to_travel(Hall_Position pos);
 uint64_t get_rear_motor_speed(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void motor_rear_right_slaving(void);
+//void control_angle_front_motor(int command_angle);
 void control_angle_front_motor(void);
+
+void count_pulse(Hall_Position pos);
 
 #endif // __MANAGE_MOTORS_H

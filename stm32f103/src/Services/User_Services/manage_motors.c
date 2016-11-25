@@ -9,8 +9,6 @@ __IO Direction front = STOP;
 __IO int rear = 0;
 __IO float distance = 0;
 
-
-
 //static uint16_t eps = 0; // test
 
 // test capteurs hall
@@ -29,7 +27,7 @@ float thresholds[4]={0.25,0.5,0.75,1};
 int on_stop = 0;
 
 static int front_hall[HALL_FRONT_NB]={0};
-static int rear_hall[HALL_NB]={0};
+int rear_hall[HALL_NB]={0};
 float rear_distance[HALL_NB] = {0};
 
 uint64_t speed[HALL_REAR_NB] ={0};
@@ -39,17 +37,13 @@ static int PI_controller(uint64_t eps);
 
 void motors_control(void){
 		if ((rear == 1)||(distance > 0.0)) {
-	//if (rear == 1) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
-			motor_rear_command(MOTOR_ARG, motor_speed); // test regulation sur ARG
-			//motor_rear_command(MOTOR_ARD, motor_speed); // commente pour regulation
+			motor_rear_command(MOTOR_ARG, motor_speed);
 		} else if ((rear == 2)||(distance < 0.0)) {
-		//} else if (rear == 2) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
-			motor_rear_command(MOTOR_ARG, -motor_speed); // test regulation sur ARG
-			motor_rear_command(MOTOR_ARD, -motor_speed); // commente pour regulation
+			motor_rear_command(MOTOR_ARG, -motor_speed);
 		} else {
 			motor_rear_command(MOTOR_ARG, 0);
 			motor_rear_command(MOTOR_ARD, 0);
@@ -57,7 +51,8 @@ void motors_control(void){
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_OFF);
 		}
 		
-		// control front motor
+		// control front motor manually
+		
 		if ((front == 1) && (getFrontDirection() != LEFT)) {
 			enableFrontMotor();
 			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
@@ -65,11 +60,20 @@ void motors_control(void){
 			enableFrontMotor();
 			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
 		} else {
+			commandFrontMotor(STOP, FRONT_MOTOR_SPEED);
 			disableFrontMotor();
 		}
+		
+		// control front motor with angles
+		/*
+		if(command_angle != actual_angle){
+			control_angle_front_motor();
+		}
+		*/
 }
 
-void control_angle_front_motor(/*int command_angle*/){
+//void control_angle_front_motor(int command_angle){
+void control_angle_front_motor(){
 	//static int actual_angle = 0;
 	//static uint64_t t_temp = 0;
 	int diff_angle = 0;
@@ -131,26 +135,18 @@ void control_angle_front_motor(/*int command_angle*/){
 	
 }
 
-
 void distance_to_travel(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		front_hall[(int)pos]++;
 	} else {
-		rear_hall[(int)pos]++;	// -2 pour ARG et ARD
-		//rear_distance[(int)pos-2] = WHEEL_PERIMETER * ((float)rear_hall[(int)pos-2]) / WHEEL_PULSES_NB;
+		rear_hall[(int)pos]++;
 		rear_distance[(int)pos] = WHEEL_PERIMETER * ((float)rear_hall[(int)pos]) / WHEEL_PULSES_NB;
 		if(rear_distance[HALL_ARG] > abs(distance)){
-			/*
-			if(rear != STOP){
-				rear = STOP;
-			}
-			*/
-			distance = 0;
 			rear_distance[HALL_ARG] = 0;
 			rear_distance[HALL_ARD] = 0;
 			rear_hall[HALL_ARD] = 0;
 			rear_hall[HALL_ARG] = 0;
-			
+			distance = 0;
 		}
 	}
 }
@@ -181,18 +177,18 @@ uint64_t get_rear_motor_speed(Hall_Position pos){
 void motor_rear_right_slaving(void){
 	static uint64_t eps = 0;
 	int motor_corrected_speed = 0;
-	//eps = speed[MOTOR_ARG] - speed[MOTOR_ARD];
-	eps = toto1 - toto2;
-	//eps = speed[MOTOR_ARD] - speed[MOTOR_ARG];
+	eps = get_rear_motor_speed(HALL_ARG) - get_rear_motor_speed(HALL_ARD);
 	motor_corrected_speed = proportional_controller(eps);
 	//motor_corrected_speed = PI_controller(eps);
-	//motor_rear_command(MOTOR_ARD, motor_corrected_speed);
-	//motor_rear_command(MOTOR_ARD, motor_speed);
-	//motor_rear_command(MOTOR_ARG, motor_corrected_speed);
+	if(distance > 0){
+		motor_rear_command(MOTOR_ARD, motor_corrected_speed);
+	} else if(distance < 0){
+		motor_rear_command(MOTOR_ARD, -motor_corrected_speed);
+	}
 }
 
 int proportional_controller(uint64_t eps){
-	static const int K = 3000; //à tester
+	static const int K = 50; // 50 OK
 	int cmd = 0;
 	cmd = K * eps;
 	return cmd;
