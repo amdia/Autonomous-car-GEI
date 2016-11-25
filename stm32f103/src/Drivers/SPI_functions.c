@@ -5,13 +5,11 @@
 #include "misc.h"
 #include "SPI_functions.h"
 
+
 void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer)
 {
 	/***** GPIO *****/
-		// Enable clock for GPIOB
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-	
+			
 		// Configure used pins for GPIOB
 		GPIO_InitTypeDef GPIO_InitStruct;
 		GPIO_InitStruct.GPIO_Pin = GPIO_Pin_14; //MISO
@@ -107,4 +105,124 @@ void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer)
 		/* Enable DMA interrupts */
 		DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);
 		DMA_ITConfig(DMA1_Channel5, DMA_IT_TE, ENABLE);
+}
+
+void init_spiFrame(Communication_Typedef *comStruct)
+{
+	// Initialization of the motors
+	comStruct->directionMotor.direction = STOP;
+	comStruct->directionMotor.speed = 0;
+	comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
+	comStruct->leftWheelMotor.speed = 0;
+	comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
+	comStruct->rightWheelMotor.speed = 0;
+
+	// Initialization of the sensors
+	comStruct->frontLeftUltrasound.distance = 0;
+	comStruct->frontRightUltrasound.distance = 0;
+	comStruct->frontCenterUltrasound.distance = 0;
+	comStruct->rearLeftUltrasound.distance = 0;
+	comStruct->rearRightUltrasound.distance = 0;
+	comStruct->rearCenterUltrasound.distance = 0;
+
+	// Initialization of the battery 
+	comStruct->battery.state = 0;
+
+}
+
+void read_spiFrame(unsigned char* spiFrame, Communication_Typedef* comStruct)
+{
+	int dir; 
+	
+	// -------------------------------------------------------------------------------- //
+	//  																Direction motor  																//
+	//																																									//
+	//  	Format of the octet : 																												//
+	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
+	// -------------------------------------------------------------------------------- //
+		// Direction
+	dir = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+	switch (dir) {
+		case 1: //stop 
+			comStruct->directionMotor.direction = STOP;
+		break;
+		case 2: // left
+			comStruct->directionMotor.direction = LEFT;
+		break;
+		case 3: //right
+			comStruct->directionMotor.direction = RIGHT;
+		break;
+		default:
+			comStruct->directionMotor.direction = STOP;
+	}
+		// Speed
+	comStruct->directionMotor.speed = 2*(spiFrame[DIRECTION_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+
+	// -------------------------------------------------------------------------------- //
+	//  															left wheel motor  																//
+	//																																									//
+	//  	Format of the octet : 																												//
+	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
+	// -------------------------------------------------------------------------------- //
+		// Direction
+	dir = (spiFrame[LEFT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+	switch (dir) {
+		case 1: //stop 
+			comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
+		break;
+		case 2: // forward
+			comStruct->leftWheelMotor.direction = MOTOR_REAR_FORWARD;
+		break;
+		case 3: //backward
+			comStruct->leftWheelMotor.direction = MOTOR_REAR_BACKWARD;
+		break;
+		default:
+			comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
+	}
+		// Speed
+	comStruct->leftWheelMotor.speed = 2*(spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+	
+	// -------------------------------------------------------------------------------- //
+	//  															right wheel motor  																//
+	//																																									//
+	//  	Format of the octet : 																												//
+	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
+	// -------------------------------------------------------------------------------- //
+		// Direction
+	dir = (spiFrame[RIGHT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+	switch (dir) {
+		case 1: //stop 
+			comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
+		break;
+		case 2: // forward
+			comStruct->rightWheelMotor.direction = MOTOR_REAR_FORWARD;
+		break;
+		case 3: //backward
+			comStruct->rightWheelMotor.direction = MOTOR_REAR_BACKWARD;
+		break;
+		default:
+			comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
+	}
+		// Speed
+	comStruct->rightWheelMotor.speed = 2*(spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+}
+
+void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct)
+{
+
+	// Motor values equals 0
+	spiFrame[DIRECTION_MOTOR] = 0;
+	spiFrame[LEFT_WHEEL_MOTOR] = 0;
+	spiFrame[RIGHT_WHEEL_MOTOR] = 0;
+
+	// Sensors values 
+	spiFrame[FRONT_LEFT_ULTRASOUND] = (char)comStruct.frontLeftUltrasound.distance;
+	spiFrame[FRONT_RIGHT_ULTRASOUND] = (char)comStruct.frontRightUltrasound.distance;
+	spiFrame[FRONT_CENTER_ULTRASOUND] = (char)comStruct.frontCenterUltrasound.distance;
+	spiFrame[REAR_LEFT_ULTRASOUND] = (char)comStruct.rearLeftUltrasound.distance;
+	spiFrame[REAR_RIGHT_ULTRASOUND] = (char)comStruct.rearRightUltrasound.distance;
+	spiFrame[REAR_CENTER_ULTRASOUND] = (char)comStruct.rearCenterUltrasound.distance;
+
+	// Battery
+	spiFrame[BATTERY] = (char)comStruct.battery.state;
 }
