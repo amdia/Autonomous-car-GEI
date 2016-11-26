@@ -4,7 +4,7 @@
 #include "stm32f10x_dma.h"
 #include "misc.h"
 #include "SPI_functions.h"
-
+__IO motorAction* actionList = NULL;
 
 void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer)
 {
@@ -112,10 +112,10 @@ void init_spiFrame(Communication_Typedef *comStruct)
 	// Initialization of the motors
 	comStruct->directionMotor.direction = STOP;
 	comStruct->directionMotor.speed = 0;
-	comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
-	comStruct->leftWheelMotor.speed = 0;
-	comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
-	comStruct->rightWheelMotor.speed = 0;
+	comStruct->directionMotor.angle = 0;
+	comStruct->WheelMotor.direction = MOTOR_REAR_STOP;
+	comStruct->WheelMotor.speed = 0;
+	comStruct->WheelMotor.distance = 0;
 
 	// Initialization of the sensors
 	comStruct->frontLeftUltrasound.distance = 0;
@@ -130,90 +130,95 @@ void init_spiFrame(Communication_Typedef *comStruct)
 
 }
 
-void read_spiFrame(unsigned char* spiFrame, Communication_Typedef* comStruct)
+void read_spiFrame(unsigned char* spiFrame)
 {
-	int dir; 
-	
-	// -------------------------------------------------------------------------------- //
-	//  																Direction motor  																//
-	//																																									//
-	//  	Format of the octet : 																												//
-	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
-	// -------------------------------------------------------------------------------- //
-		// Direction
-	dir = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	switch (dir) {
-		case 1: //stop 
-			comStruct->directionMotor.direction = STOP;
-		break;
-		case 2: // left
-			comStruct->directionMotor.direction = LEFT;
-		break;
-		case 3: //right
-			comStruct->directionMotor.direction = RIGHT;
-		break;
-		default:
-			comStruct->directionMotor.direction = STOP;
-	}
-		// Speed
-	comStruct->directionMotor.speed = 2*(spiFrame[DIRECTION_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+	int action_number = spiFrame[ACTION_NUMBER];
+	if(action_number != 0)
+	{
+		Communication_Typedef *comStruct = NULL;
+		init_spiFrame(comStruct);
+		
+		int dir; 
+		// -------------------------------------------------------------------------------- //
+		//  																Direction motor  																//
+		//																																									//
+		//  	Format of the octets : 																												//
+		// 		| Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
+		// 		| Angle     | Angle     | Angle | Angle | Angle | Angle | Angle | Angle |			//
+		// -------------------------------------------------------------------------------- //
+			// Direction
+		dir = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+		switch (dir) {
+			case 1: //stop 
+				comStruct->directionMotor.direction = STOP;
+			break;
+			case 2: // left
+				comStruct->directionMotor.direction = LEFT;
+			break;
+			case 3: //right
+				comStruct->directionMotor.direction = RIGHT;
+			break;
+			default:
+				comStruct->directionMotor.direction = STOP;
+		}
+			
+			// Speed
+		comStruct->directionMotor.speed = 2*(spiFrame[DIRECTION_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+			
+			// Angle
+		int angle = spiFrame[DIRECTION_MOTOR_ANGLE];
+		if(angle < 45)
+			comStruct->directionMotor.angle = -angle;
+		else
+			comStruct->directionMotor.angle  = angle-45;
 
-	// -------------------------------------------------------------------------------- //
-	//  															left wheel motor  																//
-	//																																									//
-	//  	Format of the octet : 																												//
-	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
-	// -------------------------------------------------------------------------------- //
-		// Direction
-	dir = (spiFrame[LEFT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	switch (dir) {
-		case 1: //stop 
-			comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
-		break;
-		case 2: // forward
-			comStruct->leftWheelMotor.direction = MOTOR_REAR_FORWARD;
-		break;
-		case 3: //backward
-			comStruct->leftWheelMotor.direction = MOTOR_REAR_BACKWARD;
-		break;
-		default:
-			comStruct->leftWheelMotor.direction = MOTOR_REAR_STOP;
-	}
-		// Speed
-	comStruct->leftWheelMotor.speed = 2*(spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		// -------------------------------------------------------------------------------------------------------- //
+		//  																wheel motor 		 																												//
+		//																																																					//
+		//  	Format of the octet : 																																								//
+		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
+		//		| Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance | 			//
+		// -------------------------------------------------------------------------------------------------------- //	
+			// Direction
+		dir = (spiFrame[WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+		switch (dir) {
+			case 1: //stop 
+				comStruct->wheelMotor.direction = MOTOR_REAR_STOP;
+			break;
+			case 2: // forward
+				comStruct->wheelMotor.direction = MOTOR_REAR_FORWARD;
+			break;
+			case 3: //backward
+				comStruct->wheelMotor.direction = MOTOR_REAR_BACKWARD;
+			break;
+			default:
+				comStruct->wheelMotor.direction = MOTOR_REAR_STOP;
+		}
+		
+			// Speed
+		comStruct->wheelMotor.speed = 2*(spiFrame[WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		
+			// Distance 
+		comStruct->wheelMotor.distance = spiFrame[WHEEL_MOTOR_DISTANCE];
+		
+		// -------------------------------------------------------------------------------- //
+		//  																Action Number   																//
+		// -------------------------------------------------------------------------------- //
+		comStruct->actionNumber = spiFrame[ACTION_NUMBER];
 	
-	// -------------------------------------------------------------------------------- //
-	//  															right wheel motor  																//
-	//																																									//
-	//  	Format of the octet : 																												//
-	// 		|Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
-	// -------------------------------------------------------------------------------- //
-		// Direction
-	dir = (spiFrame[RIGHT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	switch (dir) {
-		case 1: //stop 
-			comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
-		break;
-		case 2: // forward
-			comStruct->rightWheelMotor.direction = MOTOR_REAR_FORWARD;
-		break;
-		case 3: //backward
-			comStruct->rightWheelMotor.direction = MOTOR_REAR_BACKWARD;
-		break;
-		default:
-			comStruct->rightWheelMotor.direction = MOTOR_REAR_STOP;
+		add_action(*comStruct);
 	}
-		// Speed
-	comStruct->rightWheelMotor.speed = 2*(spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
 }
 
-void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct)
+void write_spiFrame(unsigned char* spiFrame)
 {
-
+	Communication_Typedef comStruct = actionList->action;
+	
 	// Motor values equals 0
 	spiFrame[DIRECTION_MOTOR] = 0;
-	spiFrame[LEFT_WHEEL_MOTOR] = 0;
-	spiFrame[RIGHT_WHEEL_MOTOR] = 0;
+	spiFrame[DIRECTION_MOTOR_ANGLE] = 0;
+	spiFrame[WHEEL_MOTOR] = 0;
+	spiFrame[WHEEL_MOTOR_DISTANCE] = 0;
 
 	// Sensors values 
 	spiFrame[FRONT_LEFT_ULTRASOUND] = (char)comStruct.frontLeftUltrasound.distance;
@@ -225,4 +230,48 @@ void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct)
 
 	// Battery
 	spiFrame[BATTERY] = (char)comStruct.battery.state;
+	
+	// Current action 
+	spiFrame[ACTION_NUMBER] = (char)comStruct.actionNumber;
+	
 }
+
+// Add a new action at the end of the list
+void add_action(Communication_Typedef action)
+{
+    // Creation of the new element
+    motorAction* newElement = malloc(sizeof(motorAction));
+    newElement->action = action;
+    newElement->nxt = NULL;
+
+    // Add the element to the list
+    if(actionList == NULL)
+    {
+        actionList = newElement;
+    }
+    else
+    {
+        volatile motorAction* temp = actionList;
+        while(temp->nxt != NULL)
+        {
+            temp = temp->nxt;
+        }
+        temp->nxt = newElement;
+    }
+}
+
+// Delete the first element of the list
+void del_action(void)
+{
+    motorAction* new_list = NULL;
+    if(actionList != NULL)
+    {
+        new_list = actionList->nxt;
+        free(&actionList);
+    }
+}
+
+
+
+
+

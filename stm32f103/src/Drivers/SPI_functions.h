@@ -11,24 +11,26 @@
 /* 
 	Format of the frame :
 	
-	|| DIRECTION_MOTOR | LEFT_WHEEL_MOTOR | RIGHT_WHEEL_MOTOR | ...
+	|| DIRECTION_MOTOR | DIRECTION_MOTOR_ANGLE | WHEEL_MOTOR | WHEEL_MOTOR_DISTANCE | ...
 	... | FRONT_LEFT_ULTRASOUND | FRONT_RIGHT_ULTRASOUND | FRONT_CENTER_ULTRASOUND | ...
 	... | REAR_LEFT_ULTRASOUND | REAR_RIGHT_ULTRASOUND | REAR_CENTER_ULTRASOUND | ...
-	... | BATTERY ||
+	... | BATTERY | ACTION_NUMBER ||
 
 */
 
 // 	Number of the octet 
 #define DIRECTION_MOTOR 0
-#define LEFT_WHEEL_MOTOR 1
-#define RIGHT_WHEEL_MOTOR 2
-#define FRONT_LEFT_ULTRASOUND 3
-#define FRONT_RIGHT_ULTRASOUND 4 
-#define FRONT_CENTER_ULTRASOUND 5
-#define REAR_LEFT_ULTRASOUND 6
-#define REAR_RIGHT_ULTRASOUND 7 
-#define REAR_CENTER_ULTRASOUND 8
-#define BATTERY 9
+#define DIRECTION_MOTOR_ANGLE 1
+#define WHEEL_MOTOR 2
+#define WHEEL_MOTOR_DISTANCE 3
+#define FRONT_LEFT_ULTRASOUND 4
+#define FRONT_RIGHT_ULTRASOUND 5 
+#define FRONT_CENTER_ULTRASOUND 6
+#define REAR_LEFT_ULTRASOUND 7
+#define REAR_RIGHT_ULTRASOUND 8 
+#define REAR_CENTER_ULTRASOUND 9
+#define BATTERY 10
+#define ACTION_NUMBER 11
 
 // Mask and offset for the motors
 #define DIRECTION_MASK 192 // 1100 000
@@ -51,6 +53,7 @@ typedef struct
 {
 	MotorRearDirection direction; /*!< Direction of the motor */
 	int speed; /*!< Speed of the motor in % */
+	int distance; /*!< Distance to travel */
 }MotorRear_Typedef;
 
 /**
@@ -61,6 +64,7 @@ typedef struct
 {
 	Direction direction; /*!< Direction of the motor */
 	int speed; /*!< Speed of the motor in % */
+	int angle; /*!< Angle to turn */
 }MotorFront_Typedef;
 
 
@@ -88,9 +92,10 @@ typedef struct
  */
 typedef struct 
 {
+	int actionNumber; 
+	
 	MotorFront_Typedef directionMotor;
-	MotorRear_Typedef leftWheelMotor;
-	MotorRear_Typedef rightWheelMotor;
+	MotorRear_Typedef wheelMotor;
 	
 	Ultrasound_Typedef frontLeftUltrasound;
 	Ultrasound_Typedef frontRightUltrasound;
@@ -101,6 +106,13 @@ typedef struct
 
 	Battery_Typedef battery;	
 }Communication_Typedef;
+
+typedef struct motorAction
+{
+    Communication_Typedef action;
+    struct motorAction *nxt;
+}motorAction;
+
 
 /** 
  *	\brief Initialize the communication structure
@@ -115,7 +127,7 @@ void init_spiFrame(Communication_Typedef *comStruct);
  * 	\param comStruct: The structure to update
  *	\return None
 */
-void read_spiFrame(unsigned char* spiFrame, Communication_Typedef* comStruct);
+void read_spiFrame(unsigned char* spiFrame);
 
 /** 
  *	\brief Write the frame to send according to the communication structure
@@ -123,7 +135,7 @@ void read_spiFrame(unsigned char* spiFrame, Communication_Typedef* comStruct);
  * 	\param comStruct: The communication structure
  *	\return None
 */
-void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct);
+void write_spiFrame(unsigned char* spiFrame);
 
 /** 
  *	\brief Initialize the SPI communication
@@ -134,4 +146,10 @@ void write_spiFrame(unsigned char* spiFrame, Communication_Typedef comStruct);
 void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer);
 
 
+void add_action(Communication_Typedef action);
+void del_action(void);
+
+extern __IO motorAction* actionList;
+
 #endif
+
