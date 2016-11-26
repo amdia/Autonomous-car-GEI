@@ -33,47 +33,33 @@ int eps = 0;
 static int front_hall[HALL_FRONT_NB]={0};
 int rear_hall[HALL_NB]={0};
 float rear_distance[HALL_NB] = {0};
+int start_motor = 0;
+int stop_motor = 0;
+int travelling = 0;
 
 uint64_t speed[HALL_REAR_NB] ={0};
 
 static int proportional_controller(uint64_t eps);
 static int PI_controller(uint64_t eps);
 
-void motors_control(void){
-		if ((rear == 1)||(distance > 0.0)) {
+void rear_motors_control(void){
+		if ((start_motor == 1)&&(distance > 0.0)) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
 			motor_rear_command(MOTOR_ARG, motor_speed);
-		} else if ((rear == 2)||(distance < 0.0)) {
+			start_motor = 0;
+		} else if ((start_motor == 1)&&(distance < 0.0)) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
 			motor_rear_command(MOTOR_ARG, -motor_speed);
-		} else {
+			start_motor = 0;
+		} else if(stop_motor == 1){
 			motor_rear_command(MOTOR_ARG, 0);
 			motor_rear_command(MOTOR_ARD, 0);
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_OFF);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_OFF);
+			stop_motor = 0;
 		}
-		
-		// control front motor manually
-		
-		if ((front == 1) && (getFrontDirection() != LEFT)) {
-			enableFrontMotor();
-			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
-		} else if ((front == 2) && (getFrontDirection() != RIGHT)) {
-			enableFrontMotor();
-			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
-		} else {
-			commandFrontMotor(STOP, FRONT_MOTOR_SPEED);
-			disableFrontMotor();
-		}
-		
-		// control front motor with angles
-		/*
-		if(command_angle != actual_angle){
-			control_angle_front_motor();
-		}
-		*/
 }
 
 //void control_angle_front_motor(int command_angle){
@@ -139,18 +125,28 @@ void control_angle_front_motor(){
 	
 }
 
-void distance_to_travel(Hall_Position pos){
-	if(pos == HALL_AVG || pos == HALL_AVD){
-		front_hall[(int)pos]++;
-	} else {
+void distance_to_travel(/*int dist*/){
+	if(travelling == 0){
+		start_motor = 1;
+		//distance = dist;
+		travelling = 1;
+	}
+}
+
+void calculate_distance(Hall_Position pos){
+//	if(rear_distance[HALL_ARG] == 0)
+//		start_motor = 1;
+	if(pos == HALL_ARG || pos == HALL_ARD){
 		rear_hall[(int)pos]++;
 		rear_distance[(int)pos] = WHEEL_PERIMETER * ((float)rear_hall[(int)pos]) / WHEEL_PULSES_NB;
 		if(rear_distance[HALL_ARG] > abs(distance)){
+			stop_motor = 1;
+			distance = 0;
+			travelling = 0;
 			rear_distance[HALL_ARG] = 0;
 			rear_distance[HALL_ARD] = 0;
 			rear_hall[HALL_ARD] = 0;
 			rear_hall[HALL_ARG] = 0;
-			distance = 0;
 		}
 	}
 }

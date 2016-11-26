@@ -18,8 +18,9 @@ extern __IO Direction front;
 extern __IO int rear;
 extern __IO float distance;
 
-void motors_control(void);
-void distance_to_travel(Hall_Position pos);
+void rear_motors_control(void);
+void distance_to_travel(void);
+void calculate_distance(Hall_Position pos);
 uint64_t get_rear_motor_speed(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void motor_rear_right_slaving(void);
