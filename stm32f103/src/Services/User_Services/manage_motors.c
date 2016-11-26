@@ -5,81 +5,55 @@
 #include "manage_motors.h"
 #include "time_systick.h"
 
-__IO Direction front = STOP;
-__IO int rear = 0;
+//__IO Direction front = STOP;
+//__IO int rear = 0;
 __IO float distance = 0;
+__IO int motor_speed = 50;
+__IO int command_angle = ANGLE_INIT;
 
-//static uint16_t eps = 0; // test
+int on_stop = 0;
+int start_motor = 0;
+int stop_motor = 0;
+int travelling = 0;
 
-// test capteurs hall
-int all_hall[HALL_NB] = {0};
-
-uint64_t toto1 = 0;
-uint64_t toto2 = 0;
-
-static int motor_speed = 50;
-int command_angle = ANGLE_INIT;
-static int actual_angle = ANGLE_INIT;
-uint64_t t_temp = 0;
-float time_to_turn = 0;
 int speeds[4]={40,38,35,30};
 float thresholds[4]={0.25,0.5,0.75,1};
-int on_stop = 0;
-	
-// test cmd
-int cmd = 0;
-int eps = 0;
+float time_to_turn = 0;
 
-static int front_hall[HALL_FRONT_NB]={0};
-int rear_hall[HALL_NB]={0};
+int64_t eps = 0;
+int K = 3000; 
+
 float rear_distance[HALL_NB] = {0};
+uint64_t speed_rear_motors[HALL_NB] ={0};
 
-uint64_t speed[HALL_REAR_NB] ={0};
+static int64_t proportional_controller(int64_t eps);
+//int64_t int PI_controller(int64_t eps);
 
-static int proportional_controller(uint64_t eps);
-static int PI_controller(uint64_t eps);
-
-void motors_control(void){
-		if ((rear == 1)||(distance > 0.0)) {
+void rear_motors_control(void){
+		if ((start_motor == 1)&&(distance > 0.0)) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
 			motor_rear_command(MOTOR_ARG, motor_speed);
-		} else if ((rear == 2)||(distance < 0.0)) {
+			motor_rear_command(MOTOR_ARD, motor_speed);
+			start_motor = 0;
+		} else if ((start_motor == 1)&&(distance < 0.0)) {
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
 			motor_rear_command(MOTOR_ARG, -motor_speed);
-		} else {
+			start_motor = 0;
+		} else if(stop_motor == 1){
 			motor_rear_command(MOTOR_ARG, 0);
 			motor_rear_command(MOTOR_ARD, 0);
 			motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_OFF);
 			motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_OFF);
+			stop_motor = 0;
 		}
-		
-		// control front motor manually
-		
-		if ((front == 1) && (getFrontDirection() != LEFT)) {
-			enableFrontMotor();
-			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
-		} else if ((front == 2) && (getFrontDirection() != RIGHT)) {
-			enableFrontMotor();
-			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
-		} else {
-			commandFrontMotor(STOP, FRONT_MOTOR_SPEED);
-			disableFrontMotor();
-		}
-		
-		// control front motor with angles
-		/*
-		if(command_angle != actual_angle){
-			control_angle_front_motor();
-		}
-		*/
 }
 
 //void control_angle_front_motor(int command_angle){
 void control_angle_front_motor(){
-	//static int actual_angle = 0;
-	//static uint64_t t_temp = 0;
+	static int actual_angle = ANGLE_INIT;
+	static uint64_t t_temp = 0;
 	int diff_angle = 0;
 	Direction dir = STOP;
 	int speed = 0;
@@ -139,18 +113,28 @@ void control_angle_front_motor(){
 	
 }
 
-void distance_to_travel(Hall_Position pos){
-	if(pos == HALL_AVG || pos == HALL_AVD){
-		front_hall[(int)pos]++;
-	} else {
-		rear_hall[(int)pos]++;
-		rear_distance[(int)pos] = WHEEL_PERIMETER * ((float)rear_hall[(int)pos]) / WHEEL_PULSES_NB;
+void distance_to_travel(/*int dist*/){
+	if(travelling == 0){
+		start_motor = 1;
+		//distance = dist;
+		travelling = 1;
+	}
+}
+
+void calculate_distance(Hall_Position pos){
+	static int rear_hall[HALL_NB]={0};
+//	float rear_distance[HALL_NB] = {0};
+	if(pos == HALL_ARG || pos == HALL_ARD){
+		rear_hall[pos]++;
+		rear_distance[pos] = WHEEL_PERIMETER * ((float)rear_hall[pos]) / WHEEL_PULSES_NB;
 		if(rear_distance[HALL_ARG] > abs(distance)){
+			stop_motor = 1;
+			distance = 0;
+			travelling = 0;
 			rear_distance[HALL_ARG] = 0;
 			rear_distance[HALL_ARD] = 0;
 			rear_hall[HALL_ARD] = 0;
 			rear_hall[HALL_ARG] = 0;
-			distance = 0;
 		}
 	}
 }
@@ -158,38 +142,33 @@ void distance_to_travel(Hall_Position pos){
 void motor_front_stop(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD){
 		disableFrontMotor();
-		setFrontDirection((Direction)front);
+		//setFrontDirection((Direction)front);
 		on_stop = 1;
-		front = STOP;
+		//front = STOP;
 	}
 }
 
-uint64_t get_rear_motor_speed(Hall_Position pos){
-	static uint64_t t_last_pulse[HALL_REAR_NB] = {0};
+void measure_rear_motor_speed(Hall_Position pos){
+	static uint64_t t_last_pulse[HALL_NB] = {0};
+	
 	if(pos == HALL_ARG || pos == HALL_ARD){
-		speed[pos] = micros() - t_last_pulse[pos];
-		/*
+		speed_rear_motors[pos] = micros() - t_last_pulse[pos];
+		t_last_pulse[pos] = micros();
+			/*
 		if(pos == HALL_ARG){
 			toto1 = speed[pos];
 		} else if (pos == HALL_ARD){
 			toto2 = speed[pos];
 		}*/
-		t_last_pulse[pos] = micros();
 	}
-	return speed[pos];
+	//return speed[pos];
 }
 
 void motor_rear_right_slaving(void){
-	//static uint64_t eps = 0;
-	eps = 0;
-	int motor_corrected_speed = 0; // decommente apres
-	toto1 = get_rear_motor_speed(HALL_ARG);
-	toto2 = get_rear_motor_speed(HALL_ARD);
-	//eps = toto1 - toto2;
-	eps = abs(get_rear_motor_speed(HALL_ARG) - get_rear_motor_speed(HALL_ARD)); // decommente apres
-	
+	//int64_t eps = 0;
+	int motor_corrected_speed = 0; 
+	eps = speed_rear_motors[HALL_ARG] - speed_rear_motors[HALL_ARD];
 	motor_corrected_speed = proportional_controller(eps);
-	//motor_corrected_speed = PI_controller(eps);
 	if(distance > 0){
 		motor_rear_command(MOTOR_ARD, motor_corrected_speed);
 	} else if(distance < 0){
@@ -198,25 +177,19 @@ void motor_rear_right_slaving(void){
 	
 }
 
-int proportional_controller(uint64_t eps){
-	static const int K = 50; // 50 OK
-	//int cmd = 0;
-	cmd = 0;
+int64_t proportional_controller(int64_t eps){
+	//static const int K = 3000; // 50 OK
+	int64_t cmd = 0;
 	cmd = K * eps; // test cmd en valeur absolue
 	return cmd;
 }
 
-int PI_controller(uint64_t eps){
-	static const int K = 3000;
-	static const int Ki = 5;
-	static int sum_eps = 0;
-	int cmd = 0;
-	sum_eps = sum_eps + eps;
-	cmd = Ki * sum_eps +  K * eps;
-	return cmd;
-}
-
-// test count pulse hall
-void count_pulse(Hall_Position pos){
-	all_hall[(int)pos]++;
-}
+//int PI_controller(uint64_t eps){
+//	static const int K = 3000;
+//	static const int Ki = 5;
+//	static int sum_eps = 0;
+//	int cmd = 0;
+//	sum_eps = sum_eps + eps;
+//	cmd = Ki * sum_eps +  K * eps;
+//	return cmd;
+//}

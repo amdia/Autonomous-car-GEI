@@ -34,6 +34,7 @@ void services_init(void) {
 	init_ultrasonic_sensors();
 	// config motors
 	initFrontMotor();
+	disableFrontMotor();
 	motors_rear_init();
 	
 	//init GPIOD pin 5 for tests

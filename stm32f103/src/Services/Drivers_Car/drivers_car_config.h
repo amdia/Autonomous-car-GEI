@@ -6,15 +6,24 @@
 // Global definitions
 #define GPIO_SPEED  GPIO_Speed_50MHz
 #define TIMER_NUMBER			4
+
+// ------------------------------------------ //
+// ------------- Interruption Priorities------ //
+// ------------------------------------------- //
+// All ultrasonic sensor interrupts share the same priority
+#define ULTRASONIC_PRIO 10
+
+// All hall sensor interrupts share the same priority
+#define HALL_PRIO 15
+
+#define SCHEDULER_IT_PRIORITY		10
+
 // ------------------------------------------ //
 // ------------- Ultrasonic sensors ---------- //
 // ------------------------------------------- //
 
 // Number of ultra sonic sensors
 #define ULTRASONIC_NB 6
-
-// All ultrasonic sensor interrupts share the same priority
-#define ULTRASONIC_PRIO 10
 
 // All ultrasonic sensors share the same trigger pin
 #define ULTRASONIC_TRIG_PIN	    GPIO_Pin_6
@@ -55,9 +64,6 @@
 #define HALL_NB 4
 #define HALL_FRONT_NB 2
 #define HALL_REAR_NB 2
-
-// All hall sensor interrupts share the same priority
-#define HALL_PRIO 15
 
 // Front left
 #define HALL_AVG_PIN  GPIO_Pin_5
@@ -157,6 +163,5 @@ void services_init(void);
 // ------------------------------------------- //
 
 #define SCHEDULER_TIMER         	TIM2
-#define SCHEDULER_IT_PRIORITY		10
 
 #endif // _SERVICE_CONFIG_H_

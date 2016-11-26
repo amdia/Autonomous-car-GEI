@@ -10,20 +10,21 @@
 static uint64_t scheduler_counter = 0;
 
 void hall_callback(Hall_Position pos){
-	count_pulse(pos);
+	//count_pulse(pos);
 	if(pos == HALL_ARG || pos == HALL_ARD){
-		distance_to_travel(pos);
-		get_rear_motor_speed(pos);
+		calculate_distance(pos);
+		measure_rear_motor_speed(pos);
 	}
 	if(pos == HALL_AVG || pos == HALL_AVD)
 		motor_front_stop(pos);
 }
 
 void scheduler_IT_callback(){
+	distance_to_travel();
 	control_angle_front_motor();
 	if (IS_TASK(TASK_MOTOR)){
-		motors_control();
-    motor_rear_right_slaving();
+		rear_motors_control();
+		//motor_rear_right_slaving();
   }
   if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
     // do shits here idk...
