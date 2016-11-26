@@ -25,6 +25,10 @@ float time_to_turn = 0;
 int speeds[4]={40,38,35,30};
 float thresholds[4]={0.25,0.5,0.75,1};
 int on_stop = 0;
+	
+// test cmd
+int cmd = 0;
+int eps = 0;
 
 static int front_hall[HALL_FRONT_NB]={0};
 int rear_hall[HALL_NB]={0};
@@ -164,20 +168,26 @@ uint64_t get_rear_motor_speed(Hall_Position pos){
 	static uint64_t t_last_pulse[HALL_REAR_NB] = {0};
 	if(pos == HALL_ARG || pos == HALL_ARD){
 		speed[pos] = micros() - t_last_pulse[pos];
+		/*
 		if(pos == HALL_ARG){
 			toto1 = speed[pos];
 		} else if (pos == HALL_ARD){
 			toto2 = speed[pos];
-		}
+		}*/
 		t_last_pulse[pos] = micros();
 	}
 	return speed[pos];
 }
 
 void motor_rear_right_slaving(void){
-	static uint64_t eps = 0;
-	int motor_corrected_speed = 0;
-	eps = get_rear_motor_speed(HALL_ARG) - get_rear_motor_speed(HALL_ARD);
+	//static uint64_t eps = 0;
+	eps = 0;
+	int motor_corrected_speed = 0; // decommente apres
+	toto1 = get_rear_motor_speed(HALL_ARG);
+	toto2 = get_rear_motor_speed(HALL_ARD);
+	//eps = toto1 - toto2;
+	eps = abs(get_rear_motor_speed(HALL_ARG) - get_rear_motor_speed(HALL_ARD)); // decommente apres
+	
 	motor_corrected_speed = proportional_controller(eps);
 	//motor_corrected_speed = PI_controller(eps);
 	if(distance > 0){
@@ -185,12 +195,14 @@ void motor_rear_right_slaving(void){
 	} else if(distance < 0){
 		motor_rear_command(MOTOR_ARD, -motor_corrected_speed);
 	}
+	
 }
 
 int proportional_controller(uint64_t eps){
 	static const int K = 50; // 50 OK
-	int cmd = 0;
-	cmd = K * eps;
+	//int cmd = 0;
+	cmd = 0;
+	cmd = K * eps; // test cmd en valeur absolue
 	return cmd;
 }
 
