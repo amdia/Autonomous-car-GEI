@@ -7,7 +7,7 @@
 #include <stm32f10x_gpio.h>
 
 // macros, lazy way configure echo pins
-#define ULTRASONIC_CONFIG_ECHO_PINS(name)  \
+#define CONFIG_ECHO_PINS(name)  \
   do { \
     ultrasonic_##name.pin = ULTRASONIC_##name##_ECHO_PIN;  \
     ultrasonic_##name.port = ULTRASONIC_##name##_ECHO_PORT;  \
@@ -18,20 +18,6 @@
     Sensor_IT_Config(&ultrasonic_##name);  \
   } while(0) \
 
-#define ULTRASONIC_SET_ECHO_PIN_TO_GROUND(name)   \
-  do {  \
-    ultrasonic_##name.gpioMode = GPIO_Mode_Out_OD; \
-    GPIO_Configuration(&ultrasonic_##name);  \
-    GPIO_WriteBit(ULTRASONIC_##name##_ECHO_PORT, ULTRASONIC_##name##_ECHO_PIN, Bit_RESET);  \
-  } while(0)  \
-  
-#define ULTRASONIC_BRING_ECHO_PIN_BACK(name)    \
-  do {  \
-    ultrasonic_##name.gpioMode = GPIO_Mode_IN_FLOATING;  \
-    GPIO_Configuration(&ultrasonic_##name);  \
-  } while(0)  \
-  
-  
 // ---------------------------- //
 // ----- Private section ------ //
 // ---------------------------- //
@@ -50,19 +36,18 @@ static float pulse_length[ULTRASONIC_NB] = {0};
 // private functions which set and reset trig pin
 static void ultrasonic_trigger(void);
 static void ultrasonic_untrigger(void);
-static void ultrasonic_reset_all_echo_pins(void);
 
 // overloadable callback function, reserved for user
 __weak void ultrasonic_callback(Ultrasonic_Position pos) {}
 
 void init_ultrasonic_sensors(void) {
   // configure 6 echo pins as input with EXTI
-	ULTRASONIC_CONFIG_ECHO_PINS(AVC);
-  ULTRASONIC_CONFIG_ECHO_PINS(AVG);
-  ULTRASONIC_CONFIG_ECHO_PINS(AVD);
-  ULTRASONIC_CONFIG_ECHO_PINS(ARC);
-  ULTRASONIC_CONFIG_ECHO_PINS(ARG);
-  ULTRASONIC_CONFIG_ECHO_PINS(ARD);
+	CONFIG_ECHO_PINS(AVC);
+  CONFIG_ECHO_PINS(AVG);
+  CONFIG_ECHO_PINS(AVD);
+  CONFIG_ECHO_PINS(ARC);
+  CONFIG_ECHO_PINS(ARG);
+  CONFIG_ECHO_PINS(ARD);
   
   // configure trig pin as output push-pull
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -73,9 +58,10 @@ void init_ultrasonic_sensors(void) {
 }
 
 void ultrasonic_trig_all(void) {
-  ultrasonic_reset_all_echo_pins();
+	uint64_t trigger_time = 0;
 	ultrasonic_trigger();
-  delay_micros(ULTRASONIC_TRIGGER_DELAY);
+	trigger_time = micros();
+	while(micros() - trigger_time < ULTRASONIC_TRIGGER_DELAY){};
 	ultrasonic_untrigger();
 }
 
@@ -85,25 +71,6 @@ void ultrasonic_trigger(void) {
 
 void ultrasonic_untrigger(void) {
 	GPIO_WriteBit(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, Bit_RESET);
-}
-
-void ultrasonic_reset_all_echo_pins(void) {
-  // set all echo pin to output then bring them to low state
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(AVC);
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(AVG);
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(AVD);
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(ARC);
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(ARG);
-  ULTRASONIC_SET_ECHO_PIN_TO_GROUND(ARD);
-  // delay for a short time, hopefully it will work
-  delay_micros(ULTRASONIC_DELAY_RESET_ECHO_PIN);
-  // let's bring them back to input
-  ULTRASONIC_BRING_ECHO_PIN_BACK(AVC);
-  ULTRASONIC_BRING_ECHO_PIN_BACK(AVG);
-  ULTRASONIC_BRING_ECHO_PIN_BACK(AVD);
-  ULTRASONIC_BRING_ECHO_PIN_BACK(ARC);
-  ULTRASONIC_BRING_ECHO_PIN_BACK(ARG);
-  ULTRASONIC_BRING_ECHO_PIN_BACK(ARD);
 }
 
 void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
@@ -117,6 +84,16 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 		state[position] = DOWN;
 		pulse_length[position] = micros() - time_tmp[position];
 		ultrasonic_callback(position);
+	}
+	if(pulse_length[position] > 22000 /*MAX_TIME_PULSE*/ ){
+		if(position == 0){
+			ultrasonic_AVC.gpioMode = GPIO_Mode_Out_OD;
+			GPIO_Configuration(&ultrasonic_AVC);
+			GPIO_WriteBit(ULTRASONIC_AVC_ECHO_PORT, ULTRASONIC_AVC_ECHO_PIN, Bit_RESET);
+			while(micros() - time_tmp[0] < 100){};
+			ultrasonic_AVC.gpioMode = GPIO_Mode_IN_FLOATING;
+			GPIO_Configuration(&ultrasonic_AVC);
+		}		
 	}
 }
 

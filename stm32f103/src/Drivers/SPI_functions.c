@@ -9,6 +9,7 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
 {
 	/***** GPIO *****/
 			
+  //RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
 		// Configure used pins for GPIOB
 		GPIO_InitTypeDef GPIO_InitStruct;
 		GPIO_InitStruct.GPIO_Pin = GPIO_Pin_14; //MISO
@@ -30,7 +31,7 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
 
     // Reset SPI Interface
-    SPI_I2S_DeInit(SPI2);
+    //SPI_I2S_DeInit(SPI2);
 
     //== SPI2 configuration
     SPI_StructInit(&SPI_InitStructure);
@@ -62,9 +63,9 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
     RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
 
     //==Configure DMA1 - Channel4== (SPI -> memory)
-    DMA_DeInit(DMA1_Channel4); //Set DMA registers to default values
+    //DMA_DeInit(DMA1_Channel4); //Set DMA registers to default values
     DMA_StructInit(&DMA_InitStructure);
-    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&SPI2->DR; //Address of peripheral the DMA must map to
+    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(SPI2_BASE+0x0C);//&SPI2->DR; //Address of peripheral the DMA must map to
     DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)receiveBuffer; //Variable to which received data will be stored
     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
     DMA_InitStructure.DMA_BufferSize = BUFFER_SIZE; //Buffer size
@@ -78,9 +79,9 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
     DMA_Init(DMA1_Channel4, &DMA_InitStructure); //Initialise the DMA  
 
     //==Configure DMA1 - Channel5== (memory -> SPI)
-    DMA_DeInit(DMA1_Channel5); //Set DMA registers to default values
+    //DMA_DeInit(DMA1_Channel5); //Set DMA registers to default values
     DMA_StructInit(&DMA_InitStructure);
-    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&SPI2->DR; //Address of peripheral the DMA must map to
+    DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(SPI2_BASE+0x0C);//&SPI2->DR; //Address of peripheral the DMA must map to
     DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)sendBuffer; //Variable from which data will be transmitted
     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
     DMA_InitStructure.DMA_BufferSize = BUFFER_SIZE; //Buffer size

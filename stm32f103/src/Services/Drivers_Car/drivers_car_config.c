@@ -41,5 +41,5 @@ void services_init(void) {
 //	init_GPIO();
 	
 	//init scheduler
-	//scheduler_timer_init();
+	scheduler_timer_init();
 }

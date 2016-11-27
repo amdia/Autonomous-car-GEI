@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "motor_front.h"
-#include "motor_rear.h"
+/*#include "motor_front.h"
+#include "motor_rear.h"*/
 #include "SPI_functions.h"
 #include "drivers_car_config.h"
 #include "manage_motors.h"
@@ -37,8 +37,8 @@ int main()
 			// Battery value
 	receivedFrame.battery.state = 86;
 	while(1){ // si ça ça fonctionne, ne plus s'en servir et passer dans le scheduler. Ne pas oublier de faire le init du scheduler dans drivers_car_config
-		read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
-		write_spiFrame((uint8_t *)sendBuffer, receivedFrame); // Write the Frame 
-		rear_motors_control(receivedFrame.wheelMotor);
+//		read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
+//		write_spiFrame((uint8_t *)sendBuffer, receivedFrame); // Write the Frame 
+//		rear_motors_control(receivedFrame.wheelMotor);
 	}
 }
