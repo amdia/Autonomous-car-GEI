@@ -4,8 +4,11 @@
 #include "motor_rear.h"
 #include "scheduler_timer_init.h"
 #include "manage_motors.h"
+#include "us_sensor.h"
 
 #define IS_TASK(task) (scheduler_counter % task == 0)
+
+
 
 static uint64_t scheduler_counter = 0;
 
@@ -19,6 +22,10 @@ void hall_callback(Hall_Position pos){
 		motor_front_stop(pos);
 }
 
+void ultrasonic_callback(Ultrasonic_Position pos) {
+  
+}
+
 void scheduler_IT_callback(){
 	distance_to_travel();
 	control_angle_front_motor();
@@ -27,7 +34,7 @@ void scheduler_IT_callback(){
 		//motor_rear_right_slaving();
   }
   if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
-    // do shits here idk...
+    ultrasonic_trig_all();
   }
 	scheduler_counter++;
 }

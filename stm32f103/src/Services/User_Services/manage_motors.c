@@ -97,7 +97,7 @@ void control_angle_front_motor(){
 			if(threshold == 0)
 				time_to_turn = (uint64_t)(abs((float)diff_angle) / speed_motor);
 			else
-				time_to_turn = (uint64_t) ( (abs((float)diff_angle) / speed_motor) + ((float)speeds[threshold-1]/(float)speeds[threshold] - 1.0) * thresholds[threshold] * (float)ANGLE_RANGE / speed_motor); 
+				time_to_turn = (uint64_t)((abs((float)diff_angle) / speed_motor) + ((float)speeds[threshold-1]/(float)speeds[threshold] - 1.0) * thresholds[threshold] * (float)ANGLE_RANGE / speed_motor); 
 			
 			//set motor parameters
 			enableFrontMotor();
@@ -107,7 +107,7 @@ void control_angle_front_motor(){
 			while(micros() - t_temp <=  time_to_turn){}
 			disableFrontMotor();
 			actual_angle = command_angle;
-			}
+		}
 		command_angle = actual_angle;
 	}	
 	
