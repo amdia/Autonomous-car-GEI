@@ -8,7 +8,8 @@
 
 #define IS_TASK(task) (scheduler_counter % task == 0)
 
-
+// shared global variable to stock distances measured by the ultrasonic sensors 
+float distances_cm[ULTRASONIC_NB]={0};
 
 static uint64_t scheduler_counter = 0;
 
@@ -23,7 +24,7 @@ void hall_callback(Hall_Position pos){
 }
 
 void ultrasonic_callback(Ultrasonic_Position pos) {
-  
+  distances_cm[pos] = ultrasonic_get_distance(pos);
 }
 
 void scheduler_IT_callback(){
