@@ -1,12 +1,13 @@
 #ifndef __SPI_FUNCTIONS_H
 #define __SPI_FUNCTIONS_H
 
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "motor_front.h"
 
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 11
 
 /* 
 	Format of the frame :
@@ -14,7 +15,7 @@
 	|| DIRECTION_MOTOR | DIRECTION_MOTOR_ANGLE | WHEEL_MOTOR | WHEEL_MOTOR_DISTANCE | ...
 	... | FRONT_LEFT_ULTRASOUND | FRONT_RIGHT_ULTRASOUND | FRONT_CENTER_ULTRASOUND | ...
 	... | REAR_LEFT_ULTRASOUND | REAR_RIGHT_ULTRASOUND | REAR_CENTER_ULTRASOUND | ...
-	... | BATTERY | ACTION_NUMBER ||
+	... | BATTERY ||
 
 */
 
@@ -30,7 +31,6 @@
 #define REAR_RIGHT_ULTRASOUND 8 
 #define REAR_CENTER_ULTRASOUND 9
 #define BATTERY 10
-#define ACTION_NUMBER 11
 
 // Mask and offset for the motors
 #define DIRECTION_MASK 192 // 1100 000
@@ -92,8 +92,6 @@ typedef struct
  */
 typedef struct 
 {
-	int actionNumber; 
-	
 	MotorFront_Typedef directionMotor;
 	MotorRear_Typedef wheelMotor;
 	
@@ -127,7 +125,7 @@ void init_spiFrame(Communication_Typedef *comStruct);
  * 	\param comStruct: The structure to update
  *	\return None
 */
-void read_spiFrame(unsigned char* spiFrame);
+void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct);
 
 /** 
  *	\brief Write the frame to send according to the communication structure
@@ -135,7 +133,7 @@ void read_spiFrame(unsigned char* spiFrame);
  * 	\param comStruct: The communication structure
  *	\return None
 */
-void write_spiFrame(unsigned char* spiFrame);
+void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct);
 
 /** 
  *	\brief Initialize the SPI communication
@@ -143,13 +141,8 @@ void write_spiFrame(unsigned char* spiFrame);
  * 	\param sendBuffer : The Buffer that contains the send frame 
  *	\return None
 */
-void InitializeSPI2(unsigned char * receiveBuffer, unsigned char * sendBuffer);
+void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer);
 
-
-void add_action(Communication_Typedef action);
-void del_action(void);
-
-extern __IO motorAction* actionList;
 
 #endif
 

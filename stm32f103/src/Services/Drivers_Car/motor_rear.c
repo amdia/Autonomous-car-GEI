@@ -7,6 +7,7 @@ static Motor_TypeDef motor_ARD;
 static Motor_TypeDef motor_ARG;
 
 Motor_State motors_state[REAR_MOTORS_NB] = {MOTOR_STATE_OFF, MOTOR_STATE_OFF};
+int motors_speed[REAR_MOTORS_NB] = {0,0};
 
 void motors_rear_init(void) {
   PWM_TypeDef pwm11;
@@ -67,9 +68,11 @@ int motor_rear_command(Motor_Rear_Position motor, int speed) {
 	switch (motor){
 		case MOTOR_ARD:
 			motorCmd(&motor_ARD, speed);
+			motors_speed[MOTOR_ARD] = speed;
 			break;
 		case MOTOR_ARG:
 			motorCmd(&motor_ARG, speed);
+			motors_speed[MOTOR_ARG] = speed;
 			break;
 		default:
 			return -1;
@@ -96,5 +99,9 @@ int motor_rear_set_state(Motor_Rear_Position motor, Motor_State motor_state) {
 
 Motor_State get_motor_rear_state(Motor_Rear_Position motor){
 	return motors_state[motor];
+}
+
+int get_motor_rear_speed(Motor_Rear_Position motor){
+	return motors_speed[motor];
 }
 

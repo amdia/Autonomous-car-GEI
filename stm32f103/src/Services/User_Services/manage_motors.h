@@ -4,6 +4,7 @@
 #include "motor_front.h"
 #include "motor_rear.h"
 #include "hall_sensor.h"
+#include "SPI_functions.h"
 
 #define ANGLE_LEFT_MAX 										(45)
 #define ANGLE_RIGHT_MAX 									(-45)
@@ -18,14 +19,15 @@
 //extern __IO int rear;
 extern __IO float distance;
 
-void rear_motors_control(void);
+void rear_motors_control(MotorRear_Typedef motor_rear_control);
 void distance_to_travel(void);
-void calculate_distance(Hall_Position pos);
-void measure_rear_motor_speed(Hall_Position pos);
+int calculate_distance(Hall_Position pos);
+//void measure_rear_motor_speed(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
-void motor_rear_right_slaving(void);
+//void motor_rear_right_slaving(void);
 //void control_angle_front_motor(int command_angle);
-void control_angle_front_motor(void);
+void control_angle_front_motor(int angle);
+//void manage_motor_test(Communication_Typedef receivedFrame);
 
 
 #endif // __MANAGE_MOTORS_H

@@ -11,10 +11,10 @@
 // ------------- Interruption Priorities------ //
 // ------------------------------------------- //
 // All ultrasonic sensor interrupts share the same priority
-#define ULTRASONIC_PRIO 10
+#define ULTRASONIC_PRIO 8
 
 // All hall sensor interrupts share the same priority
-#define HALL_PRIO 15
+#define HALL_PRIO 7
 
 #define SCHEDULER_IT_PRIORITY		10
 

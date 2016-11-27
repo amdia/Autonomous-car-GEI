@@ -1,7 +1,5 @@
 #include "IT_functions.h"
-#include <stm32f10x_exti.h>
-#include <stm32f10x_tim.h>
-#include <stm32f10x_gpio.h>
+#include <stm32f10x.h>
 
 #define EXTI_CALLBACKS(n) \
 	if(EXTI_GetITStatus(EXTI_Line##n) != RESET){\
@@ -85,6 +83,14 @@ void TIM3_IRQHandler(void){
 
 void TIM4_IRQHandler(void){
 	SCHEDULER_CALLBACKS(4);
+}
+
+void DMA1_Channel4_IRQHandler(void){
+	DMA_ClearITPendingBit(DMA1_IT_GL4);
+}
+
+void DMA1_Channel5_IRQHandler(void){
+	DMA_ClearITPendingBit(DMA1_IT_GL5);
 }
 
 
