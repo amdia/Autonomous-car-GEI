@@ -4,9 +4,13 @@
 #include "motor_rear.h"
 #include "scheduler_timer_init.h"
 #include "manage_motors.h"
+#include "us_sensor.h"
 #include "SPI_services.h"
 
 #define IS_TASK(task) (scheduler_counter % task == 0)
+
+// shared global variable to stock distances measured by the ultrasonic sensors 
+float distances_cm[ULTRASONIC_NB]={0};
 
 static uint64_t scheduler_counter = 0;
 
@@ -16,6 +20,10 @@ void hall_callback(Hall_Position pos){
 	}
 	if(pos == HALL_AVG || pos == HALL_AVD)
 		motor_front_stop(pos);
+}
+
+void ultrasonic_callback(Ultrasonic_Position pos) {
+  distances_cm[pos] = ultrasonic_get_distance(pos);
 }
 
 void scheduler_IT_callback(){
@@ -31,7 +39,7 @@ void scheduler_IT_callback(){
 	}
 	
 	if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
-    // do shits here idk...
+    ultrasonic_trig_all();
 	}
 	
 	scheduler_counter++;

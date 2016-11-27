@@ -3,8 +3,9 @@
 
 #include <stdint.h>
 
-#define ULTRASONIC_CONVERSION_CONSTANT  58.2;
-#define MAX_TIME_PULSE 						22600.0;
+#define ULTRASONIC_CONVERSION_CONSTANT  58.2
+#define MAX_TIME_PULSE 						      22600.0
+#define ULTRASONIC_DELAY_RESET_ECHO_PIN 100
 
 typedef enum Ultrasonic_Position {
 	ULTRASONIC_POSITION_ERROR  = -1,
