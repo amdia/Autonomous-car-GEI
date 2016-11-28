@@ -51,8 +51,9 @@ void rear_motors_control(MotorRear_Typedef motor_rear_control){
 
 void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micros > t_time+t_turn), fonction validée avec while. A debug avec le if si ne fonctionne pas du premier coup
 	static int actual_angle = ANGLE_INIT;
+	static int actual_command_angle = ANGLE_INIT;
 	static uint64_t t_temp = 0;
-	static float time_to_turn = 0;
+	uint64_t time_to_turn = 0;
 	int diff_angle = 0;
 	Direction dir = STOP;
 	int speed = 0;
@@ -67,15 +68,15 @@ void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micr
 	if(command_angle < ANGLE_RIGHT_MAX)
 		command_angle = ANGLE_RIGHT_MAX;
 	
-	if(command_angle != actual_angle){
+	if(command_angle != actual_command_angle){
 		if(command_angle == ANGLE_LEFT_MAX && !on_stop){ //turn to the maximum angle on the left
 			enableFrontMotor();
 			commandFrontMotor(LEFT, FRONT_MOTOR_SPEED);
-			actual_angle = ANGLE_LEFT_MAX;
+			t_temp = (uint64_t)(-1);
 		}else if(command_angle == ANGLE_RIGHT_MAX && !on_stop){ //turn to the maximum angle on the right
 			enableFrontMotor();
 			commandFrontMotor(RIGHT, FRONT_MOTOR_SPEED);
-			actual_angle = ANGLE_RIGHT_MAX;
+			t_temp = (uint64_t)(-1);
 		}else { //turn during a certain time to the left, to reach the command_angle
 			on_stop = 0;
 			diff_angle = command_angle - actual_angle;
@@ -106,12 +107,12 @@ void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micr
 			//set motor parameters
 			enableFrontMotor();
 			commandFrontMotor(dir, speed);
-			t_temp = micros();			
+			t_temp = micros()+time_to_turn;			
 		}
-		//command_angle = actual_angle;
+		actual_command_angle = command_angle;
 	}	
 
-	if(micros() > time_to_turn+t_temp){
+	if(micros() > t_temp || on_stop){
 		disableFrontMotor();
 		actual_angle = command_angle;
 	}

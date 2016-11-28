@@ -26,7 +26,7 @@ void scheduler_IT_callback(){
 	
 	if (IS_TASK(TASK_MOTOR)){
 		//distance_to_travel();
-		//control_angle_front_motor(receivedFrame.directionMotor.angle);
+		control_angle_front_motor(receivedFrame.directionMotor.angle);
 		rear_motors_control(receivedFrame.wheelMotor);
 	}
 	
