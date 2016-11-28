@@ -13,6 +13,14 @@ volatile uint8_t receiveBuffer[BUFFER_SIZE] = {0};
 volatile Communication_Typedef receivedFrame;
 Communication_Typedef * p_receivedFrame = (Communication_Typedef *)&receivedFrame;
 
+Direction dir_dir;
+int dir_angle;
+MotorRearDirection arg_dir;
+int arg_speed;
+
+MotorRearDirection ard_dir;
+int ard_speed;
+
 int main()
 {
 	// Init SPI communication
@@ -41,5 +49,9 @@ int main()
 
 			// Battery value
 	receivedFrame.battery.state = 86;
-	while(1){}
+
+	while(1)
+	{
+
+	}
 }
