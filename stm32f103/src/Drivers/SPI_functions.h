@@ -6,8 +6,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "motor_front.h"
+#include "drivers_car_config.h"
 
-#define BUFFER_SIZE 11
+#define BUFFER_SIZE 13
 
 /* 
 	Format of the frame :
@@ -22,15 +23,17 @@
 // 	Number of the octet 
 #define DIRECTION_MOTOR 0
 #define DIRECTION_MOTOR_ANGLE 1
-#define WHEEL_MOTOR 2
-#define WHEEL_MOTOR_DISTANCE 3
-#define FRONT_LEFT_ULTRASOUND 4
-#define FRONT_RIGHT_ULTRASOUND 5 
-#define FRONT_CENTER_ULTRASOUND 6
-#define REAR_LEFT_ULTRASOUND 7
-#define REAR_RIGHT_ULTRASOUND 8 
-#define REAR_CENTER_ULTRASOUND 9
-#define BATTERY 10
+#define LEFT_WHEEL_MOTOR 2
+#define RIGHT_WHEEL_MOTOR 3
+#define LEFT_WHEEL_MOTOR_DISTANCE 4
+#define RIGHT_WHEEL_MOTOR_DISTANCE 5
+#define FRONT_LEFT_ULTRASOUND 6
+#define FRONT_RIGHT_ULTRASOUND 7 
+#define FRONT_CENTER_ULTRASOUND 8
+#define REAR_LEFT_ULTRASOUND 9
+#define REAR_RIGHT_ULTRASOUND 10 
+#define REAR_CENTER_ULTRASOUND 11
+#define BATTERY 12
 
 // Mask and offset for the motors
 #define DIRECTION_MASK 192 // 1100 000
@@ -53,7 +56,7 @@ typedef struct
 {
 	MotorRearDirection direction; /*!< Direction of the motor */
 	int speed; /*!< Speed of the motor in % */
-	int distance; /*!< Distance to travel */
+	int distance; /*!< Distance travelled */
 }MotorRear_Typedef;
 
 /**
@@ -93,14 +96,9 @@ typedef struct
 typedef struct 
 {
 	MotorFront_Typedef directionMotor;
-	MotorRear_Typedef wheelMotor;
+	MotorRear_Typedef rear_motors[REAR_MOTORS_NB];
 	
-	Ultrasound_Typedef frontLeftUltrasound;
-	Ultrasound_Typedef frontRightUltrasound;
-	Ultrasound_Typedef frontCenterUltrasound;
-	Ultrasound_Typedef rearLeftUltrasound;
-	Ultrasound_Typedef rearRightUltrasound;
-	Ultrasound_Typedef rearCenterUltrasound;
+	Ultrasound_Typedef ultrasounds[ULTRASONIC_NB];
 
 	Battery_Typedef battery;	
 }Communication_Typedef;

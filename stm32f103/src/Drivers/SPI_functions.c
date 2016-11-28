@@ -4,6 +4,8 @@
 #include "stm32f10x_dma.h"
 #include "misc.h"
 #include "SPI_functions.h"
+#include "motor_rear.h"
+#include "us_sensor.h"
 
 void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
 {
@@ -114,17 +116,22 @@ void init_spiFrame(Communication_Typedef *comStruct)
 	comStruct->directionMotor.direction = STOP;
 	comStruct->directionMotor.speed = 0;
 	comStruct->directionMotor.angle = 0;
-	comStruct->wheelMotor.direction = MOTOR_REAR_STOP;
-	comStruct->wheelMotor.speed = 0;
-	comStruct->wheelMotor.distance = 0;
+	
+	comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
+	comStruct->rear_motors[MOTOR_ARG].speed = 0;
+	comStruct->rear_motors[MOTOR_ARG].distance = 0;
+	
+	comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+	comStruct->rear_motors[MOTOR_ARD].speed = 0;
+	comStruct->rear_motors[MOTOR_ARD].distance = 0;
 
 	// Initialization of the sensors
-	comStruct->frontLeftUltrasound.distance = 0;
-	comStruct->frontRightUltrasound.distance = 0;
-	comStruct->frontCenterUltrasound.distance = 0;
-	comStruct->rearLeftUltrasound.distance = 0;
-	comStruct->rearRightUltrasound.distance = 0;
-	comStruct->rearCenterUltrasound.distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_AVG].distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_AVD].distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_AVC].distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_ARG].distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_ARD].distance = 0;
+	comStruct->ultrasounds[ULTRASONIC_ARC].distance = 0;
 
 	// Initialization of the battery 
 	comStruct->battery.state = 0;
@@ -169,59 +176,86 @@ void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 			comStruct->directionMotor.angle  = angle-45;
 
 		// -------------------------------------------------------------------------------------------------------- //
-		//  																wheel motor 		 																												//
+		//  																leftwheel motor 		 																												//
 		//																																																					//
 		//  	Format of the octet : 																																								//
 		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
 		//		| Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance | 			//
 		// -------------------------------------------------------------------------------------------------------- //	
 			// Direction
-		dir = (spiFrame[WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+		dir = (spiFrame[LEFT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
 		switch (dir) {
 			case 1: //stop 
-				comStruct->wheelMotor.direction = MOTOR_REAR_STOP;
+				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
 			break;
 			case 2: // forward
-				comStruct->wheelMotor.direction = MOTOR_REAR_FORWARD;
+				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_FORWARD;
 			break;
 			case 3: //backward
-				comStruct->wheelMotor.direction = MOTOR_REAR_BACKWARD;
+				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_BACKWARD;
 			break;
 			default:
-				comStruct->wheelMotor.direction = MOTOR_REAR_STOP;
+				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
 		}
 		
 			// Speed
-		comStruct->wheelMotor.speed = 2*(spiFrame[WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		comStruct->rear_motors[MOTOR_ARG].speed = 2*(spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
 		
 			// Distance 
-		comStruct->wheelMotor.distance = spiFrame[WHEEL_MOTOR_DISTANCE];
+		comStruct->rear_motors[MOTOR_ARG].distance = spiFrame[LEFT_WHEEL_MOTOR_DISTANCE];
+		
+		// -------------------------------------------------------------------------------------------------------- //
+		//  																rightwheel motor 		 																												//
+		//																																																					//
+		//  	Format of the octet : 																																								//
+		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
+		//		| Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance | 			//
+		// -------------------------------------------------------------------------------------------------------- //	
+			// Direction
+		dir = (spiFrame[RIGHT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
+		switch (dir) {
+			case 1: //stop 
+				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+			break;
+			case 2: // forward
+				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_FORWARD;
+			break;
+			case 3: //backward
+				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_BACKWARD;
+			break;
+			default:
+				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+		}
+		
+			// Speed
+		comStruct->rear_motors[MOTOR_ARD].speed = 2*(spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		
+			// Distance 
+		comStruct->rear_motors[MOTOR_ARD].distance = spiFrame[RIGHT_WHEEL_MOTOR_DISTANCE];
 		
 }
 
 void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct)
 {
-	//Communication_Typedef comStruct = actionList->action;
 	
 	// Motor values equals 0
 	spiFrame[DIRECTION_MOTOR] = 0;
 	spiFrame[DIRECTION_MOTOR_ANGLE] = 0;
-	spiFrame[WHEEL_MOTOR] = 0;
-	spiFrame[WHEEL_MOTOR_DISTANCE] = (int8_t)comStruct.wheelMotor.distance;
+	spiFrame[RIGHT_WHEEL_MOTOR] = 0;
+	spiFrame[LEFT_WHEEL_MOTOR] = 0;
+	spiFrame[LEFT_WHEEL_MOTOR_DISTANCE] = (int8_t)comStruct.rear_motors[MOTOR_ARD].distance;
+	spiFrame[RIGHT_WHEEL_MOTOR_DISTANCE] = (int8_t)comStruct.rear_motors[MOTOR_ARG].distance;
 
 	// Sensors values 
-	spiFrame[FRONT_LEFT_ULTRASOUND] = (int8_t)comStruct.frontLeftUltrasound.distance;
-	spiFrame[FRONT_RIGHT_ULTRASOUND] = (int8_t)comStruct.frontRightUltrasound.distance;
-	spiFrame[FRONT_CENTER_ULTRASOUND] = (int8_t)comStruct.frontCenterUltrasound.distance;
-	spiFrame[REAR_LEFT_ULTRASOUND] = (int8_t)comStruct.rearLeftUltrasound.distance;
-	spiFrame[REAR_RIGHT_ULTRASOUND] = (int8_t)comStruct.rearRightUltrasound.distance;
-	spiFrame[REAR_CENTER_ULTRASOUND] = (int8_t)comStruct.rearCenterUltrasound.distance;
+	spiFrame[FRONT_LEFT_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_AVG].distance;
+	spiFrame[FRONT_RIGHT_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_AVD].distance;
+	spiFrame[FRONT_CENTER_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_AVC].distance;
+	spiFrame[REAR_LEFT_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_ARG].distance;
+	spiFrame[REAR_RIGHT_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_ARD].distance;
+	spiFrame[REAR_CENTER_ULTRASOUND] = (int8_t)comStruct.ultrasounds[ULTRASONIC_ARC].distance;
 
 	// Battery
 	spiFrame[BATTERY] = (int8_t)comStruct.battery.state;
-	
-	// Current action 
-	//spiFrame[ACTION_NUMBER] = (int8_t)comStruct.actionNumber;
 	
 }
 

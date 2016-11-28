@@ -25,26 +25,30 @@ float rear_distance[HALL_NB] = {0};
 //static int64_t proportional_controller(int64_t eps);
 //int64_t int PI_controller(int64_t eps);
 
-void rear_motors_control(MotorRear_Typedef motor_rear_control){
+void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 	
 	// Two wheels
-	if(motor_rear_control.direction != MOTOR_REAR_STOP && get_motor_rear_state(MOTOR_ARG) == MOTOR_OFF )
+	if(motor_rear_control[MOTOR_ARG].direction != MOTOR_REAR_STOP && get_motor_rear_state(MOTOR_ARG) == MOTOR_OFF )
 		motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_ON);
-	if(motor_rear_control.direction != MOTOR_REAR_STOP && get_motor_rear_state(MOTOR_ARD) == MOTOR_OFF )
+	
+	if(motor_rear_control[MOTOR_ARD].direction != MOTOR_REAR_STOP && get_motor_rear_state(MOTOR_ARD) == MOTOR_OFF )
 		motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 	
-	if(motor_rear_control.direction == MOTOR_REAR_FORWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control.speed){
-		motor_rear_command(MOTOR_ARG, motor_rear_control.speed);
-		motor_rear_command(MOTOR_ARD, motor_rear_control.speed);
-	}
-	else if(motor_rear_control.direction == MOTOR_REAR_BACKWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control.speed){
-		motor_rear_command(MOTOR_ARG, -motor_rear_control.speed);
-		motor_rear_command(MOTOR_ARD, -motor_rear_control.speed);
-	}
-	else if(motor_rear_control.direction == MOTOR_REAR_STOP){
+	if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_FORWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed)
+		motor_rear_command(MOTOR_ARG, motor_rear_control[MOTOR_ARG].speed);
+	else if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_BACKWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed)
+		motor_rear_command(MOTOR_ARG, -motor_rear_control[MOTOR_ARG].speed);
+	else if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_STOP){
 		motor_rear_command(MOTOR_ARG, 0);
-		motor_rear_command(MOTOR_ARD, 0);
 		motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_OFF);
+	}
+	
+	if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_FORWARD && get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed)
+		motor_rear_command(MOTOR_ARD, motor_rear_control[MOTOR_ARD].speed);
+	else if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_BACKWARD && get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed)
+		motor_rear_command(MOTOR_ARD, -motor_rear_control[MOTOR_ARD].speed);
+	else if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_STOP){
+		motor_rear_command(MOTOR_ARD, 0);
 		motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_OFF);
 	}
 }
@@ -128,10 +132,10 @@ void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micr
 //	}
 //}
 
-int calculate_distance(Hall_Position pos){
+float* calculate_distance(Hall_Position pos){
 	static int rear_hall[HALL_NB]={0};
 //	float rear_distance[HALL_NB] = {0};
-	if(pos == HALL_ARG /*|| pos == HALL_ARD*/){
+	if(pos == HALL_ARG || pos == HALL_ARD){
 		rear_hall[pos]++;
 		rear_distance[pos] = WHEEL_PERIMETER * ((float)rear_hall[pos]) / WHEEL_PULSES_NB;
 //		if(rear_distance[HALL_ARG] > abs(distance)){
@@ -142,7 +146,7 @@ int calculate_distance(Hall_Position pos){
 //			rear_hall[HALL_ARG] = 0;
 //		}
 	}
-	return rear_distance[HALL_ARG];
+	return rear_distance;
 }
 
 void motor_front_stop(Hall_Position pos){

@@ -28,17 +28,11 @@ int main()
 	init_spiFrame(p_receivedFrame); //initialize the structure 
 	// Set random value to the structure for the test
 			// Sensors values 
-	receivedFrame.frontLeftUltrasound.distance = 80;
-	receivedFrame.frontRightUltrasound.distance = 81;
-	receivedFrame.frontCenterUltrasound.distance = 82;
-	receivedFrame.rearLeftUltrasound.distance = 83;
-	receivedFrame.rearRightUltrasound.distance = 84;
-	receivedFrame.rearCenterUltrasound.distance = 85;
+	int i = 0;
+	for(i = 0; i < 6 ; i++) 
+		receivedFrame.ultrasounds[i].distance = 80+i;
+
 			// Battery value
 	receivedFrame.battery.state = 86;
-	while(1){ // si ça ça fonctionne, ne plus s'en servir et passer dans le scheduler. Ne pas oublier de faire le init du scheduler dans drivers_car_config
-//		read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
-//		write_spiFrame((uint8_t *)sendBuffer, receivedFrame); // Write the Frame 
-//		rear_motors_control(receivedFrame.wheelMotor);
-	}
+	while(1){}
 }

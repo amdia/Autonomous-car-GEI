@@ -37,9 +37,6 @@ void services_init(void) {
 	disableFrontMotor();
 	motors_rear_init();
 	
-	//init GPIOD pin 5 for tests
-//	init_GPIO();
-	
 	//init scheduler
 	scheduler_timer_init();
 }
