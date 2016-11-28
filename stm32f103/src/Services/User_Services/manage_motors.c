@@ -34,18 +34,18 @@ void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 	if(motor_rear_control[MOTOR_ARD].direction != MOTOR_REAR_STOP && get_motor_rear_state(MOTOR_ARD) == MOTOR_OFF )
 		motor_rear_set_state(MOTOR_ARD, MOTOR_STATE_ON);
 	
-	if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_FORWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed)
+	if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_FORWARD/* && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed*/)
 		motor_rear_command(MOTOR_ARG, motor_rear_control[MOTOR_ARG].speed);
-	else if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_BACKWARD && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed)
+	else if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_BACKWARD/* && get_motor_rear_speed(MOTOR_ARG) != motor_rear_control[MOTOR_ARG].speed*/)
 		motor_rear_command(MOTOR_ARG, -motor_rear_control[MOTOR_ARG].speed);
 	else if(motor_rear_control[MOTOR_ARG].direction == MOTOR_REAR_STOP){
 		motor_rear_command(MOTOR_ARG, 0);
 		motor_rear_set_state(MOTOR_ARG, MOTOR_STATE_OFF);
 	}
 	
-	if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_FORWARD && get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed)
+	if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_FORWARD/* && get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed*/)
 		motor_rear_command(MOTOR_ARD, motor_rear_control[MOTOR_ARD].speed);
-	else if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_BACKWARD && get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed)
+	else if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_BACKWARD /*&& get_motor_rear_speed(MOTOR_ARD) != motor_rear_control[MOTOR_ARD].speed*/)
 		motor_rear_command(MOTOR_ARD, -motor_rear_control[MOTOR_ARD].speed);
 	else if(motor_rear_control[MOTOR_ARD].direction == MOTOR_REAR_STOP){
 		motor_rear_command(MOTOR_ARD, 0);

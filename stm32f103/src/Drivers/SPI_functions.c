@@ -6,7 +6,7 @@
 #include "SPI_functions.h"
 #include "motor_rear.h"
 #include "us_sensor.h"
-int dir, angle, speed;
+
 
 void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
 {
@@ -141,7 +141,7 @@ void init_spiFrame(Communication_Typedef *comStruct)
 void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 {
 		
-		
+		int dir, angle, speed;
 		// ---------------------------------------------------------------------------- //
 		//  																Direction motor															//
 		//																																							//
@@ -152,18 +152,26 @@ void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 		dir = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
 	  angle = (spiFrame[DIRECTION_MOTOR] & ANGLE_MASK) >> ANGLE_OFFSET;
 	
-		switch (dir) {
-			case 0: // left
-				comStruct->directionMotor.direction = LEFT;
-				comStruct->directionMotor.angle = angle;
-			break;
-			case 1: // right
-				comStruct->directionMotor.direction = RIGHT;
-				comStruct->directionMotor.angle = -angle;	
-			break;
-			default:
-					comStruct->directionMotor.direction = STOP;
-					comStruct->directionMotor.angle = 0;	
+		if(angle == 0)
+		{
+			comStruct->directionMotor.direction = STOP;
+			comStruct->directionMotor.angle = angle;
+		}
+		else
+		{
+			switch (dir) {
+				case 0: // left
+					comStruct->directionMotor.direction = LEFT;
+					comStruct->directionMotor.angle = -angle;
+				break;
+				case 1: // right
+					comStruct->directionMotor.direction = RIGHT;
+					comStruct->directionMotor.angle = angle;	
+				break;
+				default:
+						comStruct->directionMotor.direction = STOP;
+						comStruct->directionMotor.angle = 0;	
+			}
 		}
 		
 		// -------------------------------------------------------------------------------------------------------- //
@@ -197,6 +205,7 @@ void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 					comStruct->rear_motors[MOTOR_ARG].speed = 0;
 			}
 		}
+			
 		
 		// -------------------------------------------------------------------------------------------------------- //
 		//  																					rightwheel motor 		 																					//
@@ -210,8 +219,8 @@ void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 		
 		if(speed == 0)
 		{
-			comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
-			comStruct->rear_motors[MOTOR_ARG].speed = speed;
+			comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+			comStruct->rear_motors[MOTOR_ARD].speed = 0;
 		}
 		else
 		{
