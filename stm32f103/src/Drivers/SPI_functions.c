@@ -7,6 +7,7 @@
 #include "motor_rear.h"
 #include "us_sensor.h"
 
+
 void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer)
 {
 	/***** GPIO *****/
@@ -114,7 +115,6 @@ void init_spiFrame(Communication_Typedef *comStruct)
 {
 	// Initialization of the motors
 	comStruct->directionMotor.direction = STOP;
-	comStruct->directionMotor.speed = 0;
 	comStruct->directionMotor.angle = 0;
 	
 	comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
@@ -141,98 +141,103 @@ void init_spiFrame(Communication_Typedef *comStruct)
 void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct)
 {
 		
-		int dir; 
-		// -------------------------------------------------------------------------------- //
-		//  																Direction motor  																//
-		//																																									//
-		//  	Format of the octets : 																												//
-		// 		| Direction | Direction | Speed | Speed | Speed | Speed | Speed | Speed |  		//
-		// 		| Angle     | Angle     | Angle | Angle | Angle | Angle | Angle | Angle |			//
-		// -------------------------------------------------------------------------------- //
-			// Direction
+		int dir, angle, speed;
+		// ---------------------------------------------------------------------------- //
+		//  																Direction motor															//
+		//																																							//
+		//  	Format of the octets : 																										//
+		// 		| Direction | Angle | Angle | Angle | Angle | Angle | Angle | Angle |  		//
+		// ---------------------------------------------------------------------------- //
+			
 		dir = (spiFrame[DIRECTION_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-		switch (dir) {
-			case 1: //stop 
-				comStruct->directionMotor.direction = STOP;
-			break;
-			case 2: // left
-				comStruct->directionMotor.direction = LEFT;
-			break;
-			case 3: //right
-				comStruct->directionMotor.direction = RIGHT;
-			break;
-			default:
-				comStruct->directionMotor.direction = STOP;
+	  angle = (spiFrame[DIRECTION_MOTOR] & ANGLE_MASK) >> ANGLE_OFFSET;
+	
+		if(angle == 0)
+		{
+			comStruct->directionMotor.direction = STOP;
+			comStruct->directionMotor.angle = angle;
 		}
-			
-			// Speed
-		comStruct->directionMotor.speed = 2*(spiFrame[DIRECTION_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-			
-			// Angle
-		int angle = spiFrame[DIRECTION_MOTOR_ANGLE];
-		if(angle < 45)
-			comStruct->directionMotor.angle = -angle;
 		else
-			comStruct->directionMotor.angle  = angle-45;
-
+		{
+			switch (dir) {
+				case 0: // left
+					comStruct->directionMotor.direction = LEFT;
+					comStruct->directionMotor.angle = -angle;
+				break;
+				case 1: // right
+					comStruct->directionMotor.direction = RIGHT;
+					comStruct->directionMotor.angle = angle;	
+				break;
+				default:
+						comStruct->directionMotor.direction = STOP;
+						comStruct->directionMotor.angle = 0;	
+			}
+		}
+		
 		// -------------------------------------------------------------------------------------------------------- //
-		//  																leftwheel motor 		 																												//
+		//  																				leftwheel motor 		 																						//
 		//																																																					//
 		//  	Format of the octet : 																																								//
 		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
-		//		| Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance | 			//
 		// -------------------------------------------------------------------------------------------------------- //	
-			// Direction
+			
 		dir = (spiFrame[LEFT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-		switch (dir) {
-			case 1: //stop 
-				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
-			break;
-			case 2: // forward
-				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_FORWARD;
-			break;
-			case 3: //backward
-				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_BACKWARD;
-			break;
-			default:
-				comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
+		speed = (spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		
+		if(speed == 0)
+		{
+			comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
+			comStruct->rear_motors[MOTOR_ARG].speed = speed;
 		}
-		
-			// Speed
-		comStruct->rear_motors[MOTOR_ARG].speed = 2*(spiFrame[LEFT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-		
-			// Distance 
-		comStruct->rear_motors[MOTOR_ARG].distance = spiFrame[LEFT_WHEEL_MOTOR_DISTANCE];
+		else
+		{
+			switch (dir) {
+				case 0: // forward
+					comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_FORWARD;
+					comStruct->rear_motors[MOTOR_ARG].speed = speed;
+				break;
+				case 1: // backward
+					comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_BACKWARD;
+					comStruct->rear_motors[MOTOR_ARG].speed = speed;
+				break;
+				default:
+					comStruct->rear_motors[MOTOR_ARG].direction = MOTOR_REAR_STOP;
+					comStruct->rear_motors[MOTOR_ARG].speed = 0;
+			}
+		}
+			
 		
 		// -------------------------------------------------------------------------------------------------------- //
-		//  																rightwheel motor 		 																												//
+		//  																					rightwheel motor 		 																					//
 		//																																																					//
 		//  	Format of the octet : 																																								//
 		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
-		//		| Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance  | Distance | 			//
 		// -------------------------------------------------------------------------------------------------------- //	
-			// Direction
+			
 		dir = (spiFrame[RIGHT_WHEEL_MOTOR] & DIRECTION_MASK) >> DIRECTION_OFFSET;
-		switch (dir) {
-			case 1: //stop 
-				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
-			break;
-			case 2: // forward
-				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_FORWARD;
-			break;
-			case 3: //backward
-				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_BACKWARD;
-			break;
-			default:
-				comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+		speed = (spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
+		
+		if(speed == 0)
+		{
+			comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+			comStruct->rear_motors[MOTOR_ARD].speed = 0;
 		}
-		
-			// Speed
-		comStruct->rear_motors[MOTOR_ARD].speed = 2*(spiFrame[RIGHT_WHEEL_MOTOR] & SPEED_MASK) >> SPEED_OFFSET;
-		
-			// Distance 
-		comStruct->rear_motors[MOTOR_ARD].distance = spiFrame[RIGHT_WHEEL_MOTOR_DISTANCE];
-		
+		else
+		{
+			switch (dir) {
+				case 0: //forward 
+					comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_FORWARD;
+					comStruct->rear_motors[MOTOR_ARD].speed = speed;
+				break;
+				case 1: // backward
+					comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_BACKWARD;
+					comStruct->rear_motors[MOTOR_ARD].speed = speed;
+				break;
+				default:
+					comStruct->rear_motors[MOTOR_ARD].direction = MOTOR_REAR_STOP;
+					comStruct->rear_motors[MOTOR_ARD].speed = 0;
+			}
+		}
 }
 
 void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct)
@@ -240,7 +245,6 @@ void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct)
 	
 	// Motor values equals 0
 	spiFrame[DIRECTION_MOTOR] = 0;
-	spiFrame[DIRECTION_MOTOR_ANGLE] = 0;
 	spiFrame[RIGHT_WHEEL_MOTOR] = 0;
 	spiFrame[LEFT_WHEEL_MOTOR] = 0;
 	spiFrame[LEFT_WHEEL_MOTOR_DISTANCE] = (int8_t)comStruct.rear_motors[MOTOR_ARD].distance;
