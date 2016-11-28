@@ -27,7 +27,7 @@ void ultrasonic_callback(Ultrasonic_Position pos) {
 
 void scheduler_IT_callback(){
 	if(IS_TASK(TASK_SPI)){
-		//read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
+		read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
 		write_spiFrame((uint8_t *)sendBuffer, receivedFrame); // Write the Frame 
 	}
 	
