@@ -17,14 +17,17 @@ void hall_callback(Hall_Position pos){
 	if(pos == HALL_AVG || pos == HALL_AVD)
 		motor_front_stop(pos);
 }
-
+int i[6] = {0};
+//ordre du tableau dans receivedFrame ARG, ARC, AVC, AVD, AVG
 void ultrasonic_callback(Ultrasonic_Position pos) {
+	i[pos]++;
+	receivedFrame.ultrasounds[pos].distance = i[pos];
 	//receivedFrame.ultrasounds[pos].distance = ultrasonic_get_distance(pos);
 }
 
 void scheduler_IT_callback(){
 	if(IS_TASK(TASK_SPI)){
-		read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
+		//read_spiFrame((uint8_t *)receiveBuffer, (Communication_Typedef *)&receivedFrame); // Read the Frame 
 		write_spiFrame((uint8_t *)sendBuffer, receivedFrame); // Write the Frame 
 	}
 	
