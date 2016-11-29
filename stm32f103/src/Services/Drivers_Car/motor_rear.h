@@ -3,6 +3,7 @@
 
 #include "drivers_car_config.h"
 #include "hall_sensor.h"
+#include "SPI_functions.h"
 
 #define WHEEL_PERIMETER ((float)63.5) // cm
 #define WHEEL_PULSES_NB ((float)36)
@@ -24,5 +25,6 @@ int motor_rear_command(Motor_Rear_Position motor, int speed);
 int motor_rear_set_state(Motor_Rear_Position motor, Motor_State motor_state);
 Motor_State get_motor_rear_state(Motor_Rear_Position motor);
 int get_motor_rear_speed(Motor_Rear_Position motor);
+MotorRearDirection get_motor_direction(Motor_Rear_Position motor);
 
 #endif // _MOTOR_REAR_H_

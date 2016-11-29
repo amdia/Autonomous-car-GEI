@@ -27,7 +27,7 @@
   
 #define ULTRASONIC_BRING_ECHO_PIN_BACK(name)    \
   do {  \
-    ultrasonic_##name.gpioMode = GPIO_Mode_IPU;  \
+    ultrasonic_##name.gpioMode = GPIO_Mode_IN_FLOATING;  \
     GPIO_Configuration(&ultrasonic_##name);  \
   } while(0)  \
   
@@ -73,9 +73,9 @@ void init_ultrasonic_sensors(void) {
 }
 
 void ultrasonic_trig_all(void) {
-	ultrasonic_reset_all_echo_pins();
+  ultrasonic_reset_all_echo_pins();
 	ultrasonic_trigger();
-	delay_micros(ULTRASONIC_TRIGGER_DELAY);
+  delay_micros(ULTRASONIC_TRIGGER_DELAY);
 	ultrasonic_untrigger();
 }
 

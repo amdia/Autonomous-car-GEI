@@ -2,12 +2,14 @@
 #include "motor_control.h"
 #include "hall_sensor.h"
 #include "time_systick.h"
+#include "SPI_functions.h" 
 
 static Motor_TypeDef motor_ARD;
 static Motor_TypeDef motor_ARG;
 
 Motor_State motors_state[REAR_MOTORS_NB] = {MOTOR_STATE_OFF, MOTOR_STATE_OFF};
 int motors_speed[REAR_MOTORS_NB] = {0,0};
+MotorRearDirection motor_rear_directions[REAR_MOTORS_NB] = {MOTOR_REAR_STOP, MOTOR_REAR_STOP};
 
 void motors_rear_init(void) {
   PWM_TypeDef pwm11;
@@ -69,10 +71,22 @@ int motor_rear_command(Motor_Rear_Position motor, int speed) {
 		case MOTOR_ARD:
 			motorCmd(&motor_ARD, speed);
 			motors_speed[MOTOR_ARD] = speed;
+			if(speed > 0)
+				motor_rear_directions[MOTOR_ARD] = MOTOR_REAR_FORWARD;
+			else if(speed <0)
+				motor_rear_directions[MOTOR_ARD] = MOTOR_REAR_BACKWARD;
+			else
+				motor_rear_directions[MOTOR_ARD] = MOTOR_REAR_STOP;
 			break;
 		case MOTOR_ARG:
 			motorCmd(&motor_ARG, speed);
 			motors_speed[MOTOR_ARG] = speed;
+			if(speed > 0)
+				motor_rear_directions[MOTOR_ARG] = MOTOR_REAR_FORWARD;
+			else if(speed <0)
+				motor_rear_directions[MOTOR_ARG] = MOTOR_REAR_BACKWARD;
+			else
+				motor_rear_directions[MOTOR_ARG] = MOTOR_REAR_STOP;
 			break;
 		default:
 			return -1;
@@ -95,6 +109,10 @@ int motor_rear_set_state(Motor_Rear_Position motor, Motor_State motor_state) {
 			return -1;
 	}
 	return 0;
+}
+
+MotorRearDirection get_motor_direction(Motor_Rear_Position motor){
+	return motor_rear_directions[motor];
 }
 
 Motor_State get_motor_rear_state(Motor_Rear_Position motor){

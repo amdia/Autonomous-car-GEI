@@ -30,8 +30,8 @@
 #define ULTRASONIC_TRIG_PORT	  	 GPIOC
 
 // Front center
-#define ULTRASONIC_AVC_ECHO_PIN	  GPIO_Pin_0
-#define ULTRASONIC_AVC_ECHO_PORT   GPIOC
+#define ULTRASONIC_AVC_ECHO_PIN	  GPIO_Pin_8
+#define ULTRASONIC_AVC_ECHO_PORT   GPIOA
 
 // Front left
 #define ULTRASONIC_AVG_ECHO_PIN	  GPIO_Pin_9
@@ -46,7 +46,7 @@
 #define ULTRASONIC_ARC_ECHO_PORT	GPIOB
 
 // Rear left
-#define ULTRASONIC_ARG_ECHO_PIN	  GPIO_Pin_1
+#define ULTRASONIC_ARG_ECHO_PIN	  GPIO_Pin_7
 #define ULTRASONIC_ARG_ECHO_PORT	GPIOC
 
 // Rear right
@@ -54,7 +54,7 @@
 #define ULTRASONIC_ARD_ECHO_PORT	GPIOC
 
 #define TEMPS_TRIG  250e3
-#define ULTRASONIC_TRIGGER_DELAY 30
+#define ULTRASONIC_TRIGGER_DELAY 15
 
 // ------------------------------------------- //
 // ---------------- Hall sensors-------------- //

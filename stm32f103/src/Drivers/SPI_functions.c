@@ -254,3 +254,7 @@ void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct)
 	
 }
 
+
+
+
+
