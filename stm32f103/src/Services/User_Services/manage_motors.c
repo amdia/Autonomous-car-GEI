@@ -4,7 +4,7 @@
 #include "motor_rear.h"
 #include "manage_motors.h"
 #include "time_systick.h"
-#include "SPI_functions.h"
+#include "SPI_services.h"
 
 //__IO Direction front = STOP;
 //__IO int rear = 0;

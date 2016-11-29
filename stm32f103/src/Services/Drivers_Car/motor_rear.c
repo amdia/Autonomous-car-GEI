@@ -2,7 +2,7 @@
 #include "motor_control.h"
 #include "hall_sensor.h"
 #include "time_systick.h"
-#include "SPI_functions.h" 
+#include "SPI_services.h" 
 
 static Motor_TypeDef motor_ARD;
 static Motor_TypeDef motor_ARG;

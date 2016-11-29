@@ -3,7 +3,7 @@
 
 #include "drivers_car_config.h"
 #include "hall_sensor.h"
-#include "SPI_functions.h"
+#include "SPI_services.h"
 
 #define WHEEL_PERIMETER ((float)63.5) // cm
 #define WHEEL_PULSES_NB ((float)36)

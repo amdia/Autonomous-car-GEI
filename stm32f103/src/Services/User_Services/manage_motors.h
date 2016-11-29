@@ -4,7 +4,7 @@
 #include "motor_front.h"
 #include "motor_rear.h"
 #include "hall_sensor.h"
-#include "SPI_functions.h"
+#include "SPI_services.h"
 
 #define ANGLE_LEFT_MAX 										(45)
 #define ANGLE_RIGHT_MAX 									(-45)
