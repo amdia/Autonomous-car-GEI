@@ -1,4 +1,5 @@
 #include "sensor_IT.h"
+#include "gpio.h"
 
 #define IF_DEFINE_NUM(n) \
 	if (initStructSensor->pin == GPIO_Pin_##n) { \
@@ -15,7 +16,6 @@
 	}\
 
 // Private functions
-//static void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor);
 static void EXTI_Config(Sensor_IT_TypeDef* initStructSensor);
 
 //public functions
@@ -34,14 +34,7 @@ unsigned int Sensor_IT_Read(Sensor_IT_TypeDef* structSensor) {
 }
 
 void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
-   GPIO_InitTypeDef GPIO_InitStructure;
-
-   // GPIO_Pin_Sensor configuration
-   GPIO_InitStructure.GPIO_Pin = initStructSensor->pin;
-   GPIO_InitStructure.GPIO_Mode = initStructSensor->gpioMode;
-   GPIO_InitStructure.GPIO_Speed = initStructSensor->gpioSpeed;
-
-   GPIO_Init(initStructSensor->port, &GPIO_InitStructure);
+	GPIO_init(initStructSensor->port, initStructSensor->pin, initStructSensor->gpioMode);
 }
 
 // Private functions

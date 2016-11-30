@@ -1,8 +1,7 @@
  #include <misc.h>
  #include <stm32f10x.h>
- #include <stm32f10x_tim.h>
  #include "timer.h"
- #include "drivers_car_config.h"
+ #include "NVIC_priorities.h"
  
 #define IF_DEFINE_IT_FUNCTION(n) \
 	if (SCHEDULER_TIMER == TIM##n) \

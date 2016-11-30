@@ -1,8 +1,7 @@
 #ifndef _PWM_OUTPUT_H_
 #define _PWM_OUTPUT_H_
 
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_tim.h"
+#include <stm32f10x.h>
 
 #define COUNTER_CLOCK_FREQ_1MHz  1e6 
 #define PWM_MODE_1               1
@@ -24,7 +23,6 @@ typedef struct {
   uint16_t timerChannel;
   uint16_t periodUs;
   uint16_t dutyCyclePercent;
-  GPIOSpeed_TypeDef speed;
   uint16_t mode;
 } PWM_TypeDef;
 

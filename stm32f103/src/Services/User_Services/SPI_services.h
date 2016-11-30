@@ -1,9 +1,9 @@
 #ifndef __SPI_SERVICES_H
 #define __SPI_SERVICES_H
 
-#include "motor_front.h"
-
-#define BUFFER_SIZE 12
+#include <stdint.h>
+#include "motor_common.h"
+#include "sensors_common.h"
 
 /* 
 	Format of the frame :
@@ -16,54 +16,30 @@
 
 */
 
-// 	Number of the octet 
-#define DIRECTION_MOTOR 0
-#define LEFT_WHEEL_MOTOR 1
-#define RIGHT_WHEEL_MOTOR 2
-#define LEFT_WHEEL_MOTOR_DISTANCE 3
-#define RIGHT_WHEEL_MOTOR_DISTANCE 4
-#define FRONT_LEFT_ULTRASOUND 5
-#define FRONT_RIGHT_ULTRASOUND 6 
-#define FRONT_CENTER_ULTRASOUND 7
-#define REAR_LEFT_ULTRASOUND 8
-#define REAR_RIGHT_ULTRASOUND 9 
-#define REAR_CENTER_ULTRASOUND 10
-#define BATTERY 11
-
 // Mask and offset for the motors
 #define DIRECTION_MASK 128 // 1000 000
 #define DIRECTION_OFFSET 7
 #define SPEED_MASK 127 // 0111 1111
 #define SPEED_OFFSET 0
 #define ANGLE_MASK 127 // 0111 1111
-#define ANGLE_OFFSET 0	
+#define ANGLE_OFFSET 0
 
-typedef enum {
-	MOTOR_REAR_STOP,
-  MOTOR_REAR_FORWARD,
-  MOTOR_REAR_BACKWARD
-} MotorRearDirection;
 
-/**
- * \struct MotorRear_Typedef
- * \brief Structure that contains informations for the rear motors
- */
 typedef struct
 {
-	MotorRearDirection direction; /*!< Direction of the motor */
-	int speed; /*!< Speed of the motor in % */
-	int distance; /*!< Distance travelled */
-}MotorRear_Typedef;
-
-/**
- * \struct MotorFront_Typedef
- * \brief Structure that contains informations for the front motor
- */
-typedef struct
-{
-	Direction direction; /*!< Direction of the motor */
-	int angle; /*!< Angle to turn */
-}MotorFront_Typedef;
+	uint8_t direction_motor;
+	uint8_t left_wheel_motor;
+	uint8_t right_wheel_motor; 
+	uint8_t left_wheel_motor_distance; 
+	uint8_t right_wheel_motor_distance;
+	uint8_t front_left_ultrasonic;
+	uint8_t front_right_ultrasonic;
+	uint8_t front_center_ultrasonic;
+	uint8_t rear_left_ultrasonic;
+	uint8_t rear_right_ultrasonic;
+	uint8_t rear_center_ultrasonic;
+	uint8_t battery;
+}OctetsFrame_Typedef;
 
 
 /**
@@ -104,14 +80,7 @@ typedef struct motorAction
     struct motorAction *nxt;
 }motorAction;
 
-
-
-
-extern __IO uint8_t sendBuffer[BUFFER_SIZE]; 
-extern __IO uint8_t receiveBuffer[BUFFER_SIZE];
-extern __IO Communication_Typedef receivedFrame;
-
-
+extern volatile Communication_Typedef receivedFrame;
 
 /** 
  *	\brief Initialize the communication structure
@@ -126,7 +95,7 @@ void init_spiFrame(Communication_Typedef *comStruct);
  * 	\param comStruct: The structure to update
  *	\return None
 */
-void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct);
+void read_spiFrame(Communication_Typedef* comStruct);
 
 /** 
  *	\brief Write the frame to send according to the communication structure
@@ -134,7 +103,7 @@ void read_spiFrame(uint8_t* spiFrame, Communication_Typedef* comStruct);
  * 	\param comStruct: The communication structure
  *	\return None
 */
-void write_spiFrame(uint8_t* spiFrame, Communication_Typedef comStruct);
+void write_spiFrame(Communication_Typedef comStruct);
 
 
-#endif
+#endif //SPIC_SERVICES_H

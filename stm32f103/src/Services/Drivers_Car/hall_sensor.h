@@ -2,17 +2,12 @@
 #define __HALL_SENSOR_H
 
 #include <stdint.h>
+#include "sensors_common.h"
 
-typedef enum {
-	HALL_POSITION_ERROR  = -1,
-	HALL_AVG = 0,
-	HALL_AVD = 1,
-	HALL_ARG = 2,
-	HALL_ARD = 3
-} Hall_Position;
-
-void init_hall_sensors(void);
+void hall_init(void);
 
 void hall_callback(Hall_Position pos);
+
+Hall_Position get_hall_position(uint16_t GPIO_Pin);
 
 #endif // __HALL_SENSOR_H

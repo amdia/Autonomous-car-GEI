@@ -1,4 +1,6 @@
 #include "motor_control.h"
+#include "motor_common.h"
+#include "gpio.h"
 
 void motorInit(Motor_TypeDef* init_struct) {
   GPIO_InitTypeDef enablePin;
@@ -12,11 +14,9 @@ void motorInit(Motor_TypeDef* init_struct) {
   init_struct->pwm2.dutyCyclePercent = MOTOR_PWM_DEFAULT_DUTY_CYCLE;
   init_struct->pwm2.periodUs = MOTOR_PWM_PERIOD_US;
   // check wheather 2 pwms have different config
-  if ((init_struct->pwm1.timer != init_struct->pwm2.timer) || \
-      (init_struct->pwm1.speed != init_struct->pwm1.speed)) {
+  if (init_struct->pwm1.timer != init_struct->pwm2.timer)
     init_struct->pwm2.timer = init_struct->pwm1.timer;
-    init_struct->pwm2.speed = init_struct->pwm1.speed;
-  } else {}
+  else {}
   // initialize pwm
   PWM_initialize(&(init_struct->pwm1));
   PWM_initialize(&(init_struct->pwm2));
@@ -39,10 +39,10 @@ void motorCmd(Motor_TypeDef* motor_struct, int speed) {
   PWM_CmdDutyCycle(&(motor_struct->pwm2), dutyCycle);
 }
 
-void motorEnable(Motor_TypeDef* motor_struct, Motor_Enable enable) {
-  if (enable == MOTOR_ON) {
-    GPIO_SetBits(motor_struct->enablePort, motor_struct->enablePin);
+void motorEnable(Motor_TypeDef* motor_struct, Motor_State enable) {
+  if (enable == MOTOR_STATE_ON) {
+    GPIO_set(motor_struct->enablePort, motor_struct->enablePin);
   } else {
-    GPIO_ResetBits(motor_struct->enablePort, motor_struct->enablePin);
+    GPIO_reset(motor_struct->enablePort, motor_struct->enablePin);
   }
 }

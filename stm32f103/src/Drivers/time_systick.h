@@ -1,7 +1,7 @@
 #ifndef _TIME_SYSTICK_H_
 #define _TIME_SYSTICK_H_
 
-#include "stm32f10x.h"
+#include <stm32f10x.h>
 
 #define SYSTICK_MICROS  1000000
 

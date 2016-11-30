@@ -1,51 +1,42 @@
 #include "hall_sensor.h"
 #include "sensor_IT.h"
-#include "callback_functions.h"
-#include "drivers_car_config.h"
-#include "time_systick.h"
+#include "sensors_common.h"
+#include "NVIC_priorities.h"
 
-static Sensor_IT_TypeDef structSensor_AVG;
-static Sensor_IT_TypeDef structSensor_AVD;
-static Sensor_IT_TypeDef structSensor_ARG;
-static Sensor_IT_TypeDef structSensor_ARD;
-
-
-void init_hall_sensors(void){
-	structSensor_AVG.pin = HALL_AVG_PIN;
-	structSensor_AVG.port = HALL_AVG_PORT;
-	structSensor_AVG.gpioSpeed = GPIO_Speed_50MHz;
-	structSensor_AVG.gpioMode = GPIO_Mode_IPU;
-	structSensor_AVG.triggerType = EXTI_Trigger_Falling;
-	structSensor_AVG.priority = HALL_PRIO;
-	Sensor_IT_Config(&structSensor_AVG);
+void hall_init(void){
+	Sensor_IT_TypeDef sensor_struct;
 	
-	structSensor_AVD.pin = HALL_AVD_PIN;
-	structSensor_AVD.port = HALL_AVD_PORT;
-	structSensor_AVD.gpioSpeed = GPIO_Speed_50MHz;
-	structSensor_AVD.gpioMode = GPIO_Mode_IPU;
-	structSensor_AVD.triggerType = EXTI_Trigger_Falling;
-	structSensor_AVD.priority = HALL_PRIO;
-	Sensor_IT_Config(&structSensor_AVD);
+	sensor_struct.gpioMode = GPIO_Mode_IPU;
+	sensor_struct.triggerType = EXTI_Trigger_Falling;
+	sensor_struct.priority = HALL_PRIO;
 	
-	structSensor_ARG.pin = HALL_ARG_PIN;
-	structSensor_ARG.port = HALL_ARG_PORT;
-	structSensor_ARG.gpioSpeed = GPIO_Speed_50MHz;
-	structSensor_ARG.gpioMode = GPIO_Mode_IPU;
-	structSensor_ARG.triggerType = EXTI_Trigger_Falling;
-	structSensor_ARG.priority = HALL_PRIO;
-	Sensor_IT_Config(&structSensor_ARG);
+	sensor_struct.pin = HALL_FRONT_LEFT_PIN;
+	sensor_struct.port = HALL_FRONT_LEFT_PORT;
+	Sensor_IT_Config(&sensor_struct);
 	
-	structSensor_ARD.pin = HALL_ARD_PIN;
-	structSensor_ARD.port = HALL_ARD_PORT;
-	structSensor_ARD.gpioSpeed = GPIO_Speed_50MHz;
-	structSensor_ARD.gpioMode = GPIO_Mode_IPU;
-	structSensor_ARD.triggerType = EXTI_Trigger_Falling;
-	structSensor_ARD.priority = HALL_PRIO;
-	Sensor_IT_Config(&structSensor_ARD);
+	sensor_struct.pin = HALL_FRONT_RIGHT_PIN;
+	sensor_struct.port = HALL_FRONT_RIGHT_PORT;
+	Sensor_IT_Config(&sensor_struct);
+	
+	sensor_struct.pin = HALL_REAR_LEFT_PIN;
+	sensor_struct.port = HALL_REAR_LEFT_PORT;
+	Sensor_IT_Config(&sensor_struct);
+	
+	sensor_struct.pin = HALL_REAR_RIGHT_PIN;
+	sensor_struct.port = HALL_REAR_RIGHT_PORT;
+	Sensor_IT_Config(&sensor_struct);
 }
 
 __weak void hall_callback(Hall_Position pos){}
 
 void hall_exti_callback (uint16_t GPIO_Pin){
 	hall_callback(get_hall_position(GPIO_Pin));
+}
+
+Hall_Position get_hall_position(uint16_t GPIO_Pin){
+		  if (GPIO_Pin == HALL_FRONT_LEFT_PIN) return HALL_FRONT_LEFT;
+	else if (GPIO_Pin == HALL_FRONT_RIGHT_PIN) return HALL_FRONT_RIGHT;
+	else if (GPIO_Pin == HALL_REAR_LEFT_PIN) return HALL_REAR_LEFT;
+	else if (GPIO_Pin == HALL_REAR_RIGHT_PIN) return HALL_REAR_RIGHT;
+	else return HALL_POSITION_ERROR;
 }
