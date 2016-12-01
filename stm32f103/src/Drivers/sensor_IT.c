@@ -1,5 +1,6 @@
 #include "sensor_IT.h"
 #include "gpio.h"
+#include "IT_functions.h"
 
 #define IF_DEFINE_NUM(n) \
 	if (initStructSensor->pin == GPIO_Pin_##n) { \

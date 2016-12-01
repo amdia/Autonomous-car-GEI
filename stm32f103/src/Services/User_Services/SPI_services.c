@@ -4,31 +4,31 @@
 
 volatile Communication_Typedef receivedFrame;
 
-void init_spiFrame(Communication_Typedef *comStruct)
+void init_spiFrame(void)
 {
 	// Initialization of the motors
-	comStruct->directionMotor.angle = 0;
+	receivedFrame.directionMotor.angle = 0;
 	
-	comStruct->rear_motors[REAR_MOTOR_LEFT].speed = 0;
-	comStruct->rear_motors[REAR_MOTOR_LEFT].distance = 0;
+	receivedFrame.rear_motors[REAR_MOTOR_LEFT].speed = 0;
+	receivedFrame.rear_motors[REAR_MOTOR_LEFT].distance = 0;
 	
-	comStruct->rear_motors[REAR_MOTOR_RIGHT].speed = 0;
-	comStruct->rear_motors[REAR_MOTOR_RIGHT].distance = 0;
+	receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = 0;
+	receivedFrame.rear_motors[REAR_MOTOR_RIGHT].distance = 0;
 
 	// Initialization of the sensors
-	comStruct->ultrasounds[ULTRASONIC_FRONT_CENTER].distance = 0;
-	comStruct->ultrasounds[ULTRASONIC_FRONT_LEFT].distance = 0;
-	comStruct->ultrasounds[ULTRASONIC_FRONT_RIGHT].distance = 0;
-	comStruct->ultrasounds[ULTRASONIC_REAR_CENTER].distance = 0;
-	comStruct->ultrasounds[ULTRASONIC_REAR_LEFT].distance = 0;
-	comStruct->ultrasounds[ULTRASONIC_REAR_RIGHT].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_FRONT_CENTER].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_FRONT_LEFT].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_FRONT_RIGHT].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_REAR_CENTER].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_REAR_LEFT].distance = 0;
+	receivedFrame.ultrasounds[ULTRASONIC_REAR_RIGHT].distance = 0;
 
 	// Initialization of the battery 
-	comStruct->battery.state = 0;
+	receivedFrame.battery.state = 0;
 
 }
 
-void read_spiFrame(Communication_Typedef* comStruct)
+void read_spiFrame(void)
 {
 		
 	int dir, angle, speed;
@@ -45,13 +45,13 @@ void read_spiFrame(Communication_Typedef* comStruct)
 	
 		switch (dir) {
 			case 0: // left
-				comStruct->directionMotor.angle = angle;
+				receivedFrame.directionMotor.angle = angle;
 			break;
 			case 1: // right
-				comStruct->directionMotor.angle = -angle;	
+				receivedFrame.directionMotor.angle = -angle;	
 			break;
 			default:
-					comStruct->directionMotor.angle = 0;	
+					receivedFrame.directionMotor.angle = 0;	
 		}
 		
 		// -------------------------------------------------------------------------------------------------------- //
@@ -63,7 +63,7 @@ void read_spiFrame(Communication_Typedef* comStruct)
 			
 		speed = (octetsFrame->left_wheel_motor & SPEED_MASK) >> SPEED_OFFSET;
 		
-		comStruct->rear_motors[REAR_MOTOR_LEFT].speed = speed;
+		receivedFrame.rear_motors[REAR_MOTOR_LEFT].speed = speed;
 		
 		// -------------------------------------------------------------------------------------------------------- //
 		//  																					rightwheel motor 		 																					//
@@ -74,10 +74,10 @@ void read_spiFrame(Communication_Typedef* comStruct)
 			
 		speed = (octetsFrame->right_wheel_motor & SPEED_MASK) >> SPEED_OFFSET;
 		
-		comStruct->rear_motors[REAR_MOTOR_RIGHT].speed = speed;
+		receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = speed;
 }
 
-void write_spiFrame(Communication_Typedef comStruct)
+void write_spiFrame(void)
 {
 	OctetsFrame_Typedef *octetsFrame =(OctetsFrame_Typedef *)sendBuffer;
 	
@@ -87,19 +87,19 @@ void write_spiFrame(Communication_Typedef comStruct)
 	octetsFrame->right_wheel_motor = 0;
 	
 	//distance both wheels
-	octetsFrame->left_wheel_motor_distance = (int8_t)comStruct.rear_motors[REAR_MOTOR_LEFT].distance;
-	octetsFrame->right_wheel_motor_distance = (int8_t)comStruct.rear_motors[REAR_MOTOR_RIGHT].distance;
+	octetsFrame->left_wheel_motor_distance = (int8_t)receivedFrame.rear_motors[REAR_MOTOR_LEFT].distance;
+	octetsFrame->right_wheel_motor_distance = (int8_t)receivedFrame.rear_motors[REAR_MOTOR_RIGHT].distance;
 
 	// Sensors values 
-	octetsFrame->front_left_ultrasonic = (int8_t)comStruct.ultrasounds[ULTRASONIC_FRONT_LEFT].distance;
-	octetsFrame->front_right_ultrasonic = (int8_t)comStruct.ultrasounds[ULTRASONIC_FRONT_RIGHT].distance;
-	octetsFrame->front_center_ultrasonic = (int8_t)comStruct.ultrasounds[ULTRASONIC_FRONT_CENTER].distance;
-	octetsFrame->rear_left_ultrasonic = (int8_t)comStruct.ultrasounds[ULTRASONIC_REAR_LEFT].distance;
-	octetsFrame->rear_right_ultrasonic= (int8_t)comStruct.ultrasounds[ULTRASONIC_REAR_RIGHT].distance;
-	octetsFrame->rear_center_ultrasonic = (int8_t)comStruct.ultrasounds[ULTRASONIC_REAR_CENTER].distance;
+	octetsFrame->front_left_ultrasonic = (int8_t)receivedFrame.ultrasounds[ULTRASONIC_FRONT_LEFT].distance;
+	octetsFrame->front_right_ultrasonic = (int8_t)receivedFrame.ultrasounds[ULTRASONIC_FRONT_RIGHT].distance;
+	octetsFrame->front_center_ultrasonic = (int8_t)receivedFrame.ultrasounds[ULTRASONIC_FRONT_CENTER].distance;
+	octetsFrame->rear_left_ultrasonic = (int8_t)receivedFrame.ultrasounds[ULTRASONIC_REAR_LEFT].distance;
+	octetsFrame->rear_right_ultrasonic= (int8_t)receivedFrame.ultrasounds[ULTRASONIC_REAR_RIGHT].distance;
+	octetsFrame->rear_center_ultrasonic = (int8_t)receivedFrame.ultrasounds[ULTRASONIC_REAR_CENTER].distance;
 
 	// Battery
-	octetsFrame->battery = (int8_t)comStruct.battery.state;
+	octetsFrame->battery = (int8_t)receivedFrame.battery.state;
 	
 }
 

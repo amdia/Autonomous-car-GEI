@@ -1,10 +1,10 @@
 #include "SPI_functions.h"
-
+#include "SPI_common.h"
 #include <stm32f10x.h>
 #include "gpio.h"
 #include "NVIC_priorities.h"
 	
-void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer, int buffer_size)
+void InitializeSPI2(void)
 {
 	/***** GPIO *****/
 			
@@ -52,7 +52,7 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer, int buffer_si
 	DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(SPI2_BASE+0x0C); //Address of peripheral the DMA must map to
 	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)receiveBuffer; //Variable to which received data will be stored
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
-	DMA_InitStructure.DMA_BufferSize = buffer_size; //Buffer size
+	DMA_InitStructure.DMA_BufferSize = BUFFER_SIZE; //Buffer size
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
 	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
@@ -67,7 +67,7 @@ void InitializeSPI2(uint8_t * receiveBuffer, uint8_t * sendBuffer, int buffer_si
 	DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)(SPI2_BASE+0x0C); //Address of peripheral the DMA must map to
 	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)sendBuffer; //Variable from which data will be transmitted
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
-	DMA_InitStructure.DMA_BufferSize = buffer_size; //Buffer size
+	DMA_InitStructure.DMA_BufferSize = BUFFER_SIZE; //Buffer size
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
 	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;

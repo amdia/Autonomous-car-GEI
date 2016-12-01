@@ -2,7 +2,7 @@
 #include <stm32f10x.h>
 
 void clocks_init(void){
-	//--Enable the SPI2 periph
+	// Enable the SPI2 periph
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
 	
 	// Enable all GPIO ports

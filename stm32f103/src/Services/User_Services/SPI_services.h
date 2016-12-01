@@ -84,26 +84,21 @@ extern volatile Communication_Typedef receivedFrame;
 
 /** 
  *	\brief Initialize the communication structure
- *	\param comStruct: The structure to initialize
  *	\return None
  */
-void init_spiFrame(Communication_Typedef *comStruct);
+void init_spiFrame(void);
 
 /** 
  *	\brief Read the frame received and update the communication structure
- *	\param spiFrame : The frame received	
- * 	\param comStruct: The structure to update
  *	\return None
 */
-void read_spiFrame(Communication_Typedef* comStruct);
+void read_spiFrame(void);
 
 /** 
  *	\brief Write the frame to send according to the communication structure
- *	\param spiFrame : The frame to send	
- * 	\param comStruct: The communication structure
  *	\return None
 */
-void write_spiFrame(Communication_Typedef comStruct);
+void write_spiFrame(void);
 
 
 #endif //SPIC_SERVICES_H

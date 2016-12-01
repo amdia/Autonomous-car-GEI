@@ -14,7 +14,7 @@ void GPIO_set(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
 }
 
 void GPIO_reset(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){
-	GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_SET); 
+	GPIO_WriteBit(GPIOx, GPIO_Pin, Bit_RESET); 
 }
 
 

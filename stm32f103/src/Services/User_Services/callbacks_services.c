@@ -23,13 +23,13 @@ void ultrasonic_callback(Ultrasonic_Position pos) {
 void scheduler_IT_callback(){
 
 	if(IS_TASK(TASK_SPI)){
-		read_spiFrame((Communication_Typedef *)&receivedFrame); // Read the Frame 
-		write_spiFrame(receivedFrame); // Write the Frame 
+		read_spiFrame(); // Read the Frame 
+		write_spiFrame(); // Write the Frame 
 	}
 	
 	if (IS_TASK(TASK_MOTOR)){
-		control_angle_front_motor(receivedFrame.directionMotor.angle);
-		rear_motors_control((MotorRear_Typedef *)&receivedFrame.rear_motors);
+		//control_angle_front_motor(receivedFrame.directionMotor.angle);
+		//rear_motors_control((MotorRear_Typedef *)&receivedFrame.rear_motors);
 	}
 	
 	if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {
