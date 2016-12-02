@@ -24,7 +24,7 @@ void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 		get_motor_rear_state(REAR_MOTOR_RIGHT) == MOTOR_STATE_OFF )
 		motor_rear_set_state(REAR_MOTOR_RIGHT, MOTOR_STATE_ON);
 	
-	if(motor_rear_control[REAR_MOTOR_LEFT].speed != motor_rear_control[REAR_MOTOR_LEFT].speed){
+	if(motor_rear_control[REAR_MOTOR_LEFT].speed != get_motor_rear_speed(REAR_MOTOR_LEFT)){
 		motor_rear_command(REAR_MOTOR_LEFT, motor_rear_control[REAR_MOTOR_LEFT].speed);
 		if(motor_rear_control[REAR_MOTOR_RIGHT].speed == 0)
 			motor_rear_set_state(REAR_MOTOR_RIGHT, MOTOR_STATE_OFF);
@@ -38,9 +38,7 @@ void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 	
 }
 
-void control_angle_front_motor(int angle){ 
-	// fonction non-testé avec le if(micros > t_time+t_turn), 
-	// fonction validée avec while. A debug avec le if si ne fonctionne pas du premier coup
+void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micros > t_time+t_turn), fonction validée avec while. A debug avec le if si ne fonctionne pas du premier coup
 	static int actual_angle = ANGLE_INIT;
 	static int actual_command_angle = ANGLE_INIT;
 	static uint64_t t_temp = 0;
