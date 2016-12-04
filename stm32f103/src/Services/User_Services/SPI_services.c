@@ -4,6 +4,8 @@
 
 volatile Communication_Typedef receivedFrame;
 
+static int convert_2_int(uint8_t octet);
+
 void init_spiFrame(void)
 {
 	// Initialization of the motors
@@ -31,50 +33,37 @@ void init_spiFrame(void)
 void read_spiFrame(void)
 {
 		
-	int dir, angle, speed;
+	int angle, speed;
 	OctetsFrame_Typedef *octetsFrame =(OctetsFrame_Typedef *)receiveBuffer;
-		// ---------------------------------------------------------------------------- //
-		//  																Direction motor															//
-		//																																							//
-		//  	Format of the octets : 																										//
-		// 		| Direction | Angle | Angle | Angle | Angle | Angle | Angle | Angle |  		//
-		// ---------------------------------------------------------------------------- //
-			
-		dir = (octetsFrame->direction_motor & DIRECTION_MASK) >> DIRECTION_OFFSET;
-	  angle = (octetsFrame->direction_motor & ANGLE_MASK) >> ANGLE_OFFSET;
-	
-		switch (dir) {
-			case 0: // left
-				receivedFrame.directionMotor.angle = angle;
-			break;
-			case 1: // right
-				receivedFrame.directionMotor.angle = -angle;	
-			break;
-			default:
-					receivedFrame.directionMotor.angle = 0;	
-		}
-		
-		// -------------------------------------------------------------------------------------------------------- //
-		//  																				leftwheel motor 		 																						//
-		//																																																					//
-		//  	Format of the octet : 																																								//
-		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
-		// -------------------------------------------------------------------------------------------------------- //	
-			
-		speed = (octetsFrame->left_wheel_motor & SPEED_MASK) >> SPEED_OFFSET;
-		
-		receivedFrame.rear_motors[REAR_MOTOR_LEFT].speed = speed;
-		
-		// -------------------------------------------------------------------------------------------------------- //
-		//  																					rightwheel motor 		 																					//
-		//																																																					//
-		//  	Format of the octet : 																																								//
-		// 		| Direction | Direction | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
-		// -------------------------------------------------------------------------------------------------------- //	
-			
-		speed = (octetsFrame->right_wheel_motor & SPEED_MASK) >> SPEED_OFFSET;
-		
-		receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = speed;
+	// ---------------------------------------------------------------------------- //
+	//  																Direction motor															//
+	//																																							//
+	//  	Format of the octets : 																										//
+	// 		| Angle | Angle | Angle | Angle | Angle | Angle | Angle | Angle |  		//
+	// ---------------------------------------------------------------------------- //
+
+	angle = octetsFrame->direction_motor;
+	receivedFrame.directionMotor.angle = convert_2_int(angle);	
+
+	// -------------------------------------------------------------------------------------------------------- //
+	//  																				leftwheel motor 		 																						//
+	//																																																					//
+	//  	Format of the octet : 																																								//
+	// 		| Speed | Speed | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
+	// -------------------------------------------------------------------------------------------------------- //	
+
+	speed = octetsFrame->left_wheel_motor;
+	receivedFrame.rear_motors[REAR_MOTOR_LEFT].speed = convert_2_int(speed);
+
+	// -------------------------------------------------------------------------------------------------------- //
+	//  																					rightwheel motor 		 																					//
+	//																																																					//
+	//  	Format of the octet : 																																								//
+	// 		| Speed | Speed | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		//
+	// -------------------------------------------------------------------------------------------------------- //	
+
+	speed = octetsFrame->right_wheel_motor;
+	receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = convert_2_int(speed);
 }
 
 void write_spiFrame(void)
@@ -101,6 +90,13 @@ void write_spiFrame(void)
 	// Battery
 	octetsFrame->battery = (int8_t)receivedFrame.battery.state;
 	
+}
+
+int convert_2_int(uint8_t octet){
+	if(octet > 127)
+		return (256 - octet) * (-1);
+	else
+		return octet;
 }
 
 

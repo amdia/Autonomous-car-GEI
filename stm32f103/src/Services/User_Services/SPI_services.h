@@ -27,18 +27,18 @@
 
 typedef struct
 {
-	int8_t direction_motor;
-	int8_t left_wheel_motor;
-	int8_t right_wheel_motor; 
-	int8_t left_wheel_motor_distance; 
-	int8_t right_wheel_motor_distance;
-	int8_t front_left_ultrasonic;
-	int8_t front_right_ultrasonic;
-	int8_t front_center_ultrasonic;
-	int8_t rear_left_ultrasonic;
-	int8_t rear_right_ultrasonic;
-	int8_t rear_center_ultrasonic;
-	int8_t battery;
+	uint8_t direction_motor;
+	uint8_t left_wheel_motor;
+	uint8_t right_wheel_motor; 
+	uint8_t left_wheel_motor_distance; 
+	uint8_t right_wheel_motor_distance;
+	uint8_t front_left_ultrasonic;
+	uint8_t front_right_ultrasonic;
+	uint8_t front_center_ultrasonic;
+	uint8_t rear_left_ultrasonic;
+	uint8_t rear_right_ultrasonic;
+	uint8_t rear_center_ultrasonic;
+	uint8_t battery;
 }OctetsFrame_Typedef;
 
 
