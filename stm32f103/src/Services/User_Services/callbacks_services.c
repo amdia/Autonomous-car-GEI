@@ -27,8 +27,8 @@ void scheduler_IT_callback(){
 	}
 	
 	if (IS_TASK(TASK_MOTOR)){
-		//control_angle_front_motor(receivedFrame.directionMotor.angle);
-		//rear_motors_control((MotorRear_Typedef *)&receivedFrame.rear_motors);
+		control_angle_front_motor(receivedFrame.directionMotor.angle);
+		rear_motors_control((MotorRear_Typedef *)&receivedFrame.rear_motors);
 	}
 	
 	if (IS_TASK(TASK_ULTRASONIC_TRIGGER)) {

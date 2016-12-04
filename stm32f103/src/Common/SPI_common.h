@@ -6,7 +6,7 @@
 
 #define BUFFER_SIZE (sizeof(OctetsFrame_Typedef))
 
-extern volatile uint8_t sendBuffer[BUFFER_SIZE]; 
-extern volatile uint8_t receiveBuffer[BUFFER_SIZE];
+extern volatile int8_t sendBuffer[BUFFER_SIZE]; 
+extern volatile int8_t receiveBuffer[BUFFER_SIZE];
 
 #endif //__SPI_COMMON_H
