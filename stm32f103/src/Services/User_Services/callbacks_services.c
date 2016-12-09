@@ -6,12 +6,12 @@
 #include "us_sensor.h"
 
 #define IS_TASK(task) (scheduler_counter % task == 0)
-
+int test_angle = 0;
 static uint64_t scheduler_counter = 0;
 
 void hall_callback(Hall_Position pos){
 	if(pos == HALL_REAR_LEFT || pos == HALL_REAR_RIGHT)
-		receivedFrame.rear_motors[pos].distance = calculate_distance(pos)[pos];
+		receivedFrame.rear_motors[pos-2].distance = calculate_distance(pos)[pos-2];
 	if(pos == HALL_FRONT_LEFT || pos == HALL_FRONT_RIGHT)
 		motor_front_stop(pos);
 }
@@ -27,7 +27,8 @@ void scheduler_IT_callback(){
 	}
 	
 	if (IS_TASK(TASK_MOTOR)){
-		//control_angle_front_motor(receivedFrame.directionMotor.angle);
+		test_angle = receivedFrame.directionMotor.angle;
+		control_angle_front_motor(receivedFrame.directionMotor.angle);
 		rear_motors_control((MotorRear_Typedef *)&receivedFrame.rear_motors);
 	}
 	
