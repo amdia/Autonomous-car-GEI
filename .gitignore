@@ -68,4 +68,7 @@ dkms.conf
 *.bak
 
 # Pycharm files
-.idea
+**/.idea
+
+# Compiled Python files
+*.pyc
