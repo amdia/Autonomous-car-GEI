@@ -8,7 +8,7 @@ HOUGH_LINE_RHO_RESOLUTION = 1
 HOUGH_LINE_THETA_RESOLUTION = np.pi / 180.0
 
 # Parameters
-IMG_SIZE = (500, 450)
+IMG_SIZE = (640, 480)
 DENOISE_POWER = 30
 HOUGH_LINE_THRESHOLD = 10
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     img = cv2.imread("../img/road.jpg")
     img = cv2.resize(img, IMG_SIZE)
-    img = img[150:350, 0:500]
+    # img = img[150:350, 0:500]
 
     # denoise = cv2.fastNlMeansDenoising(img, None, DENOISE_POWER, DENOISE_TEMPLATE_WIN_SIZE, DENOISE_SEARCH_WIN_SIZE)
     denoise = cv2.blur(img, (10, 10))
