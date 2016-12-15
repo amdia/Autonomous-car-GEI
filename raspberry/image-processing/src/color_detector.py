@@ -68,9 +68,11 @@ class ColorFilter:
         Start processing
         :return: None
         """
-        if self.__img is not None:
+        try:
             hsv = cv2.cvtColor(self.__img, cv2.COLOR_BGR2HSV)
             self.__mask = cv2.inRange(hsv, self.__colorThresholds[0], self.__colorThresholds[1])
+        except cv2.error:
+            print("process: image not found!!!")
 
     def display(self, raw_img=True):
         """
