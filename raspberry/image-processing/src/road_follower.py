@@ -1,5 +1,7 @@
 import src.color_detector as cd
 import cv2
+import numpy as np
+import math
 
 
 class RoadFollower:
@@ -18,9 +20,13 @@ class RoadFollower:
     __VW_Y1 = 100
     __VW_Y2 = __VW_Y1 + 250
 
+    # default prop factor
+    __Kp = 0.0015
+
     def __init__(self):
         self.__colorDetectV = cd.ColorFilter()
         self.__colorDetectH = cd.ColorFilter()
+        self.__kp = RoadFollower.__Kp
 
     def update_frame(self, image):
         try:
@@ -49,7 +55,8 @@ class RoadFollower:
         try:
             non_zeros_left = cv2.countNonZero(self.__colorDetectH.mask[:, 0:320])
             non_zeros_right = cv2.countNonZero(self.__colorDetectH.mask[:, 320:640])
-            return non_zeros_right - non_zeros_left
+            delta = non_zeros_right - non_zeros_left
+            return delta * self.__kp / (1.0 - self.__kp)
         except TypeError:
             print("compute_deviation: Can't compute, image not found!!!")
 
@@ -62,10 +69,36 @@ class RoadFollower:
 
 
 if __name__ == '__main__':
-    img = cv2.imread('../img/road_3.jpg')
+    # img = cv2.imread('../img/road_3.jpg')
+    # road_follow = RoadFollower()
+    # road_follow.update_frame(img)
+    # road_follow.filter()
+    # road_follow.display_masks()
+    # print(road_follow.compute_deviation())
+    # cv2.waitKey(0)
+
     road_follow = RoadFollower()
-    road_follow.update_frame(img)
-    road_follow.filter()
-    road_follow.display_masks()
-    print(road_follow.compute_deviation())
-    cv2.waitKey(0)
+    cap = cv2.VideoCapture("../video/MOV_0304.mp4")
+    simulation = np.zeros((200, 400, 3), np.uint8)
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if frame is None:
+            break
+        frame = cv2.resize(frame, (640, 480))
+        road_follow.update_frame(frame)
+        road_follow.filter()
+        road_follow.display_masks()
+        print(road_follow.compute_deviation())
+        alpha = road_follow.compute_deviation()
+        if not 45.0 >= alpha >= -45.0:
+            alpha = 45.0
+        point_a = (200, 150)
+        point_b = (int(200 + 100 * math.tan(math.radians(alpha))), 50)
+        cv2.line(simulation, point_a, point_b, (255, 0, 0), thickness=5)
+        cv2.imshow("sim", simulation)
+        simulation = np.zeros((200, 400, 3), np.uint8)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    cap.release()
+    cv2.destroyAllWindows()

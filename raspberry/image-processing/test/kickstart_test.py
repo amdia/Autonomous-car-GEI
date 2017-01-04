@@ -19,7 +19,7 @@ if __name__ == '__main__':
             print(x, ' ', y)
             print(param[y][x])
 
-    img = cv2.imread("../img/road.jpg")
+    img = cv2.imread("../img/road_3.jpg")
     img = cv2.resize(img, IMG_SIZE)
     # img = img[150:350, 0:500]
 

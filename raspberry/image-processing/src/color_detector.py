@@ -8,7 +8,7 @@ class ColorFilter:
     blurred before being passed to this filter
     """
 
-    DEFAULT_COLOR_THRESHOLDS = [np.array([80, 5, 20]), np.array([200, 120, 200])]   # kinda gray, for road detection
+    DEFAULT_COLOR_THRESHOLDS = [np.array([0, 0, 20]), np.array([200, 40, 200])]   # kinda gray, for road detection
 
     def __init__(self):
         """
