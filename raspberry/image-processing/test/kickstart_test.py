@@ -8,7 +8,7 @@ HOUGH_LINE_RHO_RESOLUTION = 1
 HOUGH_LINE_THETA_RESOLUTION = np.pi / 180.0
 
 # Parameters
-IMG_SIZE = (500, 450)
+IMG_SIZE = (640, 480)
 DENOISE_POWER = 30
 HOUGH_LINE_THRESHOLD = 10
 
@@ -16,12 +16,15 @@ if __name__ == '__main__':
 
     def onMouse(event, x, y, flag, param):
         if event == cv2.EVENT_LBUTTONDOWN:
+            print(x, ' ', y)
             print(param[y][x])
 
-    img = cv2.imread("../img/road_6.jpg")
+    img = cv2.imread("../img/road_3.jpg")
     img = cv2.resize(img, IMG_SIZE)
+    # img = img[150:350, 0:500]
 
-    denoise = cv2.fastNlMeansDenoising(img, None, DENOISE_POWER, DENOISE_TEMPLATE_WIN_SIZE, DENOISE_SEARCH_WIN_SIZE)
+    # denoise = cv2.fastNlMeansDenoising(img, None, DENOISE_POWER, DENOISE_TEMPLATE_WIN_SIZE, DENOISE_SEARCH_WIN_SIZE)
+    denoise = cv2.blur(img, (10, 10))
     color_converted = cv2.cvtColor(denoise, cv2.COLOR_BGR2HSV)
     mask_grass = cv2.inRange(color_converted, (10, 50, 20), (75, 180, 200))
     mask_road = cv2.inRange(color_converted, (80, 5, 20), (200, 120, 200))
