@@ -1,11 +1,24 @@
+ /**
+* @file timer.c
+* @brief driver layer for the timers
+*/
+ 
  #include <misc.h>
  #include <stm32f10x.h>
  #include "timer.h"
  #include "NVIC_priorities.h"
- 
-#define IF_DEFINE_IT_FUNCTION(n) \
-	if (SCHEDULER_TIMER == TIM##n) \
-		Scheduler_TIM_IRQn = TIM##n##_IRQn;\
+	
+/********************************/
+/*       Public Functions       */
+/********************************/
+	
+/**
+ * @brief  timer initialization
+ * @param  timer Timer number
+ * @param  counter_clock_frequency Counter clock frequency
+ * @param  period_us Timer period in micro-seconds
+ * @retval None
+ */
 
 void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us){
 	TIM_TimeBaseInitTypeDef timeBaseInit;
@@ -21,21 +34,28 @@ void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us){
 	TIM_Cmd(timer, ENABLE);
 }
 
+/**
+* @brief enable timer interruption for a given timer
+* @param timer Timer number
+* @param priority Interrupt priority
+* @retval None
+*/
 
-void enable_timer_interrupt(TIM_TypeDef* timer){
+void enable_timer_interrupt(TIM_TypeDef* timer, int priority){
 	NVIC_InitTypeDef  NVIC_InitStructure;
-	uint8_t Scheduler_TIM_IRQn;
+	uint8_t TIM_IRQn;
 	
-	if (SCHEDULER_TIMER == TIM1) 
-		Scheduler_TIM_IRQn = TIM1_UP_IRQn;
-	else{
-		IF_DEFINE_IT_FUNCTION(2);
-		IF_DEFINE_IT_FUNCTION(3);
-		IF_DEFINE_IT_FUNCTION(4);
-	}
+	if (timer == TIM1) 
+		TIM_IRQn = TIM1_UP_IRQn;
+	else if(timer == TIM2)
+		TIM_IRQn = TIM2_IRQn;
+	else if(timer == TIM3)
+		TIM_IRQn = TIM3_IRQn;
+	else if(timer == TIM4)
+		TIM_IRQn = TIM4_IRQn;
 	
-	NVIC_InitStructure.NVIC_IRQChannel = Scheduler_TIM_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = SCHEDULER_IT_PRIORITY;
+	NVIC_InitStructure.NVIC_IRQChannel = TIM_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = priority;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);

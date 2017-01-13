@@ -1,0 +1,72 @@
+\hypertarget{timer_8c}{}\section{Drivers/timer.c File Reference}
+\label{timer_8c}\index{Drivers/timer.\+c@{Drivers/timer.\+c}}
+
+
+driver layer for the timers  
+
+
+{\ttfamily \#include $<$misc.\+h$>$}\newline
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}N\+V\+I\+C\+\_\+priorities.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{timer_8c_a8e97d9efa9ab20f5e019c88cf71e6095}{timer\+\_\+init} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer, int counter\+\_\+clock\+\_\+frequency, int period\+\_\+us)
+\begin{DoxyCompactList}\small\item\em timer initialization \end{DoxyCompactList}\item 
+void \hyperlink{timer_8c_a03a7fbcf3ca60eb79c22e0cb5ea6b483}{enable\+\_\+timer\+\_\+interrupt} (T\+I\+M\+\_\+\+Type\+Def $\ast$timer, int priority)
+\begin{DoxyCompactList}\small\item\em enable timer interruption for a given timer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+driver layer for the timers 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{timer_8c_a03a7fbcf3ca60eb79c22e0cb5ea6b483}\label{timer_8c_a03a7fbcf3ca60eb79c22e0cb5ea6b483}} 
+\index{timer.\+c@{timer.\+c}!enable\+\_\+timer\+\_\+interrupt@{enable\+\_\+timer\+\_\+interrupt}}
+\index{enable\+\_\+timer\+\_\+interrupt@{enable\+\_\+timer\+\_\+interrupt}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{enable\+\_\+timer\+\_\+interrupt()}{enable\_timer\_interrupt()}}
+{\footnotesize\ttfamily void enable\+\_\+timer\+\_\+interrupt (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer,  }\item[{int}]{priority }\end{DoxyParamCaption})}
+
+
+
+enable timer interruption for a given timer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer number \\
+\hline
+{\em priority} & Interrupt priority \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{timer_8c_a8e97d9efa9ab20f5e019c88cf71e6095}\label{timer_8c_a8e97d9efa9ab20f5e019c88cf71e6095}} 
+\index{timer.\+c@{timer.\+c}!timer\+\_\+init@{timer\+\_\+init}}
+\index{timer\+\_\+init@{timer\+\_\+init}!timer.\+c@{timer.\+c}}
+\subsubsection{\texorpdfstring{timer\+\_\+init()}{timer\_init()}}
+{\footnotesize\ttfamily void timer\+\_\+init (\begin{DoxyParamCaption}\item[{T\+I\+M\+\_\+\+Type\+Def $\ast$}]{timer,  }\item[{int}]{counter\+\_\+clock\+\_\+frequency,  }\item[{int}]{period\+\_\+us }\end{DoxyParamCaption})}
+
+
+
+timer initialization 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer number \\
+\hline
+{\em counter\+\_\+clock\+\_\+frequency} & Counter clock frequency \\
+\hline
+{\em period\+\_\+us} & Timer period in micro-\/seconds \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

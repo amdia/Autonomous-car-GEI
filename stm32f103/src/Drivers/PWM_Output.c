@@ -1,11 +1,23 @@
+/**
+* @file PWM_Output.c
+* @brief driver layer for the pwm
+*/
 #include "PWM_Output.h"
 #include "timer.h"
 #include "gpio.h"
 
-//Private function
+/* Private function prototypes -----------------------------------------------*/
 static uint16_t get_pulse_length(uint16_t duty_cycle_percent, uint16_t periodUs);
 
-//Public functions
+/********************************/
+/*      Public Functions        */
+/********************************/
+
+/**
+* @brief initialization of a PWM
+* @param init_struct PWM structure contains the information necessary to the configuration and is read by this function
+* @retval status of the initialization (ok or not)
+*/
 PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
 	TIM_OCInitTypeDef outputCaptureInit;
   
@@ -47,7 +59,12 @@ PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
   return PWM_INIT_OK;
 }
 
-
+/**
+* @brief configuration of the PWM duty cyle which can be changed at any time
+* @param init_struct PWM structure contains the information necessary to the configuration and is written by this function
+* @param duty_cycle_percent wanted duty cycle for the PWM [0,100]
+* @retval None
+*/
 void PWM_CmdDutyCycle(PWM_TypeDef* init_struct, uint16_t duty_cycle_percent) {
   uint16_t pulseLength = get_pulse_length(duty_cycle_percent, init_struct->periodUs);
   if (init_struct->timerChannel == TIM_Channel_1) {
@@ -62,13 +79,27 @@ void PWM_CmdDutyCycle(PWM_TypeDef* init_struct, uint16_t duty_cycle_percent) {
   init_struct->dutyCyclePercent = duty_cycle_percent;
 }
 
-
-
+/**
+* @brief configuration of the PWM period
+* @param init_struct PWM structure contains the information necessary to the configuration and is written by this function
+* @param period_us wanted period for the PWM
+* @retval None
+*/
 void PWM_CmdPeriod(PWM_TypeDef* init_struct, uint16_t period_us) {
   TIM_SetAutoreload(init_struct->timer, period_us); 
   init_struct->periodUs = period_us;
 }
 
+/********************************/
+/*      Private Functions       */
+/********************************/
+
+/**
+* @brief returns the pulse length, based on the duty cycle percent and the period
+* @param duty_cycle_percent duty cycle percent of the PWM
+* @param period_us period of the PWM
+* @retval pulse length
+*/
 uint16_t get_pulse_length(uint16_t duty_cycle_percent, uint16_t periodUs){
 	return (uint16_t)(periodUs * duty_cycle_percent / 100) - 1;
 }
