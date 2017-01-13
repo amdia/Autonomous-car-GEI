@@ -59,10 +59,12 @@ void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micr
 		if(command_angle == ANGLE_LEFT_MAX && !on_stop){ //turn to the maximum angle on the left
 			enableFrontMotor();
 			commandFrontMotor(FRONT_MOTOR_SPEED);
+			actual_angle = command_angle;
 			t_temp = (uint64_t)(-1);
 		}else if(command_angle == ANGLE_RIGHT_MAX && !on_stop){ //turn to the maximum angle on the right
 			enableFrontMotor();
-			commandFrontMotor(FRONT_MOTOR_SPEED);
+			commandFrontMotor(-FRONT_MOTOR_SPEED);
+			actual_angle = command_angle;
 			t_temp = (uint64_t)(-1);
 		}else { //turn during a certain time to the left, to reach the command_angle
 			on_stop = 0;
@@ -91,18 +93,27 @@ void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micr
 			
 			//set motor parameters
 			enableFrontMotor();
-			if(command_angle<0){speed = -speed;}
+			if(diff_angle<0){speed = -speed;}
 			commandFrontMotor(speed);
-			t_temp = micros()+time_to_turn;			
+			
+			/* pour remplacer le bloc if(micros() > t_temp || on_stop) si utilisation de la fonction de controle
+			dans le main, sans le scheduler*/
+			t_temp = micros() + time_to_turn;	
+			while(micros() <=  t_temp){}
+				disableFrontMotor();
+				actual_angle = command_angle;
+			}
+			/*fin du bloc*/
 		}
 		actual_command_angle = command_angle;
+		//actual_angle = command_angle;
 	}	
 
-	if(micros() > t_temp || on_stop){
-		disableFrontMotor();
-		actual_angle = command_angle;
-	}
-}
+//	if(micros() > t_temp || on_stop){
+//		disableFrontMotor();
+//		actual_angle = command_angle;
+//	}
+//}
 
 float* calculate_distance(Hall_Position pos){
 	static int rear_hall[REAR_MOTORS_NB]={0};

@@ -66,3 +66,12 @@ dkms.conf
 *.uvgui*
 *.build_log.htm
 *.bak
+
+# Pycharm files
+**/.idea
+
+# Compiled Python files
+*.pyc
+
+# Video files
+**/video
