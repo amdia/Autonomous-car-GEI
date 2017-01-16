@@ -11,7 +11,9 @@ driver layer for the pwm
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-P\+W\+M\+\_\+\+Init\+Return\+Type \hyperlink{_p_w_m___output_8c_aba90a7748e3b414cc1aecc3c1fdc2a7a}{P\+W\+M\+\_\+initialize} (\hyperlink{struct_p_w_m___type_def}{P\+W\+M\+\_\+\+Type\+Def} $\ast$init\+\_\+struct)
+static uint16\+\_\+t \hyperlink{_p_w_m___output_8c_af1f6dbe0be88e4045a1842895cd677e0}{get\+\_\+pulse\+\_\+length} (uint16\+\_\+t duty\+\_\+cycle\+\_\+percent, uint16\+\_\+t period\+Us)
+\begin{DoxyCompactList}\small\item\em returns the pulse length, based on the duty cycle percent and the period \end{DoxyCompactList}\item 
+\hyperlink{_p_w_m___output_8h_aa0dce9662cf73b77a0f5ebb751599ae2}{P\+W\+M\+\_\+\+Init\+Return\+Type} \hyperlink{_p_w_m___output_8c_aba90a7748e3b414cc1aecc3c1fdc2a7a}{P\+W\+M\+\_\+initialize} (\hyperlink{struct_p_w_m___type_def}{P\+W\+M\+\_\+\+Type\+Def} $\ast$init\+\_\+struct)
 \begin{DoxyCompactList}\small\item\em initialization of a P\+WM \end{DoxyCompactList}\item 
 void \hyperlink{_p_w_m___output_8c_a6aa02d72f9cc9753a27633e1284ae685}{P\+W\+M\+\_\+\+Cmd\+Duty\+Cycle} (\hyperlink{struct_p_w_m___type_def}{P\+W\+M\+\_\+\+Type\+Def} $\ast$init\+\_\+struct, uint16\+\_\+t duty\+\_\+cycle\+\_\+percent)
 \begin{DoxyCompactList}\small\item\em configuration of the P\+WM duty cyle which can be changed at any time \end{DoxyCompactList}\item 
@@ -25,6 +27,28 @@ driver layer for the pwm
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{_p_w_m___output_8c_af1f6dbe0be88e4045a1842895cd677e0}\label{_p_w_m___output_8c_af1f6dbe0be88e4045a1842895cd677e0}} 
+\index{P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}!get\+\_\+pulse\+\_\+length@{get\+\_\+pulse\+\_\+length}}
+\index{get\+\_\+pulse\+\_\+length@{get\+\_\+pulse\+\_\+length}!P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+pulse\+\_\+length()}{get\_pulse\_length()}}
+{\footnotesize\ttfamily uint16\+\_\+t get\+\_\+pulse\+\_\+length (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duty\+\_\+cycle\+\_\+percent,  }\item[{uint16\+\_\+t}]{period\+Us }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+returns the pulse length, based on the duty cycle percent and the period 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+cycle\+\_\+percent} & duty cycle percent of the P\+WM \\
+\hline
+{\em period\+\_\+us} & period of the P\+WM \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em pulse} & length \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{_p_w_m___output_8c_a6aa02d72f9cc9753a27633e1284ae685}\label{_p_w_m___output_8c_a6aa02d72f9cc9753a27633e1284ae685}} 
 \index{P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}!P\+W\+M\+\_\+\+Cmd\+Duty\+Cycle@{P\+W\+M\+\_\+\+Cmd\+Duty\+Cycle}}
 \index{P\+W\+M\+\_\+\+Cmd\+Duty\+Cycle@{P\+W\+M\+\_\+\+Cmd\+Duty\+Cycle}!P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}}
@@ -73,7 +97,7 @@ configuration of the P\+WM period
 \index{P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}!P\+W\+M\+\_\+initialize@{P\+W\+M\+\_\+initialize}}
 \index{P\+W\+M\+\_\+initialize@{P\+W\+M\+\_\+initialize}!P\+W\+M\+\_\+\+Output.\+c@{P\+W\+M\+\_\+\+Output.\+c}}
 \subsubsection{\texorpdfstring{P\+W\+M\+\_\+initialize()}{PWM\_initialize()}}
-{\footnotesize\ttfamily P\+W\+M\+\_\+\+Init\+Return\+Type P\+W\+M\+\_\+initialize (\begin{DoxyParamCaption}\item[{\hyperlink{struct_p_w_m___type_def}{P\+W\+M\+\_\+\+Type\+Def} $\ast$}]{init\+\_\+struct }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \hyperlink{_p_w_m___output_8h_aa0dce9662cf73b77a0f5ebb751599ae2}{P\+W\+M\+\_\+\+Init\+Return\+Type} P\+W\+M\+\_\+initialize (\begin{DoxyParamCaption}\item[{\hyperlink{struct_p_w_m___type_def}{P\+W\+M\+\_\+\+Type\+Def} $\ast$}]{init\+\_\+struct }\end{DoxyParamCaption})}
 
 
 

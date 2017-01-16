@@ -19,6 +19,11 @@ void \hyperlink{time__systick_8c_a4b9f32eb15ba7d05057ad77639afce63}{delay\+\_\+m
 \begin{DoxyCompactList}\small\item\em Generate a sleep. To use carefully because it is a blocking function because of the while. \end{DoxyCompactList}\item 
 void \hyperlink{time__systick_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em This function handles Sys\+Tick\+\_\+\+Handler interrupt request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\+\_\+t \hyperlink{time__systick_8c_a99c58fed2850a7a5c08477dd7be37ae4}{time\+Micros}
+\begin{DoxyCompactList}\small\item\em Current S\+T\+M32 time (expressed in microseconds) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -107,3 +112,16 @@ systick initialization. The systick priority has to be the highest one but nothi
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{time__systick_8c_a99c58fed2850a7a5c08477dd7be37ae4}\label{time__systick_8c_a99c58fed2850a7a5c08477dd7be37ae4}} 
+\index{time\+\_\+systick.\+c@{time\+\_\+systick.\+c}!time\+Micros@{time\+Micros}}
+\index{time\+Micros@{time\+Micros}!time\+\_\+systick.\+c@{time\+\_\+systick.\+c}}
+\subsubsection{\texorpdfstring{time\+Micros}{timeMicros}}
+{\footnotesize\ttfamily time\+Micros\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Current S\+T\+M32 time (expressed in microseconds) 
+

@@ -71,9 +71,9 @@ $(function() {
 
 <p>driver layer for the motor control functions  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;motor_control.h&quot;</code><br />
-<code>#include &quot;motor_common.h&quot;</code><br />
-<code>#include &quot;gpio.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="motor__control_8h_source.html">motor_control.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="motor__common_8h_source.html">motor_common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -83,7 +83,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a6c5302566c5a7d231275bcf778290558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__control_8c.html#a6c5302566c5a7d231275bcf778290558">motorCmd</a> (<a class="el" href="struct_motor___type_def.html">Motor_TypeDef</a> *motor_struct, int speed)</td></tr>
 <tr class="memdesc:a6c5302566c5a7d231275bcf778290558"><td class="mdescLeft">&#160;</td><td class="mdescRight">command the motor speed  <a href="#a6c5302566c5a7d231275bcf778290558">More...</a><br /></td></tr>
 <tr class="separator:a6c5302566c5a7d231275bcf778290558"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7c024dbcc466b59f2f6cc06b4dfd0b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__control_8c.html#af7c024dbcc466b59f2f6cc06b4dfd0b6">motorEnable</a> (<a class="el" href="struct_motor___type_def.html">Motor_TypeDef</a> *motor_struct, Motor_State enable)</td></tr>
+<tr class="memitem:af7c024dbcc466b59f2f6cc06b4dfd0b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__control_8c.html#af7c024dbcc466b59f2f6cc06b4dfd0b6">motorEnable</a> (<a class="el" href="struct_motor___type_def.html">Motor_TypeDef</a> *motor_struct, <a class="el" href="motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944">Motor_State</a> enable)</td></tr>
 <tr class="memdesc:af7c024dbcc466b59f2f6cc06b4dfd0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable or disable the motor given  <a href="#af7c024dbcc466b59f2f6cc06b4dfd0b6">More...</a><br /></td></tr>
 <tr class="separator:af7c024dbcc466b59f2f6cc06b4dfd0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -120,7 +120,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">motor_struct</td><td>motor structure is read by this function </td></tr>
-    <tr><td class="paramname">speed</td><td>wanted speed (&lt;0 to go backward, &gt;0 to go forward) </td></tr>
+    <tr><td class="paramname">speed</td><td>wanted speed (&lt;0 to go in a direction, &gt;0 to go in the other one) </td></tr>
   </table>
   </dd>
 </dl>
@@ -148,7 +148,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Motor_State&#160;</td>
+          <td class="paramtype"><a class="el" href="motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944">Motor_State</a>&#160;</td>
           <td class="paramname"><em>enable</em>&#160;</td>
         </tr>
         <tr>

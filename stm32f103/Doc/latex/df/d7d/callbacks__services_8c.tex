@@ -1,0 +1,102 @@
+\hypertarget{callbacks__services_8c}{}\section{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.c File Reference}
+\label{callbacks__services_8c}\index{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.\+c@{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.\+c}}
+{\ttfamily \#include \char`\"{}callbacks\+\_\+services.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}scheduler\+\_\+timer\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}manage\+\_\+motors.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+P\+I\+\_\+services.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}us\+\_\+sensor.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{callbacks__services_8c_aea3e71205ebe407bb1787fda87d4fce1}{I\+S\+\_\+\+T\+A\+SK}(task)~(\hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} \% task == 0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{callbacks__services_8c_a359546480b7fb435c8c79b49fa2bb3e3}{hall\+\_\+callback} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
+\item 
+void \hyperlink{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}{ultrasonic\+\_\+callback} (\hyperlink{sensors__common_8h_a492d5c22484a3fddcdc6672557b07717}{Ultrasonic\+\_\+\+Position} pos)
+\begin{DoxyCompactList}\small\item\em Overridable callback function for ultrasonic interruptions. \end{DoxyCompactList}\item 
+void \hyperlink{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}{scheduler\+\_\+\+I\+T\+\_\+callback} ()
+\begin{DoxyCompactList}\small\item\em Overridable callback function for the timer interrupt (for the project, scheduler) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}{test\+\_\+angle} = 0
+\item 
+static uint64\+\_\+t \hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{callbacks__services_8c_aea3e71205ebe407bb1787fda87d4fce1}\label{callbacks__services_8c_aea3e71205ebe407bb1787fda87d4fce1}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!I\+S\+\_\+\+T\+A\+SK@{I\+S\+\_\+\+T\+A\+SK}}
+\index{I\+S\+\_\+\+T\+A\+SK@{I\+S\+\_\+\+T\+A\+SK}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{I\+S\+\_\+\+T\+A\+SK}{IS\_TASK}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+T\+A\+SK(\begin{DoxyParamCaption}\item[{}]{task }\end{DoxyParamCaption})~(\hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} \% task == 0)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{callbacks__services_8c_a359546480b7fb435c8c79b49fa2bb3e3}\label{callbacks__services_8c_a359546480b7fb435c8c79b49fa2bb3e3}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!hall\+\_\+callback@{hall\+\_\+callback}}
+\index{hall\+\_\+callback@{hall\+\_\+callback}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{hall\+\_\+callback()}{hall\_callback()}}
+{\footnotesize\ttfamily void hall\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}\label{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}}
+\index{scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{scheduler\+\_\+\+I\+T\+\_\+callback()}{scheduler\_IT\_callback()}}
+{\footnotesize\ttfamily void scheduler\+\_\+\+I\+T\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Overridable callback function for the timer interrupt (for the project, scheduler) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}\label{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!ultrasonic\+\_\+callback@{ultrasonic\+\_\+callback}}
+\index{ultrasonic\+\_\+callback@{ultrasonic\+\_\+callback}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{ultrasonic\+\_\+callback()}{ultrasonic\_callback()}}
+{\footnotesize\ttfamily void ultrasonic\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_a492d5c22484a3fddcdc6672557b07717}{Ultrasonic\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
+
+
+
+Overridable callback function for ultrasonic interruptions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & ultrasonic sensor position \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}\label{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!scheduler\+\_\+counter@{scheduler\+\_\+counter}}
+\index{scheduler\+\_\+counter@{scheduler\+\_\+counter}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{scheduler\+\_\+counter}{scheduler\_counter}}
+{\footnotesize\ttfamily uint64\+\_\+t scheduler\+\_\+counter = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}\label{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}} 
+\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!test\+\_\+angle@{test\+\_\+angle}}
+\index{test\+\_\+angle@{test\+\_\+angle}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+angle}{test\_angle}}
+{\footnotesize\ttfamily int test\+\_\+angle = 0}
+

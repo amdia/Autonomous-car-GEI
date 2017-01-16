@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distance',['distance',['../struct_motor_rear___typedef.html#afb9412686cd344ad61757c1c19ba8a87',1,'MotorRear_Typedef::distance()'],['../struct_ultrasound___typedef.html#afb9412686cd344ad61757c1c19ba8a87',1,'Ultrasound_Typedef::distance()']]]
+  ['battery',['battery',['../d8/dff/struct_octets_frame___typedef.html#a89e04157c4e1f65c9ab63bffa365c8a6',1,'OctetsFrame_Typedef::battery()'],['../dd/ddd/struct_communication___typedef.html#ae3d4b0bc189b56df3a0e34afd8fe98b2',1,'Communication_Typedef::battery()']]]
 ];

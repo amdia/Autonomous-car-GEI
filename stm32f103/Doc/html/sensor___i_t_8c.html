@@ -72,9 +72,9 @@ $(function() {
 
 <p>driver layer for the GPIO sensors based on interruptions  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;sensor_IT.h&quot;</code><br />
-<code>#include &quot;gpio.h&quot;</code><br />
-<code>#include &quot;IT_functions.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="sensor___i_t_8h_source.html">sensor_IT.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_t__functions_8h_source.html">IT_functions.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -87,6 +87,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aebee2d1b46fd45b969c41c6314ce06d4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor___i_t_8c.html#aebee2d1b46fd45b969c41c6314ce06d4">EXTI_Config</a> (<a class="el" href="struct_sensor___i_t___type_def.html">Sensor_IT_TypeDef</a> *initStructSensor)</td></tr>
+<tr class="memdesc:aebee2d1b46fd45b969c41c6314ce06d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">exti configuration (line, port, priority, trigger type)  <a href="#aebee2d1b46fd45b969c41c6314ce06d4">More...</a><br /></td></tr>
+<tr class="separator:aebee2d1b46fd45b969c41c6314ce06d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af89cc1cac5354735e7d2ceac46f26c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor___i_t_8c.html#af89cc1cac5354735e7d2ceac46f26c4a">Sensor_IT_Config</a> (<a class="el" href="struct_sensor___i_t___type_def.html">Sensor_IT_TypeDef</a> *initStructSensor)</td></tr>
 <tr class="memdesc:af89cc1cac5354735e7d2ceac46f26c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do the configuration for a given sensor based on interruption. Configures the GPIO and the EXTI.  <a href="#af89cc1cac5354735e7d2ceac46f26c4a">More...</a><br /></td></tr>
 <tr class="separator:af89cc1cac5354735e7d2ceac46f26c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +174,46 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="aebee2d1b46fd45b969c41c6314ce06d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebee2d1b46fd45b969c41c6314ce06d4">&#9670;&nbsp;</a></span>EXTI_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EXTI_Config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sensor___i_t___type_def.html">Sensor_IT_TypeDef</a> *&#160;</td>
+          <td class="paramname"><em>initStructSensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exti configuration (line, port, priority, trigger type) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initStructSensor</td><td>sensor structure contains the information necessary to the configuration and is read by this function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a53ed3f05aa8a0ffcbfc9079a6bafd628"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53ed3f05aa8a0ffcbfc9079a6bafd628">&#9670;&nbsp;</a></span>GPIO_Configuration()</h2>
 

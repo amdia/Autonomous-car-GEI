@@ -1,7 +1,7 @@
 /**
- * @file IT_functions.c
- * @brief driver layer for the interruption handling
- */
+* @file IT_functions.c
+* @brief driver layer for the interruption handling
+*/
 
 #include "IT_functions.h"
 #include <stm32f10x.h>
@@ -60,17 +60,17 @@ void TIM4_IRQHandler(void);
 /********************************/
 
 /**
- * @brief  Callback for the GPIO interrupts (for the project, hall sensors)
- * @param  GPIO_Pin GPIO pin
- * @retval None
- */
+* @brief  Overridable callback function for the GPIO interrupts (for the project, hall sensors)
+* @param  GPIO_Pin GPIO pin
+* @retval None
+*/
 __weak void GPIO_EXTI_Callback (uint16_t GPIO_Pin){}
 	
 /**
- * @brief  Callback for the timer interrupt (for the project, scheduler)
- * @param  GPIO_Pin GPIO pin
- * @retval None
- */
+* @brief  Overridable callback function for the timer interrupt (for the project, scheduler)
+* @param  None
+* @retval None
+*/
 __weak void scheduler_IT_callback(void){}
 	
 /********************************/

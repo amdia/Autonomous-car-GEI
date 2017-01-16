@@ -1,0 +1,39 @@
+\hypertarget{callback__functions_8h}{}\section{Services/\+Drivers\+\_\+\+Car/callback\+\_\+functions.h File Reference}
+\label{callback__functions_8h}\index{Services/\+Drivers\+\_\+\+Car/callback\+\_\+functions.\+h@{Services/\+Drivers\+\_\+\+Car/callback\+\_\+functions.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}{ultrasonic\+\_\+exti\+\_\+callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
+\begin{DoxyCompactList}\small\item\em Callback function for ultrasonic interruptions. \end{DoxyCompactList}\item 
+void \hyperlink{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+\_\+exti\+\_\+callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}\label{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}} 
+\index{callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}!hall\+\_\+exti\+\_\+callback@{hall\+\_\+exti\+\_\+callback}}
+\index{hall\+\_\+exti\+\_\+callback@{hall\+\_\+exti\+\_\+callback}!callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}}
+\subsubsection{\texorpdfstring{hall\+\_\+exti\+\_\+callback()}{hall\_exti\_callback()}}
+{\footnotesize\ttfamily void hall\+\_\+exti\+\_\+callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}\label{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}} 
+\index{callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}!ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}}
+\index{ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}!callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}}
+\subsubsection{\texorpdfstring{ultrasonic\+\_\+exti\+\_\+callback()}{ultrasonic\_exti\_callback()}}
+{\footnotesize\ttfamily void ultrasonic\+\_\+exti\+\_\+callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+
+
+Callback function for ultrasonic interruptions. 
+
+This function is called everytime the echo pin goes high or goes low (every changes of state) 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & ultrasonic sensor echo pin \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

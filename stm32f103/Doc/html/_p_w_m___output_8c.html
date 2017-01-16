@@ -71,13 +71,16 @@ $(function() {
 
 <p>driver layer for the pwm  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;PWM_Output.h&quot;</code><br />
-<code>#include &quot;timer.h&quot;</code><br />
-<code>#include &quot;gpio.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_p_w_m___output_8h_source.html">PWM_Output.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aba90a7748e3b414cc1aecc3c1fdc2a7a"><td class="memItemLeft" align="right" valign="top">PWM_InitReturnType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___output_8c.html#aba90a7748e3b414cc1aecc3c1fdc2a7a">PWM_initialize</a> (<a class="el" href="struct_p_w_m___type_def.html">PWM_TypeDef</a> *init_struct)</td></tr>
+<tr class="memitem:af1f6dbe0be88e4045a1842895cd677e0"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___output_8c.html#af1f6dbe0be88e4045a1842895cd677e0">get_pulse_length</a> (uint16_t duty_cycle_percent, uint16_t periodUs)</td></tr>
+<tr class="memdesc:af1f6dbe0be88e4045a1842895cd677e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the pulse length, based on the duty cycle percent and the period  <a href="#af1f6dbe0be88e4045a1842895cd677e0">More...</a><br /></td></tr>
+<tr class="separator:af1f6dbe0be88e4045a1842895cd677e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba90a7748e3b414cc1aecc3c1fdc2a7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2">PWM_InitReturnType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___output_8c.html#aba90a7748e3b414cc1aecc3c1fdc2a7a">PWM_initialize</a> (<a class="el" href="struct_p_w_m___type_def.html">PWM_TypeDef</a> *init_struct)</td></tr>
 <tr class="memdesc:aba90a7748e3b414cc1aecc3c1fdc2a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialization of a PWM  <a href="#aba90a7748e3b414cc1aecc3c1fdc2a7a">More...</a><br /></td></tr>
 <tr class="separator:aba90a7748e3b414cc1aecc3c1fdc2a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aa02d72f9cc9753a27633e1284ae685"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___output_8c.html#a6aa02d72f9cc9753a27633e1284ae685">PWM_CmdDutyCycle</a> (<a class="el" href="struct_p_w_m___type_def.html">PWM_TypeDef</a> *init_struct, uint16_t duty_cycle_percent)</td></tr>
@@ -90,6 +93,57 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>driver layer for the pwm </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="af1f6dbe0be88e4045a1842895cd677e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f6dbe0be88e4045a1842895cd677e0">&#9670;&nbsp;</a></span>get_pulse_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t get_pulse_length </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>duty_cycle_percent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>periodUs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns the pulse length, based on the duty cycle percent and the period </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duty_cycle_percent</td><td>duty cycle percent of the PWM </td></tr>
+    <tr><td class="paramname">period_us</td><td>period of the PWM </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">pulse</td><td>length </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a6aa02d72f9cc9753a27633e1284ae685"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6aa02d72f9cc9753a27633e1284ae685">&#9670;&nbsp;</a></span>PWM_CmdDutyCycle()</h2>
 
@@ -183,7 +237,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">PWM_InitReturnType PWM_initialize </td>
+          <td class="memname"><a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2">PWM_InitReturnType</a> PWM_initialize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_p_w_m___type_def.html">PWM_TypeDef</a> *&#160;</td>
           <td class="paramname"><em>init_struct</em></td><td>)</td>

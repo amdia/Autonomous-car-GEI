@@ -1,0 +1,181 @@
+\hypertarget{motor__rear_8c}{}\section{Services/\+Drivers\+\_\+\+Car/motor\+\_\+rear.c File Reference}
+\label{motor__rear_8c}\index{Services/\+Drivers\+\_\+\+Car/motor\+\_\+rear.\+c@{Services/\+Drivers\+\_\+\+Car/motor\+\_\+rear.\+c}}
+
+
+driver car layer for rear motors  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+rear.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+control.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor__rear_8c_a1d5e082ab7a6669f0334185b8c860244}{motors\+\_\+rear\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Rear motors initialization. \end{DoxyCompactList}\item 
+int \hyperlink{motor__rear_8c_a7e0a567e6c01290c9519a850cc16cfa3}{motor\+\_\+rear\+\_\+command} (\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position} motor, int speed)
+\begin{DoxyCompactList}\small\item\em Command the given motor with the given speed. \end{DoxyCompactList}\item 
+int \hyperlink{motor__rear_8c_ad29e8b770774e9c2f879d3a549069edb}{motor\+\_\+rear\+\_\+set\+\_\+state} (\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position} motor, \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} motor\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Enable or disable the motor. \end{DoxyCompactList}\item 
+\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} \hyperlink{motor__rear_8c_a59710a36f13cf29d97d8c1c1bd84780c}{get\+\_\+motor\+\_\+rear\+\_\+state} (\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position} motor)
+\begin{DoxyCompactList}\small\item\em Return the \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} (enabled or disabled) \end{DoxyCompactList}\item 
+int \hyperlink{motor__rear_8c_a13ad0c8cce6cbb226994380a668c365f}{get\+\_\+motor\+\_\+rear\+\_\+speed} (\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position} motor)
+\begin{DoxyCompactList}\small\item\em Return the speed of the motor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} \hyperlink{motor__rear_8c_ab37bc1b6b9decb18f6de65172f8b592a}{rear\+\_\+motor\+\_\+right}
+\item 
+static \hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} \hyperlink{motor__rear_8c_ac3f32e5ad9d1de57798c1158724ebe76}{rear\+\_\+motor\+\_\+left}
+\item 
+\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} \hyperlink{motor__rear_8c_abdf8061002726dbb7dc8ba3a63601972}{motors\+\_\+state} \mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF}, \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF}\}
+\begin{DoxyCompactList}\small\item\em Store the Motor\+\_\+\+State of all the motors. \end{DoxyCompactList}\item 
+int \hyperlink{motor__rear_8c_a1c2022e676f781baaef628d1970f78b7}{motors\+\_\+speed} \mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{0,0\}
+\begin{DoxyCompactList}\small\item\em Store the speed of all the motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+driver car layer for rear motors 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{motor__rear_8c_a13ad0c8cce6cbb226994380a668c365f}\label{motor__rear_8c_a13ad0c8cce6cbb226994380a668c365f}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!get\+\_\+motor\+\_\+rear\+\_\+speed@{get\+\_\+motor\+\_\+rear\+\_\+speed}}
+\index{get\+\_\+motor\+\_\+rear\+\_\+speed@{get\+\_\+motor\+\_\+rear\+\_\+speed}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+motor\+\_\+rear\+\_\+speed()}{get\_motor\_rear\_speed()}}
+{\footnotesize\ttfamily int get\+\_\+motor\+\_\+rear\+\_\+speed (\begin{DoxyParamCaption}\item[{\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position}}]{motor }\end{DoxyParamCaption})}
+
+
+
+Return the speed of the motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Motor\+\_\+\+Rear\+\_\+\+Position \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em speed} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__rear_8c_a59710a36f13cf29d97d8c1c1bd84780c}\label{motor__rear_8c_a59710a36f13cf29d97d8c1c1bd84780c}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!get\+\_\+motor\+\_\+rear\+\_\+state@{get\+\_\+motor\+\_\+rear\+\_\+state}}
+\index{get\+\_\+motor\+\_\+rear\+\_\+state@{get\+\_\+motor\+\_\+rear\+\_\+state}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{get\+\_\+motor\+\_\+rear\+\_\+state()}{get\_motor\_rear\_state()}}
+{\footnotesize\ttfamily \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} get\+\_\+motor\+\_\+rear\+\_\+state (\begin{DoxyParamCaption}\item[{\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position}}]{motor }\end{DoxyParamCaption})}
+
+
+
+Return the \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} (enabled or disabled) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Position of the motor, left or right \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF}} & if the motor is disabled and \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a2deef916bc8df30cb5f220fedb94064e}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+ON} if the motor is enabled \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__rear_8c_a7e0a567e6c01290c9519a850cc16cfa3}\label{motor__rear_8c_a7e0a567e6c01290c9519a850cc16cfa3}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!motor\+\_\+rear\+\_\+command@{motor\+\_\+rear\+\_\+command}}
+\index{motor\+\_\+rear\+\_\+command@{motor\+\_\+rear\+\_\+command}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+rear\+\_\+command()}{motor\_rear\_command()}}
+{\footnotesize\ttfamily int motor\+\_\+rear\+\_\+command (\begin{DoxyParamCaption}\item[{\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position}}]{motor,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Command the given motor with the given speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Motor\+\_\+\+Rear\+\_\+\+Position \\
+\hline
+{\em speed} & Wanted speed ($<$0 to go backward, $>$0 to go forward) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & if the given motor does not exists, else 0 \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__rear_8c_ad29e8b770774e9c2f879d3a549069edb}\label{motor__rear_8c_ad29e8b770774e9c2f879d3a549069edb}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!motor\+\_\+rear\+\_\+set\+\_\+state@{motor\+\_\+rear\+\_\+set\+\_\+state}}
+\index{motor\+\_\+rear\+\_\+set\+\_\+state@{motor\+\_\+rear\+\_\+set\+\_\+state}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{motor\+\_\+rear\+\_\+set\+\_\+state()}{motor\_rear\_set\_state()}}
+{\footnotesize\ttfamily int motor\+\_\+rear\+\_\+set\+\_\+state (\begin{DoxyParamCaption}\item[{\hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position}}]{motor,  }\item[{\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State}}]{motor\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Enable or disable the motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & Motor\+\_\+\+Rear\+\_\+\+Position \\
+\hline
+{\em motor\+\_\+state} & Wanted state (M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF to disable the motor, M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+ON to enable the motor) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & if the given motor does not exists, else 0 \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__rear_8c_a1d5e082ab7a6669f0334185b8c860244}\label{motor__rear_8c_a1d5e082ab7a6669f0334185b8c860244}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!motors\+\_\+rear\+\_\+init@{motors\+\_\+rear\+\_\+init}}
+\index{motors\+\_\+rear\+\_\+init@{motors\+\_\+rear\+\_\+init}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+rear\+\_\+init()}{motors\_rear\_init()}}
+{\footnotesize\ttfamily void motors\+\_\+rear\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Rear motors initialization. 
+
+There are two P\+WM for each motors. They are complementary. 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{motor__rear_8c_a1c2022e676f781baaef628d1970f78b7}\label{motor__rear_8c_a1c2022e676f781baaef628d1970f78b7}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!motors\+\_\+speed@{motors\+\_\+speed}}
+\index{motors\+\_\+speed@{motors\+\_\+speed}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+speed}{motors\_speed}}
+{\footnotesize\ttfamily int motors\+\_\+speed\mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{0,0\}}
+
+
+
+Store the speed of all the motors. 
+
+\mbox{\Hypertarget{motor__rear_8c_abdf8061002726dbb7dc8ba3a63601972}\label{motor__rear_8c_abdf8061002726dbb7dc8ba3a63601972}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!motors\+\_\+state@{motors\+\_\+state}}
+\index{motors\+\_\+state@{motors\+\_\+state}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{motors\+\_\+state}{motors\_state}}
+{\footnotesize\ttfamily \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} motors\+\_\+state\mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF}, \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF}\}}
+
+
+
+Store the Motor\+\_\+\+State of all the motors. 
+
+\mbox{\Hypertarget{motor__rear_8c_ac3f32e5ad9d1de57798c1158724ebe76}\label{motor__rear_8c_ac3f32e5ad9d1de57798c1158724ebe76}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!rear\+\_\+motor\+\_\+left@{rear\+\_\+motor\+\_\+left}}
+\index{rear\+\_\+motor\+\_\+left@{rear\+\_\+motor\+\_\+left}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{rear\+\_\+motor\+\_\+left}{rear\_motor\_left}}
+{\footnotesize\ttfamily \hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} rear\+\_\+motor\+\_\+left\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{motor__rear_8c_ab37bc1b6b9decb18f6de65172f8b592a}\label{motor__rear_8c_ab37bc1b6b9decb18f6de65172f8b592a}} 
+\index{motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}!rear\+\_\+motor\+\_\+right@{rear\+\_\+motor\+\_\+right}}
+\index{rear\+\_\+motor\+\_\+right@{rear\+\_\+motor\+\_\+right}!motor\+\_\+rear.\+c@{motor\+\_\+rear.\+c}}
+\subsubsection{\texorpdfstring{rear\+\_\+motor\+\_\+right}{rear\_motor\_right}}
+{\footnotesize\ttfamily \hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} rear\+\_\+motor\+\_\+right\hspace{0.3cm}{\ttfamily [static]}}
+

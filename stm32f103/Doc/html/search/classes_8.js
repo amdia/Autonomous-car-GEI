@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ultrasound_5ftypedef',['Ultrasound_Typedef',['../struct_ultrasound___typedef.html',1,'']]]
+  ['ultrasound_5ftypedef',['Ultrasound_Typedef',['../de/d3b/struct_ultrasound___typedef.html',1,'']]]
 ];

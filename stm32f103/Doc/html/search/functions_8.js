@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['tim1_5fup_5firqhandler',['TIM1_UP_IRQHandler',['../_i_t__functions_8c.html#a51741dbf9b0de1b8b56b5a6f1ef2e694',1,'IT_functions.c']]],
-  ['tim2_5firqhandler',['TIM2_IRQHandler',['../_i_t__functions_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'IT_functions.c']]],
-  ['tim3_5firqhandler',['TIM3_IRQHandler',['../_i_t__functions_8c.html#ac8e51d2183b5230cbd5481f8867adce9',1,'IT_functions.c']]],
-  ['tim4_5firqhandler',['TIM4_IRQHandler',['../_i_t__functions_8c.html#a7133f3f78767503641d307386e68bd28',1,'IT_functions.c']]],
-  ['timer_5finit',['timer_init',['../timer_8c.html#a8e97d9efa9ab20f5e019c88cf71e6095',1,'timer.c']]]
+  ['read_5fspiframe',['read_spiFrame',['../d5/da5/_s_p_i__services_8c.html#aa1fea51a1aab3c8773b9cb383b18b5dd',1,'read_spiFrame(void):&#160;SPI_services.c'],['../db/d53/_s_p_i__services_8h.html#aa1fea51a1aab3c8773b9cb383b18b5dd',1,'read_spiFrame(void):&#160;SPI_services.c']]],
+  ['rear_5fmotors_5fcontrol',['rear_motors_control',['../d5/d64/manage__motors_8c.html#a7ca7fd5116ac8b51bddf2de941c2878f',1,'rear_motors_control(MotorRear_Typedef motor_rear_control[]):&#160;manage_motors.c'],['../d8/daf/manage__motors_8h.html#a7ca7fd5116ac8b51bddf2de941c2878f',1,'rear_motors_control(MotorRear_Typedef motor_rear_control[]):&#160;manage_motors.c']]]
 ];

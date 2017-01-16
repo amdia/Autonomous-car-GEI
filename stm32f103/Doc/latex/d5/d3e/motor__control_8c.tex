@@ -1,0 +1,91 @@
+\hypertarget{motor__control_8c}{}\section{Drivers/motor\+\_\+control.c File Reference}
+\label{motor__control_8c}\index{Drivers/motor\+\_\+control.\+c@{Drivers/motor\+\_\+control.\+c}}
+
+
+driver layer for the motor control functions  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+control.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gpio.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}{motor\+Init} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$init\+\_\+struct)
+\begin{DoxyCompactList}\small\item\em initialization of a motor \end{DoxyCompactList}\item 
+void \hyperlink{motor__control_8c_a6c5302566c5a7d231275bcf778290558}{motor\+Cmd} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$motor\+\_\+struct, int speed)
+\begin{DoxyCompactList}\small\item\em command the motor speed \end{DoxyCompactList}\item 
+void \hyperlink{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}{motor\+Enable} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$motor\+\_\+struct, \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} enable)
+\begin{DoxyCompactList}\small\item\em enable or disable the motor given \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+driver layer for the motor control functions 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{motor__control_8c_a6c5302566c5a7d231275bcf778290558}\label{motor__control_8c_a6c5302566c5a7d231275bcf778290558}} 
+\index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Cmd@{motor\+Cmd}}
+\index{motor\+Cmd@{motor\+Cmd}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
+\subsubsection{\texorpdfstring{motor\+Cmd()}{motorCmd()}}
+{\footnotesize\ttfamily void motor\+Cmd (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$}]{motor\+\_\+struct,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+command the motor speed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+struct} & motor structure is read by this function \\
+\hline
+{\em speed} & wanted speed ($<$0 to go in a direction, $>$0 to go in the other one) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}\label{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}} 
+\index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Enable@{motor\+Enable}}
+\index{motor\+Enable@{motor\+Enable}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
+\subsubsection{\texorpdfstring{motor\+Enable()}{motorEnable()}}
+{\footnotesize\ttfamily void motor\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$}]{motor\+\_\+struct,  }\item[{\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State}}]{enable }\end{DoxyParamCaption})}
+
+
+
+enable or disable the motor given 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+struct} & motor structure is read by this function \\
+\hline
+{\em enable} & ON or O\+FF \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}\label{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}} 
+\index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Init@{motor\+Init}}
+\index{motor\+Init@{motor\+Init}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
+\subsubsection{\texorpdfstring{motor\+Init()}{motorInit()}}
+{\footnotesize\ttfamily void motor\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$}]{init\+\_\+struct }\end{DoxyParamCaption})}
+
+
+
+initialization of a motor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+\_\+struct} & motor structure is initialized by this function \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

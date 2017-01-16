@@ -1,0 +1,404 @@
+\hypertarget{_i_t__functions_8c}{}\section{Drivers/\+I\+T\+\_\+functions.c File Reference}
+\label{_i_t__functions_8c}\index{Drivers/\+I\+T\+\_\+functions.\+c@{Drivers/\+I\+T\+\_\+functions.\+c}}
+
+
+driver layer for the interruption handling  
+
+
+{\ttfamily \#include \char`\"{}I\+T\+\_\+functions.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_i_t__functions_8c_af229bcc18076c7f6bda9d7274712bd62}{E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}(n)
+\begin{DoxyCompactList}\small\item\em check on which exti the G\+P\+IO has the interrupt flag set and then call the callback function and clear the pending bit \end{DoxyCompactList}\item 
+\#define \hyperlink{_i_t__functions_8c_a172b93dd2404bdf75b4dcacee17c20ed}{S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}(n)
+\begin{DoxyCompactList}\small\item\em check on which timer the scheduler has the interrupt flag set and then call the callback function and clear the pending bit \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_i_t__functions_8c_a17e9789a29a87d2df54f12b94dd1a0b6}{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a49cfdd46eb8d0ef3e1987514aa9343dc}{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_ab5a1d9e9c8ef50e0cb9ddb5745a20a14}{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a30c045de96d18ec9c67a7b9e4350920f}{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a290cb997018c8d85d4b965b4a242842f}{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a7b2096b8b2643286dc3a7e5110e5ae85}{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+I\+M2\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_ac8e51d2183b5230cbd5481f8867adce9}{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+I\+M3\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a7133f3f78767503641d307386e68bd28}{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles T\+I\+M4\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \hyperlink{_i_t__functions_8c_a9219493b81f9c945cfdb24156ff7b3b5}{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
+\begin{DoxyCompactList}\small\item\em Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \hyperlink{_i_t__functions_8c_abb0afd3e2b6220396d675e584031dfd4}{scheduler\+\_\+\+I\+T\+\_\+callback} (void)
+\begin{DoxyCompactList}\small\item\em Overridable callback function for the timer interrupt (for the project, scheduler) \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_a9b75ef44037d7ed50a1078c024ae853a}{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+M\+A1\+\_\+\+Channel4 interrupt request. \end{DoxyCompactList}\item 
+void \hyperlink{_i_t__functions_8c_abd16b3391557c4a3a8020d675e2c452f}{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles D\+M\+A1\+\_\+\+Channel5 interrupt request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+driver layer for the interruption handling 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_i_t__functions_8c_af229bcc18076c7f6bda9d7274712bd62}\label{_i_t__functions_8c_af229bcc18076c7f6bda9d7274712bd62}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS@{E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}}
+\index{E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS@{E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}{EXTI\_CALLBACKS}}
+{\footnotesize\ttfamily \#define E\+X\+T\+I\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}(EXTI\_GetITStatus(EXTI\_Line##n) != RESET)\{\(\backslash\)
+        GPIO\_EXTI\_Callback(GPIO\_Pin\_##n);\(\backslash\)
+        EXTI\_ClearITPendingBit(EXTI\_Line##n);\(\backslash\)
+    \}\(\backslash\)
+\end{DoxyCode}
+
+
+check on which exti the G\+P\+IO has the interrupt flag set and then call the callback function and clear the pending bit 
+
+A macro is a copy-\/paste \char`\"{}\#\#x\char`\"{} allow to concatenate the param to the end of a string \char`\"{}\#\#x\#\#\char`\"{} allow to concatenante the param inside a string 
+\begin{DoxyParams}{Parameters}
+{\em n} & number of the exti line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_i_t__functions_8c_a172b93dd2404bdf75b4dcacee17c20ed}\label{_i_t__functions_8c_a172b93dd2404bdf75b4dcacee17c20ed}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS@{S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}}
+\index{S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS@{S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS}{SCHEDULER\_CALLBACKS}}
+{\footnotesize\ttfamily \#define S\+C\+H\+E\+D\+U\+L\+E\+R\+\_\+\+C\+A\+L\+L\+B\+A\+C\+KS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (TIM\_GetITStatus(TIM##n, TIM\_IT\_Update) != RESET)\{\(\backslash\)
+         scheduler\_IT\_callback();\(\backslash\)
+       TIM\_ClearITPendingBit(TIM##n, TIM\_IT\_Update); \(\backslash\)
+    \}\(\backslash\)
+\end{DoxyCode}
+
+
+check on which timer the scheduler has the interrupt flag set and then call the callback function and clear the pending bit 
+
+A macro is a copy-\/paste \char`\"{}\#\#x\char`\"{} allow to concatenate the param to the end of a string \char`\"{}\#\#x\#\#\char`\"{} allow to concatenante the param inside a string 
+\begin{DoxyParams}{Parameters}
+{\em n} & timer number \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_i_t__functions_8c_a9b75ef44037d7ed50a1078c024ae853a}\label{_i_t__functions_8c_a9b75ef44037d7ed50a1078c024ae853a}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel4\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles D\+M\+A1\+\_\+\+Channel4 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_abd16b3391557c4a3a8020d675e2c452f}\label{_i_t__functions_8c_abd16b3391557c4a3a8020d675e2c452f}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler}}
+\index{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler@{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler()}{DMA1\_Channel5\_IRQHandler()}}
+{\footnotesize\ttfamily void D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles D\+M\+A1\+\_\+\+Channel5 interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a17e9789a29a87d2df54f12b94dd1a0b6}\label{_i_t__functions_8c_a17e9789a29a87d2df54f12b94dd1a0b6}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler()}{EXTI0\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I0\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}\label{_i_t__functions_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler()}{EXTI15\_10\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I15\+\_\+10\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a49cfdd46eb8d0ef3e1987514aa9343dc}\label{_i_t__functions_8c_a49cfdd46eb8d0ef3e1987514aa9343dc}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler()}{EXTI1\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I1\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_ab5a1d9e9c8ef50e0cb9ddb5745a20a14}\label{_i_t__functions_8c_ab5a1d9e9c8ef50e0cb9ddb5745a20a14}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler()}{EXTI2\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I2\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a30c045de96d18ec9c67a7b9e4350920f}\label{_i_t__functions_8c_a30c045de96d18ec9c67a7b9e4350920f}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler()}{EXTI3\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I3\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a290cb997018c8d85d4b965b4a242842f}\label{_i_t__functions_8c_a290cb997018c8d85d4b965b4a242842f}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler()}{EXTI4\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I4\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a7b2096b8b2643286dc3a7e5110e5ae85}\label{_i_t__functions_8c_a7b2096b8b2643286dc3a7e5110e5ae85}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler}}
+\index{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler@{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler()}{EXTI9\_5\_IRQHandler()}}
+{\footnotesize\ttfamily void E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a9219493b81f9c945cfdb24156ff7b3b5}\label{_i_t__functions_8c_a9219493b81f9c945cfdb24156ff7b3b5}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}}
+\index{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback@{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback()}{GPIO\_EXTI\_Callback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+
+
+Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_abb0afd3e2b6220396d675e584031dfd4}\label{_i_t__functions_8c_abb0afd3e2b6220396d675e584031dfd4}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}}
+\index{scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{scheduler\+\_\+\+I\+T\+\_\+callback()}{scheduler\_IT\_callback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void scheduler\+\_\+\+I\+T\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Overridable callback function for the timer interrupt (for the project, scheduler) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}\label{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler()}{TIM1\_UP\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}\label{_i_t__functions_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M2\+\_\+\+I\+R\+Q\+Handler()}{TIM2\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M2\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+I\+M2\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_ac8e51d2183b5230cbd5481f8867adce9}\label{_i_t__functions_8c_ac8e51d2183b5230cbd5481f8867adce9}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M3\+\_\+\+I\+R\+Q\+Handler()}{TIM3\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M3\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+I\+M3\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{_i_t__functions_8c_a7133f3f78767503641d307386e68bd28}\label{_i_t__functions_8c_a7133f3f78767503641d307386e68bd28}} 
+\index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
+\subsubsection{\texorpdfstring{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler()}{TIM4\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M4\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles T\+I\+M4\+\_\+\+I\+R\+Q\+Handler interrupt request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

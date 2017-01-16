@@ -1,0 +1,89 @@
+\hypertarget{time__systick_8h}{}\section{Drivers/time\+\_\+systick.h File Reference}
+\label{time__systick_8h}\index{Drivers/time\+\_\+systick.\+h@{Drivers/time\+\_\+systick.\+h}}
+{\ttfamily \#include $<$stm32f10x.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{time__systick_8h_a91b01529db12559c49b26f98f6145112}{S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS}~1000000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{time__systick_8h_ac816b9d61dad1fe749c8eb4c625320dd}{systick\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em systick initialization. The systick priority has to be the highest one but nothing else than the counter has to be in the interrupt handler so it takes very few time and does not block the rest by doing long interrupt all the time \end{DoxyCompactList}\item 
+uint64\+\_\+t \hyperlink{time__systick_8h_a19665f2a908fc943d11a231dcc910f4f}{micros} (void)
+\begin{DoxyCompactList}\small\item\em return the time in microseconds since the sistick has been init \end{DoxyCompactList}\item 
+void \hyperlink{time__systick_8h_a4b9f32eb15ba7d05057ad77639afce63}{delay\+\_\+micros} (uint64\+\_\+t delay\+\_\+time\+\_\+micros)
+\begin{DoxyCompactList}\small\item\em Generate a sleep. To use carefully because it is a blocking function because of the while. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{time__systick_8h_a91b01529db12559c49b26f98f6145112}\label{time__systick_8h_a91b01529db12559c49b26f98f6145112}} 
+\index{time\+\_\+systick.\+h@{time\+\_\+systick.\+h}!S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS@{S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS}}
+\index{S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS@{S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS}!time\+\_\+systick.\+h@{time\+\_\+systick.\+h}}
+\subsubsection{\texorpdfstring{S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS}{SYSTICK\_MICROS}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+T\+I\+C\+K\+\_\+\+M\+I\+C\+R\+OS~1000000}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{time__systick_8h_a4b9f32eb15ba7d05057ad77639afce63}\label{time__systick_8h_a4b9f32eb15ba7d05057ad77639afce63}} 
+\index{time\+\_\+systick.\+h@{time\+\_\+systick.\+h}!delay\+\_\+micros@{delay\+\_\+micros}}
+\index{delay\+\_\+micros@{delay\+\_\+micros}!time\+\_\+systick.\+h@{time\+\_\+systick.\+h}}
+\subsubsection{\texorpdfstring{delay\+\_\+micros()}{delay\_micros()}}
+{\footnotesize\ttfamily void delay\+\_\+micros (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{delay\+\_\+time\+\_\+micros }\end{DoxyParamCaption})}
+
+
+
+Generate a sleep. To use carefully because it is a blocking function because of the while. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{time__systick_8h_a19665f2a908fc943d11a231dcc910f4f}\label{time__systick_8h_a19665f2a908fc943d11a231dcc910f4f}} 
+\index{time\+\_\+systick.\+h@{time\+\_\+systick.\+h}!micros@{micros}}
+\index{micros@{micros}!time\+\_\+systick.\+h@{time\+\_\+systick.\+h}}
+\subsubsection{\texorpdfstring{micros()}{micros()}}
+{\footnotesize\ttfamily uint64\+\_\+t micros (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+return the time in microseconds since the sistick has been init 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em time} & in microseconds \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{time__systick_8h_ac816b9d61dad1fe749c8eb4c625320dd}\label{time__systick_8h_ac816b9d61dad1fe749c8eb4c625320dd}} 
+\index{time\+\_\+systick.\+h@{time\+\_\+systick.\+h}!systick\+\_\+init@{systick\+\_\+init}}
+\index{systick\+\_\+init@{systick\+\_\+init}!time\+\_\+systick.\+h@{time\+\_\+systick.\+h}}
+\subsubsection{\texorpdfstring{systick\+\_\+init()}{systick\_init()}}
+{\footnotesize\ttfamily void systick\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+systick initialization. The systick priority has to be the highest one but nothing else than the counter has to be in the interrupt handler so it takes very few time and does not block the rest by doing long interrupt all the time 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

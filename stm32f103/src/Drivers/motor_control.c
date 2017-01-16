@@ -44,7 +44,7 @@ void motorInit(Motor_TypeDef* init_struct) {
 /**
 * @brief command the motor speed
 * @param motor_struct motor structure is read by this function
-* @param speed wanted speed (<0 to go backward, >0 to go forward)
+* @param speed wanted speed (<0 to go in a direction, >0 to go in the other one)
 * @retval None
 */
 void motorCmd(Motor_TypeDef* motor_struct, int speed) {
@@ -60,6 +60,7 @@ void motorCmd(Motor_TypeDef* motor_struct, int speed) {
 
 /**
 * @brief enable or disable the motor given
+* @param motor_struct motor structure is read by this function
 * @param enable ON or OFF
 * @retval None
 */

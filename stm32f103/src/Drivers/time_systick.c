@@ -6,6 +6,12 @@
 #include <stdint.h>
 #include "NVIC_priorities.h"
 
+/**
+ * @var timeMicros 
+ * @brief Current STM32 time (expressed in microseconds)
+*/
+static uint64_t timeMicros;
+
 /********************************/
 /*      Public Functions        */
 /********************************/
@@ -34,7 +40,7 @@ uint64_t micros(void) {
 
 /**
  * @brief  Generate a sleep. To use carefully because it is a blocking function because of the while
- * @param  None
+ * @param  delay_time_micros Wanted time for the function to wait
  * @retval None
  */
 void delay_micros(uint64_t delay_time_micros) {

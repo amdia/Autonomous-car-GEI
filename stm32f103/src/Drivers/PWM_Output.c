@@ -97,7 +97,7 @@ void PWM_CmdPeriod(PWM_TypeDef* init_struct, uint16_t period_us) {
 /**
 * @brief returns the pulse length, based on the duty cycle percent and the period
 * @param duty_cycle_percent duty cycle percent of the PWM
-* @param period_us period of the PWM
+* @param periodUs period of the PWM
 * @retval pulse length
 */
 uint16_t get_pulse_length(uint16_t duty_cycle_percent, uint16_t periodUs){

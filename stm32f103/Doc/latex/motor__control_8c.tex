@@ -15,7 +15,7 @@ void \hyperlink{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}{motor\+Init
 \begin{DoxyCompactList}\small\item\em initialization of a motor \end{DoxyCompactList}\item 
 void \hyperlink{motor__control_8c_a6c5302566c5a7d231275bcf778290558}{motor\+Cmd} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$motor\+\_\+struct, int speed)
 \begin{DoxyCompactList}\small\item\em command the motor speed \end{DoxyCompactList}\item 
-void \hyperlink{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}{motor\+Enable} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$motor\+\_\+struct, Motor\+\_\+\+State enable)
+void \hyperlink{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}{motor\+Enable} (\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$motor\+\_\+struct, \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} enable)
 \begin{DoxyCompactList}\small\item\em enable or disable the motor given \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -39,7 +39,7 @@ command the motor speed
 \begin{DoxyParams}{Parameters}
 {\em motor\+\_\+struct} & motor structure is read by this function \\
 \hline
-{\em speed} & wanted speed ($<$0 to go backward, $>$0 to go forward) \\
+{\em speed} & wanted speed ($<$0 to go in a direction, $>$0 to go in the other one) \\
 \hline
 \end{DoxyParams}
 
@@ -51,7 +51,7 @@ command the motor speed
 \index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Enable@{motor\+Enable}}
 \index{motor\+Enable@{motor\+Enable}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
 \subsubsection{\texorpdfstring{motor\+Enable()}{motorEnable()}}
-{\footnotesize\ttfamily void motor\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$}]{motor\+\_\+struct,  }\item[{Motor\+\_\+\+State}]{enable }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void motor\+Enable (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor___type_def}{Motor\+\_\+\+Type\+Def} $\ast$}]{motor\+\_\+struct,  }\item[{\hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State}}]{enable }\end{DoxyParamCaption})}
 
 
 
