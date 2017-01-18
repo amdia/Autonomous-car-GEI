@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['communication_5ftypedef',['Communication_Typedef',['../dd/ddd/struct_communication___typedef.html',1,'']]]
+  ['communication_5ftypedef',['Communication_Typedef',['../struct_communication___typedef.html',1,'']]]
 ];

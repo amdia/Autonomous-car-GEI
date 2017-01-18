@@ -1,5 +1,10 @@
 \hypertarget{_s_p_i__services_8c}{}\section{Services/\+User\+\_\+\+Services/\+S\+P\+I\+\_\+services.c File Reference}
 \label{_s_p_i__services_8c}\index{Services/\+User\+\_\+\+Services/\+S\+P\+I\+\_\+services.\+c@{Services/\+User\+\_\+\+Services/\+S\+P\+I\+\_\+services.\+c}}
+
+
+Service layer for the S\+PI.  
+
+
 {\ttfamily \#include \char`\"{}S\+P\+I\+\_\+services.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}S\+P\+I\+\_\+common.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}sensors\+\_\+common.\+h\char`\"{}}\newline
@@ -18,7 +23,12 @@ void \hyperlink{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}{write\+\_
 \begin{DoxyCompactItemize}
 \item 
 volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} \hyperlink{_s_p_i__services_8c_ada0ef6985123cc9eba1fcb750742ca1e}{received\+Frame}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Frame sent and received by the S\+PI. Other services can also read and write values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Service layer for the S\+PI. 
+
 
 
 \subsection{Function Documentation}
@@ -75,4 +85,8 @@ None
 \index{received\+Frame@{received\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
 \subsubsection{\texorpdfstring{received\+Frame}{receivedFrame}}
 {\footnotesize\ttfamily volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} received\+Frame}
+
+
+
+Frame sent and received by the S\+PI. Other services can also read and write values. 
 

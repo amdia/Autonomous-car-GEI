@@ -2,7 +2,7 @@
 \label{motor__control_8c}\index{Drivers/motor\+\_\+control.\+c@{Drivers/motor\+\_\+control.\+c}}
 
 
-driver layer for the motor control functions  
+Driver layer for the motor control functions.  
 
 
 {\ttfamily \#include \char`\"{}motor\+\_\+control.\+h\char`\"{}}\newline
@@ -20,7 +20,7 @@ void \hyperlink{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}{motor\+Enab
 
 
 \subsection{Detailed Description}
-driver layer for the motor control functions 
+Driver layer for the motor control functions. 
 
 
 
@@ -42,11 +42,6 @@ command the motor speed
 {\em speed} & wanted speed ($<$0 to go in a direction, $>$0 to go in the other one) \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}\label{motor__control_8c_af7c024dbcc466b59f2f6cc06b4dfd0b6}} 
 \index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Enable@{motor\+Enable}}
 \index{motor\+Enable@{motor\+Enable}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
@@ -59,14 +54,11 @@ enable or disable the motor given
 
 
 \begin{DoxyParams}{Parameters}
+{\em motor\+\_\+struct} & motor structure is read by this function \\
+\hline
 {\em enable} & ON or O\+FF \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}\label{motor__control_8c_a92060a773e1cf6effc423a3a72f7d2c9}} 
 \index{motor\+\_\+control.\+c@{motor\+\_\+control.\+c}!motor\+Init@{motor\+Init}}
 \index{motor\+Init@{motor\+Init}!motor\+\_\+control.\+c@{motor\+\_\+control.\+c}}
@@ -82,8 +74,3 @@ initialization of a motor
 {\em init\+\_\+struct} & motor structure is initialized by this function \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}

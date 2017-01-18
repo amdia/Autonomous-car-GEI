@@ -39,14 +39,9 @@ Generate a sleep. To use carefully because it is a blocking function because of 
 
 
 \begin{DoxyParams}{Parameters}
-{\em None} & \\
+{\em delay\+\_\+time\+\_\+micros} & Wanted time for the function to wait \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{time__systick_8h_a19665f2a908fc943d11a231dcc910f4f}\label{time__systick_8h_a19665f2a908fc943d11a231dcc910f4f}} 
 \index{time\+\_\+systick.\+h@{time\+\_\+systick.\+h}!micros@{micros}}
 \index{micros@{micros}!time\+\_\+systick.\+h@{time\+\_\+systick.\+h}}
@@ -57,11 +52,6 @@ Generate a sleep. To use carefully because it is a blocking function because of 
 
 return the time in microseconds since the sistick has been init 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
 {\em time} & in microseconds \\
@@ -77,13 +67,3 @@ return the time in microseconds since the sistick has been init
 
 systick initialization. The systick priority has to be the highest one but nothing else than the counter has to be in the interrupt handler so it takes very few time and does not block the rest by doing long interrupt all the time 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}

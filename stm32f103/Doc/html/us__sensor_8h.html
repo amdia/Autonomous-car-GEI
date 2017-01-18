@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +7,16 @@
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Little_Helper: Services/Drivers_Car/us_sensor.h File Reference</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="favicons/manifest.json">
+<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Miles Power">
+<meta name="application-name" content="Miles Power">
+<meta name="msapplication-config" content="favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,6 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img style="max-height: 60px;" alt="Logo" src="miles_power.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
@@ -98,7 +110,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridable callback function for ultrasonic interruptions.  <a href="#a80a5f1390ee4fae449aacd71a3b9ecec">More...</a><br /></td></tr>
 <tr class="separator:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fe4f4b5d3381b55548e59973387799d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="us__sensor_8h.html#a4fe4f4b5d3381b55548e59973387799d">get_ultrasonic_position</a> (uint16_t <a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a>)</td></tr>
-<tr class="memdesc:a4fe4f4b5d3381b55548e59973387799d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Ultrasonic_Position of the ultrasonic sensor for a given GPIO pin.  <a href="#a4fe4f4b5d3381b55548e59973387799d">More...</a><br /></td></tr>
+<tr class="memdesc:a4fe4f4b5d3381b55548e59973387799d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the <a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin.  <a href="#a4fe4f4b5d3381b55548e59973387799d">More...</a><br /></td></tr>
 <tr class="separator:a4fe4f4b5d3381b55548e59973387799d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -161,7 +173,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the Ultrasonic_Position of the ultrasonic sensor for a given GPIO pin. </p>
+<p>Return the <a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>ultrasonic sensor GPIO echo pin </td></tr>
@@ -170,7 +182,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">Ultrasonic_Position</td><td>of the ultrasonic sensor </td></tr>
+    <tr><td class="paramname"><a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a></td><td>of the ultrasonic sensor </td></tr>
   </table>
   </dd>
 </dl>
@@ -200,12 +212,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -228,7 +234,7 @@ Functions</h2></td></tr>
 <p>Convert the pulse length of the echo pin into a distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>Ultrasonic_Position of the sensor </td></tr>
+    <tr><td class="paramname">pos</td><td><a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the sensor </td></tr>
   </table>
   </dd>
 </dl>
@@ -258,18 +264,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialization of the 6 ultrasonic sensors : configuration of 6 echo pins as input with EXTI and 1 trig pin as output push-pull. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -290,18 +284,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Send the pulse which trig the ultrasonic sensors. </p>
-<p>All ultrasonic sensors are connected to the same trigger </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>All ultrasonic sensors are connected to the same trigger </p>
 
 </div>
 </div>

@@ -2,7 +2,7 @@
 \label{us__sensor_8c}\index{Services/\+Drivers\+\_\+\+Car/us\+\_\+sensor.\+c@{Services/\+Drivers\+\_\+\+Car/us\+\_\+sensor.\+c}}
 
 
-driver car layer for ultrasonic sensors  
+Driver car layer for ultrasonic sensors.  
 
 
 {\ttfamily \#include \char`\"{}us\+\_\+sensor.\+h\char`\"{}}\newline
@@ -38,7 +38,7 @@ void \hyperlink{us__sensor_8c_ace4db7c61df7a00e983f05cb51549aeb}{ultrasonic\+\_\
 int \hyperlink{us__sensor_8c_accedaa0f79c7182970ff5d18643221c3}{ultrasonic\+\_\+get\+\_\+distance} (\hyperlink{sensors__common_8h_a492d5c22484a3fddcdc6672557b07717}{Ultrasonic\+\_\+\+Position} pos)
 \begin{DoxyCompactList}\small\item\em Convert the pulse length of the echo pin into a distance. \end{DoxyCompactList}\item 
 \hyperlink{sensors__common_8h_a492d5c22484a3fddcdc6672557b07717}{Ultrasonic\+\_\+\+Position} \hyperlink{us__sensor_8c_a4fe4f4b5d3381b55548e59973387799d}{get\+\_\+ultrasonic\+\_\+position} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\begin{DoxyCompactList}\small\item\em Return the Ultrasonic\+\_\+\+Position of the ultrasonic sensor for a given G\+P\+IO pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return the \hyperlink{sensors__common_8h_a7eeafa067811090d4933da86d109b463}{Ultrasonic\+\_\+\+Position} of the ultrasonic sensor for a given G\+P\+IO pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,7 +59,7 @@ float \hyperlink{us__sensor_8c_ad227db02d83d0cf568ef5530579c74a1}{pulse\+\_\+len
 
 
 \subsection{Detailed Description}
-driver car layer for ultrasonic sensors 
+Driver car layer for ultrasonic sensors. 
 
 
 
@@ -72,7 +72,7 @@ driver car layer for ultrasonic sensors
 
 
 
-Return the Ultrasonic\+\_\+\+Position of the ultrasonic sensor for a given G\+P\+IO pin. 
+Return the \hyperlink{sensors__common_8h_a7eeafa067811090d4933da86d109b463}{Ultrasonic\+\_\+\+Position} of the ultrasonic sensor for a given G\+P\+IO pin. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -81,7 +81,7 @@ Return the Ultrasonic\+\_\+\+Position of the ultrasonic sensor for a given G\+P\
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em Ultrasonic\+\_\+\+Position} & of the ultrasonic sensor \\
+{\em \hyperlink{sensors__common_8h_a7eeafa067811090d4933da86d109b463}{Ultrasonic\+\_\+\+Position}} & of the ultrasonic sensor \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_aa76e903516cf35c5a27d9def92a1913e}\label{us__sensor_8c_aa76e903516cf35c5a27d9def92a1913e}} 
@@ -99,11 +99,6 @@ Overridable callback function for ultrasonic interruptions.
 {\em pos} & ultrasonic sensor position \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_a8a5dc839644f6be28bcc64ac18fba371}\label{us__sensor_8c_a8a5dc839644f6be28bcc64ac18fba371}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+config\+\_\+echo\+\_\+pin@{ultrasonic\+\_\+config\+\_\+echo\+\_\+pin}}
 \index{ultrasonic\+\_\+config\+\_\+echo\+\_\+pin@{ultrasonic\+\_\+config\+\_\+echo\+\_\+pin}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -123,11 +118,6 @@ Configure an echo pin with interruptions for an ultrasonic sensor.
 {\em port} & G\+P\+IO port to which the ultrasonic sensor is connected \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_ace4db7c61df7a00e983f05cb51549aeb}\label{us__sensor_8c_ace4db7c61df7a00e983f05cb51549aeb}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}}
 \index{ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -138,16 +128,11 @@ Configure an echo pin with interruptions for an ultrasonic sensor.
 
 Callback function for ultrasonic interruptions. 
 
-This function is called everytime the echo pin goes high or goes low (every changes of state) 
+This function is called everytime one of the echo pin goes high or goes low (every changes of state) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & ultrasonic sensor echo pin \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_accedaa0f79c7182970ff5d18643221c3}\label{us__sensor_8c_accedaa0f79c7182970ff5d18643221c3}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+get\+\_\+distance@{ultrasonic\+\_\+get\+\_\+distance}}
 \index{ultrasonic\+\_\+get\+\_\+distance@{ultrasonic\+\_\+get\+\_\+distance}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -160,7 +145,7 @@ Convert the pulse length of the echo pin into a distance.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pos} & Ultrasonic\+\_\+\+Position of the sensor \\
+{\em pos} & \hyperlink{sensors__common_8h_a7eeafa067811090d4933da86d109b463}{Ultrasonic\+\_\+\+Position} of the sensor \\
 \hline
 \end{DoxyParams}
 
@@ -178,16 +163,6 @@ Convert the pulse length of the echo pin into a distance.
 
 Initialization of the 6 ultrasonic sensors \+: configuration of 6 echo pins as input with E\+X\+TI and 1 trig pin as output push-\/pull. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_a47385cd8a2828222ef37f37d641cecf3}\label{us__sensor_8c_a47385cd8a2828222ef37f37d641cecf3}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+reinit@{ultrasonic\+\_\+reinit}}
 \index{ultrasonic\+\_\+reinit@{ultrasonic\+\_\+reinit}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -203,11 +178,6 @@ Change the mode to input
 {\em ultrasonic\+\_\+struct} & ultrasonic sensor structure to be modified \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_a17d3dde7fd72163fa3b41e3f6f5a60a5}\label{us__sensor_8c_a17d3dde7fd72163fa3b41e3f6f5a60a5}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+reset\+\_\+all\+\_\+echo\+\_\+pins@{ultrasonic\+\_\+reset\+\_\+all\+\_\+echo\+\_\+pins}}
 \index{ultrasonic\+\_\+reset\+\_\+all\+\_\+echo\+\_\+pins@{ultrasonic\+\_\+reset\+\_\+all\+\_\+echo\+\_\+pins}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -218,16 +188,6 @@ Change the mode to input
 
 Reset all the echo pins. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_ad1da6e00e21a1839dfb4cfeac6092b2a}\label{us__sensor_8c_ad1da6e00e21a1839dfb4cfeac6092b2a}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+reset\+\_\+echo\+\_\+pin@{ultrasonic\+\_\+reset\+\_\+echo\+\_\+pin}}
 \index{ultrasonic\+\_\+reset\+\_\+echo\+\_\+pin@{ultrasonic\+\_\+reset\+\_\+echo\+\_\+pin}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -243,11 +203,6 @@ Change the mode to output and write a 0
 {\em ultrasonic\+\_\+struct} & ultrasonic sensor structure to be modified \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_afa1ec498a7b02bcc310bf5565c9d64da}\label{us__sensor_8c_afa1ec498a7b02bcc310bf5565c9d64da}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+trig\+\_\+all@{ultrasonic\+\_\+trig\+\_\+all}}
 \index{ultrasonic\+\_\+trig\+\_\+all@{ultrasonic\+\_\+trig\+\_\+all}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -258,17 +213,7 @@ Change the mode to output and write a 0
 
 Send the pulse which trig the ultrasonic sensors. 
 
-All ultrasonic sensors are connected to the same trigger 
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{us__sensor_8c_a8c147f1c713cdc21e8646ed5163e76e8}\label{us__sensor_8c_a8c147f1c713cdc21e8646ed5163e76e8}} 
+All ultrasonic sensors are connected to the same trigger \mbox{\Hypertarget{us__sensor_8c_a8c147f1c713cdc21e8646ed5163e76e8}\label{us__sensor_8c_a8c147f1c713cdc21e8646ed5163e76e8}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+trigger@{ultrasonic\+\_\+trigger}}
 \index{ultrasonic\+\_\+trigger@{ultrasonic\+\_\+trigger}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
 \subsubsection{\texorpdfstring{ultrasonic\+\_\+trigger()}{ultrasonic\_trigger()}}
@@ -278,16 +223,6 @@ All ultrasonic sensors are connected to the same trigger
 
 Set the trig pin to 1. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{us__sensor_8c_a7af22ca7cdc06f0617892448d248d11b}\label{us__sensor_8c_a7af22ca7cdc06f0617892448d248d11b}} 
 \index{us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}!ultrasonic\+\_\+untrigger@{ultrasonic\+\_\+untrigger}}
 \index{ultrasonic\+\_\+untrigger@{ultrasonic\+\_\+untrigger}!us\+\_\+sensor.\+c@{us\+\_\+sensor.\+c}}
@@ -298,16 +233,6 @@ Set the trig pin to 1.
 
 Set the trig pin to 0. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em None} & \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 
 
 \subsection{Variable Documentation}

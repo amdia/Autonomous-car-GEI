@@ -1,5 +1,10 @@
 \hypertarget{hall__sensor_8c}{}\section{Services/\+Drivers\+\_\+\+Car/hall\+\_\+sensor.c File Reference}
 \label{hall__sensor_8c}\index{Services/\+Drivers\+\_\+\+Car/hall\+\_\+sensor.\+c@{Services/\+Drivers\+\_\+\+Car/hall\+\_\+sensor.\+c}}
+
+
+Driver car layer for the hall sensors.  
+
+
 {\ttfamily \#include \char`\"{}hall\+\_\+sensor.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}sensor\+\_\+\+I\+T.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}sensors\+\_\+common.\+h\char`\"{}}\newline
@@ -7,14 +12,19 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{hall__sensor_8c_a709dbf678a7cb823eff9a8b1bdeddd91}{hall\+\_\+init} (void)
-\item 
 \+\_\+\+\_\+weak void \hyperlink{hall__sensor_8c_a7b64d13431fb59d6fcd1c63122e0d180}{hall\+\_\+callback} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Overridable callback function for hall sensor interruptions. \end{DoxyCompactList}\item 
+void \hyperlink{hall__sensor_8c_a709dbf678a7cb823eff9a8b1bdeddd91}{hall\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialization of the 4 hall sensors \+: 2 for the front stops and 2 for the rear wheels. \end{DoxyCompactList}\item 
 void \hyperlink{hall__sensor_8c_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+\_\+exti\+\_\+callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\item 
+\begin{DoxyCompactList}\small\item\em Callback function for hall sensors interruptions. \end{DoxyCompactList}\item 
 \hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} \hyperlink{hall__sensor_8c_ab0a8fb0d768d0f94e340c5e0d9815863}{get\+\_\+hall\+\_\+position} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return the \hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} of the hall sensor for a given G\+P\+IO pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Driver car layer for the hall sensors. 
+
 
 
 \subsection{Function Documentation}
@@ -24,21 +34,57 @@ void \hyperlink{hall__sensor_8c_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+\_\+ext
 \subsubsection{\texorpdfstring{get\+\_\+hall\+\_\+position()}{get\_hall\_position()}}
 {\footnotesize\ttfamily \hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} get\+\_\+hall\+\_\+position (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
 
+
+
+Return the \hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} of the hall sensor for a given G\+P\+IO pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & hall sensor G\+P\+IO pin \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}} & of the hall sensor \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{hall__sensor_8c_a7b64d13431fb59d6fcd1c63122e0d180}\label{hall__sensor_8c_a7b64d13431fb59d6fcd1c63122e0d180}} 
 \index{hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}!hall\+\_\+callback@{hall\+\_\+callback}}
 \index{hall\+\_\+callback@{hall\+\_\+callback}!hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}}
 \subsubsection{\texorpdfstring{hall\+\_\+callback()}{hall\_callback()}}
 {\footnotesize\ttfamily \+\_\+\+\_\+weak void hall\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
 
+
+
+Overridable callback function for hall sensor interruptions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & hall sensor position \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{hall__sensor_8c_a34d48f4d713f0c64d8e6c63ab9495978}\label{hall__sensor_8c_a34d48f4d713f0c64d8e6c63ab9495978}} 
 \index{hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}!hall\+\_\+exti\+\_\+callback@{hall\+\_\+exti\+\_\+callback}}
 \index{hall\+\_\+exti\+\_\+callback@{hall\+\_\+exti\+\_\+callback}!hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}}
 \subsubsection{\texorpdfstring{hall\+\_\+exti\+\_\+callback()}{hall\_exti\_callback()}}
 {\footnotesize\ttfamily void hall\+\_\+exti\+\_\+callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
 
+
+
+Callback function for hall sensors interruptions. 
+
+This function is called everytime one of the hall sensors stops to be in front of a magnet (falling edge) 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & hall sensor pin \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{hall__sensor_8c_a709dbf678a7cb823eff9a8b1bdeddd91}\label{hall__sensor_8c_a709dbf678a7cb823eff9a8b1bdeddd91}} 
 \index{hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}!hall\+\_\+init@{hall\+\_\+init}}
 \index{hall\+\_\+init@{hall\+\_\+init}!hall\+\_\+sensor.\+c@{hall\+\_\+sensor.\+c}}
 \subsubsection{\texorpdfstring{hall\+\_\+init()}{hall\_init()}}
 {\footnotesize\ttfamily void hall\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization of the 4 hall sensors \+: 2 for the front stops and 2 for the rear wheels. 
 

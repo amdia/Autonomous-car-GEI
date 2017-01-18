@@ -82,11 +82,6 @@ command the motor speed
 {\em speed} & wanted speed ($<$0 to go in a direction, $>$0 to go in the other one) \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{motor__control_8h_af7c024dbcc466b59f2f6cc06b4dfd0b6}\label{motor__control_8h_af7c024dbcc466b59f2f6cc06b4dfd0b6}} 
 \index{motor\+\_\+control.\+h@{motor\+\_\+control.\+h}!motor\+Enable@{motor\+Enable}}
 \index{motor\+Enable@{motor\+Enable}!motor\+\_\+control.\+h@{motor\+\_\+control.\+h}}
@@ -99,14 +94,11 @@ enable or disable the motor given
 
 
 \begin{DoxyParams}{Parameters}
+{\em motor\+\_\+struct} & motor structure is read by this function \\
+\hline
 {\em enable} & ON or O\+FF \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
 \mbox{\Hypertarget{motor__control_8h_a92060a773e1cf6effc423a3a72f7d2c9}\label{motor__control_8h_a92060a773e1cf6effc423a3a72f7d2c9}} 
 \index{motor\+\_\+control.\+h@{motor\+\_\+control.\+h}!motor\+Init@{motor\+Init}}
 \index{motor\+Init@{motor\+Init}!motor\+\_\+control.\+h@{motor\+\_\+control.\+h}}
@@ -122,8 +114,3 @@ initialization of a motor
 {\em init\+\_\+struct} & motor structure is initialized by this function \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}

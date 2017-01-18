@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +7,16 @@
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Little_Helper: Drivers/PWM_Output.c File Reference</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="favicons/manifest.json">
+<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="favicons/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Miles Power">
+<meta name="application-name" content="Miles Power">
+<meta name="msapplication-config" content="favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,6 +31,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img style="max-height: 60px;" alt="Logo" src="miles_power.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
@@ -69,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>driver layer for the pwm  
+<p>Driver layer for the pwm.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_p_w_m___output_8h_source.html">PWM_Output.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
@@ -91,7 +103,7 @@ Functions</h2></td></tr>
 <tr class="separator:a4f9d56364e56ee39ce5e0b2defd6c1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>driver layer for the pwm </p>
+<div class="textblock"><p>Driver layer for the pwm. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="af1f6dbe0be88e4045a1842895cd677e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1f6dbe0be88e4045a1842895cd677e0">&#9670;&nbsp;</a></span>get_pulse_length()</h2>
@@ -131,7 +143,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">duty_cycle_percent</td><td>duty cycle percent of the PWM </td></tr>
-    <tr><td class="paramname">period_us</td><td>period of the PWM </td></tr>
+    <tr><td class="paramname">periodUs</td><td>period of the PWM </td></tr>
   </table>
   </dd>
 </dl>
@@ -178,12 +190,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -218,12 +224,6 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">init_struct</td><td>PWM structure contains the information necessary to the configuration and is written by this function </td></tr>
     <tr><td class="paramname">period_us</td><td>wanted period for the PWM </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>

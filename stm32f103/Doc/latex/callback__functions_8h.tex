@@ -7,7 +7,7 @@
 void \hyperlink{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}{ultrasonic\+\_\+exti\+\_\+callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
 \begin{DoxyCompactList}\small\item\em Callback function for ultrasonic interruptions. \end{DoxyCompactList}\item 
 void \hyperlink{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+\_\+exti\+\_\+callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback function for hall sensors interruptions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -17,6 +17,15 @@ void \hyperlink{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+
 \subsubsection{\texorpdfstring{hall\+\_\+exti\+\_\+callback()}{hall\_exti\_callback()}}
 {\footnotesize\ttfamily void hall\+\_\+exti\+\_\+callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{G\+P\+I\+O\+\_\+\+Pin }\end{DoxyParamCaption})}
 
+
+
+Callback function for hall sensors interruptions. 
+
+This function is called everytime one of the hall sensors stops to be in front of a magnet (falling edge) 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & hall sensor pin \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}\label{callback__functions_8h_ace4db7c61df7a00e983f05cb51549aeb}} 
 \index{callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}!ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}}
 \index{ultrasonic\+\_\+exti\+\_\+callback@{ultrasonic\+\_\+exti\+\_\+callback}!callback\+\_\+functions.\+h@{callback\+\_\+functions.\+h}}
@@ -27,13 +36,8 @@ void \hyperlink{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+
 
 Callback function for ultrasonic interruptions. 
 
-This function is called everytime the echo pin goes high or goes low (every changes of state) 
+This function is called everytime one of the echo pin goes high or goes low (every changes of state) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & ultrasonic sensor echo pin \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em None} & \\
-\hline
-\end{DoxyRetVals}
