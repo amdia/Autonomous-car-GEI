@@ -1,6 +1,6 @@
 /**
 * @file PWM_Output.c
-* @brief driver layer for the pwm
+* @brief Driver layer for the pwm
 */
 #include "PWM_Output.h"
 #include "timer.h"
@@ -63,7 +63,6 @@ PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
 * @brief configuration of the PWM duty cyle which can be changed at any time
 * @param init_struct PWM structure contains the information necessary to the configuration and is written by this function
 * @param duty_cycle_percent wanted duty cycle for the PWM [0,100]
-* @retval None
 */
 void PWM_CmdDutyCycle(PWM_TypeDef* init_struct, uint16_t duty_cycle_percent) {
   uint16_t pulseLength = get_pulse_length(duty_cycle_percent, init_struct->periodUs);
@@ -83,7 +82,6 @@ void PWM_CmdDutyCycle(PWM_TypeDef* init_struct, uint16_t duty_cycle_percent) {
 * @brief configuration of the PWM period
 * @param init_struct PWM structure contains the information necessary to the configuration and is written by this function
 * @param period_us wanted period for the PWM
-* @retval None
 */
 void PWM_CmdPeriod(PWM_TypeDef* init_struct, uint16_t period_us) {
   TIM_SetAutoreload(init_struct->timer, period_us); 

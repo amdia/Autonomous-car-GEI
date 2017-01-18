@@ -1,6 +1,6 @@
 /**
 * @file us_sensor.c
-* @brief driver car layer for ultrasonic sensors
+* @brief Driver car layer for ultrasonic sensors
 */
 
 #include "us_sensor.h"
@@ -41,14 +41,11 @@ float pulse_length[ULTRASONIC_NB] = {0};
 /**
 * @brief  Overridable callback function for ultrasonic interruptions
 * @param  pos ultrasonic sensor position
-* @retval None
 */
 __weak void ultrasonic_callback(Ultrasonic_Position pos) {}
 
 /**
 * @brief  Initialization of the 6 ultrasonic sensors : configuration of 6 echo pins as input with EXTI and 1 trig pin as output push-pull
-* @param  None
-* @retval None
 */
 void ultrasonic_init(void) {
 	// Configure 6 echo pins as input with EXTI
@@ -67,8 +64,6 @@ void ultrasonic_init(void) {
 * @brief Send the pulse which trig the ultrasonic sensors
 *
 * All ultrasonic sensors are connected to the same trigger
-* @param  None
-* @retval None
 */
 void ultrasonic_trig_all(void) {
 	// Reset all echo pins to set them to 0 if they are stuck to 1 because of the previous trig. (do not completly fix the bug)
@@ -83,9 +78,8 @@ void ultrasonic_trig_all(void) {
 /**
 * @brief  Callback function for ultrasonic interruptions.
 *
-* This function is called everytime the echo pin goes high or goes low (every changes of state)
+* This function is called everytime one of the echo pin goes high or goes low (every changes of state)
 * @param  GPIO_Pin ultrasonic sensor echo pin
-* @retval None
 */
 void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 	// Store the time to which the echo pin goes high
@@ -114,8 +108,6 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 
 /**
 * @brief  Set the trig pin to 1
-* @param  None
-* @retval None
 */
 void ultrasonic_trigger(void) {
 	GPIO_set(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN);
@@ -123,8 +115,6 @@ void ultrasonic_trigger(void) {
 
 /**
 * @brief  Set the trig pin to 0
-* @param  None
-* @retval None
 */
 void ultrasonic_untrigger(void) {
 	GPIO_reset(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN);
@@ -132,8 +122,6 @@ void ultrasonic_untrigger(void) {
 
 /**
 * @brief Reset all the echo pins
-* @param  None
-* @retval None
 */
 void ultrasonic_reset_all_echo_pins(void) {
 	// Set all echo pin to output then bring them to low state
@@ -158,7 +146,7 @@ void ultrasonic_reset_all_echo_pins(void) {
 
 /**
 * @brief Convert the pulse length of the echo pin into a distance
-* @param pos Ultrasonic_Position of the sensor
+* @param pos #Ultrasonic_Position of the sensor
 * @retval distance in centimeters
 */
 int ultrasonic_get_distance(Ultrasonic_Position pos) {
@@ -167,9 +155,9 @@ int ultrasonic_get_distance(Ultrasonic_Position pos) {
 }
 
 /**
-* @brief Return the Ultrasonic_Position of the ultrasonic sensor for a given GPIO pin
+* @brief Return the #Ultrasonic_Position of the ultrasonic sensor for a given GPIO pin
 * @param GPIO_Pin ultrasonic sensor GPIO echo pin
-* @retval Ultrasonic_Position of the ultrasonic sensor
+* @retval #Ultrasonic_Position of the ultrasonic sensor
 */
 Ultrasonic_Position get_ultrasonic_position(uint16_t GPIO_Pin) {
 		  if (GPIO_Pin == ULTRASONIC_FRONT_CENTER_ECHO_PIN) return ULTRASONIC_FRONT_CENTER;
@@ -186,7 +174,6 @@ Ultrasonic_Position get_ultrasonic_position(uint16_t GPIO_Pin) {
 * @param ultrasonic_struct ultrasonic sensor structure to be initialized
 * @param pin GPIO pin to which the ultrasonic sensor is connected
 * @param port GPIO port to which the ultrasonic sensor is connected
-* @retval None
 */
 void ultrasonic_config_echo_pin(Sensor_IT_TypeDef *ultrasonic_struct, uint16_t pin, GPIO_TypeDef* port){
 	ultrasonic_struct->pin = pin;  
@@ -202,7 +189,6 @@ void ultrasonic_config_echo_pin(Sensor_IT_TypeDef *ultrasonic_struct, uint16_t p
 *
 * Change the mode to output and write a 0
 * @param ultrasonic_struct ultrasonic sensor structure to be modified
-* @retval None
 */
 void ultrasonic_reset_echo_pin(Sensor_IT_TypeDef *ultrasonic_struct){
 	 ultrasonic_struct->gpioMode = GPIO_Mode_Out_OD;
@@ -215,7 +201,6 @@ void ultrasonic_reset_echo_pin(Sensor_IT_TypeDef *ultrasonic_struct){
 *
 * Change the mode to input
 * @param ultrasonic_struct ultrasonic sensor structure to be modified
-* @retval None
 */
 void ultrasonic_reinit(Sensor_IT_TypeDef *ultrasonic_struct){
     ultrasonic_struct->gpioMode = GPIO_Mode_IPU;

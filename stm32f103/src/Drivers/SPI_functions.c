@@ -1,6 +1,6 @@
 /**
 * @file SPI_functions.c
-* @brief driver layer for SPI
+* @brief Driver layer for SPI
 */
 
 #include "SPI_functions.h"
@@ -15,8 +15,6 @@
 
 /**
 * @brief Initialize the SPI channel (number)
-* @param None
-* @retval None
 */
 	
 void InitializeSPI2(void)

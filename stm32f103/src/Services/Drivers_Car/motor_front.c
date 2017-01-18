@@ -1,6 +1,6 @@
 /**
 * @file motor_front.c
-* @brief driver car layer for the front motor
+* @brief Driver car layer for the front motor
 */
 
 #include "motor_front.h"
@@ -17,8 +17,6 @@ static Motor_TypeDef motor_front;
 * @brief Front motor initialization
 *
 * There are two PWM for the motor. They are complementary.
-* @param None
-* @retval None
 */
 void initFrontMotor(void) {
 	PWM_TypeDef pwm1;
@@ -49,7 +47,6 @@ void initFrontMotor(void) {
 /**
 * @brief Command the given motor with the given speed
 * @param speed Wanted speed (<0 to go right, >0 to go left)
-* @retval None
 */
 void commandFrontMotor(int speed) {
 	motorCmd(&motor_front, speed);
@@ -57,8 +54,6 @@ void commandFrontMotor(int speed) {
 
 /**
 * @brief Enable the motor
-* @param None
-* @retval None
 */
 void enableFrontMotor(void) {
   motorEnable(&motor_front, MOTOR_STATE_ON);
@@ -66,8 +61,6 @@ void enableFrontMotor(void) {
 
 /**
 * @brief Disable the motor
-* @param None
-* @retval None
 */
 void disableFrontMotor(void) {
   motorEnable(&motor_front, MOTOR_STATE_OFF);

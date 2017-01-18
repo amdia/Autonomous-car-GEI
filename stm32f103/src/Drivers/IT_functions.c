@@ -1,6 +1,6 @@
 /**
 * @file IT_functions.c
-* @brief driver layer for the interruption handling
+* @brief Driver layer for the interruption handling
 */
 
 #include "IT_functions.h"
@@ -62,14 +62,11 @@ void TIM4_IRQHandler(void);
 /**
 * @brief  Overridable callback function for the GPIO interrupts (for the project, hall sensors)
 * @param  GPIO_Pin GPIO pin
-* @retval None
 */
 __weak void GPIO_EXTI_Callback (uint16_t GPIO_Pin){}
 	
 /**
 * @brief  Overridable callback function for the timer interrupt (for the project, scheduler)
-* @param  None
-* @retval None
 */
 __weak void scheduler_IT_callback(void){}
 	
@@ -86,8 +83,6 @@ __weak void scheduler_IT_callback(void){}
 
 /**
 * @brief  This function handles EXTI0_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI0_IRQHandler(void){
 	EXTI_CALLBACKS(0);
@@ -95,8 +90,6 @@ void EXTI0_IRQHandler(void){
 
 /**
 * @brief  This function handles EXTI1_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI1_IRQHandler(void){
 	EXTI_CALLBACKS(1);
@@ -104,8 +97,6 @@ void EXTI1_IRQHandler(void){
 
 /**
 * @brief  This function handles EXTI2_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI2_IRQHandler(void){
 	EXTI_CALLBACKS(2);
@@ -113,8 +104,6 @@ void EXTI2_IRQHandler(void){
 
 /**
 * @brief  This function handles EXTI3_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI3_IRQHandler(void){
 	EXTI_CALLBACKS(3);
@@ -122,8 +111,6 @@ void EXTI3_IRQHandler(void){
 
 /**
 * @brief  This function handles EXTI4_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI4_IRQHandler(void){
 	EXTI_CALLBACKS(4);
@@ -131,8 +118,6 @@ void EXTI4_IRQHandler(void){
 
 /**
 * @brief  This function handles EXTI9_5_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI9_5_IRQHandler(void)
 {
@@ -145,8 +130,6 @@ void EXTI9_5_IRQHandler(void)
 
 /**
 * @brief  This function handles EXTI15_10_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void EXTI15_10_IRQHandler(void)
 {
@@ -160,8 +143,6 @@ void EXTI15_10_IRQHandler(void)
 
 /**
 * @brief  This function handles TIM1_UP_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void TIM1_UP_IRQHandler(void){
 	SCHEDULER_CALLBACKS(1);
@@ -169,8 +150,6 @@ void TIM1_UP_IRQHandler(void){
 
 /**
 * @brief  This function handles TIM2_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void TIM2_IRQHandler(void){
 	SCHEDULER_CALLBACKS(2);
@@ -178,8 +157,6 @@ void TIM2_IRQHandler(void){
 
 /**
 * @brief  This function handles TIM3_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void TIM3_IRQHandler(void){
 	SCHEDULER_CALLBACKS(3);
@@ -187,8 +164,6 @@ void TIM3_IRQHandler(void){
 
 /**
 * @brief  This function handles TIM4_IRQHandler interrupt request.
-* @param  None
-* @retval None
 */
 void TIM4_IRQHandler(void){
 	SCHEDULER_CALLBACKS(4);
@@ -196,8 +171,6 @@ void TIM4_IRQHandler(void){
 
 /**
 * @brief  This function handles DMA1_Channel4 interrupt request.
-* @param  None
-* @retval None
 */
 void DMA1_Channel4_IRQHandler(void){
 	DMA_ClearITPendingBit(DMA1_IT_GL4);
@@ -205,8 +178,6 @@ void DMA1_Channel4_IRQHandler(void){
 
 /**
 * @brief  This function handles DMA1_Channel5 interrupt request.
-* @param  None
-* @retval None
 */
 void DMA1_Channel5_IRQHandler(void){
 	DMA_ClearITPendingBit(DMA1_IT_GL5);

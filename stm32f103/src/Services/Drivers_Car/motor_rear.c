@@ -31,8 +31,6 @@ int motors_speed[REAR_MOTORS_NB] = {0,0};
 * @brief Rear motors initialization
 *
 * There are two PWM for each motors. They are complementary.
-* @param None
-* @retval None
 */
 void motors_rear_init(void) {
 	PWM_TypeDef pwm11;

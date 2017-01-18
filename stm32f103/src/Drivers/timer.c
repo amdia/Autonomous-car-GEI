@@ -1,6 +1,6 @@
  /**
 * @file timer.c
-* @brief driver layer for the timers
+* @brief Driver layer for the timers
 */
  
  #include <misc.h>
@@ -17,7 +17,6 @@
  * @param  timer Timer number
  * @param  counter_clock_frequency Counter clock frequency
  * @param  period_us Timer period in micro-seconds
- * @retval None
  */
 
 void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us){
@@ -38,7 +37,6 @@ void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us){
 * @brief enable timer interruption for a given timer
 * @param timer Timer number
 * @param priority Interrupt priority
-* @retval None
 */
 
 void enable_timer_interrupt(TIM_TypeDef* timer, int priority){

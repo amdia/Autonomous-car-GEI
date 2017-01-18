@@ -1,6 +1,6 @@
 /**
 * @file clocks.c
-* @brief driver layer for the peripherals clocks
+* @brief Driver layer for the peripherals clocks
 */
 
 #include "clocks.h"
@@ -8,8 +8,6 @@
 
 /**
 * @brief Enable all the peripherals clocks
-* @param None
-* @retval None
 */
 void clocks_init(void){
 	// Enable the SPI2 periph

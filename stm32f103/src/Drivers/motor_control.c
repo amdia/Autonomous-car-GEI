@@ -1,6 +1,6 @@
 /**
 * @file motor_control.c
-* @brief driver layer for the motor control functions
+* @brief Driver layer for the motor control functions
 */
 #include "motor_control.h"
 #include "motor_common.h"
@@ -13,7 +13,6 @@
 /**
 * @brief initialization of a motor
 * @param init_struct motor structure is initialized by this function
-* @retval None
 */
 void motorInit(Motor_TypeDef* init_struct) {
   GPIO_InitTypeDef enablePin;
@@ -45,7 +44,6 @@ void motorInit(Motor_TypeDef* init_struct) {
 * @brief command the motor speed
 * @param motor_struct motor structure is read by this function
 * @param speed wanted speed (<0 to go in a direction, >0 to go in the other one)
-* @retval None
 */
 void motorCmd(Motor_TypeDef* motor_struct, int speed) {
   uint16_t dutyCycle = 0;
@@ -62,7 +60,6 @@ void motorCmd(Motor_TypeDef* motor_struct, int speed) {
 * @brief enable or disable the motor given
 * @param motor_struct motor structure is read by this function
 * @param enable ON or OFF
-* @retval None
 */
 void motorEnable(Motor_TypeDef* motor_struct, Motor_State enable) {
   if (enable == MOTOR_STATE_ON) {

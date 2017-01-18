@@ -1,3 +1,10 @@
+/**
+* @file callback_functions.c
+* @brief Driver car layer for the ultrasonic and hall sensors callback functions
+*
+* Is one level above the @ref IT_functions.c file and one level below the @ref hall_sensor.c and @ref us_sensor.c files
+*/
+
 #include <stdint.h>
 #include "callback_functions.h"
 #include "IT_functions.h"

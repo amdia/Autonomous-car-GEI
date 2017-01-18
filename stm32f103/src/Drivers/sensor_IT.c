@@ -1,6 +1,6 @@
 /**
 * @file sensor_IT.c
-* @brief driver layer for the GPIO sensors based on interruptions
+* @brief Driver layer for the GPIO sensors based on interruptions
 */
 
 #include "sensor_IT.h"
@@ -53,7 +53,6 @@ static void EXTI_Config(Sensor_IT_TypeDef* initStructSensor);
 /**
 * @brief  Do the configuration for a given sensor based on interruption. Configures the GPIO and the EXTI
 * @param  initStructSensor sensor structure contains the information necessary to the configuration and is read by this function
-* @retval None
 */
 void Sensor_IT_Config(Sensor_IT_TypeDef* initStructSensor) {
 	// Configure the GPIO port
@@ -75,7 +74,6 @@ unsigned int Sensor_IT_Read(Sensor_IT_TypeDef* structSensor) {
 /**
 * @brief  gpio configuration (pin, port, mode)
 * @param  initStructSensor sensor structure contains the information necessary to the configuration and is read by this function
-* @retval None
 */
 void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
 	GPIO_init(initStructSensor->port, initStructSensor->pin, initStructSensor->gpioMode);
@@ -88,7 +86,6 @@ void GPIO_Configuration(Sensor_IT_TypeDef* initStructSensor) {
 /**
 * @brief  exti configuration (line, port, priority, trigger type)
 * @param  initStructSensor sensor structure contains the information necessary to the configuration and is read by this function
-* @retval None
 */
 void EXTI_Config(Sensor_IT_TypeDef* initStructSensor) {
 	EXTI_InitTypeDef 		EXTI_InitStructure;
