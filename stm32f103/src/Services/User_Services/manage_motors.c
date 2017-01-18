@@ -91,7 +91,7 @@ void control_angle_front_motor(int angle){
 			
 			//set motor parameters
 			enableFrontMotor();
-			if(command_angle<0){speed = -speed;}
+			if(diff_angle<0){speed = -speed;}
 			commandFrontMotor(speed);
 			t_temp = micros()+time_to_turn;			
 		}
