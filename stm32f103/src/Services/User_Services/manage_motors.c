@@ -45,14 +45,14 @@ void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 	}
 	
 }
-//int speed = 0;
-void control_angle_front_motor(int angle){
+int speed = 0;
+void control_angle_front_motor(int angle){ // fonction non-testé avec le if(micros > t_time+t_turn), fonction validée avec while. A debug avec le if si ne fonctionne pas du premier coup
 	static int actual_angle = ANGLE_INIT;
 	static int actual_command_angle = ANGLE_INIT;
 	static uint64_t t_temp = 0;
 	uint64_t time_to_turn = 0;
 	int diff_angle = 0;
-	int speed = 0;
+	//int speed = 0;
 	float speed_motor = 0.0;
 	int threshold = 0;
 	int command_angle = 0;

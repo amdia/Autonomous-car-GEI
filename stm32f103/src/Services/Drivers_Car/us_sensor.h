@@ -5,7 +5,7 @@
 #include "sensors_common.h"
 
 #define ULTRASONIC_CONVERSION_CONSTANT  58.2
-#define MAX_TIME_PULSE 						 22600.0
+#define MAX_TIME_PULSE 						      22600.0
 #define ULTRASONIC_DELAY_RESET_ECHO_PIN 100
 
 int ultrasonic_get_distance(Ultrasonic_Position pos);
