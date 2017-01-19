@@ -82,34 +82,28 @@ typedef enum {
 	REAR_MOTOR_RIGHT = 1
 } Motor_Rear_Position;
 
-/**
- * @brief State of the motor
-*/
 typedef enum {
-	/** Motor disabled (0) */
-	MOTOR_STATE_OFF = 0,
-	/** Motor enabled (1) */
-	MOTOR_STATE_ON = 1
+  MOTOR_STATE_OFF = 0,
+  MOTOR_STATE_ON = 1
 } Motor_State;
 
 /**
-* @brief Structure that contains informations for the rear motors
-*/
+ * \struct MotorRear_Typedef
+ * \brief Structure that contains informations for the rear motors
+ */
 typedef struct
 {
-	/** Speed of the motor in % */
-	int speed; 
-	/** Distance travelled */
-	int distance; 
+	int speed; /*!< Speed of the motor in % */
+	int distance; /*!< Distance travelled */
 }MotorRear_Typedef;
 
 /**
-* @brief Structure that contains informations for the front motor
-*/
+ * \struct MotorFront_Typedef
+ * \brief Structure that contains informations for the front motor
+ */
 typedef struct
 {
-	/** Angle to turn */
-	int angle; 
+	int angle; /*!< Angle to turn */
 }MotorFront_Typedef;
 
 #endif //__MOTOR_COMMON_H

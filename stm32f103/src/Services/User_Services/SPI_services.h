@@ -12,7 +12,7 @@
 	... | LEFT_WHEEL_MOTOR_DISTANCE | RIGHT_WHEEL_MOTOR_DISTANCE | ...
 	... | FRONT_LEFT_ULTRASOUND | FRONT_RIGHT_ULTRASOUND | FRONT_CENTER_ULTRASOUND | ...
 	... | REAR_LEFT_ULTRASOUND | REAR_RIGHT_ULTRASOUND | REAR_CENTER_ULTRASOUND | ...
-	... | BATTERY ||
+	... | BATTERY | ACK_BYTE ||
 
 */
 
@@ -39,6 +39,7 @@ typedef struct
 	uint8_t rear_right_ultrasonic;
 	uint8_t rear_center_ultrasonic;
 	uint8_t battery;
+	uint8_t ack_byte;
 }OctetsFrame_Typedef;
 
 
@@ -61,6 +62,16 @@ typedef struct
 }Battery_Typedef;
 
 /**
+ * \struct Ack_Typedef
+ * \brief Structure that contains informations about the ack byte
+ */
+typedef struct
+{
+	int reset_distance; /*!< Distance reset demand of the raspi */
+	int ack_distance; /*!< Ack response for the distance */
+}Ack_Typedef;
+
+/**
  * \struct Communication_Typedef
  * \brief Structure that contains all the informations of the car
  */
@@ -72,6 +83,9 @@ typedef struct
 	Ultrasound_Typedef ultrasounds[ULTRASONIC_NB];
 
 	Battery_Typedef battery;	
+	
+	Ack_Typedef ack_byte;
+	
 }Communication_Typedef;
 
 typedef struct motorAction

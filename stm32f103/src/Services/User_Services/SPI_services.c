@@ -1,29 +1,11 @@
-/**
-* @file SPI_services.c
-* @brief Service layer for the SPI
-*/
-
 #include "SPI_services.h"
 #include "SPI_common.h"
 #include "sensors_common.h"
 
-/* Shared variables ----------------------------------------------------------*/
-
-/**
-* @brief Frame sent and received by the SPI. Other services can also read and write values.
-*/
 volatile Communication_Typedef receivedFrame;
 
-/* Private function prototypes -----------------------------------------------*/
 static int convert_2_int(uint8_t octet);
 
-/********************************/
-/*       Public Functions       */
-/********************************/
-
-/**
-* @brief Initialization of the SPI frame structure with 0 values.
-*/
 void init_spiFrame(void)
 {
 	// Initialization of the motors
@@ -45,58 +27,38 @@ void init_spiFrame(void)
 
 	// Initialization of the battery 
 	receivedFrame.battery.state = 0;
+	
+	// Initialization of the ack byte
+	receivedFrame.ack_byte.reset_distance = 0;
+	receivedFrame.ack_byte.ack_distance = 0; 
 
 }
 
-/**
-* @brief Function to be called to read the frame coming from the SPI
-*/
 void read_spiFrame(void)
-{
-	int angle, speed;
-	
-	// Load the buffer in an OctetsFrame
+{	
+	int angle, speed, reset;
 	OctetsFrame_Typedef *octetsFrame =(OctetsFrame_Typedef *)receiveBuffer;
-	// ---------------------------------------------------------------------------//
-	//  																Direction motor				//
-	//													   												//
-	//  	Format of the octets : 																	//
-	// 		| Angle | Angle | Angle | Angle | Angle | Angle | Angle | Angle |  	//
-	// ---------------------------------------------------------------------------//
 	
-	// Get the angle fields from the octet frame
+	// Direction motor
 	angle = octetsFrame->direction_motor;
-	// Convert the char (uint8_t) into an int and store it in the Communication_Typedef frame
 	receivedFrame.directionMotor.angle = convert_2_int(angle);	
 
-	// -------------------------------------------------------------------------------------------------//
-	//  																				leftwheel motor 		 					 //																	
-	//																																	 //																				
-	//  	Format of the octet : 																								 //																
-	// 		| Speed | Speed | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |   //
-	// -------------------------------------------------------------------------------------------------//	
-	
-	// Get the speed fields for the left wheel from the octet frame
+	// leftwheel motor
 	speed = octetsFrame->left_wheel_motor;
-	// Convert the char (uint8_t) into an int and store it in the Communication_Typedef frame
 	receivedFrame.rear_motors[REAR_MOTOR_LEFT].speed = convert_2_int(speed);
 
-	// -------------------------------------------------------------------------------------------------------- //
-	//  																					rightwheel motor 		 							//
-	//																																				//
-	//  	Format of the octet : 																											//
-	// 		| Speed | Speed | Speed     | Speed     | Speed     | Speed     | Speed     | Speed    |  		   //
-	// -------------------------------------------------------------------------------------------------------- //	
-
-	// Get the speed fields for the right wheel from the octet frame
+	// rightwheel motor
 	speed = octetsFrame->right_wheel_motor;
-	// Convert the char (uint8_t) into an int and store it in the Communication_Typedef frame
 	receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = convert_2_int(speed);
+	
+	// Ack byte
+	//  	Format of the octet :
+	// 		| 00 | 00 | 00 | 00 | 00 | 00 | reset distance | ack distance |
+	reset = octetsFrame->ack_byte;
+	receivedFrame.ack_byte.reset_distance = (reset >> 1) & 0x1;
+	
 }
 
-/**
-* @brief Function to be called to write into the frame to send to the SPI
-*/
 void write_spiFrame(void)
 {
 	OctetsFrame_Typedef *octetsFrame =(OctetsFrame_Typedef *)sendBuffer;
@@ -121,16 +83,13 @@ void write_spiFrame(void)
 	// Battery
 	octetsFrame->battery = (int8_t)receivedFrame.battery.state;
 	
+	// Ack byte
+	//  	Format of the octet :
+	// 		| 00 | 00 | 00 | 00 | 00 | 00 | reset distance | ack distance |
+	octetsFrame->ack_byte = (int8_t)receivedFrame.ack_byte.ack_distance;
+	
 }
 
-/********************************/
-/*      Private Functions       */
-/********************************/
-
-/**
-* @brief Convert a char (uint8_t) into an int
-* @retval int value between 0 and 255
-*/
 int convert_2_int(uint8_t octet){
 	if(octet > 127)
 		return (256 - octet) * (-1);

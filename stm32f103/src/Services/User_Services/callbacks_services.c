@@ -23,6 +23,15 @@ void ultrasonic_callback(Ultrasonic_Position pos) {
 void scheduler_IT_callback(){
 	if(IS_TASK(TASK_SPI)){
 		read_spiFrame(); // Read the Frame 
+		
+		if(receivedFrame.ack_byte.reset_distance==1){
+			reset_distance();
+			receivedFrame.ack_byte.ack_distance = 1;
+		}
+		else{
+			receivedFrame.ack_byte.ack_distance = 0;
+		}
+		
 		write_spiFrame(); // Write the Frame 
 	}
 	

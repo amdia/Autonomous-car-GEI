@@ -1,8 +1,3 @@
-/**
-* @file services_config.c
-* @brief Service layer for the initialization of all the drivers
-*/
-
 #include "services_config.h"
 #include "clocks.h"
 #include "time_systick.h"
@@ -11,9 +6,7 @@
 #include "drivers_car_config.h"
 #include "scheduler_timer_init.h" 
 
-/**
-* @brief Initialization of the clocks, the NVIC priority setting, the systick, the car drivers, the SPI and the scheduler
-*/
+
 void services_init(void){
 	clocks_init();
 
@@ -29,7 +22,7 @@ void services_init(void){
 	
 	// Initialize the structure 
 	init_spiFrame();
-	receivedFrame.battery.state = 50; //random value, battery is not implemented
+	receivedFrame.battery.state = 50;
 
 	//init scheduler
 	scheduler_timer_init();

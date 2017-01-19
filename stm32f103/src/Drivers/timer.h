@@ -6,6 +6,6 @@
 #define SCHEDULER_TIMER         	TIM2
 
 void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us);
-void enable_timer_interrupt(TIM_TypeDef* timer, int priority);
+void enable_timer_interrupt(TIM_TypeDef* timer);
 
 #endif // _TIMER_H_

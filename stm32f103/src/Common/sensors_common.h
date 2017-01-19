@@ -37,7 +37,7 @@
 #define ULTRASONIC_REAR_RIGHT_ECHO_PORT	GPIOC
 
 #define TEMPS_TRIG  250e3
-#define ULTRASONIC_TRIGGER_DELAY 15 //in microseconds
+#define ULTRASONIC_TRIGGER_DELAY 15
 
 typedef enum Ultrasonic_Position {
 	ULTRASONIC_POSITION_ERROR  = -1,

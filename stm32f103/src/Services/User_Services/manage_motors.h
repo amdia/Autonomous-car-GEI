@@ -11,9 +11,10 @@
 #define FRONT_MOTOR_SPEED_R2L 			((float)ANGLE_RANGE/1.4e6) // deg/us
 #define FRONT_MOTOR_SPEED_L2R 			((float)ANGLE_RANGE/1.1e6)	// deg/us		
 
-#define ANGLE_INIT											 0
+#define ANGLE_INIT										ANGLE_RIGHT_MAX
 
 void rear_motors_control(MotorRear_Typedef motor_rear_control[]);
+void reset_distance(void);
 float* calculate_distance(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void control_angle_front_motor(int angle);
