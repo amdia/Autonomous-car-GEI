@@ -74,16 +74,6 @@ typedef struct
 
 
 /**
- * \struct Ack_Typedef
- * \brief Structure that contains informations about the ack byte
- */
-typedef struct
-{
-	int reset_distance; /*!< Distance reset demand of the raspi */
-	int ack_distance; /*!< Ack response for the distance */
-}Ack_Typedef;
-
-/**
  * \struct Communication_Typedef
  * \brief Structure that contains all the informations of the car
  */

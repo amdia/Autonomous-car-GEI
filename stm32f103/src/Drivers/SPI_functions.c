@@ -1,8 +1,21 @@
+/**
+* @file SPI_functions.c
+* @brief Driver layer for SPI
+*/
+
 #include "SPI_functions.h"
 #include "SPI_common.h"
 #include <stm32f10x.h>
 #include "gpio.h"
 #include "NVIC_priorities.h"
+
+/********************************/
+/*      Public Functions       */
+/********************************/
+
+/**
+* @brief Initialize the SPI channel (number)
+*/
 	
 void InitializeSPI2(void)
 {
@@ -19,7 +32,7 @@ void InitializeSPI2(void)
 	DMA_InitTypeDef DMA_InitStructure; //Variable used to setup the DMA
 
 
-	//== SPI2 configuration
+	/***** SPI2 Configuration *****/
 	SPI_StructInit(&SPI_InitStructure);
 	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
 	SPI_InitStructure.SPI_Mode = SPI_Mode_Slave;
