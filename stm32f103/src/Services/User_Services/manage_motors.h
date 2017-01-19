@@ -14,6 +14,7 @@
 #define ANGLE_INIT											 0
 
 void rear_motors_control(MotorRear_Typedef motor_rear_control[]);
+void reset_distance(void);
 float* calculate_distance(Hall_Position pos);
 void motor_front_stop(Hall_Position pos);
 void control_angle_front_motor(int angle);

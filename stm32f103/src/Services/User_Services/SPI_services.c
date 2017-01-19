@@ -45,6 +45,10 @@ void init_spiFrame(void)
 
 	// Initialization of the battery 
 	receivedFrame.battery.state = 0;
+	
+	// Initialization of the ack byte 
+	receivedFrame.ack_byte.reset_distance = 0;
+	receivedFrame.ack_byte.ack_distance = 0;
 
 }
 
@@ -53,7 +57,7 @@ void init_spiFrame(void)
 */
 void read_spiFrame(void)
 {
-	int angle, speed;
+	int angle, speed, reset;
 	
 	// Load the buffer in an OctetsFrame
 	OctetsFrame_Typedef *octetsFrame =(OctetsFrame_Typedef *)receiveBuffer;
@@ -92,6 +96,16 @@ void read_spiFrame(void)
 	speed = octetsFrame->right_wheel_motor;
 	// Convert the char (uint8_t) into an int and store it in the Communication_Typedef frame
 	receivedFrame.rear_motors[REAR_MOTOR_RIGHT].speed = convert_2_int(speed);
+	
+	// -------------------------------------------------------------------------------------------------------- //
+	//  																							Ack byte 		 							//
+	//																																				//
+	//  	Format of the octet : 																											//
+	// 		|   00   |   00   |   00   |   00   |   00   |   00   |   00   |  reset distance |  ack distance | //
+	// -------------------------------------------------------------------------------------------------------- //	
+	reset = octetsFrame->ack_byte;
+	receivedFrame.ack_byte.reset_distance = (reset >> 1) & 0x1;
+	
 }
 
 /**
@@ -120,6 +134,9 @@ void write_spiFrame(void)
 
 	// Battery
 	octetsFrame->battery = (int8_t)receivedFrame.battery.state;
+	
+	// Ack byte
+	octetsFrame->ack_byte = (int8_t) receivedFrame.ack_byte.ack_distance;
 	
 }
 

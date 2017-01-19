@@ -1,3 +1,7 @@
+/**
+* @file manage_motors.c
+* @brief Sercice layer for the front and rear motors
+*/
 #include "manage_motors.h"
 #include <stdint.h>
 #include <stdlib.h>
@@ -6,11 +10,16 @@
 #include "motor_common.h"
 #include "time_systick.h"
 
+/**
+ * @var on_stop 
+ * @brief 1 if the front motor has been stopped by the hall sensor, 0 else
+*/
 int on_stop = 0;
 
 int speeds[4]={40,38,35,30};
 float thresholds[4]={0.25,0.5,0.75,1};
 float rear_distance[REAR_MOTORS_NB] = {0};
+static int rear_hall[REAR_MOTORS_NB]={0};
 
 void rear_motors_control(MotorRear_Typedef motor_rear_control[]){
 	
@@ -104,8 +113,14 @@ void control_angle_front_motor(int angle){
 	}
 }
 
+void reset_distance(void){
+	int i;
+	for(i=0; i<REAR_MOTORS_NB; i++){
+		rear_hall[i] = 0;
+	}
+}
+
 float* calculate_distance(Hall_Position pos){
-	static int rear_hall[REAR_MOTORS_NB]={0};
 	if(pos == HALL_REAR_LEFT || pos == HALL_REAR_RIGHT){
 		rear_hall[pos-2]++;
 		rear_distance[pos-2] = WHEEL_PERIMETER * ((float)rear_hall[pos-2]) / WHEEL_PULSES_NB;

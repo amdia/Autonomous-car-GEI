@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "SPI_services.h"
 
-#define BUFFER_SIZE 12//(sizeof(OctetsFrame_Typedef))
+#define BUFFER_SIZE 13//(sizeof(OctetsFrame_Typedef))
 
 extern volatile uint8_t sendBuffer[BUFFER_SIZE]; 
 extern volatile uint8_t receiveBuffer[BUFFER_SIZE];
