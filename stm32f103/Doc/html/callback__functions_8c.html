@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -96,6 +97,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae5b5c6a072497021f8c8617e6befdb34"><td class="memItemLeft" align="right" valign="top">__weak void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callback__functions_8c.html#ae5b5c6a072497021f8c8617e6befdb34">hall_exti_callback</a> (uint16_t <a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a>)</td></tr>
 <tr class="separator:ae5b5c6a072497021f8c8617e6befdb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0b546bc50d378d057e7414d31d9d070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callback__functions_8c.html#ad0b546bc50d378d057e7414d31d9d070">GPIO_EXTI_Callback</a> (uint16_t <a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a>)</td></tr>
+<tr class="memdesc:ad0b546bc50d378d057e7414d31d9d070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every GPIO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor.  <a href="#ad0b546bc50d378d057e7414d31d9d070">More...</a><br /></td></tr>
 <tr class="separator:ad0b546bc50d378d057e7414d31d9d070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -118,6 +120,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called every GPIO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>GPIO pin </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae5b5c6a072497021f8c8617e6befdb34"></a>
@@ -135,6 +145,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overridable callback function for the GPIO interrupts related to the hall sensors </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>GPIO pin </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -153,6 +169,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Overridable callback function for the GPIO interrupts related to the ultrasonic sensors </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>GPIO pin </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -21,6 +21,11 @@ void \hyperlink{callback__functions_8h_a34d48f4d713f0c64d8e6c63ab9495978}{hall\+
 
 Callback function for hall sensors interruptions. 
 
+Overridable callback function for the G\+P\+IO interrupts related to the hall sensors 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin\\
+\hline
+\end{DoxyParams}
 This function is called everytime one of the hall sensors stops to be in front of a magnet (falling edge) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & hall sensor pin \\
@@ -36,6 +41,11 @@ This function is called everytime one of the hall sensors stops to be in front o
 
 Callback function for ultrasonic interruptions. 
 
+Overridable callback function for the G\+P\+IO interrupts related to the ultrasonic sensors 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin\\
+\hline
+\end{DoxyParams}
 This function is called everytime one of the echo pin goes high or goes low (every changes of state) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & ultrasonic sensor echo pin \\

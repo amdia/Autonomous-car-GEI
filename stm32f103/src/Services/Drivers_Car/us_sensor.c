@@ -85,18 +85,18 @@ void ultrasonic_exti_callback (uint16_t GPIO_Pin) {
 	// Store the time to which the echo pin goes high
 	static uint64_t time_tmp[ULTRASONIC_NB] = {0};
 	// Store current state of the ultrasonic echo pin
-	static Ultrasonic_State state[ULTRASONIC_NB] = {DOWN};
+	static FlagStatus state[ULTRASONIC_NB] = {RESET};
 	// Store the echo pin which raised the current interruption
 	Ultrasonic_Position position = get_ultrasonic_position(GPIO_Pin);
 	
-	// If the echo pin was previously DOWN, update the current state to UP and save the time when it happened
-	if(state[position] == DOWN) {
-		state[position] = UP;
+	// If the echo pin was previously RESET, update the current state to SET and save the time when it happened
+	if(state[position] == RESET) {
+		state[position] = SET;
 		time_tmp[position] = micros();
 	}
-	// If the echo pin was previously UP, update the current state to DOWN and calculate the time during which the pulse was high
+	// If the echo pin was previously SET, update the current state to RESET and calculate the time during which the pulse was high
 	else{
-		state[position] = DOWN;
+		state[position] = RESET;
 		pulse_length[position] = micros() - time_tmp[position];
 		ultrasonic_callback(position);
 	}

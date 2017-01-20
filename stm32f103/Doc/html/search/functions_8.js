@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['read_5fspiframe',['read_spiFrame',['../_s_p_i__services_8c.html#aa1fea51a1aab3c8773b9cb383b18b5dd',1,'read_spiFrame(void):&#160;SPI_services.c'],['../_s_p_i__services_8h.html#aa1fea51a1aab3c8773b9cb383b18b5dd',1,'read_spiFrame(void):&#160;SPI_services.c']]],
-  ['rear_5fmotors_5fcontrol',['rear_motors_control',['../manage__motors_8c.html#a7ca7fd5116ac8b51bddf2de941c2878f',1,'rear_motors_control(MotorRear_Typedef motor_rear_control[]):&#160;manage_motors.c'],['../manage__motors_8h.html#a7ca7fd5116ac8b51bddf2de941c2878f',1,'rear_motors_control(MotorRear_Typedef motor_rear_control[]):&#160;manage_motors.c']]]
+  ['pwm_5fcmddutycycle',['PWM_CmdDutyCycle',['../_p_w_m___output_8c.html#a6aa02d72f9cc9753a27633e1284ae685',1,'PWM_CmdDutyCycle(PWM_TypeDef *init_struct, uint16_t duty_cycle_percent):&#160;PWM_Output.c'],['../_p_w_m___output_8h.html#a6aa02d72f9cc9753a27633e1284ae685',1,'PWM_CmdDutyCycle(PWM_TypeDef *init_struct, uint16_t duty_cycle_percent):&#160;PWM_Output.c']]],
+  ['pwm_5fcmdperiod',['PWM_CmdPeriod',['../_p_w_m___output_8c.html#a4f9d56364e56ee39ce5e0b2defd6c1de',1,'PWM_CmdPeriod(PWM_TypeDef *init_struct, uint16_t period_us):&#160;PWM_Output.c'],['../_p_w_m___output_8h.html#a4f9d56364e56ee39ce5e0b2defd6c1de',1,'PWM_CmdPeriod(PWM_TypeDef *init_struct, uint16_t period_us):&#160;PWM_Output.c']]],
+  ['pwm_5finitialize',['PWM_initialize',['../_p_w_m___output_8c.html#aba90a7748e3b414cc1aecc3c1fdc2a7a',1,'PWM_initialize(PWM_TypeDef *init_struct):&#160;PWM_Output.c'],['../_p_w_m___output_8h.html#aba90a7748e3b414cc1aecc3c1fdc2a7a',1,'PWM_initialize(PWM_TypeDef *init_struct):&#160;PWM_Output.c']]]
 ];

@@ -5,15 +5,15 @@
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~12
+\#define \hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~(sizeof(\hyperlink{struct_octets_frame___typedef}{Octets\+Frame\+\_\+\+Typedef}))
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 volatile uint8\+\_\+t \hyperlink{_s_p_i__common_8h_a6b7ade20514aec9f1626cf87b25baacb}{send\+Buffer} \mbox{[}\hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Buffer to send S\+PI frame -\/ shared variable between \hyperlink{_s_p_i__functions_8c}{S\+P\+I\+\_\+functions.\+c} and \hyperlink{_s_p_i__services_8c}{S\+P\+I\+\_\+services.\+c}. \end{DoxyCompactList}\item 
 volatile uint8\+\_\+t \hyperlink{_s_p_i__common_8h_a88256da6636189bf907f3565d9e063bc}{receive\+Buffer} \mbox{[}\hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Buffer to receive S\+PI frame -\/ shared variable between \hyperlink{_s_p_i__functions_8c}{S\+P\+I\+\_\+functions.\+c} and \hyperlink{_s_p_i__services_8c}{S\+P\+I\+\_\+services.\+c}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
@@ -21,9 +21,9 @@ volatile uint8\+\_\+t \hyperlink{_s_p_i__common_8h_a88256da6636189bf907f3565d9e0
 \index{S\+P\+I\+\_\+common.\+h@{S\+P\+I\+\_\+common.\+h}!B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
 \index{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!S\+P\+I\+\_\+common.\+h@{S\+P\+I\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{BUFFER\_SIZE}}
-{\footnotesize\ttfamily \#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~12}
+{\footnotesize\ttfamily \#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~(sizeof(\hyperlink{struct_octets_frame___typedef}{Octets\+Frame\+\_\+\+Typedef}))}
 
-
+Size of the sending and receiving buffers, equal to the size of the \hyperlink{struct_octets_frame___typedef}{Octets\+Frame\+\_\+\+Typedef} 
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{_s_p_i__common_8h_a88256da6636189bf907f3565d9e063bc}\label{_s_p_i__common_8h_a88256da6636189bf907f3565d9e063bc}} 
@@ -32,9 +32,17 @@ volatile uint8\+\_\+t \hyperlink{_s_p_i__common_8h_a88256da6636189bf907f3565d9e0
 \subsubsection{\texorpdfstring{receive\+Buffer}{receiveBuffer}}
 {\footnotesize\ttfamily volatile uint8\+\_\+t receive\+Buffer\mbox{[}\hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}\mbox{]}}
 
+
+
+Buffer to receive S\+PI frame -\/ shared variable between \hyperlink{_s_p_i__functions_8c}{S\+P\+I\+\_\+functions.\+c} and \hyperlink{_s_p_i__services_8c}{S\+P\+I\+\_\+services.\+c}. 
+
 \mbox{\Hypertarget{_s_p_i__common_8h_a6b7ade20514aec9f1626cf87b25baacb}\label{_s_p_i__common_8h_a6b7ade20514aec9f1626cf87b25baacb}} 
 \index{S\+P\+I\+\_\+common.\+h@{S\+P\+I\+\_\+common.\+h}!send\+Buffer@{send\+Buffer}}
 \index{send\+Buffer@{send\+Buffer}!S\+P\+I\+\_\+common.\+h@{S\+P\+I\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{send\+Buffer}{sendBuffer}}
 {\footnotesize\ttfamily volatile uint8\+\_\+t send\+Buffer\mbox{[}\hyperlink{_s_p_i__common_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}\mbox{]}}
+
+
+
+Buffer to send S\+PI frame -\/ shared variable between \hyperlink{_s_p_i__functions_8c}{S\+P\+I\+\_\+functions.\+c} and \hyperlink{_s_p_i__services_8c}{S\+P\+I\+\_\+services.\+c}. 
 

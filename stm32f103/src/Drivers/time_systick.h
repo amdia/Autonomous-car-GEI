@@ -3,6 +3,7 @@
 
 #include <stm32f10x.h>
 
+/** Frequency of the systick, corresponding to a period of 1 microsecond */
 #define SYSTICK_MICROS  1000000
 
 void systick_init(void);

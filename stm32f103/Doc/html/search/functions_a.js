@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['tim1_5fup_5firqhandler',['TIM1_UP_IRQHandler',['../_i_t__functions_8c.html#a51741dbf9b0de1b8b56b5a6f1ef2e694',1,'IT_functions.c']]],
-  ['tim2_5firqhandler',['TIM2_IRQHandler',['../_i_t__functions_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'IT_functions.c']]],
-  ['tim3_5firqhandler',['TIM3_IRQHandler',['../_i_t__functions_8c.html#ac8e51d2183b5230cbd5481f8867adce9',1,'IT_functions.c']]],
-  ['tim4_5firqhandler',['TIM4_IRQHandler',['../_i_t__functions_8c.html#a7133f3f78767503641d307386e68bd28',1,'IT_functions.c']]],
-  ['timer_5finit',['timer_init',['../timer_8c.html#a8e97d9efa9ab20f5e019c88cf71e6095',1,'timer_init(TIM_TypeDef *timer, int counter_clock_frequency, int period_us):&#160;timer.c'],['../timer_8h.html#a8e97d9efa9ab20f5e019c88cf71e6095',1,'timer_init(TIM_TypeDef *timer, int counter_clock_frequency, int period_us):&#160;timer.c']]],
-  ['timmap',['timMap',['../tim__mapping_8h.html#a96627105103dd91c942d4bf2912ca04a',1,'tim_mapping.h']]],
-  ['travelled_5fdistance',['travelled_distance',['../test__motors_8c.html#a716d473970fc5127c9e853d1e57ee344',1,'test_motors.c']]]
+  ['scheduler_5fit_5fcallback',['scheduler_IT_callback',['../callbacks__services_8c.html#a90fbf65560e53e5848ba7e81c3757fbf',1,'scheduler_IT_callback():&#160;callbacks_services.c'],['../scheduler__timer__init_8c.html#abb0afd3e2b6220396d675e584031dfd4',1,'scheduler_IT_callback(void):&#160;scheduler_timer_init.c'],['../scheduler__timer__init_8h.html#a75df498d217296406eff24c4cb0db7a2',1,'scheduler_IT_callback(void):&#160;callbacks_services.c'],['../_i_t__functions_8c.html#abb0afd3e2b6220396d675e584031dfd4',1,'scheduler_IT_callback(void):&#160;IT_functions.c'],['../_i_t__functions_8h.html#a75df498d217296406eff24c4cb0db7a2',1,'scheduler_IT_callback(void):&#160;callbacks_services.c']]],
+  ['scheduler_5ftimer_5finit',['scheduler_timer_init',['../scheduler__timer__init_8c.html#a6365095fb3ac06d12afdd14ea55f4a40',1,'scheduler_timer_init(void):&#160;scheduler_timer_init.c'],['../scheduler__timer__init_8h.html#a6365095fb3ac06d12afdd14ea55f4a40',1,'scheduler_timer_init(void):&#160;scheduler_timer_init.c']]],
+  ['sensor_5fit_5fconfig',['Sensor_IT_Config',['../sensor___i_t_8c.html#af89cc1cac5354735e7d2ceac46f26c4a',1,'Sensor_IT_Config(Sensor_IT_TypeDef *initStructSensor):&#160;sensor_IT.c'],['../sensor___i_t_8h.html#af89cc1cac5354735e7d2ceac46f26c4a',1,'Sensor_IT_Config(Sensor_IT_TypeDef *initStructSensor):&#160;sensor_IT.c']]],
+  ['sensor_5fit_5fread',['Sensor_IT_Read',['../sensor___i_t_8c.html#a7206e8a81d2bd33751a403b620eaf53d',1,'Sensor_IT_Read(Sensor_IT_TypeDef *structSensor):&#160;sensor_IT.c'],['../sensor___i_t_8h.html#a7206e8a81d2bd33751a403b620eaf53d',1,'Sensor_IT_Read(Sensor_IT_TypeDef *structSensor):&#160;sensor_IT.c']]],
+  ['services_5finit',['services_init',['../services__config_8c.html#ae0c4b93de7dd11fed695e437a9afc53a',1,'services_init(void):&#160;services_config.c'],['../services__config_8h.html#ae0c4b93de7dd11fed695e437a9afc53a',1,'services_init(void):&#160;services_config.c']]],
+  ['systick_5fhandler',['SysTick_Handler',['../time__systick_8c.html#ab5e09814056d617c521549e542639b7e',1,'time_systick.c']]],
+  ['systick_5finit',['systick_init',['../time__systick_8c.html#ac816b9d61dad1fe749c8eb4c625320dd',1,'systick_init(void):&#160;time_systick.c'],['../time__systick_8h.html#ac816b9d61dad1fe749c8eb4c625320dd',1,'systick_init(void):&#160;time_systick.c']]]
 ];

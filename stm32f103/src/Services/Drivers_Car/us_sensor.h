@@ -4,8 +4,10 @@
 #include <stdint.h>
 #include "sensors_common.h"
 
+/** Constant conversion to calculate the distance between the ultrasonic sensor and an object 
+* according to the passed time between the trig of the pulse and the detection of the return of the pulse */
 #define ULTRASONIC_CONVERSION_CONSTANT  58.2
-#define MAX_TIME_PULSE 						 22600.0
+/** Time to wait the reset of the echo pin and the reinitialization of the pin */
 #define ULTRASONIC_DELAY_RESET_ECHO_PIN 100
 
 int ultrasonic_get_distance(Ultrasonic_Position pos);

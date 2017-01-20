@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['scheduler_5fcounter',['scheduler_counter',['../callbacks__services_8c.html#ab9bb35d1ba82186f78fd894695be7cc2',1,'callbacks_services.c']]],
-  ['sendbuffer',['sendBuffer',['../_s_p_i__common_8c.html#a6b7ade20514aec9f1626cf87b25baacb',1,'sendBuffer():&#160;SPI_common.c'],['../_s_p_i__common_8h.html#a6b7ade20514aec9f1626cf87b25baacb',1,'sendBuffer():&#160;SPI_common.c']]],
-  ['speed',['speed',['../struct_motor_rear___typedef.html#a218b4f7c6cc2681a99c23a3b089d68b1',1,'MotorRear_Typedef']]],
-  ['speeds',['speeds',['../manage__motors_8c.html#aae8234b46b0f350e61a0630dbc011653',1,'manage_motors.c']]],
-  ['state',['state',['../struct_battery___typedef.html#a89f234133d3efe315836311cbf21c64b',1,'Battery_Typedef']]]
+  ['thresholds',['thresholds',['../manage__motors_8c.html#a18e768a5ba8f2571fadbf450170887cf',1,'manage_motors.c']]],
+  ['timemicros',['timeMicros',['../time__systick_8c.html#a99c58fed2850a7a5c08477dd7be37ae4',1,'time_systick.c']]],
+  ['timer',['timer',['../struct_p_w_m___type_def.html#a5f2d7e0e880def3262a850626e3df17d',1,'PWM_TypeDef::timer()'],['../struct_t_i_m___c_h.html#a5f2d7e0e880def3262a850626e3df17d',1,'TIM_CH::timer()']]],
+  ['timerchannel',['timerChannel',['../struct_p_w_m___type_def.html#a2ceeb6205773419966e920a22828f526',1,'PWM_TypeDef']]],
+  ['triggertype',['triggerType',['../struct_sensor___i_t___type_def.html#a6625b6963fd4f630224d40f04877bd21',1,'Sensor_IT_TypeDef']]]
 ];

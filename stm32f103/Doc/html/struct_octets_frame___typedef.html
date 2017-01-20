@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -77,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Structure that contains the frame sent and received from the SPI buffer. Every element is a char (uint8_t).  
+ <a href="struct_octets_frame___typedef.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_s_p_i__services_8h_source.html">SPI_services.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -105,8 +109,26 @@ Data Fields</h2></td></tr>
 <tr class="separator:aa211e19d6c5a23b9eca397d4818e93fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89e04157c4e1f65c9ab63bffa365c8a6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_octets_frame___typedef.html#a89e04157c4e1f65c9ab63bffa365c8a6">battery</a></td></tr>
 <tr class="separator:a89e04157c4e1f65c9ab63bffa365c8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5325932c177cc46a55ff3810195fc974"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_octets_frame___typedef.html#a5325932c177cc46a55ff3810195fc974">ack_byte</a></td></tr>
+<tr class="separator:a5325932c177cc46a55ff3810195fc974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure that contains the frame sent and received from the SPI buffer. Every element is a char (uint8_t). </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a5325932c177cc46a55ff3810195fc974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5325932c177cc46a55ff3810195fc974">&#9670;&nbsp;</a></span>ack_byte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ack_byte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a89e04157c4e1f65c9ab63bffa365c8a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89e04157c4e1f65c9ab63bffa365c8a6">&#9670;&nbsp;</a></span>battery</h2>
 

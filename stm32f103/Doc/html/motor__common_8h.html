@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -96,10 +97,10 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:adca07b02a9d917897a9809b7b19a2f79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#adca07b02a9d917897a9809b7b19a2f79">REAR_MOTORS_NB</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:adca07b02a9d917897a9809b7b19a2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac01b94e8f8a53fee61196dd1ad4504c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#aac01b94e8f8a53fee61196dd1ad4504c">MOTORS_NB</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:aac01b94e8f8a53fee61196dd1ad4504c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adca07b02a9d917897a9809b7b19a2f79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#adca07b02a9d917897a9809b7b19a2f79">REAR_MOTORS_NB</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:adca07b02a9d917897a9809b7b19a2f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69041736221d0455b8dd01e939d0f8ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#a69041736221d0455b8dd01e939d0f8ff">REAR_MOTOR_LEFT_IN1_PIN</a>&#160;&#160;&#160;GPIO_Pin_0</td></tr>
 <tr class="separator:a69041736221d0455b8dd01e939d0f8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4d63e723e7d2edcdac9baff62d4572"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#adc4d63e723e7d2edcdac9baff62d4572">REAR_MOTOR_LEFT_IN1_PORT</a>&#160;&#160;&#160;GPIOB</td></tr>
@@ -150,15 +151,14 @@ Macros</h2></td></tr>
 <tr class="separator:a24b5df9f4a195b1725a595e72efdc150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6893b1a1ed8c48e2e8541d9aabc0dccf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#a6893b1a1ed8c48e2e8541d9aabc0dccf">FRONT_MOTOR_TIMER</a>&#160;&#160;&#160;TIM4</td></tr>
 <tr class="separator:a6893b1a1ed8c48e2e8541d9aabc0dccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0030ccd40c66a9a6349b7772b46128b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#a0030ccd40c66a9a6349b7772b46128b6">FRONT_MOTOR_SPEED</a>&#160;&#160;&#160;30</td></tr>
-<tr class="separator:a0030ccd40c66a9a6349b7772b46128b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a69bba86df1a74cfaa5e488dcbd725f17"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17">Motor_Rear_Position</a> { <a class="el" href="motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277">MOTOR_POSITION_ERROR</a> = -1, 
 <a class="el" href="motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23">REAR_MOTOR_LEFT</a> = 0, 
 <a class="el" href="motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a">REAR_MOTOR_RIGHT</a> = 1
- }</td></tr>
+ }<tr class="memdesc:a69bba86df1a74cfaa5e488dcbd725f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values for the rear motors position (right or left)  <a href="motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a69bba86df1a74cfaa5e488dcbd725f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5eef05fe69a4cc173c44ff4d28be944"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944">Motor_State</a> { <a class="el" href="motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942">MOTOR_STATE_OFF</a> = 0, 
 <a class="el" href="motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a2deef916bc8df30cb5f220fedb94064e">MOTOR_STATE_ON</a> = 1
@@ -178,6 +178,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin for front motor enable </p>
 
 </div>
 </div>
@@ -192,6 +193,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port for front motor enable </p>
 
 </div>
 </div>
@@ -206,6 +208,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN1 for the front motor </p>
 
 </div>
 </div>
@@ -220,6 +223,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN1 for the front motor </p>
 
 </div>
 </div>
@@ -234,6 +238,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port IN1 for the front motor </p>
 
 </div>
 </div>
@@ -248,6 +253,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN2 for the front motor </p>
 
 </div>
 </div>
@@ -262,6 +268,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN2 for the front motor </p>
 
 </div>
 </div>
@@ -276,20 +283,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0030ccd40c66a9a6349b7772b46128b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0030ccd40c66a9a6349b7772b46128b6">&#9670;&nbsp;</a></span>FRONT_MOTOR_SPEED</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FRONT_MOTOR_SPEED&#160;&#160;&#160;30</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Port IN2 for the front motor </p>
 
 </div>
 </div>
@@ -304,6 +298,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Timer for front motor </p>
 
 </div>
 </div>
@@ -318,6 +313,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of motors </p>
 
 </div>
 </div>
@@ -332,6 +328,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin for rear motor enable </p>
 
 </div>
 </div>
@@ -346,6 +343,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port for rear motor enable </p>
 
 </div>
 </div>
@@ -360,6 +358,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN1 for the rear left motor </p>
 
 </div>
 </div>
@@ -374,6 +373,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN1 for the rear left motor </p>
 
 </div>
 </div>
@@ -388,6 +388,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port IN1 for the rear left motor </p>
 
 </div>
 </div>
@@ -402,6 +403,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN2 for the rear left motor </p>
 
 </div>
 </div>
@@ -416,6 +418,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN2 for the rear left motor </p>
 
 </div>
 </div>
@@ -430,6 +433,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port IN2 for the rear left motor </p>
 
 </div>
 </div>
@@ -444,6 +448,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Timer for the rear left motor </p>
 
 </div>
 </div>
@@ -458,6 +463,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN1 for the rear right motor </p>
 
 </div>
 </div>
@@ -472,6 +478,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN1 for the rear right motor </p>
 
 </div>
 </div>
@@ -486,6 +493,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port IN1 for the rear right motor </p>
 
 </div>
 </div>
@@ -500,6 +508,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Channel IN2 for the rear right motor </p>
 
 </div>
 </div>
@@ -514,6 +523,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pin IN2 for the rear right motor </p>
 
 </div>
 </div>
@@ -528,6 +538,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Port IN2 for the rear right motor </p>
 
 </div>
 </div>
@@ -542,6 +553,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Timer for the rear right motor </p>
 
 </div>
 </div>
@@ -556,6 +568,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of rear motors </p>
 
 </div>
 </div>
@@ -571,10 +584,15 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Values for the rear motors position (right or left) </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277"></a>MOTOR_POSITION_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23"></a>REAR_MOTOR_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a"></a>REAR_MOTOR_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277"></a>MOTOR_POSITION_ERROR&#160;</td><td class="fielddoc"><p>Motor position unknown </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23"></a>REAR_MOTOR_LEFT&#160;</td><td class="fielddoc"><p>Left rear motor </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a"></a>REAR_MOTOR_RIGHT&#160;</td><td class="fielddoc"><p>Right rear motor </p>
+</td></tr>
 </table>
 
 </div>

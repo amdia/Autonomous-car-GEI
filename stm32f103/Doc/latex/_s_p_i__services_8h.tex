@@ -7,97 +7,29 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_octets_frame___typedef}{Octets\+Frame\+\_\+\+Typedef}
-\item 
+\begin{DoxyCompactList}\small\item\em Structure that contains the frame sent and received from the S\+PI buffer. Every element is a char (uint8\+\_\+t). \end{DoxyCompactList}\item 
 struct \hyperlink{struct_ultrasound___typedef}{Ultrasound\+\_\+\+Typedef}
 \begin{DoxyCompactList}\small\item\em Structure that contains informations about the ultrasounds. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_battery___typedef}{Battery\+\_\+\+Typedef}
 \begin{DoxyCompactList}\small\item\em Structure that contains informations about the battery. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_ack___typedef}{Ack\+\_\+\+Typedef}
+\begin{DoxyCompactList}\small\item\em Structure that contains informations about the ack byte. \end{DoxyCompactList}\item 
 struct \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef}
-\begin{DoxyCompactList}\small\item\em Structure that contains all the informations of the car. \end{DoxyCompactList}\item 
-struct \hyperlink{structmotor_action}{motor\+Action}
-\end{DoxyCompactItemize}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{_s_p_i__services_8h_ae07908274b43bb530ed93a9259baff9b}{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK}~128
-\item 
-\#define \hyperlink{_s_p_i__services_8h_a7950e79bb048d2a83ed38cf5d98b06be}{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET}~7
-\item 
-\#define \hyperlink{_s_p_i__services_8h_ab8fce999daffe7102b0e19d5bb9c69eb}{S\+P\+E\+E\+D\+\_\+\+M\+A\+SK}~127
-\item 
-\#define \hyperlink{_s_p_i__services_8h_a35c6e14ffaa710baea0e32275d589048}{S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET}~0
-\item 
-\#define \hyperlink{_s_p_i__services_8h_a150ba87ce15b2ee78823ecf2a4c8ca50}{A\+N\+G\+L\+E\+\_\+\+M\+A\+SK}~127
-\item 
-\#define \hyperlink{_s_p_i__services_8h_a1f5d790ef3cd6eba2604b90705a1eb6b}{A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET}~0
-\end{DoxyCompactItemize}
-\subsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct \hyperlink{structmotor_action}{motor\+Action} \hyperlink{_s_p_i__services_8h_a3a8b558918e489dddb15126f80d04ea1}{motor\+Action}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure that contains all the informations of the car. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{_s_p_i__services_8h_a2aa65b673cce4ee92499c79a26e91e67}{init\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Initialize the communication structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialization of the S\+PI frame structure with 0 values. \end{DoxyCompactList}\item 
 void \hyperlink{_s_p_i__services_8h_aa1fea51a1aab3c8773b9cb383b18b5dd}{read\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Read the frame received and update the communication structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Function to be called to read the frame coming from the S\+PI. \end{DoxyCompactList}\item 
 void \hyperlink{_s_p_i__services_8h_a9f7deb809070b92f77d855e2649b37e9}{write\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Write the frame to send according to the communication structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to be called to write into the frame to send to the S\+PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} \hyperlink{_s_p_i__services_8h_ada0ef6985123cc9eba1fcb750742ca1e}{received\+Frame}
+volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} \hyperlink{_s_p_i__services_8h_aab377b840500efc8519ab396b4854533}{communication\+Frame}
 \begin{DoxyCompactList}\small\item\em Frame sent and received by the S\+PI. Other services can also read and write values. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{_s_p_i__services_8h_a150ba87ce15b2ee78823ecf2a4c8ca50}\label{_s_p_i__services_8h_a150ba87ce15b2ee78823ecf2a4c8ca50}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!A\+N\+G\+L\+E\+\_\+\+M\+A\+SK@{A\+N\+G\+L\+E\+\_\+\+M\+A\+SK}}
-\index{A\+N\+G\+L\+E\+\_\+\+M\+A\+SK@{A\+N\+G\+L\+E\+\_\+\+M\+A\+SK}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{A\+N\+G\+L\+E\+\_\+\+M\+A\+SK}{ANGLE\_MASK}}
-{\footnotesize\ttfamily \#define A\+N\+G\+L\+E\+\_\+\+M\+A\+SK~127}
-
-\mbox{\Hypertarget{_s_p_i__services_8h_a1f5d790ef3cd6eba2604b90705a1eb6b}\label{_s_p_i__services_8h_a1f5d790ef3cd6eba2604b90705a1eb6b}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET}}
-\index{A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET@{A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET}{ANGLE\_OFFSET}}
-{\footnotesize\ttfamily \#define A\+N\+G\+L\+E\+\_\+\+O\+F\+F\+S\+ET~0}
-
-\mbox{\Hypertarget{_s_p_i__services_8h_ae07908274b43bb530ed93a9259baff9b}\label{_s_p_i__services_8h_ae07908274b43bb530ed93a9259baff9b}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK@{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK}}
-\index{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK@{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK}{DIRECTION\_MASK}}
-{\footnotesize\ttfamily \#define D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+M\+A\+SK~128}
-
-\mbox{\Hypertarget{_s_p_i__services_8h_a7950e79bb048d2a83ed38cf5d98b06be}\label{_s_p_i__services_8h_a7950e79bb048d2a83ed38cf5d98b06be}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET@{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET}}
-\index{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET@{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET}{DIRECTION\_OFFSET}}
-{\footnotesize\ttfamily \#define D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+F\+F\+S\+ET~7}
-
-\mbox{\Hypertarget{_s_p_i__services_8h_ab8fce999daffe7102b0e19d5bb9c69eb}\label{_s_p_i__services_8h_ab8fce999daffe7102b0e19d5bb9c69eb}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!S\+P\+E\+E\+D\+\_\+\+M\+A\+SK@{S\+P\+E\+E\+D\+\_\+\+M\+A\+SK}}
-\index{S\+P\+E\+E\+D\+\_\+\+M\+A\+SK@{S\+P\+E\+E\+D\+\_\+\+M\+A\+SK}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+M\+A\+SK}{SPEED\_MASK}}
-{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+M\+A\+SK~127}
-
-\mbox{\Hypertarget{_s_p_i__services_8h_a35c6e14ffaa710baea0e32275d589048}\label{_s_p_i__services_8h_a35c6e14ffaa710baea0e32275d589048}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET@{S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET}}
-\index{S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET@{S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET}{SPEED\_OFFSET}}
-{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+O\+F\+F\+S\+ET~0}
-
-
-
-\subsection{Typedef Documentation}
-\mbox{\Hypertarget{_s_p_i__services_8h_a3a8b558918e489dddb15126f80d04ea1}\label{_s_p_i__services_8h_a3a8b558918e489dddb15126f80d04ea1}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!motor\+Action@{motor\+Action}}
-\index{motor\+Action@{motor\+Action}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{motor\+Action}{motorAction}}
-{\footnotesize\ttfamily typedef struct \hyperlink{structmotor_action}{motor\+Action} \hyperlink{structmotor_action}{motor\+Action}}
-
 
 
 \subsection{Function Documentation}
@@ -109,11 +41,8 @@ volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef
 
 
 
-Initialize the communication structure. 
+Initialization of the S\+PI frame structure with 0 values. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
 \mbox{\Hypertarget{_s_p_i__services_8h_aa1fea51a1aab3c8773b9cb383b18b5dd}\label{_s_p_i__services_8h_aa1fea51a1aab3c8773b9cb383b18b5dd}} 
 \index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!read\+\_\+spi\+Frame@{read\+\_\+spi\+Frame}}
 \index{read\+\_\+spi\+Frame@{read\+\_\+spi\+Frame}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
@@ -122,12 +51,9 @@ None
 
 
 
-Read the frame received and update the communication structure. 
+Function to be called to read the frame coming from the S\+PI. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
-\mbox{\Hypertarget{_s_p_i__services_8h_a9f7deb809070b92f77d855e2649b37e9}\label{_s_p_i__services_8h_a9f7deb809070b92f77d855e2649b37e9}} 
+Read the spi frame in the buffer and write the values in the \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} structure \mbox{\Hypertarget{_s_p_i__services_8h_a9f7deb809070b92f77d855e2649b37e9}\label{_s_p_i__services_8h_a9f7deb809070b92f77d855e2649b37e9}} 
 \index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!write\+\_\+spi\+Frame@{write\+\_\+spi\+Frame}}
 \index{write\+\_\+spi\+Frame@{write\+\_\+spi\+Frame}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
 \subsubsection{\texorpdfstring{write\+\_\+spi\+Frame()}{write\_spiFrame()}}
@@ -135,19 +61,16 @@ None
 
 
 
-Write the frame to send according to the communication structure. 
+Function to be called to write into the frame to send to the S\+PI. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
-
+Read the values in the \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} frame and write it in the spi buffer 
 
 \subsection{Variable Documentation}
-\mbox{\Hypertarget{_s_p_i__services_8h_ada0ef6985123cc9eba1fcb750742ca1e}\label{_s_p_i__services_8h_ada0ef6985123cc9eba1fcb750742ca1e}} 
-\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!received\+Frame@{received\+Frame}}
-\index{received\+Frame@{received\+Frame}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
-\subsubsection{\texorpdfstring{received\+Frame}{receivedFrame}}
-{\footnotesize\ttfamily volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} received\+Frame}
+\mbox{\Hypertarget{_s_p_i__services_8h_aab377b840500efc8519ab396b4854533}\label{_s_p_i__services_8h_aab377b840500efc8519ab396b4854533}} 
+\index{S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}!communication\+Frame@{communication\+Frame}}
+\index{communication\+Frame@{communication\+Frame}!S\+P\+I\+\_\+services.\+h@{S\+P\+I\+\_\+services.\+h}}
+\subsubsection{\texorpdfstring{communication\+Frame}{communicationFrame}}
+{\footnotesize\ttfamily volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} communication\+Frame}
 
 
 

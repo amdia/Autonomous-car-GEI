@@ -60,13 +60,13 @@ void TIM4_IRQHandler(void);
 /********************************/
 
 /**
-* @brief  Overridable callback function for the GPIO interrupts (for the project, hall sensors)
+* Overridable callback function for the GPIO interrupts (for the project, hall sensors and ultrasonic sensors)
 * @param  GPIO_Pin GPIO pin
 */
 __weak void GPIO_EXTI_Callback (uint16_t GPIO_Pin){}
 	
 /**
-* @brief  Overridable callback function for the timer interrupt (for the project, scheduler)
+* Overridable callback function for the timer interrupt (for the project, scheduler)
 */
 __weak void scheduler_IT_callback(void){}
 	

@@ -3,9 +3,10 @@
 
 #include "motor_common.h"
 
-#define WHEEL_PERIMETER ((float)63.5) // cm
-#define WHEEL_PULSES_NB ((float)36)
-#define WHEEL_DISTANCE_BETWEEN_2_PULSES WHEEL_PERIMETER / WHEEL_PULSES_NB
+/** Perimeter of a wheel in centimeters */
+#define WHEEL_PERIMETER 								((float)63.5) 
+/** Number of pulse of the rear hall sensors for one turn of wheel */
+#define WHEEL_PULSES_NB 								((float)36)
 
 void motors_rear_init(void);
 int motor_rear_command(Motor_Rear_Position motor, int speed);

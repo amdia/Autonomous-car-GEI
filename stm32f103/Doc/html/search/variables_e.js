@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['test',['test',['../test__virage_8c.html#a1bd3f5fbccb1628eb13dda4cd02633a4',1,'test_virage.c']]],
-  ['test_5fangle',['test_angle',['../callbacks__services_8c.html#a79688c6866d8720648bf2dc6e48c428e',1,'callbacks_services.c']]],
-  ['thresholds',['thresholds',['../manage__motors_8c.html#a18e768a5ba8f2571fadbf450170887cf',1,'manage_motors.c']]],
-  ['time',['time',['../test__systick_8c.html#a188acff8ca3039d4282e093c463a0de6',1,'test_systick.c']]],
-  ['timemicros',['timeMicros',['../time__systick_8c.html#a99c58fed2850a7a5c08477dd7be37ae4',1,'time_systick.c']]],
-  ['timer',['timer',['../struct_p_w_m___type_def.html#a5f2d7e0e880def3262a850626e3df17d',1,'PWM_TypeDef::timer()'],['../struct_t_i_m___c_h.html#a5f2d7e0e880def3262a850626e3df17d',1,'TIM_CH::timer()']]],
-  ['timerchannel',['timerChannel',['../struct_p_w_m___type_def.html#a2ceeb6205773419966e920a22828f526',1,'PWM_TypeDef']]],
-  ['triggertype',['triggerType',['../struct_sensor___i_t___type_def.html#a6625b6963fd4f630224d40f04877bd21',1,'Sensor_IT_TypeDef']]]
+  ['ultrasonic_5ffront_5fcenter',['ultrasonic_front_center',['../us__sensor_8c.html#ac3b212b424e111595549341ce6b3b962',1,'us_sensor.c']]],
+  ['ultrasonic_5ffront_5fleft',['ultrasonic_front_left',['../us__sensor_8c.html#a636d70aae1dcd64f0020a0dd3da7c05c',1,'us_sensor.c']]],
+  ['ultrasonic_5ffront_5fright',['ultrasonic_front_right',['../us__sensor_8c.html#ad8c0e7b52a0b53e3c5e86559965c2798',1,'us_sensor.c']]],
+  ['ultrasonic_5frear_5fcenter',['ultrasonic_rear_center',['../us__sensor_8c.html#a334d7ad9d80df4ae71195dbd2abb7493',1,'us_sensor.c']]],
+  ['ultrasonic_5frear_5fleft',['ultrasonic_rear_left',['../us__sensor_8c.html#a7d5bf00bea85ca5b6293424c92aedb34',1,'us_sensor.c']]],
+  ['ultrasonic_5frear_5fright',['ultrasonic_rear_right',['../us__sensor_8c.html#aeaff459b094470218276f29d57b06429',1,'us_sensor.c']]],
+  ['ultrasounds',['ultrasounds',['../struct_communication___typedef.html#a30835d9cdfc16faa82377c90fe401538',1,'Communication_Typedef']]]
 ];

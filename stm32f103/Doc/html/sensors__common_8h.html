@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -76,7 +77,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">sensors_common.h File Reference</div>  </div>
@@ -117,8 +117,6 @@ Macros</h2></td></tr>
 <tr class="separator:a86597d3fdada2e1421d0136180b9d6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a591c540f1164f30eeebe94399fa8efc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a591c540f1164f30eeebe94399fa8efc0">ULTRASONIC_REAR_RIGHT_ECHO_PORT</a>&#160;&#160;&#160;GPIOC</td></tr>
 <tr class="separator:a591c540f1164f30eeebe94399fa8efc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d02ba76697543151ec1a1147a54da09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a6d02ba76697543151ec1a1147a54da09">TEMPS_TRIG</a>&#160;&#160;&#160;250e3</td></tr>
-<tr class="separator:a6d02ba76697543151ec1a1147a54da09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a942b35f00ea3bfcaa1a929dfc2687c6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a942b35f00ea3bfcaa1a929dfc2687c6f">ULTRASONIC_TRIGGER_DELAY</a>&#160;&#160;&#160;15</td></tr>
 <tr class="separator:a942b35f00ea3bfcaa1a929dfc2687c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c02e9cb8bfd73880a493c0719ca03f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>&#160;&#160;&#160;4</td></tr>
@@ -144,11 +142,6 @@ Macros</h2></td></tr>
 <tr class="memitem:a660e374525af832d15468bd59ecb0f03"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a660e374525af832d15468bd59ecb0f03">HALL_REAR_RIGHT_PORT</a>&#160;&#160;&#160;GPIOB</td></tr>
 <tr class="separator:a660e374525af832d15468bd59ecb0f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a7eeafa067811090d4933da86d109b463"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a></td></tr>
-<tr class="separator:a7eeafa067811090d4933da86d109b463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a492d5c22484a3fddcdc6672557b07717"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a> { <br />
@@ -161,12 +154,9 @@ Enumerations</h2></td></tr>
 <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717aff3aa33f05c6d1196dd9499e9ba98f3a">ULTRASONIC_REAR_LEFT</a> = 4, 
 <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717a08e460d4461d2763eff70633afef0605">ULTRASONIC_REAR_RIGHT</a> = 5
 <br />
- }</td></tr>
+ }<tr class="memdesc:a492d5c22484a3fddcdc6672557b07717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values corresponding to an ultrasonic sensor position.  <a href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a492d5c22484a3fddcdc6672557b07717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a660c81737cc685f638e59ee31cf38a0e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#a660c81737cc685f638e59ee31cf38a0e">Ultrasonic_State</a> { <a class="el" href="sensors__common_8h.html#a660c81737cc685f638e59ee31cf38a0ea9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>, 
-<a class="el" href="sensors__common_8h.html#a660c81737cc685f638e59ee31cf38a0eaba595d8bca8bc5e67c37c0a9d89becfa">UP</a>
- }</td></tr>
-<tr class="separator:a660c81737cc685f638e59ee31cf38a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba57d3ed4ed32843217f3c2e662b4176"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> { <br />
 &#160;&#160;<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176a31b3bcbad409a7d6007b56ca1ff8d9ee">HALL_POSITION_ERROR</a> = -1, 
 <a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176afba28d7791e8c5da04fc3fb17dee9d01">HALL_FRONT_LEFT</a> = 0, 
@@ -175,7 +165,8 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176a9c8a67827368257dc451134788d2097d">HALL_REAR_RIGHT</a> = 3
 <br />
- }</td></tr>
+ }<tr class="memdesc:aba57d3ed4ed32843217f3c2e662b4176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values corresponding to a hall sensor position.  <a href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:aba57d3ed4ed32843217f3c2e662b4176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -190,6 +181,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front left hall sensor pin </p>
 
 </div>
 </div>
@@ -204,6 +196,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front left hall sensor port </p>
 
 </div>
 </div>
@@ -218,6 +211,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of front hall sensors </p>
 
 </div>
 </div>
@@ -232,6 +226,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front right hall sensor pin </p>
 
 </div>
 </div>
@@ -246,6 +241,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front right hall sensor port </p>
 
 </div>
 </div>
@@ -260,6 +256,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of hall sensors </p>
 
 </div>
 </div>
@@ -274,6 +271,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear left hall sensor pin </p>
 
 </div>
 </div>
@@ -288,6 +286,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear left hall sensor port </p>
 
 </div>
 </div>
@@ -302,6 +301,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of rear hall sensors </p>
 
 </div>
 </div>
@@ -316,6 +316,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear right hall sensor pin </p>
 
 </div>
 </div>
@@ -330,20 +331,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6d02ba76697543151ec1a1147a54da09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d02ba76697543151ec1a1147a54da09">&#9670;&nbsp;</a></span>TEMPS_TRIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TEMPS_TRIG&#160;&#160;&#160;250e3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Rear right hall sensor port </p>
 
 </div>
 </div>
@@ -358,6 +346,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front center ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -372,6 +361,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front center ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -386,6 +376,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front left ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -400,6 +391,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front left ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -414,6 +406,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front right ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -428,6 +421,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Front right ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -442,6 +436,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Number of ultra sonic sensors </p>
 
 </div>
 </div>
@@ -456,6 +451,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear center ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -470,6 +466,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear center ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -484,6 +481,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear left ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -498,6 +496,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear left ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -512,6 +511,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear right ultrasonic sensor pin </p>
 
 </div>
 </div>
@@ -526,6 +526,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Rear right ultrasonic sensor port </p>
 
 </div>
 </div>
@@ -540,6 +541,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>All ultrasonic sensors share the same trigger pin </p>
 
 </div>
 </div>
@@ -554,6 +556,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>All ultrasonic sensors share the same trigger port </p>
 
 </div>
 </div>
@@ -568,21 +571,7 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a7eeafa067811090d4933da86d109b463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7eeafa067811090d4933da86d109b463">&#9670;&nbsp;</a></span>Ultrasonic_Position</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a>  <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Time during which the trig pin is high, in microseconds </p>
 
 </div>
 </div>
@@ -598,12 +587,19 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Values corresponding to a hall sensor position. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a31b3bcbad409a7d6007b56ca1ff8d9ee"></a>HALL_POSITION_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176afba28d7791e8c5da04fc3fb17dee9d01"></a>HALL_FRONT_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176ac5b5fd16bc69967da70a7647d1adfaaf"></a>HALL_FRONT_RIGHT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a192e31b5005eadef6cc808d005abb627"></a>HALL_REAR_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a9c8a67827368257dc451134788d2097d"></a>HALL_REAR_RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a31b3bcbad409a7d6007b56ca1ff8d9ee"></a>HALL_POSITION_ERROR&#160;</td><td class="fielddoc"><p>GPIO pin does not match any known hall sensor position </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176afba28d7791e8c5da04fc3fb17dee9d01"></a>HALL_FRONT_LEFT&#160;</td><td class="fielddoc"><p>Value corresponding to the hall sensor placed at the front left </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176ac5b5fd16bc69967da70a7647d1adfaaf"></a>HALL_FRONT_RIGHT&#160;</td><td class="fielddoc"><p>Value corresponding to the hall sensor placed at the front right </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a192e31b5005eadef6cc808d005abb627"></a>HALL_REAR_LEFT&#160;</td><td class="fielddoc"><p>Value corresponding to the hall sensor placed at the rear left </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aba57d3ed4ed32843217f3c2e662b4176a9c8a67827368257dc451134788d2097d"></a>HALL_REAR_RIGHT&#160;</td><td class="fielddoc"><p>Value corresponding to the hall sensor placed at the rear right </p>
+</td></tr>
 </table>
 
 </div>
@@ -619,32 +615,23 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a9b23faae36d54866df77fbf43ae34c26"></a>ULTRASONIC_POSITION_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a815f2360298a0d8557d4c8aa09d90c48"></a>ULTRASONIC_FRONT_CENTER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a99cbc0811afb43253d7c8dab452a1a57"></a>ULTRASONIC_FRONT_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a10cf8a946b78960eacc556913946143a"></a>ULTRASONIC_FRONT_RIGHT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717ae866507239889a0996e6883cdcd47edb"></a>ULTRASONIC_REAR_CENTER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717aff3aa33f05c6d1196dd9499e9ba98f3a"></a>ULTRASONIC_REAR_LEFT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a08e460d4461d2763eff70633afef0605"></a>ULTRASONIC_REAR_RIGHT&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
-</div>
-</div>
-<a id="a660c81737cc685f638e59ee31cf38a0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a660c81737cc685f638e59ee31cf38a0e">&#9670;&nbsp;</a></span>Ultrasonic_State</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="sensors__common_8h.html#a660c81737cc685f638e59ee31cf38a0e">Ultrasonic_State</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Values corresponding to an ultrasonic sensor position. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a660c81737cc685f638e59ee31cf38a0ea9b0b4a95b99523966e0e34ffdadac9da"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a660c81737cc685f638e59ee31cf38a0eaba595d8bca8bc5e67c37c0a9d89becfa"></a>UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a9b23faae36d54866df77fbf43ae34c26"></a>ULTRASONIC_POSITION_ERROR&#160;</td><td class="fielddoc"><p>GPIO pin does not match any known ultrasonic sensor position </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a815f2360298a0d8557d4c8aa09d90c48"></a>ULTRASONIC_FRONT_CENTER&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the front center </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a99cbc0811afb43253d7c8dab452a1a57"></a>ULTRASONIC_FRONT_LEFT&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the front left </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a10cf8a946b78960eacc556913946143a"></a>ULTRASONIC_FRONT_RIGHT&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the front right </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717ae866507239889a0996e6883cdcd47edb"></a>ULTRASONIC_REAR_CENTER&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the rear center </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717aff3aa33f05c6d1196dd9499e9ba98f3a"></a>ULTRASONIC_REAR_LEFT&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the rear left </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a492d5c22484a3fddcdc6672557b07717a08e460d4461d2763eff70633afef0605"></a>ULTRASONIC_REAR_RIGHT&#160;</td><td class="fielddoc"><p>Value corresponding to the ultrasonic sensor placed at the rear right </p>
+</td></tr>
 </table>
 
 </div>

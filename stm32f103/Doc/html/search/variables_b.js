@@ -1,10 +1,14 @@
 var searchData=
 [
-  ['periodus',['periodUs',['../struct_p_w_m___type_def.html#a550f3d976917596f0228732fceab7490',1,'PWM_TypeDef']]],
-  ['pin',['pin',['../struct_sensor___i_t___type_def.html#a4144813adfa4dfe7e7cbeea17d1b06eb',1,'Sensor_IT_TypeDef::pin()'],['../struct_g_p_i_o___pin.html#a4144813adfa4dfe7e7cbeea17d1b06eb',1,'GPIO_Pin::pin()']]],
-  ['port',['port',['../struct_sensor___i_t___type_def.html#a82241972e0292c7de95ea1e293e11be3',1,'Sensor_IT_TypeDef::port()'],['../struct_g_p_i_o___pin.html#a82241972e0292c7de95ea1e293e11be3',1,'GPIO_Pin::port()']]],
-  ['priority',['priority',['../struct_sensor___i_t___type_def.html#a0ad043071ccc7a261d79a759dc9c6f0c',1,'Sensor_IT_TypeDef']]],
-  ['pulse_5flength',['pulse_length',['../us__sensor_8c.html#ad227db02d83d0cf568ef5530579c74a1',1,'us_sensor.c']]],
-  ['pwm1',['pwm1',['../struct_motor___type_def.html#ab6053993e6628cef7e5e202a05e6a0ac',1,'Motor_TypeDef']]],
-  ['pwm2',['pwm2',['../struct_motor___type_def.html#afa92ea5c8db1b225b1c718099f986b8e',1,'Motor_TypeDef']]]
+  ['rear_5fcenter_5fultrasonic',['rear_center_ultrasonic',['../struct_octets_frame___typedef.html#aa211e19d6c5a23b9eca397d4818e93fc',1,'OctetsFrame_Typedef']]],
+  ['rear_5fhall',['rear_hall',['../manage__motors_8c.html#a6c07544055b4a189c9319f1a0cba9892',1,'manage_motors.c']]],
+  ['rear_5fleft_5fultrasonic',['rear_left_ultrasonic',['../struct_octets_frame___typedef.html#a8007022ee9ef4013b0cd17c8fea23d35',1,'OctetsFrame_Typedef']]],
+  ['rear_5fmotor_5fleft',['rear_motor_left',['../motor__rear_8c.html#ac3f32e5ad9d1de57798c1158724ebe76',1,'motor_rear.c']]],
+  ['rear_5fmotor_5fright',['rear_motor_right',['../motor__rear_8c.html#ab37bc1b6b9decb18f6de65172f8b592a',1,'motor_rear.c']]],
+  ['rear_5fmotors',['rear_motors',['../struct_communication___typedef.html#a718b0adfdc43ccf0d67399e1583ac599',1,'Communication_Typedef']]],
+  ['rear_5fright_5fultrasonic',['rear_right_ultrasonic',['../struct_octets_frame___typedef.html#a28e44c9de4ac244a8450095ae356e345',1,'OctetsFrame_Typedef']]],
+  ['receivebuffer',['receiveBuffer',['../_s_p_i__common_8c.html#a88256da6636189bf907f3565d9e063bc',1,'receiveBuffer():&#160;SPI_common.c'],['../_s_p_i__common_8h.html#a88256da6636189bf907f3565d9e063bc',1,'receiveBuffer():&#160;SPI_common.c']]],
+  ['reset_5fdistance',['reset_distance',['../struct_ack___typedef.html#ab13e4799894e208a6335588da08f79db',1,'Ack_Typedef']]],
+  ['right_5fwheel_5fmotor',['right_wheel_motor',['../struct_octets_frame___typedef.html#a27591501debf6e6053f7c3e376e5aa49',1,'OctetsFrame_Typedef']]],
+  ['right_5fwheel_5fmotor_5fdistance',['right_wheel_motor_distance',['../struct_octets_frame___typedef.html#ac68f226c7529335c37f27cd95aedff32',1,'OctetsFrame_Typedef']]]
 ];

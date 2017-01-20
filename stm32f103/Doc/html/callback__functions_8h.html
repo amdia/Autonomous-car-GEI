@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -111,6 +112,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Callback function for hall sensors interruptions. </p>
+<p>Overridable callback function for the GPIO interrupts related to the hall sensors </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>GPIO pin</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>This function is called everytime one of the hall sensors stops to be in front of a magnet (falling edge) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>hall sensor pin </td></tr>
@@ -137,6 +144,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Callback function for ultrasonic interruptions. </p>
+<p>Overridable callback function for the GPIO interrupts related to the ultrasonic sensors </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>GPIO pin</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>This function is called everytime one of the echo pin goes high or goes low (every changes of state) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>ultrasonic sensor echo pin </td></tr>

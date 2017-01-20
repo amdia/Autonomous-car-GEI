@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -91,22 +92,23 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0f1f14c97bc947dfe6807998bff93a6c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#a0f1f14c97bc947dfe6807998bff93a6c">convert_2_int</a> (uint8_t octet)</td></tr>
+<tr class="memdesc:a0f1f14c97bc947dfe6807998bff93a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a char (uint8_t) into an int.  <a href="#a0f1f14c97bc947dfe6807998bff93a6c">More...</a><br /></td></tr>
 <tr class="separator:a0f1f14c97bc947dfe6807998bff93a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aa65b673cce4ee92499c79a26e91e67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#a2aa65b673cce4ee92499c79a26e91e67">init_spiFrame</a> (void)</td></tr>
-<tr class="memdesc:a2aa65b673cce4ee92499c79a26e91e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the communication structure.  <a href="#a2aa65b673cce4ee92499c79a26e91e67">More...</a><br /></td></tr>
+<tr class="memdesc:a2aa65b673cce4ee92499c79a26e91e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization of the SPI frame structure with 0 values.  <a href="#a2aa65b673cce4ee92499c79a26e91e67">More...</a><br /></td></tr>
 <tr class="separator:a2aa65b673cce4ee92499c79a26e91e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1fea51a1aab3c8773b9cb383b18b5dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#aa1fea51a1aab3c8773b9cb383b18b5dd">read_spiFrame</a> (void)</td></tr>
-<tr class="memdesc:aa1fea51a1aab3c8773b9cb383b18b5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the frame received and update the communication structure.  <a href="#aa1fea51a1aab3c8773b9cb383b18b5dd">More...</a><br /></td></tr>
+<tr class="memdesc:aa1fea51a1aab3c8773b9cb383b18b5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to be called to read the frame coming from the SPI.  <a href="#aa1fea51a1aab3c8773b9cb383b18b5dd">More...</a><br /></td></tr>
 <tr class="separator:aa1fea51a1aab3c8773b9cb383b18b5dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f7deb809070b92f77d855e2649b37e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#a9f7deb809070b92f77d855e2649b37e9">write_spiFrame</a> (void)</td></tr>
-<tr class="memdesc:a9f7deb809070b92f77d855e2649b37e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the frame to send according to the communication structure.  <a href="#a9f7deb809070b92f77d855e2649b37e9">More...</a><br /></td></tr>
+<tr class="memdesc:a9f7deb809070b92f77d855e2649b37e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to be called to write into the frame to send to the SPI.  <a href="#a9f7deb809070b92f77d855e2649b37e9">More...</a><br /></td></tr>
 <tr class="separator:a9f7deb809070b92f77d855e2649b37e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ada0ef6985123cc9eba1fcb750742ca1e"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_communication___typedef.html">Communication_Typedef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#ada0ef6985123cc9eba1fcb750742ca1e">receivedFrame</a></td></tr>
-<tr class="memdesc:ada0ef6985123cc9eba1fcb750742ca1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame sent and received by the SPI. Other services can also read and write values.  <a href="#ada0ef6985123cc9eba1fcb750742ca1e">More...</a><br /></td></tr>
-<tr class="separator:ada0ef6985123cc9eba1fcb750742ca1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab377b840500efc8519ab396b4854533"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_communication___typedef.html">Communication_Typedef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__services_8c.html#aab377b840500efc8519ab396b4854533">communicationFrame</a></td></tr>
+<tr class="memdesc:aab377b840500efc8519ab396b4854533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame sent and received by the SPI. Other services can also read and write values.  <a href="#aab377b840500efc8519ab396b4854533">More...</a><br /></td></tr>
+<tr class="separator:aab377b840500efc8519ab396b4854533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Service layer for the SPI. </p>
@@ -135,6 +137,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Convert a char (uint8_t) into an int. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">int</td><td>value between 0 and 255 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2aa65b673cce4ee92499c79a26e91e67"></a>
@@ -153,8 +163,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize the communication structure. </p>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Initialization of the SPI frame structure with 0 values. </p>
 
 </div>
 </div>
@@ -174,8 +183,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read the frame received and update the communication structure. </p>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Function to be called to read the frame coming from the SPI. </p>
+<p>Read the spi frame in the buffer and write the values in the <a class="el" href="struct_communication___typedef.html" title="Structure that contains all the informations of the car. ">Communication_Typedef</a> structure </p>
 
 </div>
 </div>
@@ -195,20 +204,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Write the frame to send according to the communication structure. </p>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Function to be called to write into the frame to send to the SPI. </p>
+<p>Read the values in the <a class="el" href="struct_communication___typedef.html" title="Structure that contains all the informations of the car. ">Communication_Typedef</a> frame and write it in the spi buffer </p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ada0ef6985123cc9eba1fcb750742ca1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada0ef6985123cc9eba1fcb750742ca1e">&#9670;&nbsp;</a></span>receivedFrame</h2>
+<a id="aab377b840500efc8519ab396b4854533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab377b840500efc8519ab396b4854533">&#9670;&nbsp;</a></span>communicationFrame</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile <a class="el" href="struct_communication___typedef.html">Communication_Typedef</a> receivedFrame</td>
+          <td class="memname">volatile <a class="el" href="struct_communication___typedef.html">Communication_Typedef</a> communicationFrame</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['battery_5ftypedef',['Battery_Typedef',['../struct_battery___typedef.html',1,'']]]
+  ['ack_5ftypedef',['Ack_Typedef',['../struct_ack___typedef.html',1,'']]]
 ];

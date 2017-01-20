@@ -12,17 +12,17 @@ Service layer for the S\+PI.
 \begin{DoxyCompactItemize}
 \item 
 static int \hyperlink{_s_p_i__services_8c_a0f1f14c97bc947dfe6807998bff93a6c}{convert\+\_\+2\+\_\+int} (uint8\+\_\+t octet)
-\item 
+\begin{DoxyCompactList}\small\item\em Convert a char (uint8\+\_\+t) into an int. \end{DoxyCompactList}\item 
 void \hyperlink{_s_p_i__services_8c_a2aa65b673cce4ee92499c79a26e91e67}{init\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Initialize the communication structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialization of the S\+PI frame structure with 0 values. \end{DoxyCompactList}\item 
 void \hyperlink{_s_p_i__services_8c_aa1fea51a1aab3c8773b9cb383b18b5dd}{read\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Read the frame received and update the communication structure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Function to be called to read the frame coming from the S\+PI. \end{DoxyCompactList}\item 
 void \hyperlink{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}{write\+\_\+spi\+Frame} (void)
-\begin{DoxyCompactList}\small\item\em Write the frame to send according to the communication structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to be called to write into the frame to send to the S\+PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} \hyperlink{_s_p_i__services_8c_ada0ef6985123cc9eba1fcb750742ca1e}{received\+Frame}
+volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} \hyperlink{_s_p_i__services_8c_aab377b840500efc8519ab396b4854533}{communication\+Frame}
 \begin{DoxyCompactList}\small\item\em Frame sent and received by the S\+PI. Other services can also read and write values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -38,6 +38,15 @@ Service layer for the S\+PI.
 \subsubsection{\texorpdfstring{convert\+\_\+2\+\_\+int()}{convert\_2\_int()}}
 {\footnotesize\ttfamily int convert\+\_\+2\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{octet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Convert a char (uint8\+\_\+t) into an int. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & value between 0 and 255 \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{_s_p_i__services_8c_a2aa65b673cce4ee92499c79a26e91e67}\label{_s_p_i__services_8c_a2aa65b673cce4ee92499c79a26e91e67}} 
 \index{S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}!init\+\_\+spi\+Frame@{init\+\_\+spi\+Frame}}
 \index{init\+\_\+spi\+Frame@{init\+\_\+spi\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
@@ -46,11 +55,8 @@ Service layer for the S\+PI.
 
 
 
-Initialize the communication structure. 
+Initialization of the S\+PI frame structure with 0 values. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
 \mbox{\Hypertarget{_s_p_i__services_8c_aa1fea51a1aab3c8773b9cb383b18b5dd}\label{_s_p_i__services_8c_aa1fea51a1aab3c8773b9cb383b18b5dd}} 
 \index{S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}!read\+\_\+spi\+Frame@{read\+\_\+spi\+Frame}}
 \index{read\+\_\+spi\+Frame@{read\+\_\+spi\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
@@ -59,12 +65,9 @@ None
 
 
 
-Read the frame received and update the communication structure. 
+Function to be called to read the frame coming from the S\+PI. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
-\mbox{\Hypertarget{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}\label{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}} 
+Read the spi frame in the buffer and write the values in the \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} structure \mbox{\Hypertarget{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}\label{_s_p_i__services_8c_a9f7deb809070b92f77d855e2649b37e9}} 
 \index{S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}!write\+\_\+spi\+Frame@{write\+\_\+spi\+Frame}}
 \index{write\+\_\+spi\+Frame@{write\+\_\+spi\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
 \subsubsection{\texorpdfstring{write\+\_\+spi\+Frame()}{write\_spiFrame()}}
@@ -72,19 +75,16 @@ None
 
 
 
-Write the frame to send according to the communication structure. 
+Function to be called to write into the frame to send to the S\+PI. 
 
-\begin{DoxyReturn}{Returns}
-None 
-\end{DoxyReturn}
-
+Read the values in the \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} frame and write it in the spi buffer 
 
 \subsection{Variable Documentation}
-\mbox{\Hypertarget{_s_p_i__services_8c_ada0ef6985123cc9eba1fcb750742ca1e}\label{_s_p_i__services_8c_ada0ef6985123cc9eba1fcb750742ca1e}} 
-\index{S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}!received\+Frame@{received\+Frame}}
-\index{received\+Frame@{received\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
-\subsubsection{\texorpdfstring{received\+Frame}{receivedFrame}}
-{\footnotesize\ttfamily volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} received\+Frame}
+\mbox{\Hypertarget{_s_p_i__services_8c_aab377b840500efc8519ab396b4854533}\label{_s_p_i__services_8c_aab377b840500efc8519ab396b4854533}} 
+\index{S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}!communication\+Frame@{communication\+Frame}}
+\index{communication\+Frame@{communication\+Frame}!S\+P\+I\+\_\+services.\+c@{S\+P\+I\+\_\+services.\+c}}
+\subsubsection{\texorpdfstring{communication\+Frame}{communicationFrame}}
+{\footnotesize\ttfamily volatile \hyperlink{struct_communication___typedef}{Communication\+\_\+\+Typedef} communication\+Frame}
 
 
 

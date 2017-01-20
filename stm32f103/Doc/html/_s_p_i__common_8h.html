@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -88,14 +89,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6b20d41d6252e9871430c242cb1a56e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__common_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memitem:a6b20d41d6252e9871430c242cb1a56e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__common_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>&#160;&#160;&#160;(sizeof(<a class="el" href="struct_octets_frame___typedef.html">OctetsFrame_Typedef</a>))</td></tr>
 <tr class="separator:a6b20d41d6252e9871430c242cb1a56e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a6b7ade20514aec9f1626cf87b25baacb"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__common_8h.html#a6b7ade20514aec9f1626cf87b25baacb">sendBuffer</a> [<a class="el" href="_s_p_i__common_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]</td></tr>
+<tr class="memdesc:a6b7ade20514aec9f1626cf87b25baacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer to send SPI frame - shared variable between <a class="el" href="_s_p_i__functions_8c.html">SPI_functions.c</a> and <a class="el" href="_s_p_i__services_8c.html">SPI_services.c</a>.  <a href="#a6b7ade20514aec9f1626cf87b25baacb">More...</a><br /></td></tr>
 <tr class="separator:a6b7ade20514aec9f1626cf87b25baacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88256da6636189bf907f3565d9e063bc"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__common_8h.html#a88256da6636189bf907f3565d9e063bc">receiveBuffer</a> [<a class="el" href="_s_p_i__common_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>]</td></tr>
+<tr class="memdesc:a88256da6636189bf907f3565d9e063bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer to receive SPI frame - shared variable between <a class="el" href="_s_p_i__functions_8c.html">SPI_functions.c</a> and <a class="el" href="_s_p_i__services_8c.html">SPI_services.c</a>.  <a href="#a88256da6636189bf907f3565d9e063bc">More...</a><br /></td></tr>
 <tr class="separator:a88256da6636189bf907f3565d9e063bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -106,10 +109,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BUFFER_SIZE&#160;&#160;&#160;12</td>
+          <td class="memname">#define BUFFER_SIZE&#160;&#160;&#160;(sizeof(<a class="el" href="struct_octets_frame___typedef.html">OctetsFrame_Typedef</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Size of the sending and receiving buffers, equal to the size of the <a class="el" href="struct_octets_frame___typedef.html" title="Structure that contains the frame sent and received from the SPI buffer. Every element is a char (uin...">OctetsFrame_Typedef</a> </p>
 
 </div>
 </div>
@@ -126,6 +130,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Buffer to receive SPI frame - shared variable between <a class="el" href="_s_p_i__functions_8c.html">SPI_functions.c</a> and <a class="el" href="_s_p_i__services_8c.html">SPI_services.c</a>. </p>
+
 </div>
 </div>
 <a id="a6b7ade20514aec9f1626cf87b25baacb"></a>
@@ -139,6 +145,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Buffer to send SPI frame - shared variable between <a class="el" href="_s_p_i__functions_8c.html">SPI_functions.c</a> and <a class="el" href="_s_p_i__services_8c.html">SPI_services.c</a>. </p>
 
 </div>
 </div>

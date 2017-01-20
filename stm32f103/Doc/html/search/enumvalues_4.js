@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pwm_5finit_5fok',['PWM_INIT_OK',['../_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2a7c2ba7173f13d78e3b1c5a865eaeb8ba',1,'PWM_Output.h']]],
-  ['pwm_5fnot_5fchannel_5f1_5f2_5f3_5f4',['PWM_NOT_CHANNEL_1_2_3_4',['../_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2a36a2dce93b0382a1d59d3b469820206f',1,'PWM_Output.h']]],
-  ['pwm_5fnot_5fmode_5f1_5f2',['PWM_NOT_MODE_1_2',['../_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2ab6ba8e195a32b45ba081c457305e7502',1,'PWM_Output.h']]]
+  ['rear_5fmotor_5fleft',['REAR_MOTOR_LEFT',['../motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23',1,'motor_common.h']]],
+  ['rear_5fmotor_5fright',['REAR_MOTOR_RIGHT',['../motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a',1,'motor_common.h']]],
+  ['remap',['REMAP',['../tim__mapping_8h.html#a01781737eb594d3127f8191736017e59ab71b8a115767d1fd97bffeec6b762071',1,'tim_mapping.h']]]
 ];

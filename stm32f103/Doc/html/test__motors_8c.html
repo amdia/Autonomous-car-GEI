@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -75,66 +76,81 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">test_motors.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Application layer to test if the motors are functionnal.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="hall__sensor_8h_source.html">hall_sensor.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="drivers__car__config_8h_source.html">drivers_car_config.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="motor__front_8h_source.html">motor_front.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="motor__rear_8h_source.html">motor_rear.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="services__config_8h_source.html">services_config.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="manage__motors_8h_source.html">manage_motors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_p_i__services_8h_source.html">SPI_services.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="time__systick_8h_source.html">time_systick.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aac3553b3932cbfeeac4526ce7ca0336b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#aac3553b3932cbfeeac4526ce7ca0336b">SPEED</a>&#160;&#160;&#160;40</td></tr>
+<tr class="separator:aac3553b3932cbfeeac4526ce7ca0336b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48fcf4f2eeef6769d588168d4ac2ab0e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a48fcf4f2eeef6769d588168d4ac2ab0e">SECONDS</a>&#160;&#160;&#160;1e6</td></tr>
+<tr class="separator:a48fcf4f2eeef6769d588168d4ac2ab0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a716d473970fc5127c9e853d1e57ee344"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a716d473970fc5127c9e853d1e57ee344">travelled_distance</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
-<tr class="separator:a716d473970fc5127c9e853d1e57ee344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
-<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a359546480b7fb435c8c79b49fa2bb3e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a359546480b7fb435c8c79b49fa2bb3e3">hall_callback</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
-<tr class="separator:a359546480b7fb435c8c79b49fa2bb3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90fbf65560e53e5848ba7e81c3757fbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a90fbf65560e53e5848ba7e81c3757fbf">scheduler_IT_callback</a> ()</td></tr>
-<tr class="separator:a90fbf65560e53e5848ba7e81c3757fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:abf03425b833b25f5744c1acd56f5ccd8"><td class="memItemLeft" align="right" valign="top">__IO Direction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#abf03425b833b25f5744c1acd56f5ccd8">front</a> = STOP</td></tr>
-<tr class="separator:abf03425b833b25f5744c1acd56f5ccd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ff4ff4fbaf0a37832ad6b243cd39c5"><td class="memItemLeft" align="right" valign="top">__IO int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a67ff4ff4fbaf0a37832ad6b243cd39c5">rear</a> = 0</td></tr>
-<tr class="separator:a67ff4ff4fbaf0a37832ad6b243cd39c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af71e2b93d8f0aff668b6e81b41db7f04"><td class="memItemLeft" align="right" valign="top">__IO float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#af71e2b93d8f0aff668b6e81b41db7f04">distance</a> = 0</td></tr>
-<tr class="separator:af71e2b93d8f0aff668b6e81b41db7f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01634213b2d2da9cafc257738970a800"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a01634213b2d2da9cafc257738970a800">front_hall</a> [<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] ={0}</td></tr>
-<tr class="separator:a01634213b2d2da9cafc257738970a800"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6c7000d569fcfbd8132eeafa3e158ea"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#ac6c7000d569fcfbd8132eeafa3e158ea">rear_hall</a> [<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] ={0}</td></tr>
-<tr class="separator:ac6c7000d569fcfbd8132eeafa3e158ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb10865507cd2b3142fa94f2b245b42"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#aaeb10865507cd2b3142fa94f2b245b42">rear_distance</a> [<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] = {0}</td></tr>
-<tr class="separator:aaeb10865507cd2b3142fa94f2b245b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the services and execute the choosen test function(s)  <a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd94e4bbcf7777bb307bd4b6f25ef76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#aafd94e4bbcf7777bb307bd4b6f25ef76">test_go_forward</a> (void)</td></tr>
+<tr class="memdesc:aafd94e4bbcf7777bb307bd4b6f25ef76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if the rear motors are functionnal to go forward.  <a href="#aafd94e4bbcf7777bb307bd4b6f25ef76">More...</a><br /></td></tr>
+<tr class="separator:aafd94e4bbcf7777bb307bd4b6f25ef76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e531c67a53bda482067f8dcd88b4a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a80e531c67a53bda482067f8dcd88b4a5">test_go_backward</a> (void)</td></tr>
+<tr class="memdesc:a80e531c67a53bda482067f8dcd88b4a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if the rear motors are functionnal to go backward.  <a href="#a80e531c67a53bda482067f8dcd88b4a5">More...</a><br /></td></tr>
+<tr class="separator:a80e531c67a53bda482067f8dcd88b4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8342f1e948a6bbfdb411370bc485b207"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a8342f1e948a6bbfdb411370bc485b207">test_turn</a> (void)</td></tr>
+<tr class="memdesc:a8342f1e948a6bbfdb411370bc485b207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if the front motors are functionnal.  <a href="#a8342f1e948a6bbfdb411370bc485b207">More...</a><br /></td></tr>
+<tr class="separator:a8342f1e948a6bbfdb411370bc485b207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c44f100b3c8b9ea3fdc8c72e0cd0de6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__motors_8c.html#a5c44f100b3c8b9ea3fdc8c72e0cd0de6">ninety_degrees_bend</a> (void)</td></tr>
+<tr class="memdesc:a5c44f100b3c8b9ea3fdc8c72e0cd0de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the calibration of a 90 degrees bend.  <a href="#a5c44f100b3c8b9ea3fdc8c72e0cd0de6">More...</a><br /></td></tr>
+<tr class="separator:a5c44f100b3c8b9ea3fdc8c72e0cd0de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a359546480b7fb435c8c79b49fa2bb3e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a359546480b7fb435c8c79b49fa2bb3e3">&#9670;&nbsp;</a></span>hall_callback()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Application layer to test if the motors are functionnal. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a48fcf4f2eeef6769d588168d4ac2ab0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48fcf4f2eeef6769d588168d4ac2ab0e">&#9670;&nbsp;</a></span>SECONDS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void hall_callback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define SECONDS&#160;&#160;&#160;1e6</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&nbsp;</a></span>main()</h2>
+<a id="aac3553b3932cbfeeac4526ce7ca0336b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac3553b3932cbfeeac4526ce7ca0336b">&#9670;&nbsp;</a></span>SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPEED&#160;&#160;&#160;40</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,23 +158,24 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize the services and execute the choosen test function(s) </p>
+
 </div>
 </div>
-<a id="a90fbf65560e53e5848ba7e81c3757fbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90fbf65560e53e5848ba7e81c3757fbf">&#9670;&nbsp;</a></span>scheduler_IT_callback()</h2>
+<a id="a5c44f100b3c8b9ea3fdc8c72e0cd0de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c44f100b3c8b9ea3fdc8c72e0cd0de6">&#9670;&nbsp;</a></span>ninety_degrees_bend()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void scheduler_IT_callback </td>
+          <td class="memname">void ninety_degrees_bend </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -167,124 +184,68 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Test the calibration of a 90 degrees bend. </p>
+
 </div>
 </div>
-<a id="a716d473970fc5127c9e853d1e57ee344"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a716d473970fc5127c9e853d1e57ee344">&#9670;&nbsp;</a></span>travelled_distance()</h2>
+<a id="a80e531c67a53bda482067f8dcd88b4a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e531c67a53bda482067f8dcd88b4a5">&#9670;&nbsp;</a></span>test_go_backward()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void travelled_distance </td>
+          <td class="memname">void test_go_backward </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Test if the rear motors are functionnal to go backward. </p>
+
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="af71e2b93d8f0aff668b6e81b41db7f04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af71e2b93d8f0aff668b6e81b41db7f04">&#9670;&nbsp;</a></span>distance</h2>
+<a id="aafd94e4bbcf7777bb307bd4b6f25ef76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd94e4bbcf7777bb307bd4b6f25ef76">&#9670;&nbsp;</a></span>test_go_forward()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">__IO float distance = 0</td>
+          <td class="memname">void test_go_forward </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Test if the rear motors are functionnal to go forward. </p>
+
 </div>
 </div>
-<a id="abf03425b833b25f5744c1acd56f5ccd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf03425b833b25f5744c1acd56f5ccd8">&#9670;&nbsp;</a></span>front</h2>
+<a id="a8342f1e948a6bbfdb411370bc485b207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8342f1e948a6bbfdb411370bc485b207">&#9670;&nbsp;</a></span>test_turn()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">__IO Direction front = STOP</td>
+          <td class="memname">void test_turn </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a01634213b2d2da9cafc257738970a800"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01634213b2d2da9cafc257738970a800">&#9670;&nbsp;</a></span>front_hall</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int front_hall[<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] ={0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a67ff4ff4fbaf0a37832ad6b243cd39c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67ff4ff4fbaf0a37832ad6b243cd39c5">&#9670;&nbsp;</a></span>rear</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">__IO int rear = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaeb10865507cd2b3142fa94f2b245b42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb10865507cd2b3142fa94f2b245b42">&#9670;&nbsp;</a></span>rear_distance</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float rear_distance[<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] = {0}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac6c7000d569fcfbd8132eeafa3e158ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6c7000d569fcfbd8132eeafa3e158ea">&#9670;&nbsp;</a></span>rear_hall</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int rear_hall[<a class="el" href="sensors__common_8h.html#a39c02e9cb8bfd73880a493c0719ca03f">HALL_NB</a>/2] ={0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Test if the front motors are functionnal. </p>
+<p>The if(<a class="el" href="time__systick_8c.html#a19665f2a908fc943d11a231dcc910f4f" title="return the time in microseconds since the sistick has been init ">micros()</a> &gt; t_temp || on_stop) block in <a class="el" href="manage__motors_8c.html">manage_motors.c</a> has to be commented and the while(<a class="el" href="time__systick_8c.html#a19665f2a908fc943d11a231dcc910f4f" title="return the time in microseconds since the sistick has been init ">micros()</a> &lt;= t_temp) has to be uncommented </p>
 
 </div>
 </div>

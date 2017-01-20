@@ -29,7 +29,7 @@ void services_init(void){
 	
 	// Initialize the structure 
 	init_spiFrame();
-	receivedFrame.battery.state = 50; //random value, battery is not implemented
+	communicationFrame.battery.state = 50; //random value, battery is not implemented
 
 	//init scheduler
 	scheduler_timer_init();

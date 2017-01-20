@@ -10,7 +10,7 @@
 #include "NVIC_priorities.h"
 
 /********************************/
-/*      Public Functions       */
+/*      Public Functions        */
 /********************************/
 
 /**

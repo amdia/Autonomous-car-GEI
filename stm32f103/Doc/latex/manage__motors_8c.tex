@@ -1,5 +1,10 @@
 \hypertarget{manage__motors_8c}{}\section{Services/\+User\+\_\+\+Services/manage\+\_\+motors.c File Reference}
 \label{manage__motors_8c}\index{Services/\+User\+\_\+\+Services/manage\+\_\+motors.\+c@{Services/\+User\+\_\+\+Services/manage\+\_\+motors.\+c}}
+
+
+Sercice layer for the front and rear motors.  
+
+
 {\ttfamily \#include \char`\"{}manage\+\_\+motors.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
@@ -11,50 +16,98 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{manage__motors_8c_a7ca7fd5116ac8b51bddf2de941c2878f}{rear\+\_\+motors\+\_\+control} (\hyperlink{struct_motor_rear___typedef}{Motor\+Rear\+\_\+\+Typedef} motor\+\_\+rear\+\_\+control\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Rear motor controls \+: receive a speed and execute it. The two wheels can receive a different command. \end{DoxyCompactList}\item 
 void \hyperlink{manage__motors_8c_a9c0a065cc8523a337fb903c93241d095}{control\+\_\+angle\+\_\+front\+\_\+motor} (int angle)
-\item 
-float $\ast$ \hyperlink{manage__motors_8c_aa88ad9b5b1092cf2a1b507c784b529c4}{calculate\+\_\+distance} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Receive an angle command and turn a certain time to reach this angle. \end{DoxyCompactList}\item 
+void \hyperlink{manage__motors_8c_a7233bc5f821dac3a5245772c27f27d0a}{reset\+\_\+distance} (void)
+\begin{DoxyCompactList}\small\item\em Reset the interruption hall counters to 0. \end{DoxyCompactList}\item 
+float \hyperlink{manage__motors_8c_aef1020fcd799384421cf9b6b2607e375}{calculate\+\_\+distance} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
+\begin{DoxyCompactList}\small\item\em Return the travelled distance according to the number of hall sensors interruptions. \end{DoxyCompactList}\item 
 void \hyperlink{manage__motors_8c_a4d0b88e00665e4f44eee772754078a9f}{motor\+\_\+front\+\_\+stop} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disable the front motor when a front stop is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{manage__motors_8c_a4292eea3c777cecd6c7120f1c03a91b3}{on\+\_\+stop} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em 1 if the front motor has been stopped by the hall sensor, 0 else \end{DoxyCompactList}\item 
 int \hyperlink{manage__motors_8c_aae8234b46b0f350e61a0630dbc011653}{speeds} \mbox{[}4\mbox{]} =\{40,38,35,30\}
-\item 
+\begin{DoxyCompactList}\small\item\em Array of the 4 possible speed for the front motor. \end{DoxyCompactList}\item 
 float \hyperlink{manage__motors_8c_a18e768a5ba8f2571fadbf450170887cf}{thresholds} \mbox{[}4\mbox{]} =\{0.\+25,0.\+5,0.\+75,1\}
-\item 
-float \hyperlink{manage__motors_8c_a91e434af5ba488e1ff89bdfbd274461f}{rear\+\_\+distance} \mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{0\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Array of the 4 thresholds for the front motor. Ex \+: 0.\+25 means the diff\+\_\+angle is 25 \% of the maximal angle range. \end{DoxyCompactList}\item 
+static int \hyperlink{manage__motors_8c_a6c07544055b4a189c9319f1a0cba9892}{rear\+\_\+hall} \mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} =\{0\}
+\begin{DoxyCompactList}\small\item\em Array of the counter of hall sensor interruptions of each wheel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sercice layer for the front and rear motors. 
+
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{manage__motors_8c_aa88ad9b5b1092cf2a1b507c784b529c4}\label{manage__motors_8c_aa88ad9b5b1092cf2a1b507c784b529c4}} 
+\mbox{\Hypertarget{manage__motors_8c_aef1020fcd799384421cf9b6b2607e375}\label{manage__motors_8c_aef1020fcd799384421cf9b6b2607e375}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!calculate\+\_\+distance@{calculate\+\_\+distance}}
 \index{calculate\+\_\+distance@{calculate\+\_\+distance}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{calculate\+\_\+distance()}{calculate\_distance()}}
-{\footnotesize\ttfamily float$\ast$ calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float calculate\+\_\+distance (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
 
+
+
+Return the travelled distance according to the number of hall sensors interruptions. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Travelled} & distance in centimeters \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{manage__motors_8c_a9c0a065cc8523a337fb903c93241d095}\label{manage__motors_8c_a9c0a065cc8523a337fb903c93241d095}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!control\+\_\+angle\+\_\+front\+\_\+motor@{control\+\_\+angle\+\_\+front\+\_\+motor}}
 \index{control\+\_\+angle\+\_\+front\+\_\+motor@{control\+\_\+angle\+\_\+front\+\_\+motor}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{control\+\_\+angle\+\_\+front\+\_\+motor()}{control\_angle\_front\_motor()}}
 {\footnotesize\ttfamily void control\+\_\+angle\+\_\+front\+\_\+motor (\begin{DoxyParamCaption}\item[{int}]{angle }\end{DoxyParamCaption})}
 
+
+
+Receive an angle command and turn a certain time to reach this angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Angle the car has to turn \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{manage__motors_8c_a4d0b88e00665e4f44eee772754078a9f}\label{manage__motors_8c_a4d0b88e00665e4f44eee772754078a9f}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!motor\+\_\+front\+\_\+stop@{motor\+\_\+front\+\_\+stop}}
 \index{motor\+\_\+front\+\_\+stop@{motor\+\_\+front\+\_\+stop}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{motor\+\_\+front\+\_\+stop()}{motor\_front\_stop()}}
 {\footnotesize\ttfamily void motor\+\_\+front\+\_\+stop (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
 
+
+
+Disable the front motor when a front stop is reached. 
+
 \mbox{\Hypertarget{manage__motors_8c_a7ca7fd5116ac8b51bddf2de941c2878f}\label{manage__motors_8c_a7ca7fd5116ac8b51bddf2de941c2878f}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!rear\+\_\+motors\+\_\+control@{rear\+\_\+motors\+\_\+control}}
 \index{rear\+\_\+motors\+\_\+control@{rear\+\_\+motors\+\_\+control}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{rear\+\_\+motors\+\_\+control()}{rear\_motors\_control()}}
 {\footnotesize\ttfamily void rear\+\_\+motors\+\_\+control (\begin{DoxyParamCaption}\item[{\hyperlink{struct_motor_rear___typedef}{Motor\+Rear\+\_\+\+Typedef}}]{motor\+\_\+rear\+\_\+control\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Rear motor controls \+: receive a speed and execute it. The two wheels can receive a different command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor\+\_\+rear\+\_\+control\mbox{[}$\,$\mbox{]}} & Array of \hyperlink{struct_motor_rear___typedef}{Motor\+Rear\+\_\+\+Typedef}, one for the right motor and the other one for the left motor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{manage__motors_8c_a7233bc5f821dac3a5245772c27f27d0a}\label{manage__motors_8c_a7233bc5f821dac3a5245772c27f27d0a}} 
+\index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!reset\+\_\+distance@{reset\+\_\+distance}}
+\index{reset\+\_\+distance@{reset\+\_\+distance}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{reset\+\_\+distance()}{reset\_distance()}}
+{\footnotesize\ttfamily void reset\+\_\+distance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reset the interruption hall counters to 0. 
 
 
 
@@ -65,11 +118,19 @@ float \hyperlink{manage__motors_8c_a91e434af5ba488e1ff89bdfbd274461f}{rear\+\_\+
 \subsubsection{\texorpdfstring{on\+\_\+stop}{on\_stop}}
 {\footnotesize\ttfamily int on\+\_\+stop = 0}
 
-\mbox{\Hypertarget{manage__motors_8c_a91e434af5ba488e1ff89bdfbd274461f}\label{manage__motors_8c_a91e434af5ba488e1ff89bdfbd274461f}} 
-\index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!rear\+\_\+distance@{rear\+\_\+distance}}
-\index{rear\+\_\+distance@{rear\+\_\+distance}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{rear\+\_\+distance}{rear\_distance}}
-{\footnotesize\ttfamily float rear\+\_\+distance\mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} = \{0\}}
+
+
+1 if the front motor has been stopped by the hall sensor, 0 else 
+
+\mbox{\Hypertarget{manage__motors_8c_a6c07544055b4a189c9319f1a0cba9892}\label{manage__motors_8c_a6c07544055b4a189c9319f1a0cba9892}} 
+\index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!rear\+\_\+hall@{rear\+\_\+hall}}
+\index{rear\+\_\+hall@{rear\+\_\+hall}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{rear\+\_\+hall}{rear\_hall}}
+{\footnotesize\ttfamily int rear\+\_\+hall\mbox{[}\hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}\mbox{]} =\{0\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Array of the counter of hall sensor interruptions of each wheel. 
 
 \mbox{\Hypertarget{manage__motors_8c_aae8234b46b0f350e61a0630dbc011653}\label{manage__motors_8c_aae8234b46b0f350e61a0630dbc011653}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!speeds@{speeds}}
@@ -77,9 +138,17 @@ float \hyperlink{manage__motors_8c_a91e434af5ba488e1ff89bdfbd274461f}{rear\+\_\+
 \subsubsection{\texorpdfstring{speeds}{speeds}}
 {\footnotesize\ttfamily int speeds\mbox{[}4\mbox{]} =\{40,38,35,30\}}
 
+
+
+Array of the 4 possible speed for the front motor. 
+
 \mbox{\Hypertarget{manage__motors_8c_a18e768a5ba8f2571fadbf450170887cf}\label{manage__motors_8c_a18e768a5ba8f2571fadbf450170887cf}} 
 \index{manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}!thresholds@{thresholds}}
 \index{thresholds@{thresholds}!manage\+\_\+motors.\+c@{manage\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{thresholds}{thresholds}}
 {\footnotesize\ttfamily float thresholds\mbox{[}4\mbox{]} =\{0.\+25,0.\+5,0.\+75,1\}}
+
+
+
+Array of the 4 thresholds for the front motor. Ex \+: 0.\+25 means the diff\+\_\+angle is 25 \% of the maximal angle range. 
 

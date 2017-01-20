@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['hall_5ffront_5fleft',['HALL_FRONT_LEFT',['../sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176afba28d7791e8c5da04fc3fb17dee9d01',1,'sensors_common.h']]],
-  ['hall_5ffront_5fright',['HALL_FRONT_RIGHT',['../sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176ac5b5fd16bc69967da70a7647d1adfaaf',1,'sensors_common.h']]],
-  ['hall_5fposition_5ferror',['HALL_POSITION_ERROR',['../sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176a31b3bcbad409a7d6007b56ca1ff8d9ee',1,'sensors_common.h']]],
-  ['hall_5frear_5fleft',['HALL_REAR_LEFT',['../sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176a192e31b5005eadef6cc808d005abb627',1,'sensors_common.h']]],
-  ['hall_5frear_5fright',['HALL_REAR_RIGHT',['../sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176a9c8a67827368257dc451134788d2097d',1,'sensors_common.h']]]
+  ['motor_5fposition_5ferror',['MOTOR_POSITION_ERROR',['../motor__common_8h.html#a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277',1,'motor_common.h']]],
+  ['motor_5fstate_5foff',['MOTOR_STATE_OFF',['../motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942',1,'motor_common.h']]],
+  ['motor_5fstate_5fon',['MOTOR_STATE_ON',['../motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a2deef916bc8df30cb5f220fedb94064e',1,'motor_common.h']]]
 ];

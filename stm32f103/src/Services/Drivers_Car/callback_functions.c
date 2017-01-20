@@ -11,9 +11,26 @@
 #include "hall_sensor.h"
 #include "us_sensor.h"
 
+/********************************/
+/*       Public Functions       */
+/********************************/
+
+/**
+* Overridable callback function for the GPIO interrupts related to the ultrasonic sensors
+* @param  GPIO_Pin GPIO pin
+*/
 __weak void ultrasonic_exti_callback (uint16_t GPIO_Pin){}
-__weak void hall_exti_callback (uint16_t GPIO_Pin){}
 	
+/**
+* Overridable callback function for the GPIO interrupts related to the hall sensors
+* @param  GPIO_Pin GPIO pin
+*/
+__weak void hall_exti_callback (uint16_t GPIO_Pin){}
+
+/**
+* @brief Called every GPIO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor.
+* @param  GPIO_Pin GPIO pin
+*/
 void GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (get_hall_position(GPIO_Pin) != HALL_POSITION_ERROR)
 		hall_exti_callback(GPIO_Pin);

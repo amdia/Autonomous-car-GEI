@@ -5,9 +5,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{_i_t__functions_8h_ad0b546bc50d378d057e7414d31d9d070}{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\begin{DoxyCompactList}\small\item\em Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called every G\+P\+IO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor. \end{DoxyCompactList}\item 
 void \hyperlink{_i_t__functions_8h_a75df498d217296406eff24c4cb0db7a2}{scheduler\+\_\+\+I\+T\+\_\+callback} (void)
-\begin{DoxyCompactList}\small\item\em Overridable callback function for the timer interrupt (for the project, scheduler) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called every timer interruptions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -19,9 +19,14 @@ void \hyperlink{_i_t__functions_8h_a75df498d217296406eff24c4cb0db7a2}{scheduler\
 
 
 
-Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) 
+Called every G\+P\+IO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin\\
+\hline
+\end{DoxyParams}
+Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors and ultrasonic sensors) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin \\
 \hline
@@ -34,5 +39,8 @@ Overridable callback function for the G\+P\+IO interrupts (for the project, hall
 
 
 
-Overridable callback function for the timer interrupt (for the project, scheduler) 
+Called every timer interruptions. 
 
+Called every timer interruptions.
+
+Overridable callback function for the timer interrupt (for the project, scheduler) 

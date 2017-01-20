@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -90,8 +91,6 @@ $(function() {
 Macros</h2></td></tr>
 <tr class="memitem:a7ee08f5a9ad851d009e8a3a202f6b7c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="us__sensor_8h.html#a7ee08f5a9ad851d009e8a3a202f6b7c1">ULTRASONIC_CONVERSION_CONSTANT</a>&#160;&#160;&#160;58.2</td></tr>
 <tr class="separator:a7ee08f5a9ad851d009e8a3a202f6b7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9007aa99d51adb716cd6414676396a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="us__sensor_8h.html#ad9007aa99d51adb716cd6414676396a7">MAX_TIME_PULSE</a>&#160;&#160;&#160;22600.0</td></tr>
-<tr class="separator:ad9007aa99d51adb716cd6414676396a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e715566806a76d91194db2be829e0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="us__sensor_8h.html#a26e715566806a76d91194db2be829e0b">ULTRASONIC_DELAY_RESET_ECHO_PIN</a>&#160;&#160;&#160;100</td></tr>
 <tr class="separator:a26e715566806a76d91194db2be829e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -110,24 +109,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridable callback function for ultrasonic interruptions.  <a href="#a80a5f1390ee4fae449aacd71a3b9ecec">More...</a><br /></td></tr>
 <tr class="separator:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fe4f4b5d3381b55548e59973387799d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="us__sensor_8h.html#a4fe4f4b5d3381b55548e59973387799d">get_ultrasonic_position</a> (uint16_t <a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a>)</td></tr>
-<tr class="memdesc:a4fe4f4b5d3381b55548e59973387799d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the <a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin.  <a href="#a4fe4f4b5d3381b55548e59973387799d">More...</a><br /></td></tr>
+<tr class="memdesc:a4fe4f4b5d3381b55548e59973387799d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717" title="Values corresponding to an ultrasonic sensor position. ">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin.  <a href="#a4fe4f4b5d3381b55548e59973387799d">More...</a><br /></td></tr>
 <tr class="separator:a4fe4f4b5d3381b55548e59973387799d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ad9007aa99d51adb716cd6414676396a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9007aa99d51adb716cd6414676396a7">&#9670;&nbsp;</a></span>MAX_TIME_PULSE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAX_TIME_PULSE&#160;&#160;&#160;22600.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7ee08f5a9ad851d009e8a3a202f6b7c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ee08f5a9ad851d009e8a3a202f6b7c1">&#9670;&nbsp;</a></span>ULTRASONIC_CONVERSION_CONSTANT</h2>
 
@@ -139,6 +124,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constant conversion to calculate the distance between the ultrasonic sensor and an object according to the passed time between the trig of the pulse and the detection of the return of the pulse </p>
 
 </div>
 </div>
@@ -153,6 +139,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Time to wait the reset of the echo pin and the reinitialization of the pin </p>
 
 </div>
 </div>
@@ -173,7 +160,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the <a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin. </p>
+<p>Return the <a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717" title="Values corresponding to an ultrasonic sensor position. ">Ultrasonic_Position</a> of the ultrasonic sensor for a given GPIO pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="struct_g_p_i_o___pin.html">GPIO_Pin</a></td><td>ultrasonic sensor GPIO echo pin </td></tr>
@@ -182,7 +169,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname"><a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a></td><td>of the ultrasonic sensor </td></tr>
+    <tr><td class="paramname"><a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717" title="Values corresponding to an ultrasonic sensor position. ">Ultrasonic_Position</a></td><td>of the ultrasonic sensor </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,10 +195,11 @@ Functions</h2></td></tr>
 <p>Overridable callback function for ultrasonic interruptions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>ultrasonic sensor position </td></tr>
+    <tr><td class="paramname">pos</td><td>ultrasonic sensor position</td></tr>
   </table>
   </dd>
 </dl>
+<p>Overridable callback function for ultrasonic interruptions. </p>
 
 </div>
 </div>
@@ -234,7 +222,7 @@ Functions</h2></td></tr>
 <p>Convert the pulse length of the echo pin into a distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td><a class="el" href="sensors__common_8h.html#a7eeafa067811090d4933da86d109b463">Ultrasonic_Position</a> of the sensor </td></tr>
+    <tr><td class="paramname">pos</td><td><a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717" title="Values corresponding to an ultrasonic sensor position. ">Ultrasonic_Position</a> of the sensor </td></tr>
   </table>
   </dd>
 </dl>

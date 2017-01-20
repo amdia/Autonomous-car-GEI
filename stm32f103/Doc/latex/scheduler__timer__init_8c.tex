@@ -1,5 +1,10 @@
 \hypertarget{scheduler__timer__init_8c}{}\section{Services/\+User\+\_\+\+Services/scheduler\+\_\+timer\+\_\+init.c File Reference}
 \label{scheduler__timer__init_8c}\index{Services/\+User\+\_\+\+Services/scheduler\+\_\+timer\+\_\+init.\+c@{Services/\+User\+\_\+\+Services/scheduler\+\_\+timer\+\_\+init.\+c}}
+
+
+Service layer for the scheduler.  
+
+
 {\ttfamily \#include \char`\"{}scheduler\+\_\+timer\+\_\+init.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}I\+T\+\_\+functions.\+h\char`\"{}}\newline
@@ -9,9 +14,14 @@
 \begin{DoxyCompactItemize}
 \item 
 \+\_\+\+\_\+weak void \hyperlink{scheduler__timer__init_8c_abb0afd3e2b6220396d675e584031dfd4}{scheduler\+\_\+\+I\+T\+\_\+callback} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Overridable callback function for scheduler interruptions. \end{DoxyCompactList}\item 
 void \hyperlink{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}{scheduler\+\_\+timer\+\_\+init} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialization of the scheduler. From there, interruptions happen every tick of the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Service layer for the scheduler. 
+
 
 
 \subsection{Function Documentation}
@@ -21,9 +31,17 @@ void \hyperlink{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}{sch
 \subsubsection{\texorpdfstring{scheduler\+\_\+\+I\+T\+\_\+callback()}{scheduler\_IT\_callback()}}
 {\footnotesize\ttfamily \+\_\+\+\_\+weak void scheduler\+\_\+\+I\+T\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}\label{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}} 
+
+
+Overridable callback function for scheduler interruptions. 
+
+Called every timer interruptions. \mbox{\Hypertarget{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}\label{scheduler__timer__init_8c_a6365095fb3ac06d12afdd14ea55f4a40}} 
 \index{scheduler\+\_\+timer\+\_\+init.\+c@{scheduler\+\_\+timer\+\_\+init.\+c}!scheduler\+\_\+timer\+\_\+init@{scheduler\+\_\+timer\+\_\+init}}
 \index{scheduler\+\_\+timer\+\_\+init@{scheduler\+\_\+timer\+\_\+init}!scheduler\+\_\+timer\+\_\+init.\+c@{scheduler\+\_\+timer\+\_\+init.\+c}}
 \subsubsection{\texorpdfstring{scheduler\+\_\+timer\+\_\+init()}{scheduler\_timer\_init()}}
 {\footnotesize\ttfamily void scheduler\+\_\+timer\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization of the scheduler. From there, interruptions happen every tick of the timer. 
 

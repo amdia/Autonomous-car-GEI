@@ -3,7 +3,7 @@
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{scheduler__timer__init_8h_a50fc1a873beb710a3972ba833c060cc7}{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz}~1e4
+\#define \hyperlink{scheduler__timer__init_8h_a4573bd146e597cd2e96af86c69af46d1}{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz}~1e4
 \item 
 \#define \hyperlink{scheduler__timer__init_8h_aa840a0ac3b87cf7c89b265e1912cbb5b}{P\+E\+R\+I\+O\+D\+\_\+\+US}~10
 \end{DoxyCompactItemize}
@@ -11,25 +11,25 @@
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{scheduler__timer__init_8h_a6365095fb3ac06d12afdd14ea55f4a40}{scheduler\+\_\+timer\+\_\+init} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialization of the scheduler. From there, interruptions happen every tick of the timer. \end{DoxyCompactList}\item 
 void \hyperlink{scheduler__timer__init_8h_a75df498d217296406eff24c4cb0db7a2}{scheduler\+\_\+\+I\+T\+\_\+callback} (void)
-\begin{DoxyCompactList}\small\item\em Overridable callback function for the timer interrupt (for the project, scheduler) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called every timer interruptions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{scheduler__timer__init_8h_a50fc1a873beb710a3972ba833c060cc7}\label{scheduler__timer__init_8h_a50fc1a873beb710a3972ba833c060cc7}} 
-\index{scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}!C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz@{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz}}
-\index{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz@{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz}!scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}}
-\subsubsection{\texorpdfstring{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz}{COUNTER\_CLOCK\_FREQ\_100Hz}}
-{\footnotesize\ttfamily \#define C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+100\+Hz~1e4}
+\mbox{\Hypertarget{scheduler__timer__init_8h_a4573bd146e597cd2e96af86c69af46d1}\label{scheduler__timer__init_8h_a4573bd146e597cd2e96af86c69af46d1}} 
+\index{scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}!C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz@{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz}}
+\index{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz@{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz}!scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz}{COUNTER\_CLOCK\_FREQ\_10kHz}}
+{\footnotesize\ttfamily \#define C\+O\+U\+N\+T\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+F\+R\+E\+Q\+\_\+10k\+Hz~1e4}
 
-\mbox{\Hypertarget{scheduler__timer__init_8h_aa840a0ac3b87cf7c89b265e1912cbb5b}\label{scheduler__timer__init_8h_aa840a0ac3b87cf7c89b265e1912cbb5b}} 
+Counter clock frequency of the scheduler \mbox{\Hypertarget{scheduler__timer__init_8h_aa840a0ac3b87cf7c89b265e1912cbb5b}\label{scheduler__timer__init_8h_aa840a0ac3b87cf7c89b265e1912cbb5b}} 
 \index{scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}!P\+E\+R\+I\+O\+D\+\_\+\+US@{P\+E\+R\+I\+O\+D\+\_\+\+US}}
 \index{P\+E\+R\+I\+O\+D\+\_\+\+US@{P\+E\+R\+I\+O\+D\+\_\+\+US}!scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}}
 \subsubsection{\texorpdfstring{P\+E\+R\+I\+O\+D\+\_\+\+US}{PERIOD\_US}}
 {\footnotesize\ttfamily \#define P\+E\+R\+I\+O\+D\+\_\+\+US~10}
 
-
+Period in microseconds of the scheduler 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{scheduler__timer__init_8h_a75df498d217296406eff24c4cb0db7a2}\label{scheduler__timer__init_8h_a75df498d217296406eff24c4cb0db7a2}} 
@@ -40,11 +40,17 @@ void \hyperlink{scheduler__timer__init_8h_a75df498d217296406eff24c4cb0db7a2}{sch
 
 
 
-Overridable callback function for the timer interrupt (for the project, scheduler) 
+Called every timer interruptions. 
 
-\mbox{\Hypertarget{scheduler__timer__init_8h_a6365095fb3ac06d12afdd14ea55f4a40}\label{scheduler__timer__init_8h_a6365095fb3ac06d12afdd14ea55f4a40}} 
+Called every timer interruptions.
+
+Overridable callback function for the timer interrupt (for the project, scheduler) \mbox{\Hypertarget{scheduler__timer__init_8h_a6365095fb3ac06d12afdd14ea55f4a40}\label{scheduler__timer__init_8h_a6365095fb3ac06d12afdd14ea55f4a40}} 
 \index{scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}!scheduler\+\_\+timer\+\_\+init@{scheduler\+\_\+timer\+\_\+init}}
 \index{scheduler\+\_\+timer\+\_\+init@{scheduler\+\_\+timer\+\_\+init}!scheduler\+\_\+timer\+\_\+init.\+h@{scheduler\+\_\+timer\+\_\+init.\+h}}
 \subsubsection{\texorpdfstring{scheduler\+\_\+timer\+\_\+init()}{scheduler\_timer\_init()}}
 {\footnotesize\ttfamily void scheduler\+\_\+timer\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialization of the scheduler. From there, interruptions happen every tick of the timer. 
 

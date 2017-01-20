@@ -1,7 +1,9 @@
 #ifndef _SCHEDULER_TIMER_INIT_H_
 #define _SCHEDULER_TIMER_INIT_H_
 
-#define COUNTER_CLOCK_FREQ_100Hz  	1e4
+/** Counter clock frequency of the scheduler */
+#define COUNTER_CLOCK_FREQ_10kHz  	1e4
+/** Period in microseconds of the scheduler */
 #define PERIOD_US 						10
 
 void scheduler_timer_init(void);

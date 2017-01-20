@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -82,6 +83,9 @@ $(function() {
 <div class="title">callbacks_services.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Sercice layer for the callback handling.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="callbacks__services_8h_source.html">callbacks_services.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="scheduler__timer__init_8h_source.html">scheduler_timer_init.h</a>&quot;</code><br />
@@ -92,27 +96,30 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:aea3e71205ebe407bb1787fda87d4fce1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#aea3e71205ebe407bb1787fda87d4fce1">IS_TASK</a>(task)&#160;&#160;&#160;(<a class="el" href="callbacks__services_8c.html#ab9bb35d1ba82186f78fd894695be7cc2">scheduler_counter</a> % task == 0)</td></tr>
+<tr class="memdesc:aea3e71205ebe407bb1787fda87d4fce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task = x. The scheduler_counter is incremented every microseconds. A given task is done every x microseconds.  <a href="#aea3e71205ebe407bb1787fda87d4fce1">More...</a><br /></td></tr>
 <tr class="separator:aea3e71205ebe407bb1787fda87d4fce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a359546480b7fb435c8c79b49fa2bb3e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#a359546480b7fb435c8c79b49fa2bb3e3">hall_callback</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
-<tr class="memdesc:a359546480b7fb435c8c79b49fa2bb3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridable callback function for hall sensor interruptions.  <a href="#a359546480b7fb435c8c79b49fa2bb3e3">More...</a><br /></td></tr>
+<tr class="memdesc:a359546480b7fb435c8c79b49fa2bb3e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every hall sensor interruptions. Handle the front stop hall sensors and the rear hall sensors (odometry)  <a href="#a359546480b7fb435c8c79b49fa2bb3e3">More...</a><br /></td></tr>
 <tr class="separator:a359546480b7fb435c8c79b49fa2bb3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#a80a5f1390ee4fae449aacd71a3b9ecec">ultrasonic_callback</a> (<a class="el" href="sensors__common_8h.html#a492d5c22484a3fddcdc6672557b07717">Ultrasonic_Position</a> pos)</td></tr>
-<tr class="memdesc:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridable callback function for ultrasonic interruptions.  <a href="#a80a5f1390ee4fae449aacd71a3b9ecec">More...</a><br /></td></tr>
+<tr class="memdesc:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every ultrasonic interruptions. The distance returned by the ultrasonic sensor is written is the communication frame to be sent via the SPI.  <a href="#a80a5f1390ee4fae449aacd71a3b9ecec">More...</a><br /></td></tr>
 <tr class="separator:a80a5f1390ee4fae449aacd71a3b9ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90fbf65560e53e5848ba7e81c3757fbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#a90fbf65560e53e5848ba7e81c3757fbf">scheduler_IT_callback</a> ()</td></tr>
+<tr class="memdesc:a90fbf65560e53e5848ba7e81c3757fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every timer interruptions.  <a href="#a90fbf65560e53e5848ba7e81c3757fbf">More...</a><br /></td></tr>
 <tr class="separator:a90fbf65560e53e5848ba7e81c3757fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a79688c6866d8720648bf2dc6e48c428e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#a79688c6866d8720648bf2dc6e48c428e">test_angle</a> = 0</td></tr>
-<tr class="separator:a79688c6866d8720648bf2dc6e48c428e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9bb35d1ba82186f78fd894695be7cc2"><td class="memItemLeft" align="right" valign="top">static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="callbacks__services_8c.html#ab9bb35d1ba82186f78fd894695be7cc2">scheduler_counter</a> = 0</td></tr>
+<tr class="memdesc:ab9bb35d1ba82186f78fd894695be7cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the timer interruptions.  <a href="#ab9bb35d1ba82186f78fd894695be7cc2">More...</a><br /></td></tr>
 <tr class="separator:ab9bb35d1ba82186f78fd894695be7cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Sercice layer for the callback handling. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="aea3e71205ebe407bb1787fda87d4fce1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea3e71205ebe407bb1787fda87d4fce1">&#9670;&nbsp;</a></span>IS_TASK</h2>
 
@@ -128,6 +135,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task = x. The scheduler_counter is incremented every microseconds. A given task is done every x microseconds. </p>
 
 </div>
 </div>
@@ -148,13 +157,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called every hall sensor interruptions. Handle the front stop hall sensors and the rear hall sensors (odometry) </p>
 <p>Overridable callback function for hall sensor interruptions. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>hall sensor position </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -174,6 +178,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called every timer interruptions. </p>
+
 </div>
 </div>
 <a id="a80a5f1390ee4fae449aacd71a3b9ecec"></a>
@@ -192,13 +198,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Called every ultrasonic interruptions. The distance returned by the ultrasonic sensor is written is the communication frame to be sent via the SPI. </p>
 <p>Overridable callback function for ultrasonic interruptions. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>ultrasonic sensor position </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -223,19 +224,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a79688c6866d8720648bf2dc6e48c428e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79688c6866d8720648bf2dc6e48c428e">&#9670;&nbsp;</a></span>test_angle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int test_angle = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Count the timer interruptions. </p>
 
 </div>
 </div>

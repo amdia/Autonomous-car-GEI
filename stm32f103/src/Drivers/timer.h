@@ -3,6 +3,7 @@
 
 #include <stm32f10x.h>
 
+/** Timer on which is initialized the scheduler */
 #define SCHEDULER_TIMER         	TIM2
 
 void timer_init(TIM_TypeDef* timer, int counter_clock_frequency, int period_us);

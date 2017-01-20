@@ -16,15 +16,10 @@
 
 */
 
-// Mask and offset for the motors
-#define DIRECTION_MASK 128 // 1000 000
-#define DIRECTION_OFFSET 7
-#define SPEED_MASK 127 // 0111 1111
-#define SPEED_OFFSET 0
-#define ANGLE_MASK 127 // 0111 1111
-#define ANGLE_OFFSET 0
 
-
+/**
+* @brief Structure that contains the frame sent and received from the SPI buffer. Every element is a char (uint8_t).
+*/
 typedef struct
 {
 	uint8_t direction_motor;
@@ -44,77 +39,60 @@ typedef struct
 
 
 /**
- * \struct Ultrasound_Typedef
- * \brief Structure that contains informations about the ultrasounds
- */
+* @brief Structure that contains informations about the ultrasounds
+*/
 typedef struct
 {
-	int distance; /*!< Distance of the closest obstacle in cm */
+	/** Distance of the closest obstacle in cm */
+	int distance; 
 }Ultrasound_Typedef;
 
 /**
- * \struct Battery_Typedef
- * \brief Structure that contains informations about the battery
- */
+* @brief Structure that contains informations about the battery
+*/
 typedef struct 
 {
-	int state; /*!< State of the battery in %*/
+	/** State of the battery in % */
+	int state; 
 }Battery_Typedef;
 
 
 /**
- * \struct Ack_Typedef
- * \brief Structure that contains informations about the ack byte 
- */
+* @brief Structure that contains informations about the ack byte 
+*/
 typedef struct
 {
-	int reset_distance; /*!< Distance reset demand of the raspi */
-	int ack_distance; /*!< Ack response for the distance */
+	/** Distance reset demand of the raspi */
+	int reset_distance; 
+	/** Ack response for the distance */
+	int ack_distance; 
 }Ack_Typedef;
 
 
 /**
- * \struct Communication_Typedef
- * \brief Structure that contains all the informations of the car
- */
+* @brief Structure that contains all the informations of the car
+*/
 typedef struct 
 {
+	/** Contains the information about the front motor (angle) */
 	MotorFront_Typedef directionMotor;
+	/** Contains the information about the rear motors (speed and travelled distance) */
 	MotorRear_Typedef rear_motors[REAR_MOTORS_NB];
-	
+	/** Contains the information about the ultrasonic sensors (distance) */
 	Ultrasound_Typedef ultrasounds[ULTRASONIC_NB];
-
+	/** Contains the information about the battery (state) */
 	Battery_Typedef battery;	
-	
+	/** Contains the information about the ack_byte (reset_distance and ack_distance) */
 	Ack_Typedef ack_byte;
 	
 }Communication_Typedef;
 
-typedef struct motorAction
-{
-    Communication_Typedef action;
-    struct motorAction *nxt;
-}motorAction;
+extern volatile Communication_Typedef communicationFrame;
 
-extern volatile Communication_Typedef receivedFrame;
-
-/** 
- *	\brief Initialize the communication structure
- *	\return None
- */
 void init_spiFrame(void);
 
-/** 
- *	\brief Read the frame received and update the communication structure
- *	\return None
-*/
 void read_spiFrame(void);
 
-/** 
- *	\brief Write the frame to send according to the communication structure
- *	\return None
-*/
 void write_spiFrame(void);
-
 
 #endif //SPIC_SERVICES_H

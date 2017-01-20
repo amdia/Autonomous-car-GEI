@@ -40,9 +40,9 @@ void \hyperlink{_i_t__functions_8c_ac8e51d2183b5230cbd5481f8867adce9}{T\+I\+M3\+
 void \hyperlink{_i_t__functions_8c_a7133f3f78767503641d307386e68bd28}{T\+I\+M4\+\_\+\+I\+R\+Q\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em This function handles T\+I\+M4\+\_\+\+I\+R\+Q\+Handler interrupt request. \end{DoxyCompactList}\item 
 \+\_\+\+\_\+weak void \hyperlink{_i_t__functions_8c_a9219493b81f9c945cfdb24156ff7b3b5}{G\+P\+I\+O\+\_\+\+E\+X\+T\+I\+\_\+\+Callback} (uint16\+\_\+t \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin})
-\begin{DoxyCompactList}\small\item\em Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called every G\+P\+IO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor. \end{DoxyCompactList}\item 
 \+\_\+\+\_\+weak void \hyperlink{_i_t__functions_8c_abb0afd3e2b6220396d675e584031dfd4}{scheduler\+\_\+\+I\+T\+\_\+callback} (void)
-\begin{DoxyCompactList}\small\item\em Overridable callback function for the timer interrupt (for the project, scheduler) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called every timer interruptions. \end{DoxyCompactList}\item 
 void \hyperlink{_i_t__functions_8c_a9b75ef44037d7ed50a1078c024ae853a}{D\+M\+A1\+\_\+\+Channel4\+\_\+\+I\+R\+Q\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em This function handles D\+M\+A1\+\_\+\+Channel4 interrupt request. \end{DoxyCompactList}\item 
 void \hyperlink{_i_t__functions_8c_abd16b3391557c4a3a8020d675e2c452f}{D\+M\+A1\+\_\+\+Channel5\+\_\+\+I\+R\+Q\+Handler} (void)
@@ -200,9 +200,9 @@ This function handles E\+X\+T\+I9\+\_\+5\+\_\+\+I\+R\+Q\+Handler interrupt reque
 
 
 
-Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors) 
+Called every G\+P\+IO interruptions. Call a different function if the interruption comes from a hall or an ultrasonic sensor. 
 
-
+Overridable callback function for the G\+P\+IO interrupts (for the project, hall sensors and ultrasonic sensors) 
 \begin{DoxyParams}{Parameters}
 {\em \hyperlink{struct_g_p_i_o___pin}{G\+P\+I\+O\+\_\+\+Pin}} & G\+P\+IO pin \\
 \hline
@@ -215,9 +215,9 @@ Overridable callback function for the G\+P\+IO interrupts (for the project, hall
 
 
 
-Overridable callback function for the timer interrupt (for the project, scheduler) 
+Called every timer interruptions. 
 
-\mbox{\Hypertarget{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}\label{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}} 
+Overridable callback function for the timer interrupt (for the project, scheduler) \mbox{\Hypertarget{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}\label{_i_t__functions_8c_a51741dbf9b0de1b8b56b5a6f1ef2e694}} 
 \index{I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}!T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}}
 \index{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler}!I\+T\+\_\+functions.\+c@{I\+T\+\_\+functions.\+c}}
 \subsubsection{\texorpdfstring{T\+I\+M1\+\_\+\+U\+P\+\_\+\+I\+R\+Q\+Handler()}{TIM1\_UP\_IRQHandler()}}

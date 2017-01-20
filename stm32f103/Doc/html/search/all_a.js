@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['main',['main',['../test__capteurs__hall_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_capteurs_hall.c'],['../test__capteurs__us_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_capteurs_us.c'],['../test__motors_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_motors.c'],['../test__scheduler_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_scheduler.c'],['../test__scheduler__motors_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_scheduler_motors.c'],['../test__spi_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test_spi.c'],['../test__systick_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;test_systick.c'],['../test__virage_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test_virage.c']]],
+  ['main',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.c'],['../test__motors_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test_motors.c']]],
+  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
   ['manage_5fmotors_2ec',['manage_motors.c',['../manage__motors_8c.html',1,'']]],
   ['manage_5fmotors_2eh',['manage_motors.h',['../manage__motors_8h.html',1,'']]],
-  ['max_5ftime_5fpulse',['MAX_TIME_PULSE',['../us__sensor_8h.html#ad9007aa99d51adb716cd6414676396a7',1,'us_sensor.h']]],
   ['micros',['micros',['../time__systick_8c.html#a19665f2a908fc943d11a231dcc910f4f',1,'micros(void):&#160;time_systick.c'],['../time__systick_8h.html#a19665f2a908fc943d11a231dcc910f4f',1,'micros(void):&#160;time_systick.c']]],
   ['mode',['mode',['../struct_p_w_m___type_def.html#af294e94ca5176720ef5e5cbedc95ca47',1,'PWM_TypeDef']]],
   ['motor_5fcommon_2eh',['motor_common.h',['../motor__common_8h.html',1,'']]],
@@ -28,7 +28,6 @@ var searchData=
   ['motor_5fstate_5foff',['MOTOR_STATE_OFF',['../motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942',1,'motor_common.h']]],
   ['motor_5fstate_5fon',['MOTOR_STATE_ON',['../motor__common_8h.html#ab5eef05fe69a4cc173c44ff4d28be944a2deef916bc8df30cb5f220fedb94064e',1,'motor_common.h']]],
   ['motor_5ftypedef',['Motor_TypeDef',['../struct_motor___type_def.html',1,'']]],
-  ['motoraction',['motorAction',['../structmotor_action.html',1,'motorAction'],['../_s_p_i__services_8h.html#a3a8b558918e489dddb15126f80d04ea1',1,'motorAction():&#160;SPI_services.h']]],
   ['motorcmd',['motorCmd',['../motor__control_8c.html#a6c5302566c5a7d231275bcf778290558',1,'motorCmd(Motor_TypeDef *motor_struct, int speed):&#160;motor_control.c'],['../motor__control_8h.html#a6c5302566c5a7d231275bcf778290558',1,'motorCmd(Motor_TypeDef *motor_struct, int speed):&#160;motor_control.c']]],
   ['motorenable',['motorEnable',['../motor__control_8c.html#af7c024dbcc466b59f2f6cc06b4dfd0b6',1,'motorEnable(Motor_TypeDef *motor_struct, Motor_State enable):&#160;motor_control.c'],['../motor__control_8h.html#af7c024dbcc466b59f2f6cc06b4dfd0b6',1,'motorEnable(Motor_TypeDef *motor_struct, Motor_State enable):&#160;motor_control.c']]],
   ['motorfront_5ftypedef',['MotorFront_Typedef',['../struct_motor_front___typedef.html',1,'']]],

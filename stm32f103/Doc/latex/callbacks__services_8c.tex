@@ -1,5 +1,10 @@
 \hypertarget{callbacks__services_8c}{}\section{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.c File Reference}
 \label{callbacks__services_8c}\index{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.\+c@{Services/\+User\+\_\+\+Services/callbacks\+\_\+services.\+c}}
+
+
+Sercice layer for the callback handling.  
+
+
 {\ttfamily \#include \char`\"{}callbacks\+\_\+services.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}scheduler\+\_\+timer\+\_\+init.\+h\char`\"{}}\newline
@@ -10,23 +15,26 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{callbacks__services_8c_aea3e71205ebe407bb1787fda87d4fce1}{I\+S\+\_\+\+T\+A\+SK}(task)~(\hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} \% task == 0)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task = x. The scheduler\+\_\+counter is incremented every microseconds. A given task is done every x microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{callbacks__services_8c_a359546480b7fb435c8c79b49fa2bb3e3}{hall\+\_\+callback} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\begin{DoxyCompactList}\small\item\em Overridable callback function for hall sensor interruptions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called every hall sensor interruptions. Handle the front stop hall sensors and the rear hall sensors (odometry) \end{DoxyCompactList}\item 
 void \hyperlink{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}{ultrasonic\+\_\+callback} (\hyperlink{sensors__common_8h_a492d5c22484a3fddcdc6672557b07717}{Ultrasonic\+\_\+\+Position} pos)
-\begin{DoxyCompactList}\small\item\em Overridable callback function for ultrasonic interruptions. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Called every ultrasonic interruptions. The distance returned by the ultrasonic sensor is written is the communication frame to be sent via the S\+PI. \end{DoxyCompactList}\item 
 void \hyperlink{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}{scheduler\+\_\+\+I\+T\+\_\+callback} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Called every timer interruptions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}{test\+\_\+angle} = 0
-\item 
 static uint64\+\_\+t \hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} = 0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Count the timer interruptions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sercice layer for the callback handling. 
+
 
 
 \subsection{Macro Definition Documentation}
@@ -35,6 +43,10 @@ static uint64\+\_\+t \hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd8946
 \index{I\+S\+\_\+\+T\+A\+SK@{I\+S\+\_\+\+T\+A\+SK}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
 \subsubsection{\texorpdfstring{I\+S\+\_\+\+T\+A\+SK}{IS\_TASK}}
 {\footnotesize\ttfamily \#define I\+S\+\_\+\+T\+A\+SK(\begin{DoxyParamCaption}\item[{}]{task }\end{DoxyParamCaption})~(\hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}{scheduler\+\_\+counter} \% task == 0)}
+
+
+
+Task = x. The scheduler\+\_\+counter is incremented every microseconds. A given task is done every x microseconds. 
 
 
 
@@ -47,18 +59,17 @@ static uint64\+\_\+t \hyperlink{callbacks__services_8c_ab9bb35d1ba82186f78fd8946
 
 
 
-Overridable callback function for hall sensor interruptions. 
+Called every hall sensor interruptions. Handle the front stop hall sensors and the rear hall sensors (odometry) 
 
-
-\begin{DoxyParams}{Parameters}
-{\em pos} & hall sensor position \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}\label{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}} 
+Overridable callback function for hall sensor interruptions. \mbox{\Hypertarget{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}\label{callbacks__services_8c_a90fbf65560e53e5848ba7e81c3757fbf}} 
 \index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}}
 \index{scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
 \subsubsection{\texorpdfstring{scheduler\+\_\+\+I\+T\+\_\+callback()}{scheduler\_IT\_callback()}}
 {\footnotesize\ttfamily void scheduler\+\_\+\+I\+T\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Called every timer interruptions. 
 
 \mbox{\Hypertarget{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}\label{callbacks__services_8c_a80a5f1390ee4fae449aacd71a3b9ecec}} 
 \index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!ultrasonic\+\_\+callback@{ultrasonic\+\_\+callback}}
@@ -68,14 +79,9 @@ Overridable callback function for hall sensor interruptions.
 
 
 
+Called every ultrasonic interruptions. The distance returned by the ultrasonic sensor is written is the communication frame to be sent via the S\+PI. 
+
 Overridable callback function for ultrasonic interruptions. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em pos} & ultrasonic sensor position \\
-\hline
-\end{DoxyParams}
-
 
 \subsection{Variable Documentation}
 \mbox{\Hypertarget{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}\label{callbacks__services_8c_ab9bb35d1ba82186f78fd894695be7cc2}} 
@@ -84,9 +90,7 @@ Overridable callback function for ultrasonic interruptions.
 \subsubsection{\texorpdfstring{scheduler\+\_\+counter}{scheduler\_counter}}
 {\footnotesize\ttfamily uint64\+\_\+t scheduler\+\_\+counter = 0\hspace{0.3cm}{\ttfamily [static]}}
 
-\mbox{\Hypertarget{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}\label{callbacks__services_8c_a79688c6866d8720648bf2dc6e48c428e}} 
-\index{callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}!test\+\_\+angle@{test\+\_\+angle}}
-\index{test\+\_\+angle@{test\+\_\+angle}!callbacks\+\_\+services.\+c@{callbacks\+\_\+services.\+c}}
-\subsubsection{\texorpdfstring{test\+\_\+angle}{test\_angle}}
-{\footnotesize\ttfamily int test\+\_\+angle = 0}
+
+
+Count the timer interruptions. 
 

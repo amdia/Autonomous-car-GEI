@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -90,6 +91,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_p_w_m___type_def.html">PWM_TypeDef</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure that contains information about a PWM.  <a href="struct_p_w_m___type_def.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -112,7 +114,8 @@ Enumerations</h2></td></tr>
 <tr class="memitem:aa0dce9662cf73b77a0f5ebb751599ae2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2">PWM_InitReturnType</a> { <a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2a7c2ba7173f13d78e3b1c5a865eaeb8ba">PWM_INIT_OK</a>, 
 <a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2a36a2dce93b0382a1d59d3b469820206f">PWM_NOT_CHANNEL_1_2_3_4</a>, 
 <a class="el" href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2ab6ba8e195a32b45ba081c457305e7502">PWM_NOT_MODE_1_2</a>
- }</td></tr>
+ }<tr class="memdesc:aa0dce9662cf73b77a0f5ebb751599ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values returned during a PWM initialization.  <a href="_p_w_m___output_8h.html#aa0dce9662cf73b77a0f5ebb751599ae2">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:aa0dce9662cf73b77a0f5ebb751599ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -139,6 +142,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Counter clock frequency for the PWM </p>
 
 </div>
 </div>
@@ -153,6 +157,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maximal duty cycle for the PWM </p>
 
 </div>
 </div>
@@ -167,6 +172,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Minimal duty cycle for the PWM </p>
 
 </div>
 </div>
@@ -181,6 +187,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Duty cycle range for the PWM </p>
 
 </div>
 </div>
@@ -195,6 +202,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>PWM output mode 1 </p>
 
 </div>
 </div>
@@ -209,6 +217,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>PWM output mode 2 </p>
 
 </div>
 </div>
@@ -224,10 +233,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Values returned during a PWM initialization. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2a7c2ba7173f13d78e3b1c5a865eaeb8ba"></a>PWM_INIT_OK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2a36a2dce93b0382a1d59d3b469820206f"></a>PWM_NOT_CHANNEL_1_2_3_4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2ab6ba8e195a32b45ba081c457305e7502"></a>PWM_NOT_MODE_1_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2a7c2ba7173f13d78e3b1c5a865eaeb8ba"></a>PWM_INIT_OK&#160;</td><td class="fielddoc"><p>Initialization went well </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2a36a2dce93b0382a1d59d3b469820206f"></a>PWM_NOT_CHANNEL_1_2_3_4&#160;</td><td class="fielddoc"><p>The channel given has parameter for the initialization is different from 1,2,3 or 4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa0dce9662cf73b77a0f5ebb751599ae2ab6ba8e195a32b45ba081c457305e7502"></a>PWM_NOT_MODE_1_2&#160;</td><td class="fielddoc"><p>The mode given has parameter for the initialization is different from 1 or 2 </p>
+</td></tr>
 </table>
 
 </div>

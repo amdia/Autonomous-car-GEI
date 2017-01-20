@@ -1,100 +1,107 @@
 \hypertarget{test__motors_8c}{}\section{Application/test\+\_\+motors.c File Reference}
 \label{test__motors_8c}\index{Application/test\+\_\+motors.\+c@{Application/test\+\_\+motors.\+c}}
+
+
+Application layer to test if the motors are functionnal.  
+
+
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}hall\+\_\+sensor.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}drivers\+\_\+car\+\_\+config.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}motor\+\_\+front.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}motor\+\_\+rear.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}services\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}manage\+\_\+motors.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}S\+P\+I\+\_\+services.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time\+\_\+systick.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{test__motors_8c_aac3553b3932cbfeeac4526ce7ca0336b}{S\+P\+E\+ED}~40
+\item 
+\#define \hyperlink{test__motors_8c_a48fcf4f2eeef6769d588168d4ac2ab0e}{S\+E\+C\+O\+N\+DS}~1e6
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{test__motors_8c_a716d473970fc5127c9e853d1e57ee344}{travelled\+\_\+distance} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\item 
-int \hyperlink{test__motors_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
-\item 
-void \hyperlink{test__motors_8c_a359546480b7fb435c8c79b49fa2bb3e3}{hall\+\_\+callback} (\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position} pos)
-\item 
-void \hyperlink{test__motors_8c_a90fbf65560e53e5848ba7e81c3757fbf}{scheduler\+\_\+\+I\+T\+\_\+callback} ()
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\+\_\+\+\_\+\+IO Direction \hyperlink{test__motors_8c_abf03425b833b25f5744c1acd56f5ccd8}{front} = S\+T\+OP
-\item 
-\+\_\+\+\_\+\+IO int \hyperlink{test__motors_8c_a67ff4ff4fbaf0a37832ad6b243cd39c5}{rear} = 0
-\item 
-\+\_\+\+\_\+\+IO float \hyperlink{test__motors_8c_af71e2b93d8f0aff668b6e81b41db7f04}{distance} = 0
-\item 
-static int \hyperlink{test__motors_8c_a01634213b2d2da9cafc257738970a800}{front\+\_\+hall} \mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} =\{0\}
-\item 
-static int \hyperlink{test__motors_8c_ac6c7000d569fcfbd8132eeafa3e158ea}{rear\+\_\+hall} \mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} =\{0\}
-\item 
-float \hyperlink{test__motors_8c_aaeb10865507cd2b3142fa94f2b245b42}{rear\+\_\+distance} \mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} = \{0\}
-\end{DoxyCompactItemize}
+int \hyperlink{test__motors_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em Initialize the services and execute the choosen test function(s) \end{DoxyCompactList}\item 
+void \hyperlink{test__motors_8c_aafd94e4bbcf7777bb307bd4b6f25ef76}{test\+\_\+go\+\_\+forward} (void)
+\begin{DoxyCompactList}\small\item\em Test if the rear motors are functionnal to go forward. \end{DoxyCompactList}\item 
+void \hyperlink{test__motors_8c_a80e531c67a53bda482067f8dcd88b4a5}{test\+\_\+go\+\_\+backward} (void)
+\begin{DoxyCompactList}\small\item\em Test if the rear motors are functionnal to go backward. \end{DoxyCompactList}\item 
+void \hyperlink{test__motors_8c_a8342f1e948a6bbfdb411370bc485b207}{test\+\_\+turn} (void)
+\begin{DoxyCompactList}\small\item\em Test if the front motors are functionnal. \end{DoxyCompactList}\item 
+void \hyperlink{test__motors_8c_a5c44f100b3c8b9ea3fdc8c72e0cd0de6}{ninety\+\_\+degrees\+\_\+bend} (void)
+\begin{DoxyCompactList}\small\item\em Test the calibration of a 90 degrees bend. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application layer to test if the motors are functionnal. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{test__motors_8c_a48fcf4f2eeef6769d588168d4ac2ab0e}\label{test__motors_8c_a48fcf4f2eeef6769d588168d4ac2ab0e}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!S\+E\+C\+O\+N\+DS@{S\+E\+C\+O\+N\+DS}}
+\index{S\+E\+C\+O\+N\+DS@{S\+E\+C\+O\+N\+DS}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+C\+O\+N\+DS}{SECONDS}}
+{\footnotesize\ttfamily \#define S\+E\+C\+O\+N\+DS~1e6}
+
+\mbox{\Hypertarget{test__motors_8c_aac3553b3932cbfeeac4526ce7ca0336b}\label{test__motors_8c_aac3553b3932cbfeeac4526ce7ca0336b}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!S\+P\+E\+ED@{S\+P\+E\+ED}}
+\index{S\+P\+E\+ED@{S\+P\+E\+ED}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{S\+P\+E\+ED}{SPEED}}
+{\footnotesize\ttfamily \#define S\+P\+E\+ED~40}
+
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{test__motors_8c_a359546480b7fb435c8c79b49fa2bb3e3}\label{test__motors_8c_a359546480b7fb435c8c79b49fa2bb3e3}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!hall\+\_\+callback@{hall\+\_\+callback}}
-\index{hall\+\_\+callback@{hall\+\_\+callback}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{hall\+\_\+callback()}{hall\_callback()}}
-{\footnotesize\ttfamily void hall\+\_\+callback (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{test__motors_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{test__motors_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\mbox{\Hypertarget{test__motors_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{test__motors_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
 \index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!main@{main}}
 \index{main@{main}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
 \subsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{test__motors_8c_a90fbf65560e53e5848ba7e81c3757fbf}\label{test__motors_8c_a90fbf65560e53e5848ba7e81c3757fbf}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}}
-\index{scheduler\+\_\+\+I\+T\+\_\+callback@{scheduler\+\_\+\+I\+T\+\_\+callback}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{scheduler\+\_\+\+I\+T\+\_\+callback()}{scheduler\_IT\_callback()}}
-{\footnotesize\ttfamily void scheduler\+\_\+\+I\+T\+\_\+callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{test__motors_8c_a716d473970fc5127c9e853d1e57ee344}\label{test__motors_8c_a716d473970fc5127c9e853d1e57ee344}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!travelled\+\_\+distance@{travelled\+\_\+distance}}
-\index{travelled\+\_\+distance@{travelled\+\_\+distance}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{travelled\+\_\+distance()}{travelled\_distance()}}
-{\footnotesize\ttfamily void travelled\+\_\+distance (\begin{DoxyParamCaption}\item[{\hyperlink{sensors__common_8h_aba57d3ed4ed32843217f3c2e662b4176}{Hall\+\_\+\+Position}}]{pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\subsection{Variable Documentation}
-\mbox{\Hypertarget{test__motors_8c_af71e2b93d8f0aff668b6e81b41db7f04}\label{test__motors_8c_af71e2b93d8f0aff668b6e81b41db7f04}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!distance@{distance}}
-\index{distance@{distance}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{distance}{distance}}
-{\footnotesize\ttfamily \+\_\+\+\_\+\+IO float distance = 0}
+Initialize the services and execute the choosen test function(s) 
 
-\mbox{\Hypertarget{test__motors_8c_abf03425b833b25f5744c1acd56f5ccd8}\label{test__motors_8c_abf03425b833b25f5744c1acd56f5ccd8}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!front@{front}}
-\index{front@{front}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{front}{front}}
-{\footnotesize\ttfamily \+\_\+\+\_\+\+IO Direction front = S\+T\+OP}
+\mbox{\Hypertarget{test__motors_8c_a5c44f100b3c8b9ea3fdc8c72e0cd0de6}\label{test__motors_8c_a5c44f100b3c8b9ea3fdc8c72e0cd0de6}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!ninety\+\_\+degrees\+\_\+bend@{ninety\+\_\+degrees\+\_\+bend}}
+\index{ninety\+\_\+degrees\+\_\+bend@{ninety\+\_\+degrees\+\_\+bend}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{ninety\+\_\+degrees\+\_\+bend()}{ninety\_degrees\_bend()}}
+{\footnotesize\ttfamily void ninety\+\_\+degrees\+\_\+bend (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{test__motors_8c_a01634213b2d2da9cafc257738970a800}\label{test__motors_8c_a01634213b2d2da9cafc257738970a800}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!front\+\_\+hall@{front\+\_\+hall}}
-\index{front\+\_\+hall@{front\+\_\+hall}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{front\+\_\+hall}{front\_hall}}
-{\footnotesize\ttfamily int front\+\_\+hall\mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} =\{0\}\hspace{0.3cm}{\ttfamily [static]}}
 
-\mbox{\Hypertarget{test__motors_8c_a67ff4ff4fbaf0a37832ad6b243cd39c5}\label{test__motors_8c_a67ff4ff4fbaf0a37832ad6b243cd39c5}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!rear@{rear}}
-\index{rear@{rear}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{rear}{rear}}
-{\footnotesize\ttfamily \+\_\+\+\_\+\+IO int rear = 0}
 
-\mbox{\Hypertarget{test__motors_8c_aaeb10865507cd2b3142fa94f2b245b42}\label{test__motors_8c_aaeb10865507cd2b3142fa94f2b245b42}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!rear\+\_\+distance@{rear\+\_\+distance}}
-\index{rear\+\_\+distance@{rear\+\_\+distance}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{rear\+\_\+distance}{rear\_distance}}
-{\footnotesize\ttfamily float rear\+\_\+distance\mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} = \{0\}}
+Test the calibration of a 90 degrees bend. 
 
-\mbox{\Hypertarget{test__motors_8c_ac6c7000d569fcfbd8132eeafa3e158ea}\label{test__motors_8c_ac6c7000d569fcfbd8132eeafa3e158ea}} 
-\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!rear\+\_\+hall@{rear\+\_\+hall}}
-\index{rear\+\_\+hall@{rear\+\_\+hall}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
-\subsubsection{\texorpdfstring{rear\+\_\+hall}{rear\_hall}}
-{\footnotesize\ttfamily int rear\+\_\+hall\mbox{[}\hyperlink{sensors__common_8h_a39c02e9cb8bfd73880a493c0719ca03f}{H\+A\+L\+L\+\_\+\+NB}/2\mbox{]} =\{0\}\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{test__motors_8c_a80e531c67a53bda482067f8dcd88b4a5}\label{test__motors_8c_a80e531c67a53bda482067f8dcd88b4a5}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!test\+\_\+go\+\_\+backward@{test\+\_\+go\+\_\+backward}}
+\index{test\+\_\+go\+\_\+backward@{test\+\_\+go\+\_\+backward}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+go\+\_\+backward()}{test\_go\_backward()}}
+{\footnotesize\ttfamily void test\+\_\+go\+\_\+backward (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
+
+
+Test if the rear motors are functionnal to go backward. 
+
+\mbox{\Hypertarget{test__motors_8c_aafd94e4bbcf7777bb307bd4b6f25ef76}\label{test__motors_8c_aafd94e4bbcf7777bb307bd4b6f25ef76}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!test\+\_\+go\+\_\+forward@{test\+\_\+go\+\_\+forward}}
+\index{test\+\_\+go\+\_\+forward@{test\+\_\+go\+\_\+forward}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+go\+\_\+forward()}{test\_go\_forward()}}
+{\footnotesize\ttfamily void test\+\_\+go\+\_\+forward (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the rear motors are functionnal to go forward. 
+
+\mbox{\Hypertarget{test__motors_8c_a8342f1e948a6bbfdb411370bc485b207}\label{test__motors_8c_a8342f1e948a6bbfdb411370bc485b207}} 
+\index{test\+\_\+motors.\+c@{test\+\_\+motors.\+c}!test\+\_\+turn@{test\+\_\+turn}}
+\index{test\+\_\+turn@{test\+\_\+turn}!test\+\_\+motors.\+c@{test\+\_\+motors.\+c}}
+\subsubsection{\texorpdfstring{test\+\_\+turn()}{test\_turn()}}
+{\footnotesize\ttfamily void test\+\_\+turn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the front motors are functionnal. 
+
+The if(\hyperlink{time__systick_8c_a19665f2a908fc943d11a231dcc910f4f}{micros()} $>$ t\+\_\+temp $\vert$$\vert$ on\+\_\+stop) block in \hyperlink{manage__motors_8c}{manage\+\_\+motors.\+c} has to be commented and the while(\hyperlink{time__systick_8c_a19665f2a908fc943d11a231dcc910f4f}{micros()} $<$= t\+\_\+temp) has to be uncommented 

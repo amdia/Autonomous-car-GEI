@@ -53,9 +53,6 @@ PWM_InitReturnType PWM_initialize(PWM_TypeDef* init_struct) {
     TIM_OC4PreloadConfig(init_struct->timer, TIM_OCPreload_Enable);
   } else return PWM_NOT_CHANNEL_1_2_3_4;
   
-  //TIM_ARRPreloadConfig(init_struct->timer, ENABLE);
-  //TIM_Cmd(init_struct->timer, ENABLE);
-  
   return PWM_INIT_OK;
 }
 

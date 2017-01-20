@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -95,22 +96,31 @@ Macros</h2></td></tr>
 <tr class="separator:ae8d3e5fd20a86e9d278c4f11fdbda022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6146946fb24db1f27ee52d9486607ffe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a6146946fb24db1f27ee52d9486607ffe">ANGLE_RANGE</a>&#160;&#160;&#160;(<a class="el" href="manage__motors_8h.html#add02af3a9460e9b2c3afea9e09ea166c">ANGLE_LEFT_MAX</a>-<a class="el" href="manage__motors_8h.html#ae8d3e5fd20a86e9d278c4f11fdbda022">ANGLE_RIGHT_MAX</a>)</td></tr>
 <tr class="separator:a6146946fb24db1f27ee52d9486607ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c9f5df132c71497aa9e46f95ec20a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a9c9f5df132c71497aa9e46f95ec20a82">ANGLE_INIT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a9c9f5df132c71497aa9e46f95ec20a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae55b678f6265ae16b0183a04bfbfe5e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#ae55b678f6265ae16b0183a04bfbfe5e1">FRONT_MOTOR_SPEED_R2L</a>&#160;&#160;&#160;((float)<a class="el" href="manage__motors_8h.html#a6146946fb24db1f27ee52d9486607ffe">ANGLE_RANGE</a>/1.4e6)</td></tr>
 <tr class="separator:ae55b678f6265ae16b0183a04bfbfe5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1550e2818c2da8ad3b19845a1ed4702d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a1550e2818c2da8ad3b19845a1ed4702d">FRONT_MOTOR_SPEED_L2R</a>&#160;&#160;&#160;((float)<a class="el" href="manage__motors_8h.html#a6146946fb24db1f27ee52d9486607ffe">ANGLE_RANGE</a>/1.1e6)</td></tr>
 <tr class="separator:a1550e2818c2da8ad3b19845a1ed4702d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9f5df132c71497aa9e46f95ec20a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a9c9f5df132c71497aa9e46f95ec20a82">ANGLE_INIT</a>&#160;&#160;&#160;<a class="el" href="manage__motors_8h.html#ae8d3e5fd20a86e9d278c4f11fdbda022">ANGLE_RIGHT_MAX</a></td></tr>
-<tr class="separator:a9c9f5df132c71497aa9e46f95ec20a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0030ccd40c66a9a6349b7772b46128b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a0030ccd40c66a9a6349b7772b46128b6">FRONT_MOTOR_SPEED</a>&#160;&#160;&#160;30</td></tr>
+<tr class="separator:a0030ccd40c66a9a6349b7772b46128b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7ca7fd5116ac8b51bddf2de941c2878f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a7ca7fd5116ac8b51bddf2de941c2878f">rear_motors_control</a> (<a class="el" href="struct_motor_rear___typedef.html">MotorRear_Typedef</a> motor_rear_control[])</td></tr>
+<tr class="memdesc:a7ca7fd5116ac8b51bddf2de941c2878f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rear motor controls : receive a speed and execute it. The two wheels can receive a different command.  <a href="#a7ca7fd5116ac8b51bddf2de941c2878f">More...</a><br /></td></tr>
 <tr class="separator:a7ca7fd5116ac8b51bddf2de941c2878f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa88ad9b5b1092cf2a1b507c784b529c4"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#aa88ad9b5b1092cf2a1b507c784b529c4">calculate_distance</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
-<tr class="separator:aa88ad9b5b1092cf2a1b507c784b529c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7233bc5f821dac3a5245772c27f27d0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a7233bc5f821dac3a5245772c27f27d0a">reset_distance</a> (void)</td></tr>
+<tr class="memdesc:a7233bc5f821dac3a5245772c27f27d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the interruption hall counters to 0.  <a href="#a7233bc5f821dac3a5245772c27f27d0a">More...</a><br /></td></tr>
+<tr class="separator:a7233bc5f821dac3a5245772c27f27d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1020fcd799384421cf9b6b2607e375"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#aef1020fcd799384421cf9b6b2607e375">calculate_distance</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
+<tr class="memdesc:aef1020fcd799384421cf9b6b2607e375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the travelled distance according to the number of hall sensors interruptions.  <a href="#aef1020fcd799384421cf9b6b2607e375">More...</a><br /></td></tr>
+<tr class="separator:aef1020fcd799384421cf9b6b2607e375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d0b88e00665e4f44eee772754078a9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a4d0b88e00665e4f44eee772754078a9f">motor_front_stop</a> (<a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a> pos)</td></tr>
+<tr class="memdesc:a4d0b88e00665e4f44eee772754078a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the front motor when a front stop is reached.  <a href="#a4d0b88e00665e4f44eee772754078a9f">More...</a><br /></td></tr>
 <tr class="separator:a4d0b88e00665e4f44eee772754078a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c0a065cc8523a337fb903c93241d095"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="manage__motors_8h.html#a9c0a065cc8523a337fb903c93241d095">control_angle_front_motor</a> (int angle)</td></tr>
+<tr class="memdesc:a9c0a065cc8523a337fb903c93241d095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive an angle command and turn a certain time to reach this angle.  <a href="#a9c0a065cc8523a337fb903c93241d095">More...</a><br /></td></tr>
 <tr class="separator:a9c0a065cc8523a337fb903c93241d095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -121,10 +131,11 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ANGLE_INIT&#160;&#160;&#160;<a class="el" href="manage__motors_8h.html#ae8d3e5fd20a86e9d278c4f11fdbda022">ANGLE_RIGHT_MAX</a></td>
+          <td class="memname">#define ANGLE_INIT&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees </p>
 
 </div>
 </div>
@@ -139,6 +150,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees </p>
 
 </div>
 </div>
@@ -153,6 +165,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees </p>
 
 </div>
 </div>
@@ -167,6 +180,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees </p>
+
+</div>
+</div>
+<a id="a0030ccd40c66a9a6349b7772b46128b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0030ccd40c66a9a6349b7772b46128b6">&#9670;&nbsp;</a></span>FRONT_MOTOR_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FRONT_MOTOR_SPEED&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>in % </p>
 
 </div>
 </div>
@@ -181,6 +210,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees by microseconds </p>
 
 </div>
 </div>
@@ -195,18 +225,19 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>in degrees by microseconds </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa88ad9b5b1092cf2a1b507c784b529c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa88ad9b5b1092cf2a1b507c784b529c4">&#9670;&nbsp;</a></span>calculate_distance()</h2>
+<a id="aef1020fcd799384421cf9b6b2607e375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1020fcd799384421cf9b6b2607e375">&#9670;&nbsp;</a></span>calculate_distance()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float* calculate_distance </td>
+          <td class="memname">float calculate_distance </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="sensors__common_8h.html#aba57d3ed4ed32843217f3c2e662b4176">Hall_Position</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
@@ -214,6 +245,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Return the travelled distance according to the number of hall sensors interruptions. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Travelled</td><td>distance in centimeters </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -233,6 +272,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Receive an angle command and turn a certain time to reach this angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>Angle the car has to turn </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4d0b88e00665e4f44eee772754078a9f"></a>
@@ -251,6 +298,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Disable the front motor when a front stop is reached. </p>
+
 </div>
 </div>
 <a id="a7ca7fd5116ac8b51bddf2de941c2878f"></a>
@@ -268,6 +317,34 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rear motor controls : receive a speed and execute it. The two wheels can receive a different command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor_rear_control[]</td><td>Array of <a class="el" href="struct_motor_rear___typedef.html" title="Structure that contains informations for the rear motors. ">MotorRear_Typedef</a>, one for the right motor and the other one for the left motor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7233bc5f821dac3a5245772c27f27d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7233bc5f821dac3a5245772c27f27d0a">&#9670;&nbsp;</a></span>reset_distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_distance </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the interruption hall counters to 0. </p>
 
 </div>
 </div>

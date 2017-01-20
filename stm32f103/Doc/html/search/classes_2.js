@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpio_5fpin',['GPIO_Pin',['../struct_g_p_i_o___pin.html',1,'']]]
+  ['communication_5ftypedef',['Communication_Typedef',['../struct_communication___typedef.html',1,'']]]
 ];

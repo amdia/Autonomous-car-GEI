@@ -35,6 +35,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Little_Helper
    </div>
+   <div id="projectbrief">Documentation of the code for the STM32. Part of a project to build an autonomous car using a RasPi, a STM32, hall sensors, ultrasonic sensors and a camera.</div>
   </td>
  </tr>
  </tbody>
@@ -79,12 +80,6 @@ $(function() {
 <li>ANGLE_LEFT_MAX
 : <a class="el" href="manage__motors_8h.html#add02af3a9460e9b2c3afea9e09ea166c">manage_motors.h</a>
 </li>
-<li>ANGLE_MASK
-: <a class="el" href="_s_p_i__services_8h.html#a150ba87ce15b2ee78823ecf2a4c8ca50">SPI_services.h</a>
-</li>
-<li>ANGLE_OFFSET
-: <a class="el" href="_s_p_i__services_8h.html#a1f5d790ef3cd6eba2604b90705a1eb6b">SPI_services.h</a>
-</li>
 <li>ANGLE_RANGE
 : <a class="el" href="manage__motors_8h.html#a6146946fb24db1f27ee52d9486607ffe">manage_motors.h</a>
 </li>
@@ -105,8 +100,8 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>COUNTER_CLOCK_FREQ_100Hz
-: <a class="el" href="scheduler__timer__init_8h.html#a50fc1a873beb710a3972ba833c060cc7">scheduler_timer_init.h</a>
+<li>COUNTER_CLOCK_FREQ_10kHz
+: <a class="el" href="scheduler__timer__init_8h.html#a4573bd146e597cd2e96af86c69af46d1">scheduler_timer_init.h</a>
 </li>
 <li>COUNTER_CLOCK_FREQ_1MHz
 : <a class="el" href="_p_w_m___output_8h.html#a4fe88163db83d6d6db7fb48c21f67280">PWM_Output.h</a>
@@ -115,12 +110,6 @@ $(function() {
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
-<li>DIRECTION_MASK
-: <a class="el" href="_s_p_i__services_8h.html#ae07908274b43bb530ed93a9259baff9b">SPI_services.h</a>
-</li>
-<li>DIRECTION_OFFSET
-: <a class="el" href="_s_p_i__services_8h.html#a7950e79bb048d2a83ed38cf5d98b06be">SPI_services.h</a>
-</li>
 <li>DUTY_CYCLE_MAX
 : <a class="el" href="_p_w_m___output_8h.html#a994d9f112b804790cb294940eb9d323b">PWM_Output.h</a>
 </li>
@@ -166,7 +155,7 @@ $(function() {
 : <a class="el" href="motor__common_8h.html#aa712e3d95ab14c0f88d82158aa4b65c0">motor_common.h</a>
 </li>
 <li>FRONT_MOTOR_SPEED
-: <a class="el" href="motor__common_8h.html#a0030ccd40c66a9a6349b7772b46128b6">motor_common.h</a>
+: <a class="el" href="manage__motors_8h.html#a0030ccd40c66a9a6349b7772b46128b6">manage_motors.h</a>
 </li>
 <li>FRONT_MOTOR_SPEED_L2R
 : <a class="el" href="manage__motors_8h.html#a1550e2818c2da8ad3b19845a1ed4702d">manage_motors.h</a>
@@ -234,9 +223,6 @@ $(function() {
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
-<li>MAX_TIME_PULSE
-: <a class="el" href="us__sensor_8h.html#ad9007aa99d51adb716cd6414676396a7">us_sensor.h</a>
-</li>
 <li>MOTOR_PWM_DEFAULT_DUTY_CYCLE
 : <a class="el" href="motor__control_8h.html#ac62bfa20acc71af29e50f9916c22225b">motor_control.h</a>
 </li>
@@ -336,14 +322,11 @@ $(function() {
 <li>SCHEDULER_TIMER
 : <a class="el" href="timer_8h.html#ad361b0c1f9f2b7100ff889ae96b5377c">timer.h</a>
 </li>
+<li>SECONDS
+: <a class="el" href="test__motors_8c.html#a48fcf4f2eeef6769d588168d4ac2ab0e">test_motors.c</a>
+</li>
 <li>SPEED
-: <a class="el" href="test__virage_8c.html#aac3553b3932cbfeeac4526ce7ca0336b">test_virage.c</a>
-</li>
-<li>SPEED_MASK
-: <a class="el" href="_s_p_i__services_8h.html#ab8fce999daffe7102b0e19d5bb9c69eb">SPI_services.h</a>
-</li>
-<li>SPEED_OFFSET
-: <a class="el" href="_s_p_i__services_8h.html#a35c6e14ffaa710baea0e32275d589048">SPI_services.h</a>
+: <a class="el" href="test__motors_8c.html#aac3553b3932cbfeeac4526ce7ca0336b">test_motors.c</a>
 </li>
 <li>SPI_PRIORITY
 : <a class="el" href="_n_v_i_c__priorities_8h.html#a86f957e6bae6295e89224cf22aec2280">NVIC_priorities.h</a>
@@ -369,9 +352,6 @@ $(function() {
 </li>
 <li>TASK_ULTRASONIC_TRIGGER
 : <a class="el" href="callbacks__services_8h.html#a63828c6a14cf1d3eff8d91e52676bb14">callbacks_services.h</a>
-</li>
-<li>TEMPS_TRIG
-: <a class="el" href="sensors__common_8h.html#a6d02ba76697543151ec1a1147a54da09">sensors_common.h</a>
 </li>
 </ul>
 
@@ -438,9 +418,6 @@ $(function() {
 
 
 <h3><a id="index_w"></a>- w -</h3><ul>
-<li>WHEEL_DISTANCE_BETWEEN_2_PULSES
-: <a class="el" href="motor__rear_8h.html#a15e5f2ec5edc07fd4c4cccc92fcedf3c">motor_rear.h</a>
-</li>
 <li>WHEEL_PERIMETER
 : <a class="el" href="motor__rear_8h.html#abbc11c7f7bd3e0aaf56510a69edf9347">motor_rear.h</a>
 </li>

@@ -22,7 +22,7 @@ __weak void scheduler_IT_callback(void){}
 */	
 void scheduler_timer_init(void){
 	// Initialization of the timer dedicated to the scheduler
-	timer_init(SCHEDULER_TIMER, COUNTER_CLOCK_FREQ_100Hz, PERIOD_US); 
+	timer_init(SCHEDULER_TIMER, COUNTER_CLOCK_FREQ_10kHz, PERIOD_US); 
 	// Enable the interruptions of the timer - From there, interruptions happen every tick of the timer
 	enable_timer_interrupt(SCHEDULER_TIMER, SCHEDULER_IT_PRIORITY);
 }

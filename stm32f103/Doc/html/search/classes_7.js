@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tim_5fch',['TIM_CH',['../struct_t_i_m___c_h.html',1,'']]]
+  ['sensor_5fit_5ftypedef',['Sensor_IT_TypeDef',['../struct_sensor___i_t___type_def.html',1,'']]]
 ];

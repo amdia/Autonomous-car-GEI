@@ -10,9 +10,9 @@ struct \hyperlink{struct_motor_front___typedef}{Motor\+Front\+\_\+\+Typedef}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}~2
-\item 
 \#define \hyperlink{motor__common_8h_aac01b94e8f8a53fee61196dd1ad4504c}{M\+O\+T\+O\+R\+S\+\_\+\+NB}~4
+\item 
+\#define \hyperlink{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}~2
 \item 
 \#define \hyperlink{motor__common_8h_a69041736221d0455b8dd01e939d0f8ff}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}~G\+P\+I\+O\+\_\+\+Pin\+\_\+0
 \item 
@@ -63,8 +63,6 @@ struct \hyperlink{struct_motor_front___typedef}{Motor\+Front\+\_\+\+Typedef}
 \#define \hyperlink{motor__common_8h_a24b5df9f4a195b1725a595e72efdc150}{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}~G\+P\+I\+OC
 \item 
 \#define \hyperlink{motor__common_8h_a6893b1a1ed8c48e2e8541d9aabc0dccf}{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER}~T\+I\+M4
-\item 
-\#define \hyperlink{motor__common_8h_a0030ccd40c66a9a6349b7772b46128b6}{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED}~30
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -72,7 +70,7 @@ struct \hyperlink{struct_motor_front___typedef}{Motor\+Front\+\_\+\+Typedef}
 enum \hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position} \{ \hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277}{M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR} = -\/1, 
 \hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT} = 0, 
 \hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a}{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT} = 1
- \}
+ \}\begin{DoxyCompactList}\small\item\em Values for the rear motors position (right or left) \end{DoxyCompactList}
 \item 
 enum \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\+State} \{ \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a9c65aec0e0ee2504aebff1cd06a0f942}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF} = 0, 
 \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944a2deef916bc8df30cb5f220fedb94064e}{M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+T\+E\+\_\+\+ON} = 1
@@ -87,169 +85,163 @@ enum \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN}{FRONT\_MOTOR\_EN\_PIN}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+9}
 
-\mbox{\Hypertarget{motor__common_8h_a24b5df9f4a195b1725a595e72efdc150}\label{motor__common_8h_a24b5df9f4a195b1725a595e72efdc150}} 
+Pin for front motor enable \mbox{\Hypertarget{motor__common_8h_a24b5df9f4a195b1725a595e72efdc150}\label{motor__common_8h_a24b5df9f4a195b1725a595e72efdc150}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}{FRONT\_MOTOR\_EN\_PORT}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT~G\+P\+I\+OC}
 
-\mbox{\Hypertarget{motor__common_8h_a9aca99572bedc4cb5a500356badff146}\label{motor__common_8h_a9aca99572bedc4cb5a500356badff146}} 
+Port for front motor enable \mbox{\Hypertarget{motor__common_8h_a9aca99572bedc4cb5a500356badff146}\label{motor__common_8h_a9aca99572bedc4cb5a500356badff146}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}{FRONT\_MOTOR\_IN1\_CHANNEL}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+2}
 
-\mbox{\Hypertarget{motor__common_8h_a68f8b97fd87de118f30156ca0f70751b}\label{motor__common_8h_a68f8b97fd87de118f30156ca0f70751b}} 
+Channel I\+N1 for the front motor \mbox{\Hypertarget{motor__common_8h_a68f8b97fd87de118f30156ca0f70751b}\label{motor__common_8h_a68f8b97fd87de118f30156ca0f70751b}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN}{FRONT\_MOTOR\_IN1\_PIN}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+7}
 
-\mbox{\Hypertarget{motor__common_8h_add3536306c45d1591a2c2170e6fa8aa1}\label{motor__common_8h_add3536306c45d1591a2c2170e6fa8aa1}} 
+Pin I\+N1 for the front motor \mbox{\Hypertarget{motor__common_8h_add3536306c45d1591a2c2170e6fa8aa1}\label{motor__common_8h_add3536306c45d1591a2c2170e6fa8aa1}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}{FRONT\_MOTOR\_IN1\_PORT}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N1\+\_\+\+P\+O\+RT~G\+P\+I\+OB}
 
-\mbox{\Hypertarget{motor__common_8h_aca545d1399777999e11bb0387ad18ef9}\label{motor__common_8h_aca545d1399777999e11bb0387ad18ef9}} 
+Port I\+N1 for the front motor \mbox{\Hypertarget{motor__common_8h_aca545d1399777999e11bb0387ad18ef9}\label{motor__common_8h_aca545d1399777999e11bb0387ad18ef9}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}{FRONT\_MOTOR\_IN2\_CHANNEL}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+3}
 
-\mbox{\Hypertarget{motor__common_8h_a165135f82601791142d9b248da5d5008}\label{motor__common_8h_a165135f82601791142d9b248da5d5008}} 
+Channel I\+N2 for the front motor \mbox{\Hypertarget{motor__common_8h_a165135f82601791142d9b248da5d5008}\label{motor__common_8h_a165135f82601791142d9b248da5d5008}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN}{FRONT\_MOTOR\_IN2\_PIN}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+8}
 
-\mbox{\Hypertarget{motor__common_8h_aa712e3d95ab14c0f88d82158aa4b65c0}\label{motor__common_8h_aa712e3d95ab14c0f88d82158aa4b65c0}} 
+Pin I\+N2 for the front motor \mbox{\Hypertarget{motor__common_8h_aa712e3d95ab14c0f88d82158aa4b65c0}\label{motor__common_8h_aa712e3d95ab14c0f88d82158aa4b65c0}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}{FRONT\_MOTOR\_IN2\_PORT}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+I\+N2\+\_\+\+P\+O\+RT~G\+P\+I\+OB}
 
-\mbox{\Hypertarget{motor__common_8h_a0030ccd40c66a9a6349b7772b46128b6}\label{motor__common_8h_a0030ccd40c66a9a6349b7772b46128b6}} 
-\index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED}}
-\index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
-\subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED}{FRONT\_MOTOR\_SPEED}}
-{\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+ED~30}
-
-\mbox{\Hypertarget{motor__common_8h_a6893b1a1ed8c48e2e8541d9aabc0dccf}\label{motor__common_8h_a6893b1a1ed8c48e2e8541d9aabc0dccf}} 
+Port I\+N2 for the front motor \mbox{\Hypertarget{motor__common_8h_a6893b1a1ed8c48e2e8541d9aabc0dccf}\label{motor__common_8h_a6893b1a1ed8c48e2e8541d9aabc0dccf}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER}}
 \index{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER@{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER}{FRONT\_MOTOR\_TIMER}}
 {\footnotesize\ttfamily \#define F\+R\+O\+N\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+T\+I\+M\+ER~T\+I\+M4}
 
-\mbox{\Hypertarget{motor__common_8h_aac01b94e8f8a53fee61196dd1ad4504c}\label{motor__common_8h_aac01b94e8f8a53fee61196dd1ad4504c}} 
+Timer for front motor \mbox{\Hypertarget{motor__common_8h_aac01b94e8f8a53fee61196dd1ad4504c}\label{motor__common_8h_aac01b94e8f8a53fee61196dd1ad4504c}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!M\+O\+T\+O\+R\+S\+\_\+\+NB@{M\+O\+T\+O\+R\+S\+\_\+\+NB}}
 \index{M\+O\+T\+O\+R\+S\+\_\+\+NB@{M\+O\+T\+O\+R\+S\+\_\+\+NB}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{M\+O\+T\+O\+R\+S\+\_\+\+NB}{MOTORS\_NB}}
 {\footnotesize\ttfamily \#define M\+O\+T\+O\+R\+S\+\_\+\+NB~4}
 
-\mbox{\Hypertarget{motor__common_8h_a09802c47f40cfe3b0814b2e0b32a1db1}\label{motor__common_8h_a09802c47f40cfe3b0814b2e0b32a1db1}} 
+Number of motors \mbox{\Hypertarget{motor__common_8h_a09802c47f40cfe3b0814b2e0b32a1db1}\label{motor__common_8h_a09802c47f40cfe3b0814b2e0b32a1db1}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN}{REAR\_MOTOR\_EN\_PIN}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+6}
 
-\mbox{\Hypertarget{motor__common_8h_aeab983e263f01d0ac03fd515a5ec02b8}\label{motor__common_8h_aeab983e263f01d0ac03fd515a5ec02b8}} 
+Pin for rear motor enable \mbox{\Hypertarget{motor__common_8h_aeab983e263f01d0ac03fd515a5ec02b8}\label{motor__common_8h_aeab983e263f01d0ac03fd515a5ec02b8}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT}{REAR\_MOTOR\_EN\_PORT}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+E\+N\+\_\+\+P\+O\+RT~G\+P\+I\+OC}
 
-\mbox{\Hypertarget{motor__common_8h_a8aea80f44f07a55a0dfbde5bae64a879}\label{motor__common_8h_a8aea80f44f07a55a0dfbde5bae64a879}} 
+Port for rear motor enable \mbox{\Hypertarget{motor__common_8h_a8aea80f44f07a55a0dfbde5bae64a879}\label{motor__common_8h_a8aea80f44f07a55a0dfbde5bae64a879}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}{REAR\_MOTOR\_LEFT\_IN1\_CHANNEL}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+3}
 
-\mbox{\Hypertarget{motor__common_8h_a69041736221d0455b8dd01e939d0f8ff}\label{motor__common_8h_a69041736221d0455b8dd01e939d0f8ff}} 
+Channel I\+N1 for the rear left motor \mbox{\Hypertarget{motor__common_8h_a69041736221d0455b8dd01e939d0f8ff}\label{motor__common_8h_a69041736221d0455b8dd01e939d0f8ff}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}{REAR\_MOTOR\_LEFT\_IN1\_PIN}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+0}
 
-\mbox{\Hypertarget{motor__common_8h_adc4d63e723e7d2edcdac9baff62d4572}\label{motor__common_8h_adc4d63e723e7d2edcdac9baff62d4572}} 
+Pin I\+N1 for the rear left motor \mbox{\Hypertarget{motor__common_8h_adc4d63e723e7d2edcdac9baff62d4572}\label{motor__common_8h_adc4d63e723e7d2edcdac9baff62d4572}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}{REAR\_MOTOR\_LEFT\_IN1\_PORT}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT~G\+P\+I\+OB}
 
-\mbox{\Hypertarget{motor__common_8h_a606c835b9f67f938634787c6710a1ec5}\label{motor__common_8h_a606c835b9f67f938634787c6710a1ec5}} 
+Port I\+N1 for the rear left motor \mbox{\Hypertarget{motor__common_8h_a606c835b9f67f938634787c6710a1ec5}\label{motor__common_8h_a606c835b9f67f938634787c6710a1ec5}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}{REAR\_MOTOR\_LEFT\_IN2\_CHANNEL}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+4}
 
-\mbox{\Hypertarget{motor__common_8h_a415f515fba459364c3cb87877be3c37c}\label{motor__common_8h_a415f515fba459364c3cb87877be3c37c}} 
+Channel I\+N2 for the rear left motor \mbox{\Hypertarget{motor__common_8h_a415f515fba459364c3cb87877be3c37c}\label{motor__common_8h_a415f515fba459364c3cb87877be3c37c}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}{REAR\_MOTOR\_LEFT\_IN2\_PIN}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+1}
 
-\mbox{\Hypertarget{motor__common_8h_ac7b870fd4395732c8a5bb535c120f8f5}\label{motor__common_8h_ac7b870fd4395732c8a5bb535c120f8f5}} 
+Pin I\+N2 for the rear left motor \mbox{\Hypertarget{motor__common_8h_ac7b870fd4395732c8a5bb535c120f8f5}\label{motor__common_8h_ac7b870fd4395732c8a5bb535c120f8f5}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}{REAR\_MOTOR\_LEFT\_IN2\_PORT}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT~G\+P\+I\+OB}
 
-\mbox{\Hypertarget{motor__common_8h_a8640ff9576bc89aeb1b332d4a69450d3}\label{motor__common_8h_a8640ff9576bc89aeb1b332d4a69450d3}} 
+Port I\+N2 for the rear left motor \mbox{\Hypertarget{motor__common_8h_a8640ff9576bc89aeb1b332d4a69450d3}\label{motor__common_8h_a8640ff9576bc89aeb1b332d4a69450d3}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER}{REAR\_MOTOR\_LEFT\_TIMER}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+F\+T\+\_\+\+T\+I\+M\+ER~T\+I\+M3}
 
-\mbox{\Hypertarget{motor__common_8h_aaf2e200ce75f66fe10eab028d3da6741}\label{motor__common_8h_aaf2e200ce75f66fe10eab028d3da6741}} 
+Timer for the rear left motor \mbox{\Hypertarget{motor__common_8h_aaf2e200ce75f66fe10eab028d3da6741}\label{motor__common_8h_aaf2e200ce75f66fe10eab028d3da6741}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL}{REAR\_MOTOR\_RIGHT\_IN1\_CHANNEL}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+1}
 
-\mbox{\Hypertarget{motor__common_8h_a53c7aec948542c3799b7ce57197d52e5}\label{motor__common_8h_a53c7aec948542c3799b7ce57197d52e5}} 
+Channel I\+N1 for the rear right motor \mbox{\Hypertarget{motor__common_8h_a53c7aec948542c3799b7ce57197d52e5}\label{motor__common_8h_a53c7aec948542c3799b7ce57197d52e5}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN}{REAR\_MOTOR\_RIGHT\_IN1\_PIN}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+6}
 
-\mbox{\Hypertarget{motor__common_8h_a87035810071fb6714bfff840f05930ca}\label{motor__common_8h_a87035810071fb6714bfff840f05930ca}} 
+Pin I\+N1 for the rear right motor \mbox{\Hypertarget{motor__common_8h_a87035810071fb6714bfff840f05930ca}\label{motor__common_8h_a87035810071fb6714bfff840f05930ca}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT}{REAR\_MOTOR\_RIGHT\_IN1\_PORT}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N1\+\_\+\+P\+O\+RT~G\+P\+I\+OA}
 
-\mbox{\Hypertarget{motor__common_8h_ae836d4b1f4dfb262f65058bc00060584}\label{motor__common_8h_ae836d4b1f4dfb262f65058bc00060584}} 
+Port I\+N1 for the rear right motor \mbox{\Hypertarget{motor__common_8h_ae836d4b1f4dfb262f65058bc00060584}\label{motor__common_8h_ae836d4b1f4dfb262f65058bc00060584}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL}{REAR\_MOTOR\_RIGHT\_IN2\_CHANNEL}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+C\+H\+A\+N\+N\+EL~T\+I\+M\+\_\+\+Channel\+\_\+2}
 
-\mbox{\Hypertarget{motor__common_8h_a32d544a635f5e97e5be924cab6db76d9}\label{motor__common_8h_a32d544a635f5e97e5be924cab6db76d9}} 
+Channel I\+N2 for the rear right motor \mbox{\Hypertarget{motor__common_8h_a32d544a635f5e97e5be924cab6db76d9}\label{motor__common_8h_a32d544a635f5e97e5be924cab6db76d9}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN}{REAR\_MOTOR\_RIGHT\_IN2\_PIN}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+IN~G\+P\+I\+O\+\_\+\+Pin\+\_\+7}
 
-\mbox{\Hypertarget{motor__common_8h_a2491f8c6b7dae7e6868adb78d771c516}\label{motor__common_8h_a2491f8c6b7dae7e6868adb78d771c516}} 
+Pin I\+N2 for the rear right motor \mbox{\Hypertarget{motor__common_8h_a2491f8c6b7dae7e6868adb78d771c516}\label{motor__common_8h_a2491f8c6b7dae7e6868adb78d771c516}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT}{REAR\_MOTOR\_RIGHT\_IN2\_PORT}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+I\+N2\+\_\+\+P\+O\+RT~G\+P\+I\+OA}
 
-\mbox{\Hypertarget{motor__common_8h_aaa48c411f0ce4ae81682c0873a6c291b}\label{motor__common_8h_aaa48c411f0ce4ae81682c0873a6c291b}} 
+Port I\+N2 for the rear right motor \mbox{\Hypertarget{motor__common_8h_aaa48c411f0ce4ae81682c0873a6c291b}\label{motor__common_8h_aaa48c411f0ce4ae81682c0873a6c291b}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER}{REAR\_MOTOR\_RIGHT\_TIMER}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+H\+T\+\_\+\+T\+I\+M\+ER~T\+I\+M3}
 
-\mbox{\Hypertarget{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}\label{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}} 
+Timer for the rear right motor \mbox{\Hypertarget{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}\label{motor__common_8h_adca07b02a9d917897a9809b7b19a2f79}} 
 \index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}}
 \index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}
 \subsubsection{\texorpdfstring{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB}{REAR\_MOTORS\_NB}}
 {\footnotesize\ttfamily \#define R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+S\+\_\+\+NB~2}
 
-
+Number of rear motors 
 
 \subsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}\label{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}} 
@@ -258,17 +250,21 @@ enum \hyperlink{motor__common_8h_ab5eef05fe69a4cc173c44ff4d28be944}{Motor\+\_\+\
 \subsubsection{\texorpdfstring{Motor\+\_\+\+Rear\+\_\+\+Position}{Motor\_Rear\_Position}}
 {\footnotesize\ttfamily enum \hyperlink{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17}{Motor\+\_\+\+Rear\+\_\+\+Position}}
 
+
+
+Values for the rear motors position (right or left) 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR@{M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}\index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR@{M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277}\label{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7d6edad5a2de5cafa0986a7957de1277}} 
-M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR&\\
+M\+O\+T\+O\+R\+\_\+\+P\+O\+S\+I\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR&Motor position unknown \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}\index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT}}}\mbox{\Hypertarget{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23}\label{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7db7dd95665bc1b1d2a0a5474559ce23}} 
-R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT&\\
+R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+L\+E\+FT&Left rear motor \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT}!motor\+\_\+common.\+h@{motor\+\_\+common.\+h}}\index{motor\+\_\+common.\+h@{motor\+\_\+common.\+h}!R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT@{R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT}}}\mbox{\Hypertarget{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a}\label{motor__common_8h_a69bba86df1a74cfaa5e488dcbd725f17a7ab74b9ad413f66643f312b579430b3a}} 
-R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT&\\
+R\+E\+A\+R\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+I\+G\+HT&Right rear motor \\
 \hline
 
 \end{DoxyEnumFields}
