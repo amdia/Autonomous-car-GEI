@@ -116,7 +116,7 @@ typedef enum {
 */
 typedef struct
 {
-	/** Speed of the motor in % */
+	/** Speed of the motor without unit */
 	int speed; 
 	/** Distance travelled */
 	int distance; 

@@ -125,22 +125,26 @@ void write_spiFrame(void)
 	octetsFrame->right_wheel_motor = 0;
 	
 	//distance both wheels
-	octetsFrame->left_wheel_motor_distance = (int8_t)communicationFrame.rear_motors[REAR_MOTOR_LEFT].distance;
-	octetsFrame->right_wheel_motor_distance = (int8_t)communicationFrame.rear_motors[REAR_MOTOR_RIGHT].distance;
+	uint32_t distance = (uint32_t) ((communicationFrame.rear_motors[REAR_MOTOR_LEFT].distance + communicationFrame.rear_motors[REAR_MOTOR_RIGHT].distance) / 2.0);
+	uint8_t *tab_dist = (uint8_t *)&distance;
+	octetsFrame->average_wheel_motor_distance0 = tab_dist[0];
+	octetsFrame->average_wheel_motor_distance1 = tab_dist[1];
+	octetsFrame->average_wheel_motor_distance2 = tab_dist[2];
+	octetsFrame->average_wheel_motor_distance3 = tab_dist[3];
 
 	// Sensors values 
-	octetsFrame->front_left_ultrasonic = (int8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_LEFT].distance;
-	octetsFrame->front_right_ultrasonic = (int8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_RIGHT].distance;
-	octetsFrame->front_center_ultrasonic = (int8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_CENTER].distance;
-	octetsFrame->rear_left_ultrasonic = (int8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_LEFT].distance;
-	octetsFrame->rear_right_ultrasonic= (int8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_RIGHT].distance;
-	octetsFrame->rear_center_ultrasonic = (int8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_CENTER].distance;
+	octetsFrame->front_left_ultrasonic = (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_LEFT].distance;
+	octetsFrame->front_right_ultrasonic = (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_RIGHT].distance;
+	octetsFrame->front_center_ultrasonic = (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_FRONT_CENTER].distance;
+	octetsFrame->rear_left_ultrasonic = (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_LEFT].distance;
+	octetsFrame->rear_right_ultrasonic= (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_RIGHT].distance;
+	octetsFrame->rear_center_ultrasonic = (uint8_t)communicationFrame.ultrasounds[ULTRASONIC_REAR_CENTER].distance;
 
 	// Battery
-	octetsFrame->battery = (int8_t)communicationFrame.battery.state;
+	octetsFrame->battery = (uint8_t)communicationFrame.battery.state;
 	
 	// Ack byte
-	octetsFrame->ack_byte = (int8_t) communicationFrame.ack_byte.ack_distance;
+	octetsFrame->ack_byte = (uint8_t) communicationFrame.ack_byte.ack_distance;
 	
 }
 

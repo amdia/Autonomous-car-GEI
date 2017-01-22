@@ -8,9 +8,9 @@
 #define MOTOR_PWM_PERIOD_US           100
 /** Default duty cycle of the motors PWM */
 #define MOTOR_PWM_DEFAULT_DUTY_CYCLE  50
-/** Maximal speed for the motor, in % */
+/** Maximal speed for the motor, without unit */
 #define MOTOR_SPEED_MAX               100
-/** Minimal speed for the motor, in % */
+/** Minimal speed for the motor, without unit */
 #define MOTOR_SPEED_MIN               (-MOTOR_SPEED_MAX)
 /** Speed range for the motor */
 #define MOTOR_SPEED_RANGE 				  (MOTOR_SPEED_MAX - MOTOR_SPEED_MIN)

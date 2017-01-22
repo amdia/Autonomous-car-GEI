@@ -17,7 +17,7 @@
 #define FRONT_MOTOR_SPEED_R2L 			((float)ANGLE_RANGE/1.4e6) 
 /** in degrees by microseconds */
 #define FRONT_MOTOR_SPEED_L2R 			((float)ANGLE_RANGE/1.1e6)	
-/** in % */	
+/** without unit */	
 #define FRONT_MOTOR_SPEED         						 30	
 
 void rear_motors_control(MotorRear_Typedef motor_rear_control[]);

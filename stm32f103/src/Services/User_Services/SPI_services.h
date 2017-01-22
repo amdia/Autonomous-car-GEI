@@ -25,8 +25,10 @@ typedef struct
 	uint8_t direction_motor;
 	uint8_t left_wheel_motor;
 	uint8_t right_wheel_motor; 
-	uint8_t left_wheel_motor_distance; 
-	uint8_t right_wheel_motor_distance;
+	uint8_t average_wheel_motor_distance0; 
+	uint8_t average_wheel_motor_distance1;
+	uint8_t average_wheel_motor_distance2;
+	uint8_t average_wheel_motor_distance3;
 	uint8_t front_left_ultrasonic;
 	uint8_t front_right_ultrasonic;
 	uint8_t front_center_ultrasonic;
